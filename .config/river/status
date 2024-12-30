@@ -5,7 +5,7 @@ status_date() {
 }
 
 status_days() {
-	days="$((($(date +%s) - $(date -d 2004-06-09 +%s)) / 86400))"
+	days="$((($(date +%s) - $(date -d 2004-08-17 +%s)) / 86400))"
 }
 
 status_cpu() {
