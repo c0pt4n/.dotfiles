@@ -42,7 +42,7 @@ echo "installing login management tools"
 pkginst elogind pam_rundmr
 
 echo "installing network tools"
-pkginst dhcpcd wpa_supplicant ufw bluez bluez-utils
+pkginst dhcpcd wpa_supplicant ufw bluez bluez-utils ldns
 
 echo "installing audio tools"
 pkginst alsa-utils pipewire pipewire-audio pipewire-alsa pipewire-pulse wireplumber pulsemixer libspa-bluetooth sof-firmware
