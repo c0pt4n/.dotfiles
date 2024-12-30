@@ -12,12 +12,12 @@ getvol() {
 }
 
 case "$1" in
-    "up") wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+
-    ;;
-    "down") wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
-    ;;
-    "toggle") wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
-    ;;
+	""|get) getvol && echo "%"; exit $? ;;
+	toggle) wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle ;;
+	*+|*-|*%)
+		wpctl set-mute @DEFAULT_AUDIO_SINK@ 0
+		wpctl set-volume @DEFAULT_AUDIO_SINK@ "$1"
+		;;
     "togglemic")
         if [ -f /tmp/mic.pid ]; then
             rm -rf /tmp/mic.pid
@@ -27,11 +27,8 @@ case "$1" in
             notify-send -r 9990 -u low -a "$(basename "$0")" -i "audio-input-microphone-muted" "Microphone muted"
         fi
         wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
-        pkill -x -RTMIN+8 dwmblocks
-        exit
-    ;;
-    get) getvol && echo "%"; exit $?;;
-    *) exit 1;;
+        exit ;;
+	*) exit 1 ;;
 esac
 
 vol="$(getvol)" || exit 1
