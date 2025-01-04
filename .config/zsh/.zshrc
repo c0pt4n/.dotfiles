@@ -48,6 +48,7 @@ bindkey -v '^?' backward-delete-char
 bindkey -s "^o" '^uxdg-open "$(fzf)" >/dev/null\n'
 bindkey -s "^f" '^ue "$(find ~/ -type f 2>/dev/null | fzf)"\n'
 bindkey -s "^g" '^ucd "$(find ~/ -type d 2>/dev/null | fzf)"\n'
+bindkey -s "^n" '^ucd "$(find $ZK_NOTEBOOK_DIR/ -type d 2>/dev/null | fzf)"\n'
 bindkey -s "^t" '^u[ -f TODO.md ] && $EDITOR TODO.md || notes todo\n'
 
 # Edit line in vim with ctrl-e:
