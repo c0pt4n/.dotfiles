@@ -78,7 +78,7 @@ pkginst aerc isync msmtp notmuch gettext
 aurinst abook
 
 echo "installing system monitoring tools"
-pkginst strace lm_sensors socklog nvtop iotop iftop powertop smartmontools
+pkginst strace lm_sensors socklog nvtop iotop iftop powertop smartmontools inxi
 aurinst htop-vim
 
 echo "installing internet stuff"
