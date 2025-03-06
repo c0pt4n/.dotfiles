@@ -34,9 +34,11 @@ pkginst -yu
 echo "installing drivers and firmware"
 pkginst mesa linux-firmware
 
-echo "installing wayland tools"
+echo "installing Xorg tools"
 pkginst river foot foot-terminfo kanshi fuzzel mako swayidle wlopm waylock wl-clipboard grim slurp wf-recorder wev wmname brightnessctl
 aurinst sandbar poweralertd wbg clipman showmethekey
+
+pkginst xorg-server xorg-xinit xorg-xrdb xorg-xrandr xorg-xauth libxinerama libx11 libxft xorg-xset xorg-xev xorg-xsetroot xf86-video-intel xf86-input-libinput xorg-xbacklight xorg-video-fbdev xorg-fonts-100dpi xorg-fonts-75dpi slock xssstate scrot xclip xwallpaper xdotool
 
 echo "installing login management tools"
 pkginst elogind pam_rundmr
@@ -50,8 +52,8 @@ doas mkdir -p /etc/pipewire/pipewire.conf.d
 doas cp -a /usr/share/pipewire /usr/share/wireplumber /etc
 
 echo "installing general tools"
-pkginst pacman-contrib xdg-utils xdg-user-dirs xdg-desktop-portal-wlr  curl wget git mercurial patch rsync gnupg openssh  pass pass-otp signify dbus cronie bc time entr less lesspipe z mlocate nnn fzf ripgrep fd fdupes chrony libnotify darkhttpd yt-dlp libarchive tar xz gzip bzip2 p7zip unzip unrar-free libisoburn mtools hdparm sdparm tlp highlight newsboat calcurse lftp hwinfo firejail fribidi zbar qrencode mediainfo bat translate-shell duf direnv syncthing gnome-epub-thumbnailer zk brightnessctl
-aurinst rsm pam_ssh wayprompt buku git-delta urlview dragon-drop bicon-git sc-im lz4json advcpmv
+pkginst pacman-contrib xdg-utils xdg-user-dirs curl wget git mercurial patch rsync gnupg openssh pass pass-otp passmenu signify dbus cronie bc time entr less lesspipe z plocate nnn fzf ripgrep fd fdupes chrony libnotify darkhttpd yt-dlp libarchive tar xz gzip bzip2 p7zip unzip unrar-free libisoburn mtools hdparm sdparm tlp highlight newsboat calcurse lftp hwinfo firejail fribidi zbar qrencode mediainfo bat translate-shell duf direnv syncthing gnome-epub-thumbnailer zk brightnessctl
+aurinst rsm pam_ssh pinentry-dmenu buku git-delta urlview dragon-drop bicon-git sc-im lz4json advcpmv
 
 echo "installing manual pages"
 pkginst man-db man-pages texinfo tealdeer
@@ -79,7 +81,7 @@ aurinst abook
 
 echo "installing system monitoring tools"
 pkginst strace lm_sensors socklog nvtop iotop iftop powertop smartmontools inxi
-aurinst htop-vim lswt
+aurinst htop-vim
 
 echo "installing internet stuff"
 pkginst firefox lynx w3m amfora weechat webkit2gtk

@@ -1,0 +1,41 @@
+super + Return
+	$TERMINAL
+
+super + s
+	scratchpad
+
+super + r
+	dmenu_run
+
+super + d
+	$TERMINAL -e bicon.bin nnn
+
+super + s
+	scratchpad
+
+super + q
+	dmenu_sysact
+
+super + p
+	passmenu -i -r -l 10 -p "passmenu:"
+
+super + P
+	passmenu-otp -i -r -l 10 -p "passmenu-otp:"
+
+super + o
+	clipmenu -i -r -l 10 -p "clipmenu:"
+
+super + w
+	$TERMINAL -n scratchpad -e wpa_cli; pkill -x -RTMIN+5 dwmblocks
+
+super + {equal,minus}
+	volumectl {inc,dec}
+
+super + shift + {BackSpace,equal}
+	volumectl {toggle,togglemic}
+
+Print
+	dmenu_screenshot
+
+XF86Audio{RaiseVolume,LowerVolume,Mute}
+	volumectl {inc,dec,toggle}
