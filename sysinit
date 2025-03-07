@@ -80,7 +80,7 @@ pkginst aerc isync msmtp notmuch gettext
 aurinst abook
 
 echo "installing system monitoring tools"
-pkginst strace lm_sensors socklog nvtop iotop iftop powertop smartmontools inxi
+pkginst strace lm_sensors socklog nvtop iotop iftop powertop smartmontools inxi acpi
 aurinst htop-vim
 
 echo "installing internet stuff"
@@ -103,6 +103,7 @@ pkginst pandoc-bin lowdown groff typst texlive-basic texlive-pictures texlive-la
 echo "installing fonts, icons, themes and sounds"
 pkginst fontconfig ttf-dejavu noto-fonts-emoji arc-theme kvantum sound-theme-freedesktop
 aurinst ttf-amiri
+sudo pacman -S xorg-fonts-type1 ttf-liberation
 
 echo "installing runit services"
 pkginst elogind-runit dbus-runit dhcpcd-runit wpa_supplicant-runit ufw-runit bluez-runit chrony-runit cronie-runit openssh-runit tlp-runit docker-runit
