@@ -36,8 +36,8 @@ export ZK_NOTEBOOK_DIR="$HOME/docs/notes"
 
 # Other program settings:
 export FZF_DEFAULT_OPTS="--layout=reverse --height=~40%"
-export SUDO_ASKPASS="dmenu_askpass"
-export SSH_ASKPASS="dmenu_askpass"
+export SUDO_ASKPASS="$HOME/.local/bin/dmenu_askpass"
+export SSH_ASKPASS="$HOME/.local/bin/dmenu_askpass"
 
 export LESS="-R"
 export MANPAGER="less -R --use-color -Dd+b -Duc"
