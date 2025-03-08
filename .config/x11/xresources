@@ -16,3 +16,15 @@
 *color14: #8ec07c
 *color7:  #a89984
 *color15: #ebdbb2
+
+! DWM
+dwm.foreground: #ebdbb2
+dwm.background: #282828
+
+dwm.normbgcolor: #282828
+dwm.normbordercolor: #1d2021
+dwm.normfgcolor: #ebdbb2
+
+dwm.selbgcolor: #458588
+dwm.selbordercolor: #83a598
+dwm.selfgcolor: #ebdbb2
