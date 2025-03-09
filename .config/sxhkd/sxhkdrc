@@ -39,3 +39,6 @@ Print
 
 XF86Audio{RaiseVolume,LowerVolume,Mute}
 	volumectl {inc,dec,toggle}
+
+XF86MonBrightness{Up,Down}
+	xbacklight -{inc,dec} 10%
