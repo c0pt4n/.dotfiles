@@ -35,10 +35,7 @@ echo "installing drivers and firmware"
 pkginst mesa linux-firmware
 
 echo "installing Xorg tools"
-pkginst river foot foot-terminfo kanshi fuzzel mako swayidle wlopm waylock wl-clipboard grim slurp wf-recorder wev wmname brightnessctl
-aurinst sandbar poweralertd wbg clipman showmethekey
-
-pkginst xorg-server xorg-xinit xorg-xrdb xorg-xrandr xorg-xauth libxinerama libx11 libxft xorg-xset xorg-xev xorg-xsetroot xf86-video-intel xf86-input-libinput xorg-xbacklight xorg-video-fbdev xorg-fonts-100dpi xorg-fonts-75dpi slock xssstate scrot xclip xwallpaper xdotool
+pkginst xorg-server xorg-xinit xorg-xrdb xorg-xrandr xorg-xauth libxinerama libx11 libxft xorg-xset xorg-xev xorg-xsetroot xf86-video-intel xf86-input-libinput xorg-xbacklight xorg-video-fbdev xorg-fonts-100dpi xorg-fonts-75dpi slock xssstate maim xclip xwallpaper xdotool xorg-xwininfo xcompmgr arandr
 
 echo "installing login management tools"
 pkginst elogind pam_rundmr
@@ -52,7 +49,7 @@ doas mkdir -p /etc/pipewire/pipewire.conf.d
 doas cp -a /usr/share/pipewire /usr/share/wireplumber /etc
 
 echo "installing general tools"
-pkginst pacman-contrib xdg-utils xdg-user-dirs curl wget git mercurial patch rsync gnupg openssh pass pass-otp passmenu signify dbus cronie bc time entr less lesspipe z plocate nnn fzf ripgrep fd fdupes chrony libnotify darkhttpd yt-dlp libarchive tar xz gzip bzip2 p7zip unzip unrar-free libisoburn mtools hdparm sdparm tlp highlight newsboat calcurse lftp hwinfo firejail fribidi zbar qrencode mediainfo bat translate-shell duf direnv syncthing gnome-epub-thumbnailer zk brightnessctl
+pkginst pacman-contrib xdg-utils xdg-user-dirs curl wget git mercurial patch rsync gnupg openssh pass pass-otp passmenu signify dbus cronie bc time entr less lesspipe z plocate nnn fzf ripgrep fd fdupes chrony libnotify darkhttpd yt-dlp libarchive tar xz gzip bzip2 p7zip unzip unrar-free libisoburn mtools hdparm sdparm tlp highlight newsboat calcurse lftp hwinfo firejail fribidi zbar qrencode mediainfo bat translate-shell duf direnv syncthing ffmpegthumbnailer zk xorg-xbacklight tesseract tesseract-data-eng
 aurinst rsm pam_ssh pinentry-dmenu buku git-delta urlview dragon-drop bicon-git sc-im lz4json advcpmv
 
 echo "installing manual pages"
@@ -63,16 +60,14 @@ pkginst vim neovim tmux tmate zsh zsh-completions zsh-autosuggestions zsh-histor
 aurinst zsh-fast-syntax-highlighting
 
 echo "installing programming tools"
-pkginst gcc llvm clang lld tcc nasm make meson pkgconf automake libtool zig rustup go python python-pip python-pipx python-pipenv uv ruff julia lua luarocks deno nodejs npm pnpm xxd gdb valgrind radare2 delve binutils upx jq cppcheck shellcheck tokei hyperfine nix docker docker-compose podman podman-compose staticcheck dive jupyterlab
-aurinst bun-bin
-rustup default stable && cargo install cargo-update cargo-info
+pkginst gcc llvm clang lld tcc nasm make meson pkgconf automake libtool go python python-pip python-pipx python-pipenv uv ruff julia lua luarocks deno nodejs npm pnpm xxd gdb valgrind radare2 delve binutils upx jq cppcheck shellcheck tokei hyperfine nix docker docker-compose podman podman-compose staticcheck dive jupyterlab
 
 echo "installing filesystems support"
 pkginst fuse3 autofs exfat-utils ntfs-3g sshfs mtpfs ifuse
 aurinst simple-mtpfs
 
 echo "installing multimedia tools"
-pkginst ffmpeg imagemagick perl-image-exiftool mat2 qpdf gimp sox mpv mpv-mpris imv zathura mupdf zathura-pdf-mupdf zathura-ps libwebp mpd mpd-mpris mpc playerctl ncmpcpp
+pkginst ffmpeg imagemagick perl-image-exiftool mat2 qpdf gimp sox mpv mpv-mpris nsxiv zathura mupdf zathura-pdf-mupdf zathura-ps libwebp mpd mpd-mpris mpc playerctl ncmpcpp
 aurinst sioyek cava
 
 echo "installing email tools"
@@ -101,9 +96,9 @@ echo "installing markup and latex tools"
 pkginst pandoc-bin lowdown groff typst texlive-basic texlive-pictures texlive-latex texlive-latexextra texlive-plaingeneric texlive-fontsrecommended
 
 echo "installing fonts, icons, themes and sounds"
-pkginst fontconfig ttf-dejavu noto-fonts-emoji arc-theme kvantum sound-theme-freedesktop
+pkginst fontconfig ttf-dejavu noto-fonts-emoji arc-theme sound-theme-freedesktop
 aurinst ttf-amiri
-sudo pacman -S xorg-fonts-type1 ttf-liberation
+sudo pacman -S xorg-fonts-type1
 
 echo "installing runit services"
 pkginst elogind-runit dbus-runit dhcpcd-runit wpa_supplicant-runit ufw-runit bluez-runit chrony-runit cronie-runit openssh-runit tlp-runit docker-runit

@@ -1,15 +1,16 @@
 #!/bin/sh
 
-dir="$(xdg-user-dir PICTURES)"
+dir="$(xdg-user-dir PICTURES)/screenshots"
 out="$dir/screenshot-$(date "+%Y%m%d-%H%M%S").png"
-[ -d "$dir" ] || mkdir -p "$dir" || { echo "$(basename "$0"): can't create dir $dir" >&2; exit 1; }
+xclip_cmd="xclip -sel clip -t image/png"
+ocr_cmd="xclip -sel clip"
 
-case "${1:-$(printf "select\\ncurrent-window\\nfull-screen\\nselect-copy\\ncurrent-window-copy\\nfull-screen-copy" | dmenu -i -r -l 6 -p "screenshot:")}" in
-	select) scrot -fs "$out" ;;
-	current-window) scrot -w "$(xdotool getactivewindow)" "$out" ;;
-	full-screen) scrot "$out" ;;
-	select-copy) scrot -fs - | xclip -sel clip -t image/png ;;
-	current-window-copy) scrot -w "$(xdotool getactivewindow)" - | xclip -sel clip -t image/png ;;
-	full-screen-copy) scrot - | xclip -sel clip -t image/png ;;
-	*) exit 1 ;;
+case "$(printf "a selected area\\ncurrent window\\nfull screen\\na selected area (copy)\\ncurrent window (copy)\\nfull screen (copy)\\ncopy selected image to text" | dmenu -l 7 -i -p "Screenshot which area?")" in
+    "a selected area") maim -u -s "${out}" ;;
+    "current window") maim -B -q -d 0.2 -i "$(xdotool getactivewindow)" "${out}" ;;
+    "full screen") maim -q -d 0.2 "${out}" ;;
+    "a selected area (copy)") maim -u -s | ${xclip_cmd} ;;
+    "current window (copy)") maim -q -d 0.2 -i "$(xdotool getactivewindow)" | ${xclip_cmd} ;;
+    "full screen (copy)") maim -q -d 0.2 | ${xclip_cmd} ;;
+    "copy selected image to text") tmpfile=$(mktemp /tmp/ocr-XXXXXX.png) && maim -u -s > "$tmpfile" && tesseract "$tmpfile" - -l eng | ${ocr_cmd} && rm "$tmpfile" ;;
 esac
