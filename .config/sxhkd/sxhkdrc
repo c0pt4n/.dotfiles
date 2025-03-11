@@ -28,8 +28,8 @@ super + o
 super + w
 	$TERMINAL -n scratchpad -e wpa_cli; pkill -x -RTMIN+5 dwmblocks
 
-super + m
-	$TERMINAL -e bicon.bin neomutt
+super + {m,n}
+	$TERMINAL -e bicon.bin {neomutt,ncmpcpp}
 
 super + {equal,minus}
 	volumectl {inc,dec}
