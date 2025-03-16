@@ -5,12 +5,12 @@ HERE="$(dirname "$(readlink -f "$0")")"
 
 XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 SETUP_PROGRAMS_DIR="${SETUP_PROGRAMS_DIR:-$HOME/programs}"
+SETUP_BROWSER_DIR="${SETUP_BROWSER_DIR:-$HOME/.zen}"
 SETUP_PKGS_FILE="${SETUP_PKGS_FILE:-$XDG_DATA_HOME/pkgs/pkgs.txt}"
 SETUP_PKGS_AUR_FILE="${SETUP_PKGS_AUR_FILE:-$XDG_DATA_HOME/pkgs/pkgs_aur.txt}"
 
 # shellcheck disable=2015
 sudocmd="$([ -s /etc/doas.conf ] && command -v doas 2>/dev/null || command -v sudo 2>/dev/null)"
-browserdir="$HOME/.mozilla/firefox"
 
 [ "$(id -u)" -eq 0 ] && {
 	echo "$(basename "$0"): this script should not run as root" >&2
@@ -65,14 +65,22 @@ setup_runit() {
 		/etc/runit/sv/docker
 }
 
-setup_firefox() {
-	[ -d "$browserdir" ] ||
-		{ firefox --headless >/dev/null 2>&1 & ffpid=$!; sleep 1; }
-	profile="$(sed -n "/Default=.*\..*/s/.*=//p" "$browserdir/profiles.ini")"
-	curl -sL https://raw.githubusercontent.com/arkenfox/user.js/master/user.js |
-		cat - "$XDG_CONFIG_HOME/firefox/user.js" >"$browserdir/$profile/user.js"
-	# shellcheck disable=SC2015
-	[ -n "$ffpid" ] && pkill firefox || true
+setup_browser() {
+	[ -d "$SETUP_BROWSER_DIR" ] ||
+		{
+			$BROWSER --headless >/dev/null 2>&1 &
+			ffpid=$!
+			sleep 1
+		}
+	sed -n "/Default=.*\..*/s/.*=//p" "$SETUP_BROWSER_DIR/profiles.ini" |
+		while IFS= read -r profile; do
+			cat "/usr/share/arkenfox-user.js/user.js" "$XDG_CONFIG_HOME/firefox/user.js" >"$SETUP_BROWSER_DIR/$profile/user.js"
+			[ "$BROWSER" != "firefox" ] &&
+				[ -s "$XDG_CONFIG_HOME/$BROWSER/user.js" ] &&
+				cat "$XDG_CONFIG_HOME/$BROWSER/user.js" >>"$SETUP_BROWSER_DIR/$profile/user.js"
+		done
+	# shellcheck disable=2015
+	[ -n "${ffpid:-}" ] && kill "$ffpid" || true
 }
 
 clean() {
@@ -88,13 +96,13 @@ case "$1" in
 		setup_pkgs
 		setup_user
 		setup_runit
-		setup_firefox
+		setup_browser
 		;;
 	dotfiles) setup_dotfiles ;;
 	pkgs) setup_pkgs ;;
 	user) setup_user ;;
 	runit) setup_runit ;;
-	firefox) setup_firefox ;;
+	browser) setup_browser ;;
 	clean) clean ;;
 	*)
 		echo "$(basename "$0"): unknown command \"$1\"" >&2

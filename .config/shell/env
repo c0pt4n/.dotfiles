@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Default programs:
-export BROWSER="firefox"
+export BROWSER="zen-browser"
 export TERMINAL="st"
 export EDITOR="nvim"
 export VISUAL="nvim"

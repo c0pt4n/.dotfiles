@@ -17,3 +17,4 @@ simple-mtpfs
 ttf-amiri
 urlview
 zsh-fast-syntax-highlighting
+zen-browser-bin
