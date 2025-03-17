@@ -6,6 +6,7 @@ cava
 clipman
 dragon-drop
 git-delta
+gruvbox-dark-gtk
 htop-vim
 lz4json
 nemesis
