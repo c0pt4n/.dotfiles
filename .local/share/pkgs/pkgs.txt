@@ -151,6 +151,7 @@ pass-otp
 passmenu
 patch
 perl-image-exiftool
+picom
 pipewire
 pipewire-alsa
 pipewire-audio
@@ -218,7 +219,6 @@ wireplumber
 wpa_supplicant
 wpa_supplicant-runit
 xclip
-xcompmgr
 xdg-user-dirs
 xdg-utils
 xdotool
