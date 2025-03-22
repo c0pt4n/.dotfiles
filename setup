@@ -25,7 +25,7 @@ setup_dotfiles() {
 }
 
 setup_pkgs() {
-	$sudocmd pacman -Syu --no-confirm
+	$sudocmd pacman -Syu --noconfirm
 	$sudocmd pacman -S --needed --noconfirm artix-archlinux-support &&
 		$sudocmd pacman-key --populate archlinux &&
 		$sudocmd pacman -Sy --noconfirm
