@@ -86,8 +86,8 @@ setup_browser() {
 clean() {
 	cd "$HERE" || exit 1
 	find .config .local -type f -exec rm -vf "$HOME/{}" \;
-	profile="$(sed -n "/Default=.*\..*/s/.*=//p" "$browserdir/profiles.ini")"
-	[ -s "$browserdir/$profile/user.js" ] && rm -vf "$browserdir/$profile/user.js"
+	profile="$(sed -n "/Default=.*\..*/s/.*=//p" "$SETUP_BROWSER_DIR/profiles.ini")"
+	[ -s "$SETUP_BROWSER_DIR/$profile/user.js" ] && rm -vf "$SETUP_BROWSER_DIR/$profile/user.js"
 }
 
 case "$1" in
