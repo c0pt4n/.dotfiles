@@ -12,6 +12,7 @@ base
 base-devel
 bat
 bc
+bind
 bluez
 bluez-runit
 bluez-utils
@@ -87,6 +88,7 @@ linux-firmware
 linux-headers
 lsof
 lutris
+lxappearance
 lynx
 macchanger
 maim
@@ -136,7 +138,6 @@ pyenv
 python-pexpect
 python-pip
 python-pipenv
-python-pycryptodome
 qemu-base
 qemu-full
 qrencode
