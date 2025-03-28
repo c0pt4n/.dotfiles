@@ -41,7 +41,6 @@ fd
 fdupes
 ffmpeg
 ffmpegthumbnailer
-firefox
 firejail
 flatpak
 fribidi
