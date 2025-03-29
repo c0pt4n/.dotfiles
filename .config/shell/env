@@ -45,8 +45,14 @@ export LESS="-R"
 export MANPAGER="less -R --use-color -Dd+b -Duc"
 export MANROFFOPT="-P -c"
 
-export GTK_THEME="Arc-Dark"
-export QT_STYLE_OVERRIDE="kvantum"
+export GTK_THEME="gruvbox-dark-gtk"
 export QT_QPA_PLATFORMTHEME="gtk2"
+export SDL_VIDEODRIVER="x11"
+export CLUTTER_BACKEND="x11"
+export QT_QPA_PLATFORM="xcb"
+export MOZ_USE_XINPUT2=1
+export NO_AT_BRIDGE=1
+export _JAVA_AWT_WM_NONREPARENTING=1
+export AWT_TOOLKIT="MToolkit wmname LG3D"
 
 export PATH="$HOME/.local/bin:$GOPATH/bin:$PATH"
