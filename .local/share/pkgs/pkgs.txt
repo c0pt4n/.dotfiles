@@ -16,7 +16,6 @@ bind
 bluez
 bluez-runit
 bluez-utils
-brightnessctl
 calcurse
 cava
 chrony
@@ -199,11 +198,13 @@ xdg-desktop-portal-gtk
 xdg-user-dirs
 xdg-utils
 xf86-input-libinput
+xf86-video-intel
 xorg-fonts-100dpi
 xorg-fonts-75dpi
 xorg-fonts-type1
 xorg-server
 xorg-xauth
+xorg-xbacklight
 xorg-xev
 xorg-xinit
 xorg-xkill
