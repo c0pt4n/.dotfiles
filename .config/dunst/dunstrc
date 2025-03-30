@@ -8,7 +8,7 @@
     offset = (0,19)
     padding = 2
     horizontal_padding = 2
-    transparency = 25
+    transparency = 10
     font = Monospace 12
 	format = "<b>%a</b>\n%s: %b"
 	mouse_left_click = do_action, close_current
