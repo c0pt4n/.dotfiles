@@ -1,5 +1,6 @@
 abook
 advcpmv
+adwaita-plus-git
 arkenfox-user.js
 bicon-git
 dragon-drop
