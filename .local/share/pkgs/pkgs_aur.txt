@@ -15,7 +15,6 @@ librewolf-bin
 packettracer
 pam_ssh
 paru
-passmenu-otp-git
 pinentry-dmenu
 sc-im
 seclists

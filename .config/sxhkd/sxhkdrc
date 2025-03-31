@@ -17,10 +17,10 @@ super + q
 	dmenu_sysact
 
 super + p
-	passmenu -i -r -l 10 -p "passmenu:"
+	$HOME/.local/bin/passmenu
 
 super + P
-	passmenu-otp -i -r -l 10 -p "passmenu-otp:"
+	$HOME/.local/bin/passmenu otp
 
 super + o
 	clipmenu -i -r -l 10 -p "clipmenu:"
