@@ -143,7 +143,7 @@ ripgrep
 rsm
 rsync
 runit
-shellcheck
+shellcheck-bin
 slock
 socklog
 sof-firmware
