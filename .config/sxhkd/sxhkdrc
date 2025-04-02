@@ -1,7 +1,7 @@
 super + Return
 	$TERMINAL
 
-super + s
+super + shift + Return
 	scratchpad
 
 super + r
@@ -9,9 +9,6 @@ super + r
 
 super + d
 	$TERMINAL -e bicon.bin nnn
-
-super + s
-	scratchpad
 
 super + q
 	dmenu_sysact
