@@ -1,7 +1,6 @@
 7zip
 acpid
 acpid-runit
-aerc
 alsa-firmware
 alsa-plugins
 android-tools
