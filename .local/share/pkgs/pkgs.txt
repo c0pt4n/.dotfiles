@@ -84,7 +84,6 @@ linux
 linux-firmware
 linux-headers
 lsof
-lutris
 lynx
 macchanger
 maim

@@ -10,13 +10,16 @@ gns3-gui-git
 gns3-server-git
 gobuster-git
 gruvbox-dark-gtk
+heroic-games-launcher-bin
 htop-vim
 librewolf-bin
 packettracer
 pam_ssh
 paru
 pinentry-dmenu
+protontricks
 sc-im
+sdkmanager
 seclists
 simple-mtpfs
 stegseek
