@@ -17,8 +17,10 @@ bluez-runit
 bluez-utils
 calcurse
 cava
+chromium
 chrony
 chrony-runit
+clang
 clipmenu
 cronie
 cronie-runit
