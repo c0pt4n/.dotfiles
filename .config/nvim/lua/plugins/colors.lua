@@ -1,11 +1,13 @@
 return {
-	{
-		"ellisonleao/gruvbox.nvim",
-		priority = 1000,
-		config = function()
-			require("gruvbox").setup({
-				  transparent_mode = true,
-			})
-		end,
-	}
+	'f4z3r/gruvbox-material.nvim',
+	name = 'gruvbox-material',
+	lazy = false,
+	priority = 1000,
+	config = function()
+		require('gruvbox-material').setup({
+			background = {
+				transparent = true,
+			}
+		})
+	end,
 }
