@@ -8,13 +8,10 @@ bicon-git
 dragon-drop
 dynamips-git
 ffuf
-gns3-gui-git
-gns3-server-git
 gobuster-git
 gruvbox-dark-gtk
 heroic-games-launcher-bin
 htop-vim
-librewolf-bin
 packettracer
 pam_ssh
 paru
@@ -30,7 +27,9 @@ tlpui
 ttf-amiri
 ubridge
 urlview
+vesktop-bin
 vpcs-git
+waydroid
 xbanish
 zen-browser-bin
 zsh-fast-syntax-highlighting
