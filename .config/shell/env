@@ -37,6 +37,8 @@ export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"
 export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
 export ZK_NOTEBOOK_DIR="$HOME/docs/notes"
 
+export PATH="$HOME/.local/bin:$GOPATH/bin:$PATH"
+
 # Other program settings:
 export FZF_DEFAULT_OPTS="--layout=reverse --height=~40%"
 export SUDO_ASKPASS="$HOME/.local/bin/dmenu_askpass"
