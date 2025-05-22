@@ -1,0 +1,153 @@
+{
+	"layer": "bottom",
+	"position": "top",
+	"modules-left": [
+		"custom/recording",
+		"hyprland/workspaces"
+	],
+	"modules-center": [
+		"privacy",
+		"custom/dnd",
+		"clock"
+	],
+	"modules-right": [
+		"tray",
+		"pulseaudio",
+		"upower",
+		"network",
+		"bluetooth",
+		"cpu",
+		"memory",
+		"custom/lock"
+	],
+	"hyprland/workspaces": {
+		"format": "{name}: {icon}",
+		"format-icons": {
+			"active": "",
+			"default": ""
+		}
+	},
+	"tray": {
+		"icon-size": 16,
+		"spacing": 8
+	},
+	"custom/dnd": {
+		"format": "{}",
+		"interval": "once",
+		"exec": "$XDG_CONFIG_HOME/waybar/scripts/dnd",
+		"on-click": "makoctl mode -r dnd >/dev/null 2>&1",
+		"tooltip": false,
+		"hide-empty-text": true,
+		"signal": 6
+	},
+	"custom/recording": {
+		"format": "{}",
+		"interval": "once",
+		"exec": "echo ''",
+		"exec-if": "pidof -sqx wf-recorder",
+		"on-click": "menu-record stop",
+		"tooltip": false,
+		"signal": 8
+	},
+	"battery": {
+		"interval": 60,
+		"states": {
+			"warning": 20,
+			"critical": 10
+		},
+		"format": "{icon} {capacity}%",
+		"format-charging": "{icon} {capacity}% ",
+		"format-plugged": "{icon} {capacity}% ",
+		"format-warning": "{icon} {capacity}% ",
+		"format-alt": "{time} {icon}",
+		"format-time": "{H}h {M}mi",
+		"format-icons": [
+			" ",
+			" ",
+			" ",
+			" ",
+			" "
+		]
+	},
+	"upower": {
+		"format": " {percentage}",
+		"tooltip-format": " {time}",
+		"tooltip": true,
+		"tooltip-spacing": 20,
+		"icon-size": 16,
+		"hide-if-empty": true,
+	},
+	"privacy": {
+		"icon-spacing": 4,
+		"icon-size": 14,
+		"transition-duration": 250,
+		"modules": [
+			{
+				"type": "screenshare",
+				"tooltip": true,
+				"tooltip-icon-size": 24
+			},
+			{
+				"type": "audio-in",
+				"tooltip": true,
+				"tooltip-icon-size": 24
+			}
+		]
+	},
+	"clock": {
+		"timezone": "Africa/Cairo",
+		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+		"format": "{:%d - %H:%M}"
+	},
+	"network": {
+		"interface": "wlan0",
+		"interval": 60,
+		"format": "{ifname}",
+		"format-wifi": "  {signalStrength}%",
+		"format-ethernet": "{ipaddr}/{cidr} ",
+		"format-disconnected": "",
+		"on-click": "ghostty -e wpa_cli",
+		"tooltip-format": "{ifname} via {gwaddr} 󰊗",
+		"tooltip-format-wifi": "{essid} ({frequency}GHz)\n{ipaddr}/{cidr} at {ifname}",
+		"tooltip-format-ethernet": "{ifname} ",
+		"tooltip-format-disconnected": "Disconnected"
+	},
+	"bluetooth": {
+		// "format": "", // " {status}",
+		"format-connected": " {device_alias}",
+		"format-connected-battery": " {device_alias} {device_battery_percentage}%",
+		"on-click": "ghostty -e bluetoothctl",
+		"tooltip-format": "{controller_alias}\t{controller_address}",
+		"tooltip-format-connected": "{controller_alias}\t{controller_address}\n{device_enumerate}",
+		"tooltip-format-enumerate-connected": "- {device_alias}\t[{device_address}]",
+		"tooltip-format-enumerate-connected-battery": "- {device_alias}\t[{device_address}]\t({device_battery_percentage}%)"
+	},
+	"cpu": {
+		"interval": 1,
+		"format": "  {icon0}{icon1}{icon2}{icon3} {usage:>2}%",
+		"format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+		"on-click": "$TERMINAL -e btop"
+	},
+	"memory": {
+		"interval": 30,
+		"format": " {used:0.1f}G",
+		"tooltip-format": "mem:  {used:0.1f}G/{total:0.1f}G ({percentage}%)\nswap: {swapUsed:0.1f}G/{swapTotal:0.1f}G ({swapPercentage}%)",
+		"max-length": 10
+	},
+	"pulseaudio": {
+		"format": "{icon} {volume}%",
+		"format-muted": "",
+		"format-icons": {
+			"headphone": " ",
+			"hands-free": " ",
+			"headset": " ",
+			"default": ["", "", " "]
+		},
+		"on-click": "$TERMINAL -e bicon.bin pulsemixer"
+	},
+	"custom/lock": {
+		"tooltip": false,
+		"on-click": "loginctl lock-session",
+		"format": ""
+	},
+}

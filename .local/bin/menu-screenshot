@@ -1,0 +1,15 @@
+#!/bin/sh
+
+dir="$(xdg-user-dir PICTURES)/screenshots"
+out="$dir/screenshot-$(date "+%Y%m%d-%H%M%S").png"
+ocr_cmd="wl-copy"
+
+case "$(printf "a selected area\\ncurrent window\\nfull screen\\na selected area (copy)\\ncurrent window (copy)\\nfull screen (copy)\\ncopy selected image to text" | menu -p "Screenshot which area?")" in
+    "a selected area") hyprshot -m region -o "${out}" ;;
+    "current window") hyprshot -m window -o "${out}" ;;
+    "full screen") hyprshot -m active -o "${out}" ;;
+    "a selected area (copy)") hyprshot -m region --clipboard-only ;;
+    "current window (copy)") hyprshot -m window --clipboard-only ;;
+    "full screen (copy)") hyprshot -m active --clipboard-only ;;
+    "copy selected image to text") tmpfile=$(mktemp /tmp/ocr-XXXXXX.png) && maim -u -s > "$tmpfile" && tesseract "$tmpfile" - -l eng | ${ocr_cmd} && rm "$tmpfile" ;;
+esac

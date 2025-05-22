@@ -2,7 +2,7 @@
 
 # Default programs:
 export BROWSER="zen-browser"
-export TERMINAL="st"
+export TERMINAL="ghostty"
 export EDITOR="nvim"
 export VISUAL="nvim"
 
@@ -36,13 +36,17 @@ export NOTMUCH_CONFIG="$XDG_CONFIG_HOME/notmuch/default/config"
 export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"
 export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
 export ZK_NOTEBOOK_DIR="$HOME/docs/notes"
+export TEXMFHOME="$XDG_DATA_HOME/texmf"
+export TEXMFVAR="$XDG_CACHE_HOME/texlive/texmf-var"
+export TEXMFCONFIG="$XDG_CONFIG_HOME/texlive/texmf-config"
 
 export PATH="$HOME/.local/bin:$GOPATH/bin:$PATH"
 
 # Other program settings:
 export FZF_DEFAULT_OPTS="--layout=reverse --height=~40%"
-export SUDO_ASKPASS="$HOME/.local/bin/dmenu_askpass"
-export SSH_ASKPASS="$HOME/.local/bin/dmenu_askpass"
+
+export SSH_ASKPASS="/usr/bin/wayprompt-ssh-askpass"
+export SUDO_ASKPASS="/usr/bin/wayprompt-ssh-askpass"
 
 export LESS="-R"
 export MANPAGER="less -R --use-color -Dd+b -Duc"
@@ -50,12 +54,11 @@ export MANROFFOPT="-P -c"
 
 export GTK_THEME="gruvbox-dark-gtk"
 export QT_QPA_PLATFORMTHEME="gtk2"
-export SDL_VIDEODRIVER="x11"
-export CLUTTER_BACKEND="x11"
-export QT_QPA_PLATFORM="xcb"
-export MOZ_USE_XINPUT2=1
+export SDL_VIDEODRIVER="wayland"
+export CLUTTER_BACKEND="wayland"
+export QT_QPA_PLATFORM="wayland"
+export MOZ_ENABLE_WAYLAND=1
+export XDG_CURRENT_DESKTOP="hyprland"
 export NO_AT_BRIDGE=1
 export _JAVA_AWT_WM_NONREPARENTING=1
 export AWT_TOOLKIT="MToolkit wmname LG3D"
-
-export PATH="$HOME/.dotnet/tools:$HOME/.local/bin:$GOPATH/bin:$XDG_DATA_HOME/flutter/bin:$PATH"

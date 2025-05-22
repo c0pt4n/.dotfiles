@@ -32,7 +32,7 @@ case "$1" in
             notify-send -r 9990 -u low -a "$(basename "$0")" -i "audio-input-microphone-muted" "Microphone muted"
         fi
         wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
-        pkill -x -RTMIN+8 dwmblocks
+        kill -42 "$(pidof waybar)"
         exit
     ;;
 	*) exit 1 ;;
@@ -48,5 +48,5 @@ elif [ "$vol" -ge 1 ]; then
 	icon="audio-volume-low"
 fi
 
-pkill -x -RTMIN+7 dwmblocks
+kill -41 "$(pidof waybar)"
 notify-send -r 9990 -u low -a "$(basename "$0")" -i "$icon" -h "int:value:$vol" "volume" "$vol%"

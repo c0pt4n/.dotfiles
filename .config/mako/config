@@ -1,7 +1,9 @@
 sort=-time
 layer=overlay
+max-visible=5
 default-timeout=5000
-font=monospace 14
+font=monospace 13
+text-alignment=left
 text-color=#eceff4
 background-color=#2e3440
 border-color=#5e81ac
@@ -10,7 +12,7 @@ progress-color=over #5e81ac
 on-button-left=invoke-default-action
 on-button-right=dismiss
 on-button-middle=exec makoctl menu -n "$id" menu -p "select action> "
-on-notify=exec timeout 1 playerctl -a status | grep Playing || play -q /usr/share/sounds/freedesktop/stereo/message.oga
+on-notify=exec [ "$(makoctl list | grep -c "^Notification")" -eq 1 ] && play -q /usr/share/sounds/freedesktop/stereo/message.oga
 
 [hidden]
 format=(and %h more)
@@ -22,6 +24,23 @@ border-color=#bf616a
 
 [mode=dnd]
 invisible=1
+on-notify=exec kill -40 "$(pidof waybar)"
+ignore-timeout=1
+default-timeout=0
+
+[mode=dnd urgency=low]
+on-notify=dismiss
+
+[mode=dnd urgency=critical]
+invisible=0
+
+[app-name=volumectl]
+history=0
+on-notify=none
+
+[app-name=screenlightctl]
+history=0
+on-notify=none
 
 [app-name=poweralertd]
 on-notify=none
@@ -34,9 +53,6 @@ on-notify=exec play -q /usr/share/sounds/freedesktop/stereo/power-plug.oga
 
 [app-name=poweralertd category=power.offline]
 on-notify=exec play -q /usr/share/sounds/freedesktop/stereo/power-unplug.oga
-
-[app-name=screenlightctl]
-on-notify=none
 
 [app-name=wpa_supplicant category=network.connected]
 on-notify=exec play -q /usr/share/sounds/freedesktop/stereo/service-login.oga

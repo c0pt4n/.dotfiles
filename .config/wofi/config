@@ -1,0 +1,11 @@
+mode=drun
+allow_images=true
+image_size=40
+term=$TERMINAL
+insensitive=true
+location=center
+no_actions=true
+prompt=Search
+
+mouse_scroll=true
+scroll_method=1

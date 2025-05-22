@@ -1,30 +1,30 @@
 #!/bin/sh
-# customized version of passmenu
-# added both passmenu otp extension and add notifications
+# passmenu replacement for Wayland
+# requires pass, wl-copy (wl-clipboard), notify-send (libnotify), and menu script
+
+set -eu
 
 PASSWORD_STORE_DIR="${PASSWORD_STORE_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/password-store}"
-script="$(basename "$0")"
+app="$(basename "$0")"
 
-case ${1:-} in
-	"")
-		sel="$(find "$PASSWORD_STORE_DIR" -name "otp" -prune -o -type f -name "*.gpg" -printf "%P\n")"
-		;;
-	otp)
-		otp=1
-		sel="$(find "$PASSWORD_STORE_DIR/otp" -type f -name "*.gpg" -printf "%P\n")"
-		sel="otp/$sel"
-		;;
+case "${1:-}" in
+	"") ;;
+	otp) otp=1 ;;
 	*)
-		echo "$script: unknown command: $1" >&2
+		echo "$app: unknown command: $1" >&2
 		exit 1
 		;;
 esac
 
-sel="$(echo "$sel" | sed -e 's/\.gpg$//' | dmenu -p "$script${otp:+-otp}> ")" || exit 1
+sel="$(find "$PASSWORD_STORE_DIR" -type f -name "*.gpg" -printf "%P\n" |
+	sed -e 's/\.gpg$//' |
+	menu -p "$app${otp:+ otp}> ")" || exit 1
 
 pass ${otp:+otp} -c "$sel" || {
-    notify-send -a "$script" -u critical error "pass${otp:+ otp} command failed"
-    exit 1
+	echo "$app: pass${otp:+ otp} command failed" >&2
+	notify-send -a "$app" -u critical error "pass${otp:+ otp} command failed"
+	exit 1
 }
 
-notify-send -a "$script" "$sel" "${otp:+otp}${otp:-password} copied to clipboard"
+[ "${otp:-0}" -eq 1 ] && type="otp" || type="password"
+notify-send -a "$app" "$sel" "$type copied to clipboard"
