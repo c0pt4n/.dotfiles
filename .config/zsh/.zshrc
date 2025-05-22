@@ -10,15 +10,19 @@ stty stop undef
 # Enable colors and change prompt:
 autoload -U colors && colors	# Load colors
 autoload -U vcs_info
-zstyle ":vcs_info:*" enable git svn
-zstyle ":vcs_info:*" formats "(%b) "
-precmd() {
-	vcs_info
-	echo -ne "\e[1 q"
-}
-PROMPT='%B%F{cyan}%c %F{blue}${vcs_info_msg_0_}%F{%(?.green.red)}>%f%b '
-RPROMPT='%(?..[%F{red}%?%f] )'
-[ -n "$SSH_TTY" ] && PROMPT="%F{magenta}[%M] $PROMPT"
+
+# Configure vcs_info for Git
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:git:*' formats '(%b%u%c)'  # Branch + indicators
+zstyle ':vcs_info:git:*' actionformats '(%b|%a%u%c)'  # Action (rebase/merge)
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' unstagedstr '*'  # Uncommitted changes
+zstyle ':vcs_info:git:*' stagedstr '+'    # Staged changes
+
+# Update VCS info before prompt
+precmd() { vcs_info }
+
+PROMPT='%F{blue}%~%f %F{cyan}${vcs_info_msg_0_}%f%(?.%F{green}.%F{red})➜%f '
 
 # History in cache directory:
 HISTSIZE=999999999
@@ -50,6 +54,7 @@ bindkey -s "^f" '^ue "$(find ~/ -type f 2>/dev/null | fzf)"\n'
 bindkey -s "^g" '^ucd "$(find ~/ -type d 2>/dev/null | fzf)"\n'
 bindkey -s "^n" '^ucd "$(find $ZK_NOTEBOOK_DIR/ -type d 2>/dev/null | fzf)"\n'
 bindkey -s "^t" '^u[ -f TODO.md ] && $EDITOR TODO.md || notes todo\n'
+bindkey -s "^f" "tmux-sessionizer\n"
 
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
