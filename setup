@@ -57,7 +57,7 @@ setup_runit() {
 		/etc/runit/sv/chrony \
 		/etc/runit/sv/elogind \
 		/etc/runit/sv/dhcpcd \
-		/etc/runit/sv/wpa_supplicant \
+		/etc/runit/sv/NetworkManager \
 		/etc/runit/sv/bluetoothd \
 		/etc/runit/sv/cronie \
 		/etc/runit/sv/tlp \
