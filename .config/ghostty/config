@@ -1,0 +1,13 @@
+theme = rose-pine
+background = 000000
+
+shell-integration-features = no-cursor,no-sudo,no-title
+gtk-titlebar = false
+
+keybind = ctrl+shift+d=scroll_page_fractional:0.5
+keybind = ctrl+shift+u=scroll_page_fractional:-0.5
+keybind = ctrl+shift+j=scroll_page_lines:1
+keybind = ctrl+shift+k=scroll_page_lines:-1
+
+background-opacity = 0.85
+background-blur = true
