@@ -1,127 +1,87 @@
+@import "mocha.css";
+
 * {
-	font-family: JetbrainsMono Nerd Font;
-	font-size: 12px;
+	border: 5px;
+	border-radius: 5px;
 	min-height: 0;
-	padding-right: 2px;
-	padding-left: 2px;
-	padding-bottom: 0px;
+	font-size: 12px;
+	font-weight: bold;
+	font-family: monospace;
 }
 
 #waybar {
 	background: transparent;
-	color: #c6d0f5;
-	margin: 2px 2px;
+	color: @text;
 }
 
-#workspaces {
-	border-radius: 5px;
-	margin: 5px;
-	background: #101010;
-	margin-left: 1rem;
-}
+/* #workspaces { */
+/* 	border-radius: 5px; */
+/* 	margin: 5px; */
+/* 	background: @surface; */
+/* 	margin-left: 1rem; */
+/* } */
 
 #workspaces button {
-	color: #babbf1;
-	border-radius: 5px;
-	padding: 0.4rem;
+	margin: 2px;
+	padding: 0 0.2rem;
+	/* color: @subtext1; */
+	border-bottom: 4px solid transparent;
 }
 
 #workspaces button.active {
-	color: #99d1db;
-	border-radius: 5px;
+	color: @sky;
+	background-color: @surface1;
+	border-bottom-color: @sky
 }
 
 #workspaces button:hover {
-	color: #85c1dc;
+	color: @sapphire;
 	border-radius: 5px;
 }
 
-#tray,
-#backlight,
+#workspaces button.urget {
+	color: @red;
+}
+
+#privacy,
 #clock,
-#battery,
-#upower,
+#temperature,
+#custom-dnd,
+#custom-recording,
+#tray,
 #pulseaudio,
+#bluetooth,
 #network,
-#cpu,
 #memory,
-#custom-lock {
-	background-color: #101010;
-	padding: 0.5rem 1rem;
-	margin: 5px 0;
-	border-radius: 0px 5px 5px 0px;
-}
-
-#custom-dnd {
-  background-color: #101010;
-  padding: 0.5rem 1rem;
-  margin: 5px 0;
-  border-radius: 0px 5px 5px 0px;
-}
-
-#custom-stream_status {
-  background-color: #101010;
-  padding: 0.5rem 1rem;
-  margin: 5px 0;
-  border-radius: 0px 5px 5px 0px;
-}
-
-#custom-stream_status.up {
-  color: #c3e88d;
-}
-
-#custom-stream_status.warning {
-  color: #ff9e64;
-}
-
-#custom-stream_status.down {
-  color: #ea999c;
-}
-
-#memory {
-	border-radius: 0px 5px 5px 0px;
+#cpu,
+#temperature,
+#battery,
+#upower {
+	background-color: @surface0;
+	padding: 0.4rem 0.6rem;
+	margin: 4px;
 }
 
 #clock {
-	color: #8caaee;
-	border-radius: 5px;
-	margin-right: 1rem;
+	color: @blue;
 }
 
 #battery {
-	color: #a6d189;
+	color: @green;
 }
 
 #battery.charging {
-	color: #a6d189;
+	color: @green;
 }
 
 #battery.warning:not(.charging) {
-	color: #e78284;
-}
-
-#backlight {
-	color: #e5c890;
-}
-
-#backlight,
-#battery {
-	border-radius: 0;
+	color: @yellow;
 }
 
 #pulseaudio {
-	color: #ea999c;
-	border-radius: 5px 0px 0px 5%;
-	margin-left: 1rem;
-}
-
-#custom-lock {
-	border-radius: 5px 0px 0px 5px;
-	color: #babbf1;
+	color: @pink;
 }
 
 #tray {
-	margin-right: 1rem;
-	margin-left: 1rem;
-	border-radius: 5px;
+	margin-right: 10px;
 }
