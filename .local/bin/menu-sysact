@@ -1,11 +1,11 @@
 #!/bin/sh
 
 case "${1:-$(printf "lock\nexit\nrefresh\nsuspend\nhibernate\nreboot\npoweroff" | menu -p "sysact")}" in
-	lock) locker ;;
+	lock) loginctl lock-session ;;
 	exit) kill -TERM "$(pidof -sx dwm)" ;;
 	refresh) kill -HUP "$(pidof -sx dwm)" ;;
-	suspend) locker loginctl suspend -i ;;
-	hibernate) locker loginctl hibernate -i ;;
+	suspend) loginctl suspend -i ;;
+	hibernate) loginctl hibernate -i ;;
 	reboot) loginctl reboot -i ;;
 	poweroff) loginctl poweroff -i ;;
 	*) exit 1;;
