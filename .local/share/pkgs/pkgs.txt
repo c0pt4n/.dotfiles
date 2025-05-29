@@ -21,7 +21,6 @@ clang
 cronie
 cronie-runit
 dash
-dhcpcd-runit
 dkms
 dnsmasq
 docker-runit
@@ -37,9 +36,10 @@ fdupes
 ffmpeg
 ffmpegthumbnailer
 flatpak
+foot
 fribidi
+fuzzel
 fzf
-gamescope
 ghostty
 gimp
 git
@@ -51,6 +51,7 @@ hashcat
 hcxdumptool
 hcxtools
 hdparm
+helvum
 highlight
 hugo
 hwinfo
@@ -98,9 +99,13 @@ mpv
 mpv-mpris
 msmtp
 mtpfs
+nano
 ncmpcpp
 neomutt
 neovim
+network-manager-applet
+networkmanager
+networkmanager-runit
 newsboat
 nmap
 nnn

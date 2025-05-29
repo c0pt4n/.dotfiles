@@ -6,7 +6,6 @@ bicon-git
 brave-bin
 buku-git
 dragon-drop
-dynamips-git
 ffuf
 gobuster-git
 gruvbox-dark-gtk
@@ -22,7 +21,6 @@ simple-mtpfs
 stegseek
 tigervnc-viewer
 tlpui
-tor-browser
 ttf-amiri
 ubridge
 urlview
