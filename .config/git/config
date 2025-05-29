@@ -21,7 +21,7 @@
 [core]
 	editor = nvim
 	pager = delta
-	hooksPath = /home/omar/.config/git/hooks
+	hooksPath = ~/.config/git/hooks
 
 [delta]
 	tabs = 4
