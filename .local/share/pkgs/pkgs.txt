@@ -40,6 +40,7 @@ foot
 fribidi
 fuzzel
 fzf
+geoip
 ghostty
 gimp
 git
@@ -68,6 +69,7 @@ jdk-openjdk
 john
 jq
 kanshi
+ldns
 less
 lib32-alsa-lib
 lib32-alsa-plugins
