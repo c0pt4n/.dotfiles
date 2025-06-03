@@ -1,15 +1,31 @@
 #!/bin/sh
 
 dir="$(xdg-user-dir PICTURES)/screenshots"
-out="$dir/screenshot-$(date "+%Y%m%d-%H%M%S").png"
 ocr_cmd="wl-copy"
+sel="${1:-$(printf "select\nfullscreen\nselect-copy\nfullscreen-copy\nselected image to text" | menu -p "$(basename "$0")> ")}" || exit 1
+out="$dir/$(date "+%Y%m%d-%H%M%S").png"
 
-case "$(printf "a selected area\\ncurrent window\\nfull screen\\na selected area (copy)\\ncurrent window (copy)\\nfull screen (copy)\\ncopy selected image to text" | menu -p "Screenshot which area?")" in
-    "a selected area") hyprshot -m region -o "${out}" ;;
-    "current window") hyprshot -m window -o "${out}" ;;
-    "full screen") sleep 0.2; hyprshot -m active -o "${out}" ;;
-    "a selected area (copy)") hyprshot -m region --clipboard-only ;;
-    "current window (copy)") hyprshot -m window --clipboard-only ;;
-    "full screen (copy)") sleep 0.2; hyprshot -m active --mode output --clipboard-only ;;
-    "copy selected image to text") tmpfile=$(mktemp /tmp/ocr-XXXXXX.png) && maim -u -s > "$tmpfile" && tesseract "$tmpfile" - -l eng | ${ocr_cmd} && rm "$tmpfile" ;;
+case "$sel" in
+	select)
+		g="$(slurp -d)" || exit 1
+		grim -g "$g" "$out"
+		notify-send -a "$(basename "$0")" "screenshot" "saved to $out"
+		;;
+	fullscreen)
+		grim "$out"
+		notify-send -a "$(basename "$0")" "screenshot" "saved to $out"
+		;;
+    select-copy)
+		g="$(slurp -d)" || exit 1
+		grim -g "$g" - | wl-copy -t image/png
+		notify-send -a "$(basename "$0")" "screenshot" "saved to clipboard"
+		;;
+    fullscreen-copy)
+		grim - | wl-copy -t image/png
+		notify-send -a "$(basename "$0")" "screenshot" "saved to clipboard"
+		;;
+    "selected image to text")
+		g="$(slurp -d)" || exit 1
+		tmpfile=$(mktemp /tmp/ocr-XXXXXX.png) && grim -g "$g" - > "$tmpfile" && tesseract "$tmpfile" - -l eng | ${ocr_cmd} && rm "$tmpfile"
+		;;
 esac

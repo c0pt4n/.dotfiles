@@ -69,8 +69,10 @@ jdk-openjdk
 john
 jq
 kanshi
+kvantum
 ldns
 less
+lf
 lib32-alsa-lib
 lib32-alsa-plugins
 lib32-gamemode
@@ -102,10 +104,10 @@ mpv-mpris
 msmtp
 mtpfs
 nano
+ncdu
 ncmpcpp
 neomutt
 neovim
-network-manager-applet
 networkmanager
 networkmanager-runit
 newsboat
@@ -132,6 +134,7 @@ pass-otp
 pipewire-alsa
 playerctl
 plocate
+procs
 pulsemixer
 pyenv
 python-django
@@ -145,6 +148,7 @@ qrencode
 rclone
 reaver
 ripgrep
+river
 rsm
 rsync
 runit
@@ -179,7 +183,6 @@ translate-shell
 transmission-cli
 ttf-dejavu
 ttf-dejavu-nerd
-ttf-firacode-nerd
 ttf-font-awesome
 ttf-nerd-fonts-symbols
 unrar-free
@@ -209,6 +212,7 @@ wpa_supplicant
 wpa_supplicant-runit
 xdg-desktop-portal-gtk
 xdg-desktop-portal-hyprland
+xdg-desktop-portal-wlr
 xdg-user-dirs
 xdg-utils
 yt-dlp

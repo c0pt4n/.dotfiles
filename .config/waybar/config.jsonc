@@ -2,8 +2,8 @@
 	"layer": "bottom",
 	"position": "top",
 	"modules-left": [
-		"custom/recording",
-		"hyprland/workspaces"
+		"river/tags",
+		"river/mode"
 	],
 	"modules-center": [
 		"clock#date",
@@ -22,6 +22,10 @@
 		"temperature",
 		"upower",
 	],
+	"river/tags": {
+		"num-tags": 9,
+		"hide-vacant": true
+	},
 	"clock#time": {
 		"interval": 10,
 		"format": " {:%H:%M}",

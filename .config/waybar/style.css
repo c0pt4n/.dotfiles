@@ -4,45 +4,36 @@
 	border: 5px;
 	border-radius: 5px;
 	min-height: 0;
-	font-size: 12px;
+	font-size: 14px;
 	font-weight: bold;
 	font-family: monospace;
 }
 
-#waybar {
-	background: transparent;
+window#waybar {
 	color: @text;
+	background: transparent;
 }
 
-/* #workspaces { */
-/* 	border-radius: 5px; */
-/* 	margin: 5px; */
-/* 	background: @surface; */
-/* 	margin-left: 1rem; */
-/* } */
-
-#workspaces button {
+#tags button {
 	margin: 2px;
 	padding: 0 0.2rem;
-	/* color: @subtext1; */
+	color: @subtext1;
+	background-color: @surface0;
 	border-bottom: 4px solid transparent;
 }
 
-#workspaces button.active {
+#tags button.focused {
 	color: @sky;
 	background-color: @surface1;
 	border-bottom-color: @sky
 }
 
-#workspaces button:hover {
-	color: @sapphire;
-	border-radius: 5px;
-}
-
-#workspaces button.urget {
+#tags button.urget {
 	color: @red;
 }
 
+#mode,
+#window
 #privacy,
 #clock,
 #temperature,
@@ -59,7 +50,7 @@
 #upower {
 	background-color: @surface0;
 	padding: 0.4rem 0.6rem;
-	margin: 4px;
+	margin: 2px;
 }
 
 #clock {

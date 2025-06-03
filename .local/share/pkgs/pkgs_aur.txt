@@ -5,10 +5,10 @@ arkenfox-user.js
 bicon-git
 brave-bin
 buku-git
+catppuccin-gtk-theme-mocha
 dragon-drop
 ffuf
 gobuster-git
-gruvbox-dark-gtk
 heroic-games-launcher-bin
 htop-vim
 hyprshot
