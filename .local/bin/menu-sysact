@@ -1,9 +1,8 @@
 #!/bin/sh
 
-case "${1:-$(printf "lock\nexit\nrefresh\nsuspend\nhibernate\nreboot\npoweroff" | menu -p "sysact> ")}" in
-	lock) loginctl lock-session ;;
-	exit) kill -TERM "$(pidof -sx dwm)" ;;
-	refresh) kill -HUP "$(pidof -sx dwm)" ;;
+case "${1:-$(printf "lock\nexit\nsuspend\nhibernate\nreboot\npoweroff" | menu -p "sysact> ")}" in
+	lock) loginctl lock-session -i ;;
+	exit) riverctl exit ;;
 	suspend) loginctl suspend -i ;;
 	hibernate) loginctl hibernate -i ;;
 	reboot) loginctl reboot -i ;;
