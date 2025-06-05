@@ -66,18 +66,21 @@ setup_runit() {
 }
 
 setup_browser() {
-	[ -d "$SETUP_BROWSER_DIR" ] ||
-		{
-			$BROWSER --headless >/dev/null 2>&1 &
-			ffpid=$!
-			sleep 1
-		}
+	[ -d "$SETUP_BROWSER_DIR" ] || {
+		$BROWSER --headless >/dev/null 2>&1 &
+		ffpid=$!
+		sleep 1
+	}
 	sed -n "/Default=.*\..*/s/.*=//p" "$SETUP_BROWSER_DIR/profiles.ini" |
-		while IFS= read -r profile; do
-			cat "/usr/share/arkenfox-user.js/user.js" "$XDG_CONFIG_HOME/firefox/user.js" >"$SETUP_BROWSER_DIR/$profile/user.js"
-			[ "$BROWSER" != "firefox" ] &&
-				[ -s "$XDG_CONFIG_HOME/$BROWSER/user.js" ] &&
-				cat "$XDG_CONFIG_HOME/$BROWSER/user.js" >>"$SETUP_BROWSER_DIR/$profile/user.js"
+		while IFS= read -r p; do
+			cat "/usr/share/arkenfox-user.js/user.js" >"$SETUP_BROWSER_DIR/$p/user.js"
+			browsers="firefox"
+			# shellcheck disable=2015
+			[ "$BROWSER" != "$browsers" ] && browsers="$browsers $BROWSER" || true
+			for b in $browsers; do
+				[ -r "$XDG_CONFIG_HOME/$b/user.js" ] &&
+					cat "$XDG_CONFIG_HOME/$b/user.js" >>"$SETUP_BROWSER_DIR/$p/user.js"
+			done
 		done
 	# shellcheck disable=2015
 	[ -n "${ffpid:-}" ] && kill "$ffpid" || true
