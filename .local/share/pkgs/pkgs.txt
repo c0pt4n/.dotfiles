@@ -47,6 +47,7 @@ git
 git-delta
 github-cli
 goimapnotify
+grim
 grub
 hashcat
 hcxdumptool
@@ -57,10 +58,6 @@ highlight
 hugo
 hwinfo
 hydra
-hypridle
-hyprland
-hyprlock
-hyprpaper
 imv
 intel-ucode
 inxi
@@ -91,6 +88,7 @@ linux-headers
 lsof
 lynx
 macchanger
+maim
 mako
 man-db
 man-pages
@@ -154,12 +152,14 @@ rsync
 runit
 scrcpy
 shellcheck-bin
+slurp
 socklog
 sof-firmware
 sound-theme-freedesktop
 speech-dispatcher
 sqlmap
 steam
+swayidle
 sxhkd
 syncthing
 tealdeer
@@ -185,6 +185,7 @@ ttf-dejavu
 ttf-dejavu-nerd
 ttf-font-awesome
 ttf-nerd-fonts-symbols
+unrar
 unrar-free
 unzip
 upower
@@ -197,6 +198,7 @@ vulkan-radeon
 vulkan-tools
 w3m
 waybar
+waylock
 wf-recorder
 wget
 wifite
@@ -210,8 +212,6 @@ wlr-randr
 wofi
 wpa_supplicant
 wpa_supplicant-runit
-xdg-desktop-portal-gtk
-xdg-desktop-portal-hyprland
 xdg-desktop-portal-wlr
 xdg-user-dirs
 xdg-utils
