@@ -43,7 +43,6 @@ fribidi
 fuzzel
 fzf
 geoip
-ghostty
 gimp
 git
 git-delta
