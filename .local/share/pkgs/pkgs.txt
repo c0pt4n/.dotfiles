@@ -24,6 +24,8 @@ dash
 dkms
 dnsmasq
 docker-runit
+dotnet-runtime
+dotnet-sdk
 duf
 dunst
 efibootmgr

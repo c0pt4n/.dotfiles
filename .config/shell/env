@@ -40,7 +40,7 @@ export TEXMFHOME="$XDG_DATA_HOME/texmf"
 export TEXMFVAR="$XDG_CACHE_HOME/texlive/texmf-var"
 export TEXMFCONFIG="$XDG_CONFIG_HOME/texlive/texmf-config"
 
-export PATH="$HOME/.local/bin:$GOPATH/bin:$PATH"
+export PATH="$HOME/.local/bin:$GOPATH/bin:$HOME/.dotnet/tools:$PATH"
 
 # Other program settings:
 export FZF_DEFAULT_OPTS="--layout=reverse --height=~40%"
