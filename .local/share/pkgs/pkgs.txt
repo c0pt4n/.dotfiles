@@ -24,6 +24,7 @@ dash
 dkms
 dnsmasq
 docker-runit
+dosfstools
 dotnet-runtime
 dotnet-sdk
 duf
@@ -185,11 +186,13 @@ transmission-cli
 ttf-dejavu
 ttf-dejavu-nerd
 ttf-font-awesome
+ttf-hanazono
 ttf-nerd-fonts-symbols
 unrar
 unrar-free
 unzip
 upower
+upterm
 vi
 virt-manager
 vnstat
@@ -218,6 +221,7 @@ xdg-user-dirs
 xdg-utils
 yt-dlp
 z
+zaproxy
 zathura
 zathura-pdf-mupdf
 zbar

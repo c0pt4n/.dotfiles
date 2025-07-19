@@ -16,6 +16,7 @@ htop-vim
 pam_ssh
 paru
 protontricks
+protonup-qt
 sc-im
 seclists
 simple-mtpfs
