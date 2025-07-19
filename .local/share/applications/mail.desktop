@@ -2,4 +2,4 @@
 Type=Application
 Name=Mail
 Icon=neomutt
-Exec=st neomutt %u
+Exec=foot neomutt %u
