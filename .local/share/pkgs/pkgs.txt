@@ -183,10 +183,10 @@ tor
 torsocks
 translate-shell
 transmission-cli
-ttf-dejavu
 ttf-dejavu-nerd
 ttf-font-awesome
 ttf-hanazono
+ttf-ibm-plex
 ttf-nerd-fonts-symbols
 unrar
 unrar-free
