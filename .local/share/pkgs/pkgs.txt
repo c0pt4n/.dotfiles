@@ -177,7 +177,6 @@ texlive-pictures
 texlive-plaingeneric
 tlp
 tlp-runit
-tmate
 tmux
 tor
 torsocks
