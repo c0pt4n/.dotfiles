@@ -1,4 +1,5 @@
 7zip
+aerc
 alsa-firmware
 alsa-plugins
 android-tools
@@ -101,12 +102,10 @@ mpd
 mpd-mpris
 mpv
 mpv-mpris
-msmtp
 mtpfs
 nano
 ncdu
 ncmpcpp
-neomutt
 neovim
 networkmanager
 networkmanager-runit
@@ -182,10 +181,12 @@ tor
 torsocks
 translate-shell
 transmission-cli
+ttf-dejavu
 ttf-dejavu-nerd
 ttf-font-awesome
 ttf-hanazono
 ttf-ibm-plex
+ttf-ibmplex-mono-nerd
 ttf-nerd-fonts-symbols
 unrar
 unrar-free
@@ -211,6 +212,7 @@ wine-staging
 winetricks
 wireshark-cli
 wl-clipboard
+wlopm
 wlr-randr
 wofi
 wpa_supplicant

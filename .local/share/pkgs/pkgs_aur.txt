@@ -22,7 +22,6 @@ seclists
 simple-mtpfs
 stegseek
 tigervnc-viewer
-tlpui
 tor-browser-bin
 ttf-amiri
 ubridge

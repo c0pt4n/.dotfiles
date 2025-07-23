@@ -22,6 +22,7 @@ setup_dotfiles() {
 	ln -svf "$XDG_CONFIG_HOME/shell/profile" "$HOME/.zprofile"
 	$sudocmd cp -rvf "$HERE/etc/." /etc
 	$sudocmd cp -afvt /etc /usr/share/pipewire /usr/share/wireplumber
+	ln -svf "$HERE/.editorconfig" "$HOME"
 }
 
 setup_pkgs() {

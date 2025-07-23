@@ -1,8 +1,8 @@
-@import "mocha.css";
-
 * {
-	border: 5px;
-	border-radius: 5px;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	border-radius: 0;
 	min-height: 0;
 	font-size: 14px;
 	font-weight: bold;
@@ -10,35 +10,17 @@
 }
 
 window#waybar {
-	color: @text;
-	background: transparent;
-}
-
-#tags button {
-	margin: 2px;
-	padding: 0 0.2rem;
-	color: @subtext1;
-	background-color: @surface0;
-	border-bottom: 4px solid transparent;
-}
-
-#tags button.focused {
-	color: @sky;
-	background-color: @surface1;
-	border-bottom-color: @sky
-}
-
-#tags button.urget {
-	color: @red;
+	color: #eceff4;
+    background-color: transparent;
 }
 
 #mode,
-#window
-#privacy,
+#tags button,
+#window,
 #clock,
-#temperature,
-#custom-dnd,
+#privacy,
 #custom-recording,
+#custom-dnd,
 #tray,
 #pulseaudio,
 #bluetooth,
@@ -47,32 +29,51 @@ window#waybar {
 #cpu,
 #temperature,
 #battery,
-#upower {
-	background-color: @surface0;
-	padding: 0.4rem 0.6rem;
-	margin: 2px;
+#upower,
+#custom-days {
+	background-color: #313244;
+	padding: 0.4rem 0.6rem 0.2rem 0.6rem;
+	border-bottom: 0.32rem solid #313244;
 }
 
-#clock {
-	color: @blue;
+#tags button {
+	padding-left: 0.3rem;
+	padding-right: 0.3rem;
 }
 
-#battery {
-	color: @green;
+#mode {
+    padding-left: 0.7rem;
+	padding-right: 0.7rem;
 }
 
-#battery.charging {
-	color: @green;
+#mode,
+#clock.time,
+#tray,
+#custom-dnd {
+	border-bottom-right-radius: 0.32rem;
 }
 
-#battery.warning:not(.charging) {
-	color: @yellow;
+#pulseaudio,
+#clock.date,
+#tray,
+#custom-dnd {
+	border-bottom-left-radius: 0.32rem;
 }
 
-#pulseaudio {
-	color: @pink;
+#tags button.focused {
+	background-color: #3b4252;
+	border-bottom-color: #5e81ac;
 }
 
-#tray {
-	margin-right: 10px;
+#tags button.urgent,
+#privacy,
+#custom-recording {
+	border-bottom-color: #f38ba8;
+}
+
+#tray,
+#privacy,
+#custom-dnd,
+#custom-recording {
+	margin-right: 1rem;
 }

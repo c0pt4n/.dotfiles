@@ -1,0 +1,24 @@
+Create Both
+Expunge Both
+MaxMessages 0
+ExpireUnread no
+CopyArrivalDate yes
+
+IMAPStore omarcoptan9@gmail.com-remote
+Host imap.gmail.com
+Port 993
+User omarcoptan9@gmail.com
+PassCmd "pass local/gmail | sed 1q"
+AuthMechs LOGIN
+TLSType IMAPS
+
+MaildirStore omarcoptan9@gmail.com-local
+Path ~/.local/share/mail/omarcoptan9@gmail.com/
+Inbox ~/.local/share/mail/omarcoptan9@gmail.com/Inbox
+Subfolders Verbatim
+
+Channel omarcoptan9@gmail.com
+Far :omarcoptan9@gmail.com-remote:
+Near :omarcoptan9@gmail.com-local:
+Patterns *
+SyncState *
