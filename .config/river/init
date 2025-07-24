@@ -70,7 +70,6 @@ riverctl map normal Super P spawn "passmenu"
 riverctl map normal Super+Shift P spawn "passmenu otp"
 riverctl map normal Super Backslash spawn "makoctl dismiss -a && pkill -RTMIN+6 waybar"
 riverctl map normal Super+Shift Backslash spawn "makoctl mode | grep -Fxq dnd || makoctl dismiss -a; makoctl mode -t dnd && pkill -RTMIN+6 waybar"
-# riverctl map normal Super D spawn "$TERMINAL -e bicon.bin lf"
 riverctl map normal Super D spawn "$TERMINAL -e bicon.bin nnn"
 riverctl map normal Super N spawn "$TERMINAL -e bicon.bin ncmpcpp"
 

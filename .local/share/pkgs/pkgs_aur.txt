@@ -9,6 +9,7 @@ catppuccin-gtk-theme-mocha
 clipman
 dragon-drop
 ffuf
+fontpreview
 go-mtpfs-git
 gobuster-git
 heroic-games-launcher-bin

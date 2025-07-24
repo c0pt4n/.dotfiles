@@ -6,6 +6,7 @@ android-tools
 android-udev
 arandr
 artix-archlinux-support
+atool
 base
 base-devel
 bat
@@ -49,6 +50,7 @@ gimp
 git
 git-delta
 github-cli
+glow
 goimapnotify
 grim
 grub
@@ -72,7 +74,6 @@ kanshi
 kvantum
 ldns
 less
-lf
 lib32-alsa-lib
 lib32-alsa-plugins
 lib32-gamemode
@@ -188,6 +189,7 @@ ttf-hanazono
 ttf-ibm-plex
 ttf-ibmplex-mono-nerd
 ttf-nerd-fonts-symbols
+ueberzugpp
 unrar
 unrar-free
 unzip
