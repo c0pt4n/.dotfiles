@@ -15,7 +15,6 @@ bluez
 bluez-runit
 bluez-utils
 brightnessctl
-btop
 calcurse
 chrony
 chrony-runit
