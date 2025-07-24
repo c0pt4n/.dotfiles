@@ -52,3 +52,9 @@
 	email = omarcoptan9@gmail.com
 	name = Omar Mohamed
 	signingkey = ~/.ssh/id_ed25519.pub
+
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+
+[url "git@gitlab.com:"]
+	insteadOf = https://gitlab.com/
