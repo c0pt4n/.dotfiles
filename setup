@@ -29,9 +29,9 @@ setup_pkgs() {
 	$sudocmd pacman -S --needed --noconfirm artix-archlinux-support &&
 		$sudocmd pacman-key --populate archlinux &&
 		$sudocmd pacman -Sy --noconfirm
-	[ -s "$SETUP_PKGS_FILE" ] &&
+	[ -r "$SETUP_PKGS_FILE" ] &&
 		sudocmd pacman -S --needed --noconfirm - < "$SETUP_PKGS_FILE"
-	[ -s "$SETUP_PKGS_AUR_FILE" ] && {
+	[ -r "$SETUP_PKGS_AUR_FILE" ] && {
 			git clone https://aur.archlinux.org/paru.git "$SETUP_PROGRAMS_DIR/paru" &&
 				makepkg -siD "$SETUP_PROGRAMS_DIR/paru"
 		}
@@ -94,7 +94,7 @@ clean() {
 	cd "$HERE" || exit 1
 	find .config .local -type f -exec rm -vf "$HOME/{}" \;
 	profile="$(sed -n "/Default=.*\..*/s/.*=//p" "$SETUP_BROWSER_DIR/profiles.ini")"
-	[ -s "$SETUP_BROWSER_DIR/$profile/user.js" ] && rm -vf "$SETUP_BROWSER_DIR/$profile/user.js"
+	[ -r "$SETUP_BROWSER_DIR/$profile/user.js" ] && rm -vf "$SETUP_BROWSER_DIR/$profile/user.js"
 }
 
 case "$1" in
