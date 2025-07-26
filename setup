@@ -21,7 +21,6 @@ setup_dotfiles() {
 	cp -srvft "$HOME" "$HERE/.config" "$HERE/.local"
 	ln -svf "$XDG_CONFIG_HOME/shell/profile" "$HOME/.zprofile"
 	$sudocmd cp -rvf "$HERE/etc/." /etc
-	$sudocmd cp -afvt /etc /usr/share/pipewire /usr/share/wireplumber
 	ln -svf "$HERE/.editorconfig" "$HOME"
 }
 
@@ -66,6 +65,10 @@ setup_runit() {
 		/etc/runit/sv/docker
 }
 
+setup_pipewire() {
+	$sudocmd cp -afvt /etc /usr/share/pipewire /usr/share/wireplumber
+}
+
 setup_browser() {
 	[ -d "$SETUP_BROWSER_DIR" ] || {
 		$BROWSER --headless >/dev/null 2>&1 &
@@ -101,12 +104,14 @@ case "$1" in
 		setup_user
 		setup_runit
 		setup_browser
+		setup_pipewire
 		;;
 	dotfiles) setup_dotfiles ;;
 	pkgs) setup_pkgs ;;
 	user) setup_user ;;
 	runit) setup_runit ;;
 	browser) setup_browser ;;
+	pipewire) setup_pipewire ;;
 	clean) clean ;;
 	*)
 		echo "$(basename "$0"): unknown command \"$1\"" >&2
