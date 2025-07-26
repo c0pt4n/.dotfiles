@@ -32,7 +32,7 @@ alias bm="buku --suggest"
 alias drag="dragon-drop -x"
 
 # pacman
-alias pi="doas pacman -Sy"
+alias pi="doas pacman -S"
 alias pu="doas pacman -Syu"
 alias pr="doas pacman -Rns"
 alias pq="pacman -Ss"
