@@ -70,6 +70,10 @@ setup_runit() {
 		/etc/runit/sv/docker
 }
 
+setup_fonts() {
+	$sudocmd ln -svft /etc/fonts/conf.d/ /usr/share/fontconfig/conf.avail/10-nerd-font-symbols.conf
+}
+
 setup_pipewire() {
 	$sudocmd cp -afvt /etc /usr/share/pipewire /usr/share/wireplumber
 }
@@ -108,6 +112,7 @@ setup_install() {
 		setup_runit
 		setup_ufw
 		setup_browser
+		setup_fonts
 		setup_pipewire
 }
 
