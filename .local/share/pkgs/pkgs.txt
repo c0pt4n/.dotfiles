@@ -28,8 +28,6 @@ dkms
 dnsmasq
 docker-runit
 dosfstools
-dotnet-runtime
-dotnet-sdk
 duf
 dunst
 efibootmgr
@@ -94,7 +92,6 @@ linux-headers
 lsof
 lynx
 macchanger
-maim
 mako
 man-db
 man-pages
@@ -106,7 +103,6 @@ mpd-mpris
 mpv
 mpv-mpris
 mtpfs
-nano
 ncdu
 ncmpcpp
 neovim
@@ -136,7 +132,6 @@ pass-otp
 pipewire-alsa
 playerctl
 plocate
-procs
 pulsemixer
 pyenv
 python-django
@@ -164,7 +159,6 @@ speech-dispatcher
 sqlmap
 steam
 swayidle
-sxhkd
 syncthing
 tealdeer
 telegram-desktop
@@ -187,19 +181,18 @@ transmission-cli
 ttf-dejavu
 ttf-dejavu-nerd
 ttf-font-awesome
-ttf-hanazono
 ttf-ibm-plex
 ttf-ibmplex-mono-nerd
 ttf-nerd-fonts-symbols
 ueberzugpp
 ufw
 ufw-runit
-unrar
 unrar-free
 unzip
 upower
 upterm
-vi
+valgrind
+vim
 virt-manager
 vnstat
 vnstat-runit
@@ -209,6 +202,7 @@ vulkan-tools
 w3m
 waybar
 waylock
+wev
 wf-recorder
 wget
 wifite
@@ -220,7 +214,6 @@ wireshark-cli
 wl-clipboard
 wlopm
 wlr-randr
-wofi
 wpa_supplicant
 wpa_supplicant-runit
 xdg-desktop-portal-wlr
