@@ -1,0 +1,4 @@
+com.discordapp.Discord
+com.github.tchx84.Flatseal
+md.obsidian.Obsidian
+org.vinegarhq.Sober
