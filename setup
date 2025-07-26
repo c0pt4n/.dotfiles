@@ -60,6 +60,7 @@ setup_runit() {
 		/etc/runit/sv/NetworkManager \
 		/etc/runit/sv/bluetoothd \
 		/etc/runit/sv/cronie \
+		/etc/runit/sv/ufw \
 		/etc/runit/sv/tlp \
 		/etc/runit/sv/sshd \
 		/etc/runit/sv/cupsd \
@@ -68,6 +69,12 @@ setup_runit() {
 
 setup_pipewire() {
 	$sudocmd cp -afvt /etc /usr/share/pipewire /usr/share/wireplumber
+}
+
+setup_ufw() {
+	$sudocmd ufw default deny
+	$sudocmd ufw allow from 192.168.1.0/24
+	$sudocmd ufw limit ssh
 }
 
 setup_browser() {
@@ -104,6 +111,7 @@ case "$1" in
 		setup_pkgs
 		setup_user
 		setup_runit
+		setup_ufw
 		setup_browser
 		setup_pipewire
 		;;
@@ -111,6 +119,7 @@ case "$1" in
 	pkgs) setup_pkgs ;;
 	user) setup_user ;;
 	runit) setup_runit ;;
+	ufw) setup_ufw ;;
 	browser) setup_browser ;;
 	pipewire) setup_pipewire ;;
 	clean) clean ;;

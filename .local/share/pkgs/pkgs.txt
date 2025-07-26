@@ -192,6 +192,8 @@ ttf-ibm-plex
 ttf-ibmplex-mono-nerd
 ttf-nerd-fonts-symbols
 ueberzugpp
+ufw
+ufw-runit
 unrar
 unrar-free
 unzip
