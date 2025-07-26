@@ -21,6 +21,8 @@ chrony-runit
 clang
 cronie
 cronie-runit
+cups
+cups-runit
 dash
 dkms
 dnsmasq
@@ -59,6 +61,7 @@ hcxtools
 hdparm
 helvum
 highlight
+hplip
 hugo
 hwinfo
 hydra

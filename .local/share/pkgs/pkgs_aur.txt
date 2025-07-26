@@ -13,6 +13,7 @@ fontpreview
 go-mtpfs-git
 gobuster-git
 heroic-games-launcher-bin
+hplip-plugin
 htop-vim
 pam_ssh
 paru

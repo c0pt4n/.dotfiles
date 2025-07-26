@@ -62,6 +62,7 @@ setup_runit() {
 		/etc/runit/sv/cronie \
 		/etc/runit/sv/tlp \
 		/etc/runit/sv/sshd \
+		/etc/runit/sv/cupsd \
 		/etc/runit/sv/docker
 }
 
