@@ -2,8 +2,8 @@
 
 . "$HOME/.config/shell/env"
 
-doas -n /usr/bin/loadkeys "$XDG_CONFIG_HOME/loadkeys/loadkeysrc"
-
-unsetopt PROMPT_SP 2>/dev/null
+sudocmd="$(command -v doas 2>/dev/null || command -v sudo 2>/dev/null)"
+$sudocmd -n /usr/bin/loadkeys "$XDG_CONFIG_HOME/loadkeys/loadkeysrc"
+unset sudocmd
 
 [ -z "$WAYLAND_DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ] && exec "$XDG_CONFIG_HOME/river/run"
