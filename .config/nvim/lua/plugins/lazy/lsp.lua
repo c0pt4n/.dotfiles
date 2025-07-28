@@ -27,83 +27,38 @@ vim.diagnostic.config({
 
 return {
 	{
-		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim",
 		event = { "BufReadPre", "BufNewFile" },
 		build = ":MasonUpdate",
 		dependencies = {
-			"williamboman/mason-lspconfig.nvim",
-			"neovim/nvim-lspconfig",
+			{ "williamboman/mason.nvim", opts = {}, build = ":MasonUpdate" },
+			{ "neovim/nvim-lspconfig" },
 		},
 		config = function()
-			local cmp_lsp = require("cmp_nvim_lsp")
-			local capabilities = vim.tbl_deep_extend("force", vim.lsp.protocol.make_client_capabilities(),
-				cmp_lsp.default_capabilities())
-
 			require("mason").setup({})
 			require("mason-lspconfig").setup({
 				ensure_installed = {
 					"bashls",
+					"gopls",
 					"pyright",
 					"lua_ls",
+					"zk",
 				},
-				handlers = {
-					function(name)
-						require("lspconfig")[name].setup({ capabilities = capabilities })
-					end,
-					["gopls"] = function()
-						require("lspconfig").gopls.setup({
-							capabilities = capabilities,
-							settings = {
-								gopls = {
-									completeUnimported = true,
-									usePlaceholders = true,
-									staticcheck = true,
-									gofumpt = true,
-									analyses = {
-										unusedparams = true,
-										unusedvariable = true,
-										unusedwrite = true,
-									},
-								},
-							},
-						})
-					end,
-					["lua_ls"] = function()
-						require("lspconfig").lua_ls.setup({
-							capabilities = capabilities,
-							on_init = function(client)
-								local path = client.workspace_folders[1].name
-								if vim.uv.fs_stat(path .. "/.luarc.json") or vim.uv.fs_stat(path .. "/.luarc.jsonc") then
-									return
-								end
-								client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
-									runtime = {
-										path = { "?.lua", "?/init.lua" },
-										pathStrict = true,
-										version = "LuaJIT",
-									},
-									diagnostics = {
-										globals = {
-											"vim",
-										},
-									},
-									workspace = {
-										checkThirdParty = false,
-										ignoreDir = { "/lua" },
-										library = {
-											vim.env.VIMRUNTIME,
-										},
-									},
-									telemetry = {
-										enable = false,
-									},
-								})
-							end,
-							settings = {
-								Lua = {},
-							},
-						})
-					end,
+			})
+
+			vim.lsp.config("gopls", {
+				settings = {
+					gopls = {
+						completeUnimported = true,
+						usePlaceholders = true,
+						staticcheck = true,
+						gofumpt = true,
+						analyses = {
+							unusedparams = true,
+							unusedvariable = true,
+							unusedwrite = true,
+						},
+					},
 				},
 			})
 		end,
