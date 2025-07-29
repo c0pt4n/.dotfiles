@@ -7,16 +7,18 @@ brave-bin
 buku-git
 catppuccin-gtk-theme-mocha
 clipman
+dirb
 dragon-drop
-ffuf
+ffuf-bin
 fontpreview
 go-mtpfs-git
-gobuster-git
 heroic-games-launcher-bin
 hplip-plugin
 htop-vim
+katana-bin
 netdiscover
 noip
+nuclei-bin
 pam_ssh
 paru
 protontricks
@@ -34,5 +36,6 @@ vpcs-git
 waydroid
 wayprompt
 wbg
+whatweb
 zen-browser-bin
 zsh-fast-syntax-highlighting

@@ -50,6 +50,7 @@ git
 git-delta
 github-cli
 glow
+gobuster
 goimapnotify
 grim
 grub
@@ -148,6 +149,8 @@ ripgrep
 river
 rsm
 rsync
+ruby-getoptlong
+ruby-resolv-replace
 runit
 scrcpy
 shellcheck-bin
@@ -205,6 +208,7 @@ waylock
 wev
 wf-recorder
 wget
+whois
 wifite
 wine-gecko
 wine-mono
