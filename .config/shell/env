@@ -43,6 +43,8 @@ export TEXMFHOME="$XDG_DATA_HOME/texmf"
 export TEXMFVAR="$XDG_CACHE_HOME/texlive/texmf-var"
 export TEXMFCONFIG="$XDG_CONFIG_HOME/texlive/texmf-config"
 
+[ -d "/usr/share/seclists" ] && export SECLISTS_DIR="/usr/share/seclists"
+
 export PATH="$HOME/.local/bin:$GOPATH/bin:$HOME/.dotnet/tools:$PATH"
 
 # Other program settings:
