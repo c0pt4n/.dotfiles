@@ -4,7 +4,7 @@ adwaita-plus-git
 arkenfox-user.js
 bicon-git
 brave-bin
-buku-git
+buku
 catppuccin-gtk-theme-mocha
 clipman
 dirb
