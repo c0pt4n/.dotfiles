@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Burp Suite Professional
+MimeType=application/x-extension-burp;
+Icon=/home/omar/programs/burpsuitepro/.install4j/BurpSuitePro.png
+Categories=Application;
+StartupWMClass=install4j-burp-StartBurp
+Exec="/home/omar/.local/bin/BurpSuitePro" %U
