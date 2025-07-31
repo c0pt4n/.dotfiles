@@ -85,7 +85,7 @@ lib32-vulkan-icd-loader
 lib32-vulkan-radeon
 libisoburn
 libnotify
-libreoffice-fresh
+libreoffice-still
 libvirt-runit
 linux
 linux-firmware
@@ -126,6 +126,7 @@ opendoas
 openssh
 openssh-runit
 openvpn
+otf-font-awesome
 pacman-contrib
 pandoc-bin
 pass
@@ -183,7 +184,6 @@ translate-shell
 transmission-cli
 ttf-dejavu
 ttf-dejavu-nerd
-ttf-font-awesome
 ttf-ibm-plex
 ttf-ibmplex-mono-nerd
 ttf-nerd-fonts-symbols
