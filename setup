@@ -69,7 +69,9 @@ setup_runit() {
 		/etc/runit/sv/tlp \
 		/etc/runit/sv/sshd \
 		/etc/runit/sv/cupsd \
-		/etc/runit/sv/docker
+		/etc/runit/sv/docker \
+		/etc/runit/sv/libvirtd \
+		/etc/runit/sv/virtlogd
 }
 
 setup_fonts() {
