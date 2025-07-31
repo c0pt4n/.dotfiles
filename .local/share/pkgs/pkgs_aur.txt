@@ -1,10 +1,12 @@
 abook
 advcpmv
 adwaita-plus-git
+android-studio
 arkenfox-user.js
 bicon-git
 brave-bin
 buku
+burpsuite-pro
 catppuccin-gtk-theme-mocha
 clipman
 dirb
@@ -15,6 +17,7 @@ go-mtpfs-git
 heroic-games-launcher-bin
 hplip-plugin
 htop-vim
+httpx-bin
 katana-bin
 netdiscover
 noip
@@ -26,6 +29,7 @@ sc-im
 seclists
 simple-mtpfs
 stegseek
+subfinder-bin
 tigervnc-viewer
 tor-browser-bin
 ttf-amiri
