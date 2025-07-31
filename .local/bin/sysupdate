@@ -1,0 +1,26 @@
+#!/bin/sh
+
+set -eu
+
+# shellcheck disable=2015
+sudocmd="$([ -f /etc/doas.conf ] && command -v doas 2>/dev/null || command -v sudo 2>/dev/null)"
+
+updatepkgs() {
+	$sudocmd pacman -Syu --noconfirm
+	command -v paru >/dev/null 2>&1 && paru -Sua --noconfirm
+	command -v flatpak >/dev/null 2>&1 && flatpak update -y
+}
+
+clean() {
+	$sudocmd pacman -Sc --noconfirm
+	paru -Sca --noconfirm
+}
+
+case "${1:-pkgs}" in
+	pkgs) updatepkgs ;;
+	clean) clean ;;
+	*)
+		echo "$(basename "$0"): unknown command: $1" >&2
+		exit 1
+		;;
+esac
