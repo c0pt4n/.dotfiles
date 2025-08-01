@@ -8,7 +8,7 @@ IMAPStore omarcoptan9@gmail.com-remote
 Host imap.gmail.com
 Port 993
 User omarcoptan9@gmail.com
-PassCmd "pass local/gmail | sed 1q"
+PassCmd "pass mail/omarcoptan9@gmail.com | sed 1q"
 AuthMechs LOGIN
 TLSType IMAPS
 
