@@ -1,13 +1,12 @@
 abook
 advcpmv
-adwaita-plus-git
 android-studio
 arkenfox-user.js
 bicon-git
 brave-bin
 buku
 burpsuite-pro
-catppuccin-gtk-theme-mocha
+catppuccin-gtk-theme-git
 clipman
 dirb
 dragon-drop
@@ -19,6 +18,7 @@ hplip-plugin
 htop-vim
 httpx-bin
 katana-bin
+kvantum-theme-catppuccin-git
 netdiscover
 noip
 nuclei-bin
