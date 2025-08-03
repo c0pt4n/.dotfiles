@@ -2,4 +2,4 @@
 Type=Application
 Name=Minecraft
 Icon=/home/omar/.local/share/minecraft-icon.png
-Exec=java -jar /home/omar/data/games/Minecraft/LegacyLauncher_legacy.jar
+Exec=java -jar /home/omar/data/games/Minecraft/LegacyLauncher_legacy_beta.jar
