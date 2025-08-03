@@ -40,5 +40,6 @@ waydroid
 wayprompt
 wbg
 whatweb
+xdg-ninja
 zen-browser-bin
 zsh-fast-syntax-highlighting
