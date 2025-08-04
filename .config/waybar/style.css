@@ -10,7 +10,7 @@
 }
 
 window#waybar {
-	color: #eceff4;
+	color: #cdd6f4;
     background-color: transparent;
 }
 
@@ -31,9 +31,9 @@ window#waybar {
 #battery,
 #upower,
 #custom-days {
-	background-color: #313244;
+	background-color: #1e1e2e;
 	padding: 0.4rem 0.6rem 0.2rem 0.6rem;
-	border-bottom: 0.32rem solid #313244;
+	border-bottom: 0.32rem solid #1e1e2e;
 }
 
 #tags button {
@@ -62,7 +62,7 @@ window#waybar {
 
 #tags button.focused {
 	background-color: #3b4252;
-	border-bottom-color: #5e81ac;
+	border-bottom-color: #74c7ec;
 }
 
 #tags button.urgent,
