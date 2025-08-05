@@ -159,6 +159,7 @@ slurp
 socklog
 sof-firmware
 sound-theme-freedesktop
+sox
 speech-dispatcher
 sqlmap
 steam
