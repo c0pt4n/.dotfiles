@@ -1,14 +1,16 @@
 sort=-time
 layer=overlay
+anchor=top-right
 max-visible=5
 default-timeout=5000
-font=monospace 13
+font=monospace 14
 text-alignment=left
-text-color=#eceff4
-background-color=#2e3440
-border-color=#5e81ac
+text-color=#cdd6f4
+background-color=#1e1e2e
+border-color=#89b4fa
 border-radius=10
-progress-color=over #5e81ac
+progress-color=over #89b4fa
+on-touch=invoke-default-action
 on-button-left=invoke-default-action
 on-button-right=dismiss
 on-button-middle=exec makoctl menu -n "$id" menu -p "select action> "
@@ -18,15 +20,22 @@ on-notify=exec [ "$(makoctl list | grep -c "^Notification")" -eq 1 ] && play -q 
 format=(and %h more)
 text-color=#bbc3d4
 
+[urgency=low]
+on-notify=none
+
 [urgency=high]
 background-color=#b74e58
 border-color=#bf616a
 
-[mode=dnd]
-invisible=1
-on-notify=exec kill -40 "$(pidof waybar)"
+[mode=away]
+on-notify=none
 ignore-timeout=1
 default-timeout=0
+
+[mode=dnd]
+invisible=1
+default-timeout=0
+on-notify=exec pkill -RTMIN+7 waybar
 
 [mode=dnd urgency=low]
 on-notify=dismiss
