@@ -1,4 +1,5 @@
-user_pref("zen.theme.accent-color", "#aac7ff");
+user_pref("zen.theme.accent-color", "#1e1e2e");
+user_pref("zen.theme.gradient.show-custom-colors", true);
 user_pref("zen.tabs.vertical.right-side", false);
 user_pref("zen.tabs.show-newtab-vertical", false);
 user_pref("zen.tab-unloader.timeout-minutes", 60);
