@@ -23,6 +23,7 @@ netdiscover
 noip
 nuclei-bin
 pam_ssh
+poweralertd
 protontricks
 protonup-qt
 sc-im
