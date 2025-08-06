@@ -91,7 +91,7 @@ for mode in normal locked; do
 	riverctl map $mode None XF86AudioMedia spawn "playerctl play-pause"
 	riverctl map $mode Super+Shift Equal spawn "playerctl next"
 	riverctl map $mode Super+Shift Minus spawn "playerctl previous"
-	# riverctl map $mode Super+Shift Backspace spawn "playerctl play-pause"
+	riverctl map $mode Super+Control Space spawn "playerctl play-pause"
 
 	riverctl map -repeat $mode None XF86MonBrightnessUp spawn "screenlightctl 10%+"
 	riverctl map -repeat $mode None XF86MonBrightnessDown spawn "screenlightctl 10%-"
@@ -129,9 +129,9 @@ run pipewire
 run mako
 run swayidle -w
 run poweralertd
-# run mpris-proxy
-# run playerctld daemon
+run mpris-proxy
+run playerctld daemon
 run syncthing serve --no-browser
 run wl-paste -t text -w clipman store -P
 run waybar
-run mpd
+pidof -qsx mpd || (mpd && mpd-mpris) &
