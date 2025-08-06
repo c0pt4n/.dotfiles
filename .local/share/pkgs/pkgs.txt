@@ -52,6 +52,7 @@ github-cli
 glow
 gobuster
 goimapnotify
+graphviz
 grim
 grub
 hashcat
@@ -151,6 +152,7 @@ river
 rsm
 rsync
 ruby-getoptlong
+ruby-mustache
 ruby-resolv-replace
 runit
 scrcpy
