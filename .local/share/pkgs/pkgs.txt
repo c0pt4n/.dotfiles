@@ -45,6 +45,7 @@ fribidi
 fuzzel
 fzf
 geoip
+ghidra
 gimp
 git
 git-delta
@@ -69,6 +70,7 @@ imv
 intel-ucode
 inxi
 isync
+jadx
 jdk-openjdk
 john
 jq
@@ -141,6 +143,7 @@ python-django
 python-pexpect
 python-pip
 python-pipenv
+python-pyjwt
 python-pyqt6
 qemu-base
 qemu-full

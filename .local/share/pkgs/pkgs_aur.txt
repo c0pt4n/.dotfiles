@@ -1,5 +1,6 @@
 abook
 advcpmv
+android-apktool-bin
 android-studio
 arkenfox-user.js
 bicon-git
@@ -12,11 +13,13 @@ dirb
 dragon-drop
 ffuf-bin
 fontpreview
+ghidra-desktop
 go-mtpfs-git
 heroic-games-launcher-bin
 hplip-plugin
 htop-vim
 httpx-bin
+jadx-gui-desktop
 katana-bin
 kvantum-theme-catppuccin-git
 netdiscover
@@ -38,6 +41,8 @@ ubridge
 urlview
 vpcs-git
 waydroid
+waydroid-helper-git
+waydroid-script-git
 wayprompt
 wbg
 whatweb
