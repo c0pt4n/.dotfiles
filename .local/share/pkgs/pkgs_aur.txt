@@ -23,6 +23,7 @@ httpx-bin
 jadx-gui-desktop
 katana-bin
 kvantum-theme-catppuccin-git
+lswt
 netdiscover
 noip
 nuclei-bin
