@@ -4,6 +4,7 @@ android-apktool-bin
 android-studio
 arkenfox-user.js
 bicon-git
+binder_linux-dkms
 brave-bin
 buku
 burpsuite-pro
