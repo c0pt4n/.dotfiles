@@ -16,6 +16,7 @@ bluez-runit
 bluez-utils
 brightnessctl
 calcurse
+cava
 chrony
 chrony-runit
 clang
