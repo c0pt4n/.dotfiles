@@ -144,6 +144,7 @@ python-django
 python-pexpect
 python-pip
 python-pipenv
+python-pipx
 python-pyjwt
 python-pyqt6
 qemu-base
