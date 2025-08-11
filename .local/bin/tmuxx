@@ -1,0 +1,25 @@
+#!/bin/sh
+
+if [ "$#" -eq 1 ]; then
+	selected=$1
+else
+	selected=$(find ~/ ~/projects "$ZK_NOTEBOOK_DIR" -mindepth 1 -maxdepth 1 -type d | fzf)
+fi
+
+if [ -z "$selected" ]; then
+	exit 0
+fi
+
+session_name=$(basename "$selected" | sed 's/\./_/')
+tmux_run=$(pidof tmux)
+
+if [ -z "$TMUX" ] && [ -z "$tmux_run" ]; then
+	tmux new-session -t "$session_name" -c "$selected"
+	exit 0
+fi
+
+if ! tmux has-session -t "$session_name" 2>/dev/null; then
+	tmux new-session -dt "$session_name" -c "$selected"
+fi
+
+tmux switch-client -t "$session_name"
