@@ -148,7 +148,7 @@ python-pipx
 python-pyjwt
 python-pyqt6
 qemu-base
-qemu-full
+qemu-desktop
 qrencode
 rclone
 reaver
