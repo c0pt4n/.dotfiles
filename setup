@@ -86,6 +86,8 @@ setup_ufw() {
 	$sudocmd ufw default deny
 	$sudocmd ufw allow from 192.168.1.0/24
 	$sudocmd ufw limit ssh
+	$sudocmd ufw allow in on virbr0 from any to any
+	$sudocmd ufw allow in on waydroid0 from any to any
 }
 
 setup_browser() {
