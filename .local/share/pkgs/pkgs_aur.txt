@@ -36,6 +36,7 @@ seclists
 simple-mtpfs
 stegseek
 subfinder-bin
+swaylock-effects-git
 tigervnc-viewer
 tor-browser-bin
 ttf-amiri
