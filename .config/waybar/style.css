@@ -22,6 +22,7 @@ window#waybar {
 #custom-recording,
 #custom-dnd,
 #tray,
+#mpris,
 #pulseaudio,
 #bluetooth,
 #network,
@@ -30,7 +31,8 @@ window#waybar {
 #temperature,
 #battery,
 #upower,
-#custom-days {
+#custom-days,
+#custom-logo {
 	background-color: #1e1e2e;
 	padding: 0.4rem 0.6rem 0.2rem 0.6rem;
 	border-bottom: 0.32rem solid #1e1e2e;
@@ -42,26 +44,30 @@ window#waybar {
 }
 
 #mode {
-    padding-left: 0.7rem;
+	margin-left: 1rem;
+	padding-left: 0.7rem;
 	padding-right: 0.7rem;
 }
 
 #mode,
-#clock.time,
 #tray,
-#custom-dnd {
+#mpris,
+#custom-dnd,
+#clock.time {
 	border-bottom-right-radius: 0.32rem;
 }
 
-#pulseaudio,
-#clock.date,
+#mode,
 #tray,
-#custom-dnd {
+#mpris,
+#custom-dnd,
+#pulseaudio,
+#clock.date {
 	border-bottom-left-radius: 0.32rem;
 }
 
 #tags button.focused {
-	background-color: #3b4252;
+	background-color: #313244;
 	border-bottom-color: #74c7ec;
 }
 
@@ -72,6 +78,7 @@ window#waybar {
 }
 
 #tray,
+#mpris,
 #privacy,
 #custom-dnd,
 #custom-recording {
