@@ -71,7 +71,8 @@ setup_runit() {
 		/etc/runit/sv/cupsd \
 		/etc/runit/sv/docker \
 		/etc/runit/sv/libvirtd \
-		/etc/runit/sv/virtlogd
+		/etc/runit/sv/virtlogd \
+		/etc/runit/sv/waydroid-container
 }
 
 setup_fonts() {
