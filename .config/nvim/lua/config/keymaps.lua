@@ -35,8 +35,9 @@ map("n", "<leader>j", "<cmd>cprev<cr>zz")
 map("n", "<leader>K", "<cmd>lnext<cr>zz")
 map("n", "<leader>J", "<cmd>lprev<cr>zz")
 
-map("n", "Q", ":Ex<cr>")
+map("n", "Q", "<nop>")
 map("i", "<C-c>", "<esc>")
+map("n", "<C-t>", "<cmd>tabnew<cr>")
 
 map("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
 map("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
