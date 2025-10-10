@@ -45,6 +45,16 @@ autocmd({ "BufWritePre" }, {
 	end,
 })
 
+autocmd({ "BufWritePre" }, {
+	group = format_group,
+	pattern = "*",
+	callback = function(_)
+		local cur = vim.fn.getpos(".")
+		vim.cmd("%s/\\s\\+$//e")
+		vim.fn.setpos(".", cur)
+	end,
+})
+
 local yank_group = augroup('HighlightYank', {})
 autocmd('TextYankPost', {
     group = yank_group,
