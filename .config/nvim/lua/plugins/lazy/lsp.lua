@@ -38,12 +38,23 @@ return {
 			require("mason").setup({})
 			require("mason-lspconfig").setup({
 				ensure_installed = {
+					"clangd",
 					"bashls",
 					"gopls",
 					"pyright",
 					"lua_ls",
 					"zk",
 				},
+			})
+
+			vim.lsp.config("clangd", {
+				cmd = {
+					"clangd",
+					"--enable-config",
+					"--clang-tidy",
+					"--background-index",
+				},
+				filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
 			})
 
 			vim.lsp.config("gopls", {
