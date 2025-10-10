@@ -214,6 +214,7 @@ ttf-dejavu
 ttf-dejavu-nerd
 ttf-ibm-plex
 ttf-ibmplex-mono-nerd
+ttf-liberation
 ttf-nerd-fonts-symbols
 ufw
 ufw-runit
