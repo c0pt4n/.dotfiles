@@ -36,6 +36,15 @@ autocmd({ "BufReadPost" }, {
 	end,
 })
 
+autocmd({ "BufWritePre" }, {
+	group = augroup("daddydir", { clear = true }),
+	callback = function(ev)
+		if ev.match:match("^%w%w+:[\\/][\\/]") then return end
+		local file = vim.uv.fs_realpath(ev.match) or ev.match
+		vim.fn.mkdir(vim.fn.fnamemodify(file, ":p:h"), "p")
+	end,
+})
+
 local yank_group = augroup('HighlightYank', {})
 autocmd('TextYankPost', {
     group = yank_group,
