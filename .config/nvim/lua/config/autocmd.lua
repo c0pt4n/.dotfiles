@@ -15,6 +15,14 @@ autocmd({ "BufNewFile", "BufRead" }, {
 	command = "setlocal ft=todotxt",
 })
 
+autocmd({ "BufEnter" }, {
+	group = augroup("statusline", { clear = true }),
+	pattern = "*",
+	callback = function(_)
+		vim.opt.statusline = "%f %r%m%=%y %{&fileencoding ? &fileencoding : &encoding} %{&fileformat} | %l:%c %p%%"
+	end,
+})
+
 local yank_group = augroup('HighlightYank', {})
 autocmd('TextYankPost', {
     group = yank_group,
