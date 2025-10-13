@@ -35,7 +35,7 @@ map("n", "<leader>j", "<cmd>cprev<cr>zz")
 map("n", "<leader>K", "<cmd>lnext<cr>zz")
 map("n", "<leader>J", "<cmd>lprev<cr>zz")
 
-map("n", "Q", "<nop>")
+map("n", "Q", ":Ex<cr>")
 map("i", "<C-c>", "<esc>")
 map("n", "<C-t>", "<cmd>tabnew<cr>")
 
