@@ -38,6 +38,8 @@ setup_pkgs() {
 		}
 		paru -Sa --needed --noconfirm --sudo "$sudocmd" - <"$SETUP_PKGS_AUR_FILE"
 	}
+	command -v go >/dev/null 2>&1 &&
+		go telemetry off
 	command -v wine >/dev/null 2>&1 &&
 		mkdir -pv "$WINEPREFIX"
 	[ -r "$SETUP_PKGS_FLATPAKS_FILE" ] &&
