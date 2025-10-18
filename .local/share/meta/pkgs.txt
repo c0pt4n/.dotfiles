@@ -4,6 +4,8 @@ alsa-firmware
 alsa-plugins
 android-tools
 android-udev
+apparmor
+apparmor-runit
 arp-scan
 artix-archlinux-support
 atool
