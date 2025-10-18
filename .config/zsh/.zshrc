@@ -18,7 +18,7 @@ precmd() {
 }
 PROMPT='%B%F{cyan}%c %F{blue}${vcs_info_msg_0_}%F{%(?.green.red)}>%f%b '
 RPROMPT='%(?..[%F{red}%?%f] )'
-[ -n "$SSH_TTY" ] && PROMPT="%F{magenta}[%M] $PROMPT"
+[ -n "${SSH_TTY:-}" ] && PROMPT="%F{magenta}[%M] $PROMPT"
 
 # History in cache directory:
 HISTSIZE=999999999

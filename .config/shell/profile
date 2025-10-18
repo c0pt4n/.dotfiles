@@ -6,6 +6,6 @@
 	command -v doas >/dev/null 2>&1 &&
 	doas -n /usr/bin/loadkeys "$XDG_CONFIG_HOME/loadkeys/loadkeysrc"
 
-[ -z "$WAYLAND_DISPLAY" ] &&
+[ -z "${WAYLAND_DISPLAY:-}" ] &&
 	[ "$(tty)" = "/dev/tty1" ] &&
 	exec "$XDG_CONFIG_HOME/river/run"
