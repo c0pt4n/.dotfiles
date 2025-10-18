@@ -26,6 +26,7 @@ jadx-gui-desktop
 katana-bin
 kerbrute-bin
 kvantum-theme-catppuccin-git
+landrun
 lswt
 mimikatz
 netdiscover
