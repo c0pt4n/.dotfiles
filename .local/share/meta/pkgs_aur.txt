@@ -14,7 +14,6 @@ crackmapexec
 dirb
 dirsearch
 dragon-drop
-enum4linux-ng-git
 evil-winrm
 ffuf-bin
 fontpreview
@@ -25,7 +24,7 @@ htop-vim
 httpx-bin
 jadx-gui-desktop
 katana-bin
-kerbrute-git
+kerbrute-bin
 kvantum-theme-catppuccin-git
 lswt
 mimikatz
@@ -33,6 +32,7 @@ netdiscover
 netexec
 noip
 nuclei-bin
+packettracer
 pam_ssh
 poweralertd
 protontricks
@@ -41,13 +41,12 @@ python-frida-tools
 sc-im
 seclists
 simple-mtpfs
-smbmap-git
+smbmap
 stegseek
 subfinder-bin
 swaylock-effects-git
 tigervnc-viewer
 ttf-amiri
-ubridge
 urlview
 vpcs-git
 waydroid
