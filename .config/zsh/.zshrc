@@ -165,5 +165,9 @@ if [ -f "$ZSHPLUGINSDIR/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh" ]; t
 	. "$ZSHPLUGINSDIR/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"
 fi
 [ -f "$ZSHPLUGINSDIR/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh" ] &&
-	. "$ZSHPLUGINSDIR/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
+	. "$ZSHPLUGINSDIR/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh" &&
+	[ -f "$XDG_CONFIG_HOME/fsh/overlay.ini" ] &&
+	command -v fast-theme >/dev/null 2>&1 &&
+	fast-theme XDG:overlay >/dev/null 2>&1
+
 [ -r /usr/share/z/z.sh ] && . /usr/share/z/z.sh
