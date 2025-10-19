@@ -15,6 +15,7 @@ vim.opt.smartcase = true
 vim.opt.ignorecase = true
 
 vim.opt.inccommand = "split"
+vim.opt.formatoptions:remove "o"
 
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
