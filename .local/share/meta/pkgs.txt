@@ -254,6 +254,7 @@ wine-staging
 winetricks
 wireshark-cli
 wl-clipboard
+wl-mirror
 wlopm
 wlr-randr
 wpa_supplicant
