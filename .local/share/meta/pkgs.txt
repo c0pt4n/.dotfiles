@@ -57,9 +57,9 @@ geoip
 ghidra
 gimp
 git
+git-delta
 git-filter-repo
 git-lfs
-git-delta
 github-cli
 glow
 gobuster
