@@ -119,6 +119,7 @@ mediainfo
 medusa
 mesa
 metasploit
+mitmproxy
 mpc
 mpd
 mpd-mpris
