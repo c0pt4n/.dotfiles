@@ -214,6 +214,8 @@ tesseract-data-ara
 tesseract-data-eng
 texlive-basic
 texlive-fontsrecommended
+texlive-latex
+texlive-latexextra
 tlp
 tlp-runit
 tmate
