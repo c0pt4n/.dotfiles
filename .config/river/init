@@ -116,6 +116,7 @@ riverctl rule-add -title "Friends List" float
 
 riverctl hide-cursor timeout 5000
 riverctl hide-cursor when-typing enabled
+riverctl set-cursor-warp on-focus-change
 riverctl xcursor-theme Adwaita
 
 riverctl set-repeat 50 200
