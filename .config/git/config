@@ -1,6 +1,32 @@
 [init]
 	defaultBranch = main
 
+[core]
+	editor = nvim
+	pager = delta
+	hooksPath = ~/.config/git/hooks
+
+[user]
+	name = Omar Mohamed
+	email = omarcoptan9@gmail.com
+	signingkey = ~/.ssh/id_ed25519.pub
+
+[gpg]
+	format = ssh
+
+[commit]
+	gpgsign = true
+
+[push]
+	default = simple
+	autoSetupRemote = true
+
+[pull]
+	rebase = true
+
+[rebase]
+	autoStash = true
+
 [alias]
 	a = add
 	co = checkout
@@ -15,14 +41,6 @@
 	logg = log --oneline --graph --decorate
 	undo = reset --soft HEAD^
 
-[commit]
-	gpgsign = true
-
-[core]
-	editor = nvim
-	pager = delta
-	hooksPath = ~/.config/git/hooks
-
 [delta]
 	tabs = 4
 	side-by-side = false
@@ -30,28 +48,11 @@
 	syntax-theme = Nord
 	file-modified-label = modified:
 
-[diff]
-    tool = nvimdiff
-
-[difftool]
-	prompt = false
-
-[gpg]
-	format = ssh
-
-[pull]
-	autoStash = true
-
 [review "review.lineageos.org"]
 	username = Coptan99
 
 [trailer "changeid"]
 	key = Change-Id
-
-[user]
-	email = omarcoptan9@gmail.com
-	name = Omar Mohamed
-	signingkey = ~/.ssh/id_ed25519.pub
 
 [url "git@github.com:"]
 	insteadOf = https://github.com/
@@ -59,5 +60,8 @@
 [url "git@gitlab.com:"]
 	insteadOf = https://gitlab.com/
 
-[push]
-	autoSetupRemote = true
+[diff]
+	tool = nvimdiff
+
+[difftool]
+	prompt = false
