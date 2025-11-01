@@ -6,6 +6,7 @@ anydesk-bin
 arkenfox-user.js
 bicon-git
 binder_linux-dkms
+bless
 brave-bin
 buku
 catppuccin-gtk-theme-git
