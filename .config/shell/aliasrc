@@ -5,6 +5,8 @@ unsetopt PROMPT_SP 2>/dev/null
 alias e="${EDITOR:-vi}"
 alias q="exit"
 
+alias doas="doas "
+
 alias mkd="mkdir -pv"
 alias cp="cp -iv"
 alias ln="ln -iv"
