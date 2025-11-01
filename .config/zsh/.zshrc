@@ -14,43 +14,57 @@ zstyle ":vcs_info:*" enable git svn
 zstyle ":vcs_info:*" formats "(%b) "
 precmd() {
 	vcs_info
-	echo -ne "\e[1 q"
+	# foot: jumping between commands
+	printf "\e]133;A\e\\"
+	# foot: pipe-command-output shell integration
+	builtin zle || printf "\e]133;D\e\\"
 }
+preexec() {
+	# foot's pipe-command-output shell integration
+	printf "\e]133;C\e\\"
+}
+
 PROMPT='%B%F{cyan}%c %F{blue}${vcs_info_msg_0_}%F{%(?.green.red)}>%f%b '
 RPROMPT='%(?..[%F{red}%?%f] )'
 [ -n "${SSH_TTY:-}" ] && PROMPT="%F{magenta}[%M] $PROMPT"
 
-# History in cache directory:
 HISTSIZE=999999999
 SAVEHIST=$HISTSIZE
-HISTFILE="${HISTFILE:-${XDG_STATE_HOME:-$HOME/.local/state}/history}"
+HISTFILE="${HISTFILE:-$XDG_STATE_HOME/history}"
 
-# Load aliases and shortcuts if existent.
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc"
+export GPG_TTY="$(tty)"
 
-# Basic auto/tab complete:
-autoload -U compinit
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc" ] && . "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc"
+
+_comp_options+=(globdots)
+autoload -Uz compinit
 zstyle ':completion:*' menu select
+zstyle ":completion:*" use-cache on
+zstyle ":completion:*" cache-path "$XDG_CACHE_HOME/zsh/.zcompcache"
+zstyle ":completion:*" completer _complete _extensions _correct
 zmodload zsh/complist
-compinit
-_comp_options+=(globdots)		# Include hidden files.
+find "$ZDOTDIR/.zcompdump" -mtime +1 >/dev/null 2>&1 && compinit || compinit -C
 
 bindkey -v
 KEYTIMEOUT=1
 
-# Use vim keys in tab complete menu:
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -M menuselect "^[[Z" reverse-menu-complete
 bindkey -v '^?' backward-delete-char
+bindkey "^[[P" delete-char
+bindkey "^[[1;5D" backward-word
+bindkey "^[[1;5C" forward-word
 
-# bindkey -s "^o" '^uxdg-open "$(fzf)" >/dev/null\n'
-# bindkey -s "^f" '^ue "$(find ~/ -type f 2>/dev/null | fzf)"\n'
-# bindkey -s "^g" '^ucd "$(find ~/ -type d 2>/dev/null | fzf)"\n'
-# bindkey -s "^n" '^ucd "$(find $ZK_NOTEBOOK_DIR/ -type d 2>/dev/null | fzf)"\n'
-# bindkey -s "^t" '^u[ -f TODO.md ] && $EDITOR TODO.md || notes todo\n'
-# bindkey -s "^f" "tmux-sessionizer\n"
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey "^e" edit-command-line
+bindkey -M vicmd "^e" edit-command-line
+bindkey -M vicmd "^[[P" vi-delete-char
+bindkey -M visual "^[[P" vi-delete
+
 autoload -Uz add-zsh-hook
 zshcache_time="$(date +%s%N)"
 precmd_rehash() {
@@ -110,47 +124,6 @@ todo_widget() {
 }
 zle -N todo_widget
 bindkey "^t" todo_widget
-
-# cd on exit
-n ()
-{
-    # Block nesting of nnn in subshells
-    [ "${NNNLVL:-0}" -eq 0 ] || {
-        echo "nnn is already running"
-        return
-    }
-
-    # The behaviour is set to cd on quit (nnn checks if NNN_TMPFILE is set)
-    # If NNN_TMPFILE is set to a custom path, it must be exported for nnn to
-    # see. To cd on quit only on ^G, remove the "export" and make sure not to
-    # use a custom path, i.e. set NNN_TMPFILE *exactly* as follows:
-    #      NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
-    export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
-
-    # Unmask ^Q (, ^V etc.) (if required, see `stty -a`) to Quit nnn
-    # stty start undef
-    # stty stop undef
-    # stty lwrap undef
-    # stty lnext undef
-
-    # The command builtin allows one to alias nnn to n, if desired, without
-    # making an infinitely recursive alias
-    command nnn "$@"
-
-    [ ! -f "$NNN_TMPFILE" ] || {
-        . "$NNN_TMPFILE"
-        rm -f -- "$NNN_TMPFILE" > /dev/null
-    }
-}
-
-bindkey -s '^n' 'n^M'
-
-# Edit line in vim with ctrl-e:
-autoload edit-command-line; zle -N edit-command-line
-bindkey '^e' edit-command-line
-bindkey -M vicmd '^[[P' vi-delete-char
-bindkey -M vicmd '^e' edit-command-line
-bindkey -M visual '^[[P' vi-delete
 
 ZSHPLUGINSDIR="${ZSHPLUGINSDIR:-/usr/share/zsh/plugins}"
 if [ -f "$ZSHPLUGINSDIR/zsh-history-substring-search/zsh-history-substring-search.zsh" ]; then
