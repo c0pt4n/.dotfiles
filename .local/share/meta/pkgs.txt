@@ -15,11 +15,11 @@ bat
 bc
 bind
 binwalk
-bless
 bluez
 bluez-runit
 bluez-utils
 brightnessctl
+btop
 calcurse
 cava
 chrony
