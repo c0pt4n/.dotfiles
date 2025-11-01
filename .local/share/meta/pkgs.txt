@@ -27,6 +27,7 @@ chrony-runit
 clang
 cronie
 cronie-runit
+cuda
 cups
 cups-runit
 dart-sass
