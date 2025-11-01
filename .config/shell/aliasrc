@@ -45,7 +45,7 @@ alias pql="pacman -Qs"
 [ -x "$(command -v nvim)" ] && alias vim="nvim" vimdiff="nvim -d"
 
 sudocmd="$(command -v doas 2>/dev/null || command -v sudo 2>/dev/null)"
-for cmd in su mount umount sv updatedb shutdown poweroff reboot zzz ZZZ rsm openvpn; do
+for cmd in su mount umount sv updatedb rsm openvpn; do
 	alias $cmd="$sudocmd $(which "$cmd")"
 done
 unset sudocmd cmd
