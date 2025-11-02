@@ -196,7 +196,7 @@
     "custom/logo": {
         "format": "  ",
         "tooltip": false,
-        "on-click": "fuzzel"
+        "on-click": "fuzzel -R"
     },
 	"custom/days": {
 		"format": " {}",
