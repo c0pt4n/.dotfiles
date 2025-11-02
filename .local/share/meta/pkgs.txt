@@ -49,6 +49,7 @@ ffmpeg
 ffmpegthumbnailer
 flatpak
 foot
+foot-terminfo
 fribidi
 fuzzel
 fzf
