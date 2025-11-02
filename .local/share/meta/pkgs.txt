@@ -90,6 +90,7 @@ jadx
 jdk-openjdk
 john
 jq
+jujutsu
 kanshi
 kvantum
 ldns
