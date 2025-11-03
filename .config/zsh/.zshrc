@@ -35,6 +35,7 @@ HISTFILE="${HISTFILE:-$XDG_STATE_HOME/history}"
 export GPG_TTY="$(tty)"
 
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc" ] && . "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc"
+alias doas="doas "
 
 _comp_options+=(globdots)
 autoload -Uz compinit
