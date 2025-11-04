@@ -73,8 +73,9 @@
 	},
 	"mpris": {
 		"player": "playerctld",
-		"format": "{status_icon} {title}",
-		"title-len": 20,
+		"format": "{status_icon} {title} • {artist}",
+		"title-len": 10,
+		"artist-len": 10,
 		"status-icons": {
 			"paused": "",
 			"stopped": "",
