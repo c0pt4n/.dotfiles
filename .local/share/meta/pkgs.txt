@@ -6,6 +6,7 @@ android-tools
 android-udev
 apparmor
 apparmor-runit
+arc-gtk-theme
 arp-scan
 artix-archlinux-support
 atool
