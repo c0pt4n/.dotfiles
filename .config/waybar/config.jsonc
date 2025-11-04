@@ -3,7 +3,6 @@
 	"position": "top",
 
 	"modules-left": [
-        "custom/logo",
 		"river/tags",
 		"river/mode"
 	],
@@ -194,11 +193,6 @@
 			]
 		}
 	},
-    "custom/logo": {
-        "format": "  ",
-        "tooltip": false,
-        "on-click": "fuzzel -R"
-    },
 	"custom/days": {
 		"format": " {}",
 		"interval": 1800,

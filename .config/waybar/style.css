@@ -31,8 +31,7 @@ window#waybar {
 #temperature,
 #battery,
 #upower,
-#custom-days,
-#custom-logo {
+#custom-days {
 	background-color: #3b4252;
 	padding: 0.4rem 0.6rem 0.2rem 0.6rem;
 	border-bottom: 0.32rem solid #3b4252;
