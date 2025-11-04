@@ -33,6 +33,8 @@ alias urls="rg '(((http|https|gopher|gemini|ftp|ftps|git)://|www\\.)[a-zA-Z0-9.]
 alias bm="buku --suggest"
 alias drag="dragon-drop -a -x"
 alias adb='env HOME="$ANDROID_USER_HOME" adb'
+alias mitmproxy='mitmproxy --set confdir="$XDG_CONFIG_HOME/mitmproxy"'
+alias mitmweb='mitmweb --set confdir="$XDG_CONFIG_HOME/mitmproxy"'
 
 # pacman
 alias pi="doas pacman -S"
