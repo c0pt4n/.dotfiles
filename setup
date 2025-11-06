@@ -65,7 +65,6 @@ setup_runit() {
 		/etc/runit/sv/udevd \
 		/etc/runit/sv/chrony \
 		/etc/runit/sv/elogind \
-		/etc/runit/sv/dhcpcd \
 		/etc/runit/sv/NetworkManager \
 		/etc/runit/sv/bluetoothd \
 		/etc/runit/sv/cronie \
@@ -75,8 +74,7 @@ setup_runit() {
 		/etc/runit/sv/cupsd \
 		/etc/runit/sv/docker \
 		/etc/runit/sv/libvirtd \
-		/etc/runit/sv/virtlogd \
-		/etc/runit/sv/waydroid-container
+		/etc/runit/sv/virtlogd
 }
 
 setup_fonts() {
