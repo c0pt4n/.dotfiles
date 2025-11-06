@@ -30,6 +30,7 @@ cronie
 cronie-runit
 cuda
 cups
+cups-pdf
 cups-runit
 dart-sass
 dash
