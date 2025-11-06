@@ -4,10 +4,22 @@ HERE="$(dirname "$(readlink -f "$0")")"
 . "$HERE/.config/shell/env"
 
 SETUP_PROGRAMS_DIR="${SETUP_PROGRAMS_DIR:-$HOME/programs}"
-SETUP_BROWSER_DIR="${SETUP_BROWSER_DIR:-$HOME/.zen}"
 SETUP_PKGS_FILE="${SETUP_PKGS_FILE:-$XDG_DATA_HOME/pkgs/pkgs.txt}"
 SETUP_PKGS_AUR_FILE="${SETUP_PKGS_AUR_FILE:-$XDG_DATA_HOME/pkgs/pkgs_aur.txt}"
 SETUP_PKGS_FLATPAKS_FILE="${SETUP_PKGS_FLATPAKS_FILE:-$XDG_DATA_HOME/pkgs/flatpaks.txt}"
+
+[ -n "${SETUP_BROWSER_DIR:-}" ] || case "$BROWSER" in
+	zen-browser) SETUP_BROWSER_DIR="$HOME/.zen" ;;
+	librewolf) SETUP_BROWSER_DIR="$HOME/.librewolf" ;;
+	waterfox) SETUP_BROWSER_DIR="$HOME/.waterfox" ;;
+	firefox) SETUP_BROWSER_DIR="$HOME/.mozilla/firefox" ;;
+	*)
+		[ "$1" = "browser" ] || [ "$1" = "all" ] && {
+			echo "$(basename "$0"): cannot determine SETUP_BROWSER_DIR" >&2
+			exit 1
+		}
+		;;
+esac
 
 # shellcheck disable=2015
 sudocmd="$([ -s /etc/doas.conf ] && command -v doas 2>/dev/null || command -v sudo 2>/dev/null)"
