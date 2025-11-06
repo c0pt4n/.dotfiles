@@ -10,7 +10,7 @@
 }
 
 window#waybar {
-	color: #eceff4;
+	color: #cdd6f4;
     background-color: transparent;
 }
 
@@ -32,14 +32,12 @@ window#waybar {
 #battery,
 #upower,
 #custom-days {
-	background-color: #3b4252;
+	background-color: #1e1e2e;
 	padding: 0.4rem 0.6rem 0.2rem 0.6rem;
-	border-bottom: 0.32rem solid #3b4252;
+	border-bottom: 0.32rem solid #1e1e2e;
 }
 
 #tags button {
-	background-color: #2e3440;
-	border-bottom-color: #2e3440;
 	padding-left: 0.3rem;
 	padding-right: 0.3rem;
 }
@@ -68,14 +66,14 @@ window#waybar {
 }
 
 #tags button.focused {
-	background-color: #3b4252;
-	border-bottom-color: #5e81ac;
+	background-color: #313244;
+	border-bottom-color: #74c7ec;
 }
 
 #tags button.urgent,
 #privacy,
 #custom-recording {
-	border-bottom-color: #b74e58;
+	border-bottom-color: #f38ba8;
 }
 
 #tray,

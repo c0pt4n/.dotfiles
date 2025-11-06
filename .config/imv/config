@@ -1,10 +1,10 @@
 [options]
 suppress_default_binds = true
-background = 2e3440
+background=1e1e2e
 overlay = true
 overlay_font = monospace:14
-overlay_text_color = eceff4
-overlay_background_color = 2e3440
+overlay_text_color=cdd6f4
+overlay_background_color=11111b
 overlay_background_alpha = ff
 overlay_position_bottom = true
 

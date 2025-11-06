@@ -9,6 +9,7 @@ binder_linux-dkms
 bless
 brave-bin
 buku
+catppuccin-gtk-theme-git
 clipman
 crackmapexec
 dirb
@@ -25,6 +26,7 @@ httpx-bin
 jadx-gui-desktop
 katana-bin
 kerbrute-bin
+kvantum-theme-catppuccin-git
 landrun
 lswt
 mimikatz
