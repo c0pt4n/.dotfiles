@@ -9,7 +9,7 @@ binder_linux-dkms
 bless
 brave-bin
 buku
-catppuccin-gtk-theme-git
+catppuccin-gtk-theme-mocha
 clipman
 crackmapexec
 dirb

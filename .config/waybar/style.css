@@ -32,12 +32,14 @@ window#waybar {
 #battery,
 #upower,
 #custom-days {
-	background-color: #1e1e2e;
+	background-color: #181825;
 	padding: 0.4rem 0.6rem 0.2rem 0.6rem;
-	border-bottom: 0.32rem solid #1e1e2e;
+	border-bottom: 0.32rem solid #181825;
 }
 
 #tags button {
+	background-color: #1e1e2e;
+	border-bottom-color: #1e1e2e;
 	padding-left: 0.3rem;
 	padding-right: 0.3rem;
 }
@@ -66,8 +68,8 @@ window#waybar {
 }
 
 #tags button.focused {
-	background-color: #313244;
-	border-bottom-color: #74c7ec;
+	background-color: #181825;
+	border-bottom-color: #b4befe;
 }
 
 #tags button.urgent,
