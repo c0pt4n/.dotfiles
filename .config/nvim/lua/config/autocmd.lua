@@ -23,12 +23,15 @@ autocmd({ "BufEnter" }, {
 	end,
 })
 
-autocmd({ "BufReadPost" }, {
+autocmd("BufReadPost", {
 	group = augroup("curpos", { clear = true }),
-	pattern = "*",
 	callback = function(opts)
+		if not vim.bo[opts.buf].buflisted then return end
+		if vim.bo[opts.buf].buftype ~= "" then return end
+
 		local ft = vim.bo[opts.buf].filetype
-		if ft == "commit" or ft == "rebase" then return end
+		if ft == "commit" or ft == "rebase" or ft:match("^fugitive") then return end
+
 		local line = vim.api.nvim_buf_get_mark(opts.buf, '"')[1]
 		if line > 1 and line <= vim.api.nvim_buf_line_count(opts.buf) then
 			vim.api.nvim_feedkeys('g`"', "nx", false)
