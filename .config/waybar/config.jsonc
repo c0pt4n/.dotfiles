@@ -170,7 +170,8 @@
 			"",
 			"",
 			""
-		]
+		],
+		"tooltip": false
 	},
 	"pulseaudio": {
 		"format": "{icon} {volume}%",
