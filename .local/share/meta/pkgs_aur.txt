@@ -21,6 +21,7 @@ fontpreview
 ghidra-desktop
 go-mtpfs-git
 heroic-games-launcher-bin
+hplip-plugin
 htop-vim
 httpx-bin
 jadx-gui-desktop
