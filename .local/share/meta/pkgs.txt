@@ -109,9 +109,9 @@ libnotify
 libreoffice-still
 libvirt-runit
 libxml2-legacy
-linux
 linux-firmware
-linux-headers
+linux-zen
+linux-zen-headers
 lsof
 lynx
 lzip
