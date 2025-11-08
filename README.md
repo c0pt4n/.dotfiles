@@ -4,10 +4,10 @@
 
 ## Setup
 
-Use the `sysinit` script instead to install the packages and setup the dotfiles
+Use the `setup` script instead to install the packages and setup the dotfiles
 for a fresh [Artix Linux](https://artixlinux.org/) install:
 ```sh
-./sysinit
+./setup
 ```
 
 ## Post Install
