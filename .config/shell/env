@@ -62,7 +62,3 @@ export FZF_DEFAULT_OPTS="--layout=reverse --height=~40%"
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --strip-cwd-prefix"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export PASSWORD_STORE_GPG_OPTS="--no-throw-keyids"
-
-export GTK_THEME="catppuccin-mocha-sky-standard+default"
-export QT_STYLE_OVERRIDE="kvantum"
-export QT_QPA_PLATFORMTHEME="gtk2"
