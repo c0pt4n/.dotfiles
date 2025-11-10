@@ -15,12 +15,12 @@ case "$sel" in
 		grim "$out"
 		notify-send -a "$(basename "$0")" "screenshot" "saved to $out"
 		;;
-    select-copy)
+	select-copy)
 		g="$(slurp -d)" || exit 1
 		grim -g "$g" - | wl-copy -t image/png
 		notify-send -a "$(basename "$0")" "screenshot" "saved to clipboard"
 		;;
-    fullscreen-copy)
+	fullscreen-copy)
 		grim - | wl-copy -t image/png
 		notify-send -a "$(basename "$0")" "screenshot" "saved to clipboard"
 		;;
@@ -28,7 +28,7 @@ case "$sel" in
 		g="$(slurp -o -r)" || exit 1
 		grim -t ppm - | satty --filename -
 		;;
-    "selected image to text")
+	"selected image to text")
 		g="$(slurp -d)" || exit 1
 		tmpfile=$(mktemp /tmp/ocr-XXXXXX.png) && grim -g "$g" - > "$tmpfile" && tesseract "$tmpfile" - -l eng | ${ocr_cmd} && rm "$tmpfile"
 		;;
