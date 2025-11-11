@@ -36,6 +36,13 @@ setup_dotfiles() {
 	ln -svf "$XDG_CONFIG_HOME/shell/profile" "$HOME/.zprofile"
 	$sudocmd cp -rvf "$HERE/etc/." /etc
 	ln -svf "$HERE/.editorconfig" "$HOME"
+	[ -n "${WINEPREFIX:-}" ] &&
+		command -v wine >/dev/null 2>&1 &&
+		mkdir -pv "$WINEPREFIX"
+	command -v gsettings >/dev/null 2>&1 &&
+		gsettings set org.gnome.desktop.interface color-scheme prefer-dark &&
+		[ -n "${GTK_THEME:-}" ] &&
+		gsettings set org.gnome.desktop.interface gtk-theme "$GTK_THEME"
 }
 
 setup_pkgs() {
@@ -54,8 +61,6 @@ setup_pkgs() {
 	}
 	command -v go >/dev/null 2>&1 &&
 		go telemetry off
-	command -v wine >/dev/null 2>&1 &&
-		mkdir -pv "$WINEPREFIX"
 	[ -r "$SETUP_PKGS_FLATPAKS_FILE" ] &&
 		command -v flatpak >/dev/null 2>&1 &&
 		xargs flatpak install -y <"$SETUP_PKGS_FLATPAKS_FILE"
