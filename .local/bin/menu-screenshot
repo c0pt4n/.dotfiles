@@ -1,6 +1,12 @@
 #!/bin/sh
 
 dir="$(xdg-user-dir PICTURES)/screenshots"
+[ -d "$dir" ] || mkdir -p "$dir" || {
+	echo "$(basename "$0"): cannot create directory $dir" >&2
+	notify-send -u critical -a "$(basename "$0")" "error" "cannot create directory $dir"
+	exit 1
+}
+
 ocr_cmd="wl-copy"
 sel="${1:-$(printf "select\nfullscreen\ncapture-edit\nfullscreen-copy\nselect-copy\nselected image to text" | menu -p "$(basename "$0")> ")}" || exit 1
 out="$dir/$(date "+%Y%m%d-%H%M%S").png"
