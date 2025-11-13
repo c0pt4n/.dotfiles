@@ -32,6 +32,7 @@ pam_ssh
 poweralertd
 protontricks
 python-frida-tools
+qt5-webengine
 sc-im
 seclists
 simple-mtpfs
