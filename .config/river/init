@@ -139,6 +139,7 @@ run poweralertd
 run mpris-proxy
 run playerctld daemon
 run syncthing serve --no-browser
+run wl-clip-persist -c regular &
 run wl-paste -t text -w clipman store -P --max-items 30
 run waybar
 pidof -qsx mpd || (mpd && mpd-mpris) &

@@ -248,6 +248,7 @@ wine-mono
 wine-staging
 winetricks
 wireshark-cli
+wl-clip-persist
 wl-clipboard
 wl-mirror
 wlopm
