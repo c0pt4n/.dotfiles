@@ -1,6 +1,5 @@
 7zip
 aerc
-alsa-firmware
 alsa-plugins
 android-tools
 android-udev
@@ -14,7 +13,6 @@ base-devel
 bat
 bc
 bind
-binwalk
 bluez
 bluez-runit
 bluez-utils
@@ -45,7 +43,6 @@ exfat-utils
 exploitdb
 fastfetch
 fd
-fdupes
 ffmpeg
 ffmpegthumbnailer
 flatpak
@@ -64,10 +61,8 @@ git-delta
 git-filter-repo
 git-lfs
 github-cli
-glow
 gobuster
 goimapnotify
-graphviz
 grex
 grim
 grub
@@ -76,7 +71,6 @@ hcxdumptool
 hcxtools
 hdparm
 helvum
-hexedit
 highlight
 hplip
 hugo
@@ -144,15 +138,12 @@ noto-fonts-emoji
 npm
 ntfs-3g
 nvidia-dkms
-nvidia-prime
 nvidia-settings
 nvidia-utils
 nvtop
 obs-studio
 openbsd-netcat
 opendoas
-openldap
-openldap-runit
 openssh
 openssh-runit
 openvpn
@@ -175,7 +166,6 @@ python-pipenv
 python-pipx
 python-pyjwt
 python-pyqt6
-qbittorrent
 qemu-base
 qemu-desktop
 qrencode
@@ -188,10 +178,8 @@ qt5-wayland
 qt5-webengine
 qt5-websockets
 rclone
-reaver
 ripgrep
 river
-ropgadget
 rsm
 rsync
 ruby-getoptlong
@@ -226,8 +214,6 @@ tlp
 tlp-runit
 tmate
 tmux
-tor
-torsocks
 translate-shell
 transmission-cli
 ttf-dejavu
@@ -243,14 +229,12 @@ unzip
 upower
 upterm
 valgrind
-vim
 virt-manager
 vnstat
 vnstat-runit
 vulkan-intel
 vulkan-radeon
 vulkan-tools
-w3m
 waybar
 waydroid
 wev
@@ -268,14 +252,10 @@ wl-mirror
 wlopm
 wlr-randr
 wpa_supplicant
-wpa_supplicant-runit
-wpscan
 xdg-desktop-portal-gtk
 xdg-desktop-portal-wlr
 xdg-user-dirs
 xdg-utils
-xorg-xauth
-xorg-xdpyinfo
 yt-dlp
 z
 zathura
