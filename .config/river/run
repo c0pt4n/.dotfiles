@@ -16,6 +16,6 @@ export XDG_CURRENT_DESKTOP="river"
 
 export GTK_THEME="catppuccin-mocha-sky-standard+default"
 export QT_STYLE_OVERRIDE="kvantum"
-export QT_QPA_PLATFORMTHEME="gtk2"
+export QT_QPA_PLATFORMTHEME="kvantum"
 
 exec dbus-run-session river -log-level debug >"/tmp/river-$(date "+%F-%T").log" 2>&1

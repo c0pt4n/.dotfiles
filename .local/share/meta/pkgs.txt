@@ -88,6 +88,7 @@ jq
 jujutsu
 kanshi
 kvantum
+kvantum-qt5
 ldns
 less
 lib32-alsa-lib
