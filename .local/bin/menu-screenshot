@@ -31,7 +31,6 @@ case "$sel" in
 		notify-send -a "$(basename "$0")" "screenshot" "saved to clipboard"
 		;;
 	capture-edit)
-		g="$(slurp -o -r)" || exit 1
 		grim -t ppm - | satty --filename -
 		;;
 	"selected image to text")
