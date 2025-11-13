@@ -156,7 +156,6 @@ openldap-runit
 openssh
 openssh-runit
 openvpn
-otf-font-awesome
 pacman-contrib
 pandoc-bin
 pass
@@ -233,6 +232,7 @@ translate-shell
 transmission-cli
 ttf-dejavu
 ttf-dejavu-nerd
+ttf-font-awesome
 ttf-ibm-plex
 ttf-ibmplex-mono-nerd
 ttf-liberation
