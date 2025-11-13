@@ -4,7 +4,6 @@ android-apktool-bin
 arkenfox-user.js
 bicon-git
 bless
-brave-bin
 buku
 catppuccin-gtk-theme-mocha
 clipman
