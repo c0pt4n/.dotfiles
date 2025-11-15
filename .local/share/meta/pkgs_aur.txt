@@ -26,7 +26,6 @@ netdiscover
 netexec
 noip
 nuclei-bin
-packettracer
 pam_ssh
 poweralertd
 protontricks
