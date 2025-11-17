@@ -22,3 +22,22 @@ Far :omarcoptan9@gmail.com-remote:
 Near :omarcoptan9@gmail.com-local:
 Patterns *
 SyncState *
+
+IMAPStore huhu1002.h1@gmail.com-remote
+Host imap.gmail.com
+Port 993
+User huhu1002.h1@gmail.com
+PassCmd "pass mail/huhu1002.h1@gmail.com | sed 1q"
+AuthMechs LOGIN
+TLSType IMAPS
+
+MaildirStore huhu1002.h1@gmail.com-local
+Path ~/.local/share/mail/huhu1002.h1@gmail.com/
+Inbox ~/.local/share/mail/huhu1002.h1@gmail.com/Inbox
+Subfolders Verbatim
+
+Channel huhu1002.h1@gmail.com
+Far :huhu1002.h1@gmail.com-remote:
+Near :huhu1002.h1@gmail.com-local:
+Patterns *
+SyncState *
