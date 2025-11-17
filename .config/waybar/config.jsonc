@@ -25,14 +25,6 @@
 		"upower",
 		"custom/days"
 	],
-    "wlr/taskbar": {
-        "format": "{icon}",
-        "on-click": "activate",
-        "on-click-right": "fullscreen",
-        "icon-theme": "WhiteSur",
-        "icon-size": 25,
-        "tooltip-format": "{title}"
-    },
 	"river/tags": {
 		"num-tags": 9,
 		"hide-vacant": true
