@@ -109,7 +109,6 @@ linux-firmware
 linux-zen
 linux-zen-headers
 lsof
-lynx
 lzip
 macchanger
 mako
@@ -237,6 +236,7 @@ vnstat-runit
 vulkan-intel
 vulkan-radeon
 vulkan-tools
+w3m
 waybar
 waydroid
 wev
