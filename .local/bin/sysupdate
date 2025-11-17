@@ -9,6 +9,7 @@ updatepkgs() {
 	$sudocmd pacman -Syu --noconfirm
 	command -v paru >/dev/null 2>&1 && paru -Sua --noconfirm
 	command -v flatpak >/dev/null 2>&1 && flatpak update -y
+	command -v go >/dev/null 2>&1 && go install -v "$(cat ~/.local/share/meta/pkgs_go.txt)"
 }
 
 clean() {

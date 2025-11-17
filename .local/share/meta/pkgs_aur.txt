@@ -10,14 +10,11 @@ clipman
 dirb
 dirsearch
 dragon-drop
-ffuf-bin
 ghidra-desktop
 heroic-games-launcher-bin
 hplip-plugin
 htop-vim
-httpx-bin
 jadx-gui-desktop
-katana-bin
 kerbrute-bin
 kvantum-theme-catppuccin-git
 landrun
@@ -25,7 +22,6 @@ lswt
 netdiscover
 netexec
 noip
-nuclei-bin
 pam_ssh
 poweralertd
 protontricks
@@ -36,7 +32,6 @@ seclists
 simple-mtpfs
 smbmap
 stegseek
-subfinder-bin
 swaylock-effects-git
 tigervnc-viewer
 ttf-amiri
