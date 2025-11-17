@@ -42,6 +42,7 @@ alias pu="doas pacman -Syu"
 alias pr="doas pacman -Rns"
 alias pq="pacman -Ss"
 alias pql="pacman -Qs"
+alias plu="pacman -Qqen > ~/.dotfiles/.local/share/meta/pkgs.txt; pacman -Qqem | rg -v -w 'paru|packettracer'> ~/.dotfiles/.local/share/meta/pkgs_aur.txt"
 
 # neovim for vim if available
 [ -x "$(command -v nvim)" ] && alias vim="nvim" vimdiff="nvim -d"
