@@ -162,6 +162,7 @@ podman-docker
 pulsemixer
 pyenv
 python-django
+python-lxml
 python-pexpect
 python-pip
 python-pipenv
