@@ -15,7 +15,7 @@ TLSType IMAPS
 MaildirStore omarcoptan9@gmail.com-local
 Path ~/.local/share/mail/omarcoptan9@gmail.com/
 Inbox ~/.local/share/mail/omarcoptan9@gmail.com/Inbox
-Subfolders Verbatim
+SubFolders Verbatim
 
 Channel omarcoptan9@gmail.com
 Far :omarcoptan9@gmail.com-remote:
@@ -34,10 +34,30 @@ TLSType IMAPS
 MaildirStore huhu1002.h1@gmail.com-local
 Path ~/.local/share/mail/huhu1002.h1@gmail.com/
 Inbox ~/.local/share/mail/huhu1002.h1@gmail.com/Inbox
-Subfolders Verbatim
+SubFolders Verbatim
 
 Channel huhu1002.h1@gmail.com
 Far :huhu1002.h1@gmail.com-remote:
 Near :huhu1002.h1@gmail.com-local:
 Patterns *
+SyncState *
+
+
+IMAPStore 202202941@o6u.edu.eg-remote
+Host outlook.office365.com
+User 202202941@o6u.edu.eg
+PassCmd "pass mail/202202941@o6u.edu.eg | sed 1q"
+AuthMechs LOGIN
+TLSType IMAPS
+
+MaildirStore 202202941@o6u.edu.eg-local
+Path ~/.local/share/mail/202202941@o6u.edu.eg/
+Inbox ~/.local/share/mail/202202941@o6u.edu.eg/Inbox
+SubFolders Verbatim
+
+Channel 202202941@o6u.edu.eg-inbox
+Far :202202941@o6u.edu.eg-remote:
+Near :202202941@o6u.edu.eg-local:
+Patterns *
+Create Both
 SyncState *
