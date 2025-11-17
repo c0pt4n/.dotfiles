@@ -64,9 +64,14 @@
 	},
 	"mpris": {
 		"player": "playerctld",
-		"format": "{status_icon} {title} • {artist}",
-		"title-len": 10,
-		"artist-len": 10,
+		"format": "{player_icon}: {title} {status_icon} ",
+		"title-len": 20,
+		"player-icons": {
+			"default": "▶",
+			"firefox": "",
+			"mpv": "",
+			"mpd": "🎵"
+		},
 		"status-icons": {
 			"paused": "",
 			"stopped": "",
