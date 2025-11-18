@@ -118,6 +118,7 @@ masscan
 mediainfo
 medusa
 mesa
+mesa-utils
 metasploit
 mitmproxy
 mpc
@@ -139,6 +140,7 @@ noto-fonts-emoji
 npm
 ntfs-3g
 nvidia-dkms
+nvidia-prime
 nvidia-settings
 nvidia-utils
 nvtop
