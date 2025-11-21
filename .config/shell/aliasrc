@@ -35,6 +35,7 @@ alias drag="dragon-drop -a -x"
 alias adb='env HOME="$ANDROID_USER_HOME" adb'
 alias mitmproxy='mitmproxy --set confdir="$XDG_CONFIG_HOME/mitmproxy"'
 alias mitmweb='mitmweb --set confdir="$XDG_CONFIG_HOME/mitmproxy"'
+alias msfconsole='msfconsole -q'
 
 # pacman
 alias pi="doas pacman -S"
