@@ -11,5 +11,5 @@ trim_trailing_whitespace = true
 [*.diff]
 trim_trailing_whitespace = false
 
-[*.py]
+[{*.yml,*.yaml,*.md,*.py}]
 indent_style = space
