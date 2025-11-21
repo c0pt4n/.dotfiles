@@ -22,8 +22,7 @@
 		"memory",
 		"cpu",
 		"temperature",
-		"upower",
-		"custom/days"
+		"upower"
 	],
 	"river/tags": {
 		"num-tags": 9,
@@ -192,10 +191,4 @@
 			]
 		}
 	},
-	"custom/days": {
-		"format": " {}",
-		"interval": 1800,
-		"exec": "echo $(( ($(date +%s) - $(date -d 2004-08-17 +%s)) / 86400 ))",
-		"tooltip": false
-	}
 }
