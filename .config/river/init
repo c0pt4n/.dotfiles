@@ -113,6 +113,7 @@ riverctl rule-add -app-id dragon-drop float
 riverctl rule-add -app-id Waydroid float
 riverctl rule-add -title Picture-in-Picture float
 riverctl rule-add -title "Friends List" float
+riverctl rule-add -app-id "install4j-burp-StartBurp" -title "Settings" float
 
 riverctl hide-cursor timeout 5000
 riverctl hide-cursor when-typing enabled
