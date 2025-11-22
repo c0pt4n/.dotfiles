@@ -250,6 +250,7 @@ wine-gecko
 wine-mono
 wine-staging
 winetricks
+wiremix
 wireshark-cli
 wl-clip-persist
 wl-clipboard
