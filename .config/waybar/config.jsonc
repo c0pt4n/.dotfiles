@@ -163,7 +163,6 @@
 		"max-length": 10
 	},
 	"cpu": {
-		"interval": 10,
 		"format": " {usage}%",
 		"max-length": 10,
 		"on-click": "foot -a float --window-size-pixels 1200x800 htop",
