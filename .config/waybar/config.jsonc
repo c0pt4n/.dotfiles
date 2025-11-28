@@ -138,7 +138,7 @@
 	    "format-wifi": "{icon} {signalStrength}%",
 		"format-ethernet": "{ipaddr}/{cidr} ",
 		"format-disconnected": "󰤮",
-		"on-click": "foot -a float --window-size-pixels 1200x800 nmtui",
+		"on-click": "foot -a float --window-size-pixels 980x620 nmtui",
 		"tooltip-format": "{ifname} via {gwaddr} 󰊗",
 		"tooltip-format-wifi": "{essid} ({frequency}GHz)\n{ipaddr}/{cidr} at {ifname}",
 		"tooltip-format-ethernet": "{ifname} ",
@@ -165,7 +165,7 @@
 	"cpu": {
 		"format": " {usage}%",
 		"max-length": 10,
-		"on-click": "foot -a float --window-size-pixels 1200x800 htop",
+		"on-click": "foot -a float --window-size-pixels 980x620 htop",
 	},
 	"temperature": {
 		"interval": 10,
