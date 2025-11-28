@@ -29,7 +29,7 @@ window#waybar {
 #memory,
 #cpu,
 #temperature,
-#battery {
+#upower {
 	background-color: #181825;
 	padding: 0.4rem 0.6rem 0.2rem 0.6rem;
 	border-bottom: 0.32rem solid #181825;

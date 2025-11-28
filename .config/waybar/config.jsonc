@@ -22,7 +22,7 @@
 		"memory",
 		"cpu",
 		"temperature",
-		"battery"
+		"upower"
 	],
 	"river/tags": {
 		"num-tags": 9,
@@ -95,24 +95,13 @@
 		"tooltip": false,
 		"signal": 8
 	},
-	"battery": {
-		"format": "{capacity}% {icon}",
-		"format-discharging": "{icon}",
-		"format-charging": "{icon}",
-		"format-plugged": "",
-		"format-icons": {
-			"charging": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"],
-			"default": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
-		},
-		"format-full": "󰂅",
-		"tooltip-format-discharging": "{power:>1.0f}W↓ {capacity}%",
-		"tooltip-format-charging": "{power:>1.0f}W↑ {capacity}%",
-		"interval": 5,
-		"on-click": "menu-sysact",
-		"states": {
-			"warning": 20,
-			"critical": 10
-		}
+	"upower": {
+		"format": " {percentage}",
+		"tooltip-format": " {time}",
+		"tooltip": true,
+		"tooltip-spacing": 20,
+		"icon-size": 16,
+		"hide-if-empty": true
 	},
 	"privacy": {
 		"icon-spacing": 4,
