@@ -1,0 +1,11 @@
+#!/bin/sh
+
+set -eu
+
+exec waylock \
+    -fork-on-lock \
+    -log-level info \
+    -ignore-empty-password \
+    -init-color 0x1e1e2e \
+    -input-color 0xb4befe \
+    -fail-color 0xf38ba8
