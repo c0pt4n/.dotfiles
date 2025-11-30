@@ -23,6 +23,7 @@ lswt
 netdiscover
 netexec
 noip
+pam-gnupg
 pam_ssh
 poweralertd
 protontricks
