@@ -33,7 +33,6 @@ seclists
 simple-mtpfs
 smbmap
 stegseek
-swaylock-effects-git
 tigervnc-viewer
 ttf-amiri
 urlview

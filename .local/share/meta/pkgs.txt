@@ -241,6 +241,7 @@ vulkan-tools
 w3m
 waybar
 waydroid
+waylock
 wev
 wf-recorder
 wget
