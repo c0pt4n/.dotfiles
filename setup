@@ -52,7 +52,7 @@ setup_pkgs() {
 		$sudocmd pacman-key --populate archlinux &&
 		$sudocmd pacman -Sy --noconfirm
 	[ -r "$SETUP_PKGS_FILE" ] &&
-		sudocmd pacman -S --needed --noconfirm - < "$SETUP_PKGS_FILE"
+		$sudocmd pacman -S --needed --noconfirm - < "$SETUP_PKGS_FILE"
 	[ -r "$SETUP_PKGS_AUR_FILE" ] && {
 		command -v paru >/dev/null 2>&1 || {
 			git clone https://aur.archlinux.org/paru.git "$SETUP_PROGRAMS_DIR/paru" &&
