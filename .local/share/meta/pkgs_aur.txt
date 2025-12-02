@@ -15,6 +15,7 @@ ghidra-desktop
 heroic-games-launcher-bin
 hplip-plugin
 htop-vim
+informant
 jadx-gui-desktop
 kerbrute-bin
 kvantum-theme-catppuccin-git

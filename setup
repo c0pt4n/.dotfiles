@@ -71,7 +71,7 @@ setup_pkgs() {
 setup_user() {
 	chsh -s "$(which zsh)"
 	$sudocmd ln -sfT dash /usr/bin/sh
-	$sudocmd usermod -aG video,audio,input,power,storage,optical,network,lp,scanner,dbus,adbusers,uucp,dbus,wireshark,nixbld,libvirt,wheel "$USER"
+	$sudocmd usermod -aG video,audio,input,power,storage,optical,network,lp,scanner,dbus,adbusers,uucp,dbus,wireshark,nixbld,libvirt,wheel,informant "$USER"
 }
 
 setup_runit() {
