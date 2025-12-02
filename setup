@@ -75,11 +75,11 @@ setup_user() {
 }
 
 setup_runit() {
-	doas rm -vf \
+	$sudocmd rm -vf \
 		/run/runit/service/agetty-tty4 \
 		/run/runit/service/agetty-tty5 \
 		/run/runit/service/agetty-tty6
-	doas ln -svft /run/runit/service \
+	$sudocmd ln -svft /run/runit/service \
 		/etc/runit/sv/socklog \
 		/etc/runit/sv/klog \
 		/etc/runit/sv/dbus \
