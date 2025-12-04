@@ -239,6 +239,7 @@ vulkan-intel
 vulkan-radeon
 vulkan-tools
 w3m
+wavemon
 waybar
 waydroid
 waylock
