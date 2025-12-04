@@ -24,6 +24,7 @@ chromium
 chrony
 chrony-runit
 clang
+cliphist
 cronie
 cronie-runit
 cuda
