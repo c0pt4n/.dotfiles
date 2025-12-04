@@ -16,6 +16,7 @@
 		"custom/recording",
 		"tray",
 		"custom/dnd",
+		"wireplumber#mic",
 		"wireplumber",
 		"bluetooth",
 		"network",
@@ -170,6 +171,14 @@
 			""
 		],
 		"tooltip": false
+	},
+	"wireplumber#mic": {
+		"node-type": "Audio/Source",
+		"format": "",
+		"format-muted": " Muted",
+		"format-source": true,
+		"on-click": "volumectl togglemic",
+		"tooltip": true
 	},
 	"wireplumber": {
 		"format": "{icon} {volume}%",
