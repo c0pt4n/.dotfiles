@@ -37,6 +37,7 @@ return {
 		config = function()
 			require("mason").setup({})
 			require("mason-lspconfig").setup({
+				automatic_enable = true,
 				ensure_installed = {
 					"clangd",
 					"bashls",
@@ -45,6 +46,10 @@ return {
 					"lua_ls",
 					"zk",
 				},
+			})
+
+			vim.lsp.config("*", {
+				capabilities = vim.lsp.protocol.make_client_capabilities(),
 			})
 
 			vim.lsp.config("clangd", {
