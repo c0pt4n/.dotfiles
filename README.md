@@ -38,3 +38,34 @@ add the following to /etc/pam.d/login
 ```
 [Homepage](https://pam-ssh.sourceforge.net/)
 [ArchWiki](https://wiki.archlinux.org/title/SSH_keys#pam_ssh)
+
+### Fix Suspend/Hibernate for Nvidia GPU
+
+1. edit the following switch case in /usr/lib/elogind/system-sleep/nvidia
+
+```bash
+case "$1" in
+    post)
+        /usr/bin/nvidia-sleep.sh "resume"
+        ;;
+esac
+```
+
+to
+
+```bash
+case "$1" in
+	pre)
+		/usr/bin/nvidia-sleep.sh "suspend"
+		;;
+    post)
+        /usr/bin/nvidia-sleep.sh "resume"
+        ;;
+esac
+```
+
+2. add resume=/dev/nvmeXXXXX to /etc/default/grub
+
+3. edit the /etc/tmpfiles.d/hibernation_resume.conf offset depending on output of `lsblk`
+
+4. add resume module in /etc/mkinitcpio.conf
