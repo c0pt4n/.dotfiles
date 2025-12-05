@@ -175,7 +175,7 @@
 	"wireplumber#mic": {
 		"node-type": "Audio/Source",
 		"format": "",
-		"format-muted": " Muted",
+		"format-muted": "",
 		"format-source": true,
 		"on-click": "volumectl togglemic",
 		"tooltip": true
