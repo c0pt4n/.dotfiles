@@ -69,3 +69,5 @@ esac
 3. edit the /etc/tmpfiles.d/hibernation_resume.conf offset depending on output of `lsblk`
 
 4. add resume module in /etc/mkinitcpio.conf
+
+5. add nvme module to MODULES in /etc/mkinitcpio.conf
