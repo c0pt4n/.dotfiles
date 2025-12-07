@@ -271,11 +271,13 @@ wl-clipboard
 wl-mirror
 wlopm
 wlr-randr
+wlrctl
 wpa_supplicant
 xdg-desktop-portal-gtk
 xdg-desktop-portal-wlr
 xdg-user-dirs
 xdg-utils
+yazi
 yt-dlp
 z
 zathura
