@@ -35,7 +35,8 @@ sudocmd="$([ -s /etc/doas.conf ] && command -v doas 2>/dev/null || command -v su
 setup_dotfiles() {
 	cp -srvft "$HOME" "$HERE/.config" "$HERE/.local"
 	ln -svf "$XDG_CONFIG_HOME/shell/profile" "$HOME/.zprofile"
-	$sudocmd cp -rvf "$HERE/etc/." /etc
+	$sudocmd cp --preserve=mode,links,timestamp -rfvt /etc "$HERE/etc/."
+	$sudocmd cp --preserve=mode,links,timestamp -rfvt /usr "$HERE/usr/."
 	ln -svf "$HERE/.editorconfig" "$HOME"
 	[ -n "${WINEPREFIX:-}" ] &&
 		command -v wine >/dev/null 2>&1 &&
