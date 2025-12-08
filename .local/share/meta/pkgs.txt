@@ -203,6 +203,7 @@ runit
 rustup
 samba
 satty
+scrapy
 scrcpy
 shellcheck-bin
 slurp
