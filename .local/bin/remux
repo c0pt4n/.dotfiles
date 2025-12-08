@@ -1,0 +1,6 @@
+#!/bin/sh
+# Wrapper for ffmpeg to remux screenrecords
+
+set -eu
+
+ffmpeg -i "$1" -c:v copy "${1%.*}".mp4
