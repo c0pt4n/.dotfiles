@@ -1,0 +1,9 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = nvidia-utils
+
+[Action]
+When = PostTransaction
+Exec = /bin/sh -c 'grep -q "pre)" /usr/lib/elogind/system-sleep/nvidia || sed -i "/case \"\$1\" in/a\ \tpre)\n\t\t/usr/bin/nvidia-sleep.sh \"suspend\"\n\t\t;;" /usr/lib/elogind/system-sleep/nvidia'
