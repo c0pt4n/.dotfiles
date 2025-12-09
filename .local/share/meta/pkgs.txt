@@ -239,6 +239,7 @@ ttf-ibm-plex
 ttf-ibmplex-mono-nerd
 ttf-liberation
 ttf-nerd-fonts-symbols
+typst
 ufw
 ufw-runit
 unzip
