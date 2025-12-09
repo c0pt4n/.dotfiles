@@ -1,3 +1,4 @@
+ch.tlaun.TL
 com.discordapp.Discord
 com.github.tchx84.Flatseal
 md.obsidian.Obsidian
