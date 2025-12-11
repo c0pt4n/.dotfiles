@@ -226,12 +226,15 @@ texlive-basic
 texlive-fontsrecommended
 texlive-latex
 texlive-latexextra
+texlive-mathscience
+texlive-plaingeneric
 tlp
 tlp-runit
 tmate
 tmux
 translate-shell
 transmission-cli
+tree-sitter-cli
 ttf-dejavu
 ttf-dejavu-nerd
 ttf-font-awesome
