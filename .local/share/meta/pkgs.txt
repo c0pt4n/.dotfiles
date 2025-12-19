@@ -271,6 +271,7 @@ wine-staging
 winetricks
 wiremix
 wireshark-cli
+wireshark-qt
 wl-clip-persist
 wl-clipboard
 wl-mirror
