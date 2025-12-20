@@ -107,12 +107,13 @@ riverctl border-color-unfocused 0x585b70
 
 riverctl rule-add ssd
 riverctl rule-add -app-id bar csd
-riverctl rule-add -app-id float float
 riverctl rule-add -app-id scratchpad float
 riverctl rule-add -app-id scratchpad tags $scratch_tag
 riverctl rule-add -app-id dragon-drop float
+riverctl rule-add -app-id dragon-drop tags $sticky_tag
 riverctl rule-add -app-id Waydroid float
 riverctl rule-add -title Picture-in-Picture float
+riverctl rule-add -title Picture-in-Picture tags $sticky_tag
 riverctl rule-add -title "Friends List" float
 riverctl rule-add -app-id "install4j-burp-StartBurp" -title "Settings" float
 
