@@ -20,6 +20,7 @@ return {
 					"ts_ls",
 					"lua_ls",
 					"zk",
+					"ruff",
 				},
 			})
 
