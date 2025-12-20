@@ -146,3 +146,7 @@ fi
 	fast-theme XDG:overlay >/dev/null 2>&1
 
 [ -r /usr/share/z/z.sh ] && . /usr/share/z/z.sh
+command -v fzf >/dev/null 2>&1 && {
+	[ -r /usr/share/fzf/completion.zsh ] && . /usr/share/fzf/completion.zsh
+	[ -r /usr/share/fzf/key-bindings.zsh ] && . /usr/share/fzf/key-bindings.zsh
+}
