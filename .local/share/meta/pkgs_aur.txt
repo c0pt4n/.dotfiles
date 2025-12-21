@@ -1,6 +1,7 @@
 abook
 advcpmv
 android-apktool-bin
+anydesk-bin
 arkenfox-user.js
 bicon-git
 bless
