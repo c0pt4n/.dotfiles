@@ -207,6 +207,7 @@ scrapy
 scrcpy
 shellcheck-bin
 slurp
+smartmontools
 smbclient
 socklog
 sof-firmware
@@ -229,6 +230,7 @@ texlive-latexextra
 texlive-mathscience
 texlive-plaingeneric
 tlp
+tlp-rdw
 tlp-runit
 tmate
 tmux
