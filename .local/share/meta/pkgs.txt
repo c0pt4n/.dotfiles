@@ -208,6 +208,7 @@ ufw
 unzip
 upower
 upterm
+urlview
 uv
 v4l-utils-32bit
 valgrind
