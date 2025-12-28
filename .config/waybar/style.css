@@ -61,7 +61,7 @@ window#waybar {
 #tray,
 #mpris,
 #custom-dnd,
-#wireplumber,
+#wireplumber.mic,
 #clock.date {
 	border-bottom-left-radius: 0.32rem;
 }

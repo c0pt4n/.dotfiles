@@ -1,14 +1,14 @@
 {
 	"layer": "bottom",
 	"position": "top",
-
+	"height": 1,
 	"modules-left": [
 		"river/tags",
-		"river/mode"
+		"river/mode",
 	],
 	"modules-center": [
 		"clock#date",
-		"clock#time"
+		"clock#time",
 	],
 	"modules-right": [
 		"mpris",
@@ -20,27 +20,23 @@
 		"wireplumber",
 		"bluetooth",
 		"network",
-		"memory",
-		"cpu",
-		"temperature",
-		"upower"
+		// "memory",
+		// "cpu",
+		// "temperature",
+		"upower",
 	],
 	"river/tags": {
 		"num-tags": 9,
-		"hide-vacant": true
-	},
-	"tray": {
-		"icon-size": 18,
-		"spacing": 15
+		"hide-vacant": true,
 	},
 	"clock#time": {
 		"interval": 10,
-		"format": " {:%H:%M}",
-		"tooltip": false
+		"format": "{:%H:%M}",
+		"tooltip": false,
 	},
 	"clock#date": {
 		"interval": 60,
-		"format": " {:%a %d %b}",
+		"format": "{:%A}",
 		"tooltip-format": "<span size='10pt'>{calendar}</span>",
 		"calendar": {
 			"mode": "month",
@@ -52,49 +48,41 @@
 				"days": "<span color='#eceff4'><b>{}</b></span>",
 				"weeks": "<span color='#8fbcbb'><b>W{}</b></span>",
 				"weekdays": "<span color='#81a1c1'><b>{}</b></span>",
-				"today": "<span color='#bf616a'><b><u>{}</u></b></span>"
-			}
+				"today": "<span color='#bf616a'><b><u>{}</u></b></span>",
+			},
 		},
 		"actions": {
 			"on-click": "shift_reset",
 			"on-click-right": "mode",
 			"on-scroll-up": "shift_up",
-			"on-scroll-down": "shift_down"
+			"on-scroll-down": "shift_down",
 		}
 	},
-	"mpris": {
-		"player": "playerctld",
-		"format": "{player_icon}: {title} {status_icon} ",
-		"title-len": 20,
-		"player-icons": {
-			"default": "▶",
-			"firefox": "",
-			"mpv": "",
-			"mpd": "🎵"
+	"wireplumber#mic": {
+		"node-type": "Audio/Source",
+		"format": "",
+		"format-muted": "",
+		"format-source": true,
+		"on-click": "volumectl togglemic",
+		"tooltip": true,
+	},
+	"wireplumber": {
+		"format": "{icon}",
+		"format-muted": "",
+		"on-click": "foot -a float wiremix",
+		"on-click-right": "helvum",
+		"on-click-middle": "volumectl toggle",
+		"max-volume": 200,
+		"scroll-step": 5,
+		"format-icons": {
+			"headphone": "",
+			"hands-free": "",
+			"headset": "",
+			"phone": "",
+			"portable": "",
+			"car": "",
+			"default": ["", "", ""],
 		},
-		"status-icons": {
-			"paused": "",
-			"stopped": "",
-			"playing": ""
-		}
-	},
-	"custom/dnd": {
-		"format": "{}",
-		"interval": "once",
-		"exec": "$XDG_CONFIG_HOME/waybar/scripts/dnd",
-		"on-click": "makoctl mode -r dnd >/dev/null 2>&1",
-		"tooltip": false,
-		"hide-empty-text": true,
-		"signal": 6
-	},
-	"custom/recording": {
-		"format": "{}",
-		"interval": "once",
-		"exec": "echo ''",
-		"exec-if": "pidof -sqx wf-recorder",
-		"on-click": "menu-record stop",
-		"tooltip": false,
-		"signal": 8
 	},
 	"upower": {
 		"format": " {percentage}",
@@ -102,61 +90,9 @@
 		"tooltip": true,
 		"tooltip-spacing": 20,
 		"icon-size": 16,
-		"hide-if-empty": true
+		"hide-if-empty": true,
 	},
-	"privacy": {
-		"icon-spacing": 4,
-		"icon-size": 14,
-		"transition-duration": 250,
-		"modules": [
-			{
-				"type": "screenshare",
-				"tooltip": true,
-				"tooltip-icon-size": 24
-			},
-			{
-				"type": "audio-in",
-				"tooltip": true,
-				"tooltip-icon-size": 24
-			}
-		]
-	},
-	"network": {
-		"interval": 60,
-		"format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
-		"format": "{icon}",
-	    "format-wifi": "{icon} {signalStrength}%",
-		"format-ethernet": "{ipaddr}/{cidr} ",
-		"format-disconnected": "󰤮",
-		"on-click": "foot -a float --window-size-pixels 980x620 nmtui",
-		"tooltip-format": "{ifname} via {gwaddr} 󰊗",
-		"tooltip-format-wifi": "{essid} ({frequency}GHz)\n{ipaddr}/{cidr} at {ifname}",
-		"tooltip-format-ethernet": "{ifname} ",
-		"tooltip-format-disconnected": "Disconnected"
-	},
-	"bluetooth": {
-		"format": "",
-		"format-connected": " {device_alias}",
-		"format-connected-battery": " {device_alias} {device_battery_percentage}%",
-		"format-disabled": "󰂲",
-		"format-no-controller": "",
-		"on-click": "foot -a float bluetoothctl",
-		"tooltip-format": "{controller_alias}\t{controller_address}",
-		"tooltip-format-connected": "{controller_alias}\t{controller_address}\n{device_enumerate}",
-		"tooltip-format-enumerate-connected": "- {device_alias}\t[{device_address}]",
-		"tooltip-format-enumerate-connected-battery": "- {device_alias}\t[{device_address}]\t({device_battery_percentage}%)"
-	},
-	"memory": {
-		"interval": 30,
-		"format": " {used:0.1f}G",
-		"tooltip-format": "mem:  {used:0.1f}G/{total:0.1f}G ({percentage}%)\nswap: {swapUsed:0.1f}G/{swapTotal:0.1f}G ({swapPercentage}%)",
-		"max-length": 10
-	},
-	"cpu": {
-		"format": " {usage}%",
-		"max-length": 10,
-		"on-click": "foot -a float --window-size-pixels 980x620 htop",
-	},
+	/*
 	"temperature": {
 		"interval": 10,
 		"critical-threshold": 90,
@@ -172,34 +108,92 @@
 		],
 		"tooltip": false
 	},
-	"wireplumber#mic": {
-		"node-type": "Audio/Source",
-		"format": "",
-		"format-muted": "",
-		"format-source": true,
-		"on-click": "volumectl togglemic",
-		"tooltip": true
+	"cpu": {
+		"format": " {usage}%",
+		"max-length": 10,
+		"on-click": "foot -a float --window-size-pixels 980x620 htop",
 	},
-	"wireplumber": {
-		"format": "{icon} {volume}%",
-		"format-muted": "󰝟 muted",
-		"on-click": "foot -a float wiremix",
-		"on-click-right": "helvum",
-		"on-click-middle": "volumectl toggle",
-		"max-volume": 200,
-		"scroll-step": 5,
-		"format-icons": {
-			"headphone": "",
-			"hands-free": "",
-			"headset": "",
-			"phone": "",
-			"portable": "",
-			"car": "",
-			"default": [
-				"",
-				"",
-				""
-			]
-		}
+	"memory": {
+		"interval": 30,
+		"format": " {used:0.1f}G",
+		"tooltip-format": "mem:  {used:0.1f}G/{total:0.1f}G ({percentage}%)\nswap: {swapUsed:0.1f}G/{swapTotal:0.1f}G ({swapPercentage}%)",
+		"max-length": 10
+	},
+	*/
+	"network": {
+		"interval": 60,
+		"format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+		"format": "{icon}",
+	    "format-wifi": "{icon} {signalStrength}%",
+		"format-ethernet": "{ipaddr}/{cidr} ",
+		"format-disconnected": "󰤮",
+		"on-click": "foot -a float --window-size-pixels 980x620 nmtui",
+		"tooltip-format": "{ifname} via {gwaddr} 󰊗",
+		"tooltip-format-wifi": "{essid} ({frequency}GHz)\n{ipaddr}/{cidr} at {ifname}",
+		"tooltip-format-ethernet": "{ifname} ",
+		"tooltip-format-disconnected": "Disconnected",
+	},
+	"bluetooth": {
+		"format": "",
+		"format-connected": " {device_alias}",
+		"format-connected-battery": " {device_alias} {device_battery_percentage}%",
+		"format-disabled": "󰂲",
+		"format-no-controller": "",
+		"on-click": "foot -a float bluetoothctl",
+		"tooltip-format": "{controller_alias}\t{controller_address}",
+		"tooltip-format-connected": "{controller_alias}\t{controller_address}\n{device_enumerate}",
+		"tooltip-format-enumerate-connected": "- {device_alias}\t[{device_address}]",
+		"tooltip-format-enumerate-connected-battery": "- {device_alias}\t[{device_address}]\t({device_battery_percentage}%)",
+	},
+	"privacy": {
+		"icon-spacing": 4,
+		"icon-size": 14,
+		"transition-duration": 250,
+		"modules": [
+			{
+				"type": "screenshare",
+				"tooltip": true,
+				"tooltip-icon-size": 24,
+			},
+			{
+				"type": "audio-in",
+				"tooltip": true,
+				"tooltip-icon-size": 24,
+			},
+		],
+	},
+	"tray": {
+		"icon-size": 18,
+		"spacing": 15
+	},
+	"mpris": {
+		"player": "playerctld",
+		"format": "{status_icon}",
+		"tooltip-format": "{title} • {artist}",
+		"title-len": 10,
+		"artist-len": 10,
+		"status-icons": {
+			"paused": "",
+			"stopped": "",
+			"playing": "",
+		},
+	},
+	"custom/dnd": {
+		"format": "{}",
+		"interval": "once",
+		"exec": "$XDG_CONFIG_HOME/waybar/scripts/dnd",
+		"on-click": "makoctl mode -r dnd >/dev/null 2>&1",
+		"tooltip": false,
+		"hide-empty-text": true,
+		"signal": 6,
+	},
+	"custom/recording": {
+		"format": "{}",
+		"interval": "once",
+		"exec": "echo ''",
+		"exec-if": "pidof -sqx wf-recorder",
+		"on-click": "menu-record stop",
+		"tooltip": false,
+		"signal": 8,
 	},
 }
