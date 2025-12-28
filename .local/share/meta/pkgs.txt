@@ -170,6 +170,8 @@ qt5-speech
 qt5-svg
 qt5-wayland
 qt5-websockets
+qt5ct
+qt6ct
 rclone
 ripgrep
 river
