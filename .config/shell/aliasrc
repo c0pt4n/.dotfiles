@@ -37,19 +37,18 @@ alias mitmproxy='mitmproxy --set confdir="$XDG_CONFIG_HOME/mitmproxy"'
 alias mitmweb='mitmweb --set confdir="$XDG_CONFIG_HOME/mitmproxy"'
 alias msfconsole='msfconsole -q'
 
-# pacman
-alias pi="doas pacman -S"
-alias pu="doas pacman -Syu"
-alias pr="doas pacman -Rns"
-alias pq="pacman -Ss"
-alias pql="pacman -Qs"
-alias plu="pacman -Qqen > ~/.dotfiles/.local/share/meta/pkgs.txt; pacman -Qqem | rg -v -w 'paru|packettracer'> ~/.dotfiles/.local/share/meta/pkgs_aur.txt"
+# xbps
+alias xi="xbps-install -s"
+alias xu="xbps-install -Sy && xbps-install -uy xbps && xbps-install -uy"
+alias xr="xbps-remove -R"
+alias xq="xbps-query -Rs"
+alias xql="xbps-query -s"
 
 # neovim for vim if available
 [ -x "$(command -v nvim)" ] && alias vim="nvim" vimdiff="nvim -d"
 
 sudocmd="$(command -v doas 2>/dev/null || command -v sudo 2>/dev/null)"
-for cmd in su mount umount sv updatedb rsm ufw openvpn; do
+for cmd in su mount umount sv updatedb vsv ufw openvpn xbps-install xbps-remove; do
 	alias $cmd="$sudocmd $(which "$cmd")"
 done
 unset sudocmd cmd

@@ -7,7 +7,6 @@ HERE="$(dirname "$(readlink -f "$0")")"
 
 SETUP_PROGRAMS_DIR="${SETUP_PROGRAMS_DIR:-$HOME/programs}"
 SETUP_PKGS_FILE="${SETUP_PKGS_FILE:-$XDG_DATA_HOME/meta/pkgs.txt}"
-SETUP_PKGS_AUR_FILE="${SETUP_PKGS_AUR_FILE:-$XDG_DATA_HOME/meta/pkgs_aur.txt}"
 SETUP_PKGS_FLATPAKS_FILE="${SETUP_PKGS_FLATPAKS_FILE:-$XDG_DATA_HOME/meta/flatpaks.txt}"
 SETUP_PKGS_GO_FILE="${SETUP_PKGS_GO_FILE:-$XDG_DATA_HOME/meta/pkgs_go.txt}"
 
@@ -37,7 +36,6 @@ setup_dotfiles() {
 	ln -svf "$XDG_CONFIG_HOME/shell/profile" "$HOME/.zprofile"
 	$sudocmd cp --preserve=mode,links,timestamp -rfvt /etc "$HERE/etc/."
 	$sudocmd cp --preserve=mode,links,timestamp -rfvt /usr "$HERE/usr/."
-	ln -svf "$HERE/.editorconfig" "$HOME"
 	[ -n "${WINEPREFIX:-}" ] &&
 		command -v wine >/dev/null 2>&1 &&
 		mkdir -pv "$WINEPREFIX"
@@ -48,63 +46,51 @@ setup_dotfiles() {
 }
 
 setup_pkgs() {
-	$sudocmd pacman -Syu --noconfirm
-	$sudocmd pacman -S --needed --noconfirm artix-archlinux-support &&
-		$sudocmd pacman-key --populate archlinux &&
-		$sudocmd pacman -Sy --noconfirm
+	$sudocmd xbps-install -Sy && $sudocmd xbps-install -Suy xbps && $sudocmd xbps-install -Suy
 	[ -r "$SETUP_PKGS_FILE" ] &&
-		$sudocmd pacman -S --needed --noconfirm - < "$SETUP_PKGS_FILE"
-	[ -r "$SETUP_PKGS_AUR_FILE" ] && {
-		command -v paru >/dev/null 2>&1 || {
-			git clone https://aur.archlinux.org/paru.git "$SETUP_PROGRAMS_DIR/paru" &&
-				makepkg -siD "$SETUP_PROGRAMS_DIR/paru"
-		}
-		paru -Sa --needed --noconfirm --sudo "$sudocmd" - <"$SETUP_PKGS_AUR_FILE"
-	}
+		xargs "$sudocmd" xbps-install -Sy <"$SETUP_PKGS_FILE"
+	[ -r "$SETUP_PKGS_FLATPAKS_FILE" ] &&
+		command -v flatpak >/dev/null 2>&1 &&
+		flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo &&
+		xargs flatpak install -y <"$SETUP_PKGS_FLATPAKS_FILE"
 	command -v go >/dev/null 2>&1 &&
 		go telemetry off &&
 		xargs -a ~/.local/share/meta/pkgs_go.txt -I {} go install -v {}
-	[ -r "$SETUP_PKGS_FLATPAKS_FILE" ] &&
-		command -v flatpak >/dev/null 2>&1 &&
-		xargs flatpak install -y <"$SETUP_PKGS_FLATPAKS_FILE"
+	curl https://raw.githubusercontent.com/jarun/advcpmv/master/install.sh --create-dirs -o $XDG_CACHE_HOME/advcpmv/install.sh && (cd $XDG_CACHE_HOME/advcpmv && sh install.sh)
 }
 
 setup_user() {
 	chsh -s "$(which zsh)"
-	$sudocmd ln -sfT dash /usr/bin/sh
-	$sudocmd usermod -aG video,audio,input,power,storage,optical,network,lp,scanner,dbus,adbusers,uucp,dbus,wireshark,nixbld,libvirt,wheel,informant "$USER"
+	$sudocmd usermod -aG video,audio,input,storage,optical,network,lp,scanner,dbus,adbusers,dbus,wireshark,nixbld,socklog,libvirt,wheel "$USER"
 }
 
 setup_runit() {
 	$sudocmd rm -vf \
-		/run/runit/service/agetty-tty4 \
-		/run/runit/service/agetty-tty5 \
-		/run/runit/service/agetty-tty6
-	$sudocmd ln -svft /run/runit/service \
-		/etc/runit/sv/socklog \
-		/etc/runit/sv/klog \
-		/etc/runit/sv/dbus \
-		/etc/runit/sv/udevd \
-		/etc/runit/sv/chrony \
-		/etc/runit/sv/elogind \
-		/etc/runit/sv/NetworkManager \
-		/etc/runit/sv/bluetoothd \
-		/etc/runit/sv/cronie \
-		/etc/runit/sv/ufw \
-		/etc/runit/sv/tlp \
-		/etc/runit/sv/sshd \
-		/etc/runit/sv/cupsd \
-		/etc/runit/sv/libvirtd \
-		/etc/runit/sv/virtlogd \
-		/etc/runit/sv/waydroid-container
-}
-
-setup_fonts() {
-	$sudocmd ln -svft /etc/fonts/conf.d/ /usr/share/fontconfig/conf.avail/10-nerd-font-symbols.conf
-}
-
-setup_pipewire() {
-	$sudocmd cp -afvt /etc /usr/share/pipewire /usr/share/wireplumber
+		/var/service/agetty-tty4 \
+		/var/service/agetty-tty5 \
+		/var/service/agetty-tty6 \
+		/var/service/acpid \
+		/var/service/dhcpcd \
+		/var/service/wpa_supplcant ||
+		true
+	$sudocmd ln -svft /var/service \
+		/etc/sv/socklog-unix \
+		/etc/sv/nanoklog \
+		/etc/sv/dbus \
+		/etc/sv/udevd \
+		/etc/sv/chrony \
+		/etc/sv/cronie \
+		/etc/sv/elogind \
+		/etc/sv/NetworkManager \
+		/etc/sv/bluetoothd \
+		/etc/sv/ufw \
+		/etc/sv/tlp \
+		/etc/sv/sshd \
+		/etc/sv/cupsd \
+		/etc/sv/libvirtd \
+		/etc/sv/virtlogd \
+		/etc/sv/vnstatd \
+		/etc/sv/waydroid-container
 }
 
 setup_ufw() {
@@ -143,8 +129,6 @@ setup_install() {
 	setup_runit
 	setup_ufw
 	setup_browser
-	setup_fonts
-	setup_pipewire
 }
 
 setup_uninstall() {
@@ -176,7 +160,6 @@ case "${1:-dotfiles}" in
 	runit) setup_runit ;;
 	ufw) setup_ufw ;;
 	browser) setup_browser ;;
-	pipewire) setup_pipewire ;;
 	uninstall) setup_uninstall ;;
 	*)
 		echo "$(basename "$0"): unknown command \"$1\"" >&2

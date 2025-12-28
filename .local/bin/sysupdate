@@ -6,15 +6,18 @@ set -eu
 sudocmd="$([ -f /etc/doas.conf ] && command -v doas 2>/dev/null || command -v sudo 2>/dev/null)"
 
 updatepkgs() {
-	$sudocmd pacman -Syu --noconfirm
-	command -v paru >/dev/null 2>&1 && paru -Sua --noconfirm
+	$sudocmd xbps-install -Sy &&
+		$sudocmd xbps-install -uy xbps &&
+		$sudocmd xbps-install -uy
+	command -v rustup >/dev/null 2>&1 && rustup update
 	command -v flatpak >/dev/null 2>&1 && flatpak update -y
 	command -v go >/dev/null 2>&1 && xargs -a ~/.local/share/meta/pkgs_go.txt -I {} go install -v {}
+	command -v xlocate && xlocate -S
 }
 
 clean() {
-	$sudocmd pacman -Sc --noconfirm
-	paru -Sca --noconfirm
+	$sudocmd xbps-remove -Ooy
+	$sudocmd vkpurge rm all
 }
 
 case "${1:-pkgs}" in
