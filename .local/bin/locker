@@ -3,9 +3,9 @@
 set -eu
 
 exec waylock \
-    -fork-on-lock \
-    -log-level info \
-    -ignore-empty-password \
-    -init-color 0x1e1e2e \
-    -input-color 0xb4befe \
-    -fail-color 0xf38ba8
+	-fork-on-lock \
+	-log-level info \
+	-ignore-empty-password \
+	-init-color 0x2e3440 \
+	-input-color 0x3b4252 \
+	-fail-color 0xbf616a

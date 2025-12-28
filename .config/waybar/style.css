@@ -10,7 +10,7 @@
 }
 
 window#waybar {
-	color: #cdd6f4;
+	color: #eceff4;
     background-color: transparent;
 }
 
@@ -30,14 +30,15 @@ window#waybar {
 #cpu,
 #temperature,
 #upower {
-	background-color: #181825;
+	background-color: #3b4252;
 	padding: 0.4rem 0.6rem 0.2rem 0.6rem;
-	border-bottom: 0.32rem solid #181825;
+	border-bottom: 0.32rem solid #3b4252;
 }
 
 #tags button {
-	background-color: #1e1e2e;
-	border-bottom-color: #1e1e2e;
+	color: #eceff4;
+	background-color: #2e3440;
+	border-bottom-color: #2e3440;
 	padding-left: 0.3rem;
 	padding-right: 0.3rem;
 }
@@ -66,14 +67,14 @@ window#waybar {
 }
 
 #tags button.focused {
-	background-color: #181825;
-	border-bottom-color: #b4befe;
+	background-color: #3b4252;
+	border-bottom-color: #5e81ac;
 }
 
 #tags button.urgent,
 #privacy,
 #custom-recording {
-	border-bottom-color: #f38ba8;
+	border-bottom-color: #b74e58;
 }
 
 #tray,

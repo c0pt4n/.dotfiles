@@ -100,10 +100,10 @@ for mode in normal locked; do
 	riverctl map -repeat $mode None XF86MonBrightnessDown spawn "screenlightctl 10%-"
 done
 
-riverctl background-color 0x1e1e2e
-riverctl border-color-urgent 0xf38ba8
-riverctl border-color-focused 0x89b4fa
-riverctl border-color-unfocused 0x585b70
+riverctl background-color 0x2e3440
+riverctl border-color-urgent 0xb74e58
+riverctl border-color-focused 0x5e81ac
+riverctl border-color-unfocused 0x4c566a
 
 riverctl rule-add ssd
 riverctl rule-add -app-id bar csd
