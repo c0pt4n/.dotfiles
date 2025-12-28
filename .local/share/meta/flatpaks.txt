@@ -1,5 +1,6 @@
 ch.tlaun.TL
 com.discordapp.Discord
 com.github.tchx84.Flatseal
+com.ktechpit.whatsie
 md.obsidian.Obsidian
 org.vinegarhq.Sober
