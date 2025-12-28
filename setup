@@ -85,7 +85,7 @@ setup_runit() {
 		/etc/sv/nanoklog \
 		/etc/sv/dbus \
 		/etc/sv/udevd \
-		/etc/sv/chrony \
+		/etc/sv/chronyd \
 		/etc/sv/cronie \
 		/etc/sv/elogind \
 		/etc/sv/NetworkManager \
