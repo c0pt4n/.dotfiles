@@ -47,6 +47,15 @@ alias xql="xbps-query -s"
 # neovim for vim if available
 [ -x "$(command -v nvim)" ] && alias vim="nvim" vimdiff="nvim -d"
 
+pass() {
+	case "$EDITOR" in
+		vim | nvim) editor="$EDITOR --noplugin" ;;
+		*) editor="vi" ;;
+	esac
+	env EDITOR="$editor" pass "$@"
+	unset editor
+}
+
 sudocmd="$(command -v doas 2>/dev/null || command -v sudo 2>/dev/null)"
 for cmd in su mount umount sv updatedb vsv ufw openvpn xbps-install xbps-remove; do
 	alias $cmd="$sudocmd $(which "$cmd")"
