@@ -78,7 +78,7 @@ setup_runit() {
 		/var/service/agetty-tty6 \
 		/var/service/acpid \
 		/var/service/dhcpcd \
-		/var/service/wpa_supplcant ||
+		/var/service/wpa_supplicant ||
 		true
 	$sudocmd ln -svft /var/service \
 		/etc/sv/socklog-unix \
