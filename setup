@@ -82,7 +82,7 @@ setup_runit() {
 		true
 	$sudocmd ln -svft /var/service \
 		/etc/sv/socklog-unix \
-		/etc/sv/nanoklog \
+		/etc/sv/nanoklogd \
 		/etc/sv/dbus \
 		/etc/sv/udevd \
 		/etc/sv/chronyd \
