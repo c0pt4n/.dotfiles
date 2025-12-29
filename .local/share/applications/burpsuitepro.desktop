@@ -5,4 +5,4 @@ MimeType=application/x-extension-burp;
 Icon=/home/omar/programs/burpsuitepro/.install4j/BurpSuitePro.png
 Categories=Application;
 StartupWMClass=install4j-burp-StartBurp
-Exec="/home/omar/.local/bin/BurpSuitePro" %U
+Exec="/home/omar/programs/burpsuitepro/BurpSuitePro" %U
