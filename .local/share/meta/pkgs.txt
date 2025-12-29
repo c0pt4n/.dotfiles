@@ -19,6 +19,7 @@ bc
 bind
 bluez
 brightnessctl
+btop
 btrfs-progs
 buku
 calcurse
