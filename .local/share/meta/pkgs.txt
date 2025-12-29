@@ -105,6 +105,7 @@ libxml2
 libxslt-32bit
 linux-firmware
 lsof
+lswt
 lynis
 lzip
 macchanger
