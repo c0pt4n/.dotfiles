@@ -24,16 +24,15 @@ case "$1" in
 		;;
 	toggle) wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle ;;
     togglemic)
-        if [ -f /tmp/mic.pid ]; then
-            rm -rf /tmp/mic.pid
-            notify-send -r 9990 -u low -a "$(basename "$0")" -i "audio-input-microphone-high-panel" "Microphone unmuted"
-        else
-            echo "[Mic muted]" > /tmp/mic.pid
-            notify-send -r 9990 -u low -a "$(basename "$0")" -i "audio-input-microphone-muted" "Microphone muted"
-        fi
         wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
-        kill -42 "$(pidof waybar)"
-        exit
+
+		if wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep -q '\[MUTED\]'; then
+			notify-send -r 9990 -u low -a "$(basename "$0")" -i "audio-input-microphone-muted" "Microphone muted"
+		else
+			notify-send -r 9990 -u low -a "$(basename "$0")" -i "audio-input-microphone-high-panel" "Microphone unmuted"
+		fi
+
+		exit 0
     ;;
 	*) exit 1 ;;
 esac
@@ -48,5 +47,4 @@ elif [ "$vol" -ge 1 ]; then
 	icon="audio-volume-low"
 fi
 
-kill -41 "$(pidof waybar)"
 notify-send -r 9990 -u low -a "$(basename "$0")" -i "$icon" -h "int:value:$vol" "volume" "$vol%"
