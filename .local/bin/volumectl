@@ -4,11 +4,11 @@ set -eu
 
 getvol() {
 	vol="$(wpctl get-volume @DEFAULT_AUDIO_SINK@)"
-	[ -z "$vol" ] && return 1
-	[ "$vol" != "${vol%\[MUTED\]}" ] && echo "muted" && return 1
+	[ -n "$vol" ] || return 1
+	[ "$vol" != "${vol%\[MUTED\]}" ] && echo "muted" && return 0
 	vol="${vol#Volume: }"
 	IFS="."
-	# shellcheck disable=SC2086
+	# shellcheck disable=2086
 	set -- ${vol#0}
 	printf "%s" "$@"
 }
@@ -16,22 +16,30 @@ getvol() {
 case "$1" in
 	set) wpctl set-volume @DEFAULT_AUDIO_SINK@ "${2:-60}%" ;;
 	get) getvol && echo "%"; exit $? ;;
-	inc)
+	*+ | *- | *%)
 		wpctl set-mute @DEFAULT_AUDIO_SINK@ 0
-		wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+
-		;;
-	dec)
-		wpctl set-mute @DEFAULT_AUDIO_SINK@ 0
-		wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+		wpctl set-volume @DEFAULT_AUDIO_SINK@ "$1"
 		;;
 	toggle) wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle ;;
     togglemic)
         wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
 
 		if wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep -q '\[MUTED\]'; then
-			notify-send -r 9990 -u low -a "$(basename "$0")" -i "audio-input-microphone-muted" "Microphone muted"
+			notify-send \
+				-u low \
+				-t 1000 \
+				-a "$(basename "$0")" \
+				-h "string:x-canonical-private-synchronous:mic" \
+				"Microphone" \
+				"Muted"
 		else
-			notify-send -r 9990 -u low -a "$(basename "$0")" -i "audio-input-microphone-high-panel" "Microphone unmuted"
+			notify-send \
+				-u low \
+				-t 1000 \
+				-a "$(basename "$0")" \
+				-h "string:x-canonical-private-synchronous:mic" \
+				"Microphone" \
+				"Unmuted"
 		fi
 
 		exit 0
@@ -39,14 +47,16 @@ case "$1" in
 	*) exit 1 ;;
 esac
 
-vol="$(getvol)" || vol=0
-icon="audio-volume-muted"
-if [ "$vol" -ge 70 ]; then
-	icon="audio-volume-high"
-elif [ "$vol" -ge 30 ]; then
-	icon="audio-volume-medium"
-elif [ "$vol" -ge 1 ]; then
-	icon="audio-volume-low"
-fi
-
-notify-send -r 9990 -u low -a "$(basename "$0")" -i "$icon" -h "int:value:$vol" "volume" "$vol%"
+vol="$(getvol)" || exit 1
+[ "$vol" = "muted" ] && {
+	vol=0
+	text="muted"
+} || text="$vol%"
+notify-send \
+	-u low \
+	-t 1000 \
+	-a "$(basename "$0")" \
+	-h "int:value:$vol" \
+	-h "string:x-canonical-private-synchronous:volume" \
+	"volume" \
+	"$text"
