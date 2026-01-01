@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -eu
+
 getvol() {
 	vol="$(wpctl get-volume @DEFAULT_AUDIO_SINK@)"
 	[ -z "$vol" ] && return 1
