@@ -267,6 +267,7 @@ winetricks
 wiremix
 wireplumber
 wireshark
+wireshark-qt
 wl-clip-persist
 wl-clipboard
 wl-mirror
