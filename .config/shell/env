@@ -54,6 +54,10 @@ export _JAVA_OPTIONS="-Djava.util.prefs.userRoot=$XDG_CONFIG_HOME/java"
 
 export PATH="$GOPATH/bin:$HOME/.local/bin:$CARGO_HOME/bin:$HOME/.dotnet/tools:${PATH:-}"
 
+[ -d "$XDG_STATE_HOME/nix/profile/bin" ] &&
+	export PATH="$XDG_STATE_HOME/nix/profile/bin:${PATH:-}" &&
+	export XDG_DATA_DIRS="$XDG_STATE_HOME/nix/profile/share:$XDG_DATA_DIRS"
+
 # Other program settings:
 export SSH_ASKPASS="/usr/bin/wayprompt-ssh-askpass"
 export SUDO_ASKPASS="/usr/bin/wayprompt-ssh-askpass"
