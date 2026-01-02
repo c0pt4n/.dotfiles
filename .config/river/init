@@ -73,8 +73,13 @@ riverctl map normal Super+Shift O spawn "open"
 riverctl map normal Super M spawn "wooz --mouse-track --map-close q"
 riverctl map normal Super Backslash spawn "makoctl dismiss -a && pkill -RTMIN+6 waybar"
 riverctl map normal Super+Shift Backslash spawn "makoctl mode | grep -Fxq dnd || makoctl dismiss -a; makoctl mode -t dnd && pkill -RTMIN+6 waybar"
-riverctl map normal Super D spawn "$TERMINAL -e nnn"
-riverctl map normal Super N spawn "$TERMINAL --window-size-pixels 980x620 -e ncmpcpp"
+command -v bicon >/dev/null 2>&1 && {
+	riverctl map normal Super D spawn "$TERMINAL -e bicon.bin nnn"
+	riverctl map normal Super N spawn "$TERMINAL -e bicon.bin ncmpcpp"
+} || {
+	riverctl map normal Super D spawn "$TERMINAL -e nnn"
+	riverctl map normal Super N spawn "$TERMINAL -e ncmpcpp"
+}
 
 for mode in normal locked; do
 	riverctl map $mode None XF86Eject spawn "eject -T"
