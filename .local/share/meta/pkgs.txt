@@ -5,6 +5,7 @@ ImageMagick
 NetworkManager
 Vulkan-Tools
 Waybar
+aardvark-dns
 abook
 aerc
 aircrack-ng
