@@ -70,7 +70,8 @@ riverctl map normal Super U spawn "menu-emojis"
 riverctl map normal Super I spawn "menu-handler"
 riverctl map normal Super O spawn "cliphist list | menu -w 70 --with-nth 2 | cliphist decode | wl-copy"
 riverctl map normal Super+Shift O spawn "open"
-riverctl map normal Super M spawn "wooz --mouse-track --map-close q"
+command -v >/dev/null 2>&1 &&
+	riverctl map normal Super M spawn "wooz --mouse-track --map-close q"
 riverctl map normal Super Backslash spawn "makoctl dismiss -a && pkill -RTMIN+6 waybar"
 riverctl map normal Super+Shift Backslash spawn "makoctl mode | grep -Fxq dnd || makoctl dismiss -a; makoctl mode -t dnd && pkill -RTMIN+6 waybar"
 command -v bicon >/dev/null 2>&1 && {
