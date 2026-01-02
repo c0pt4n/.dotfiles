@@ -75,10 +75,10 @@ riverctl map normal Super Backslash spawn "makoctl dismiss -a && pkill -RTMIN+6 
 riverctl map normal Super+Shift Backslash spawn "makoctl mode | grep -Fxq dnd || makoctl dismiss -a; makoctl mode -t dnd && pkill -RTMIN+6 waybar"
 command -v bicon >/dev/null 2>&1 && {
 	riverctl map normal Super D spawn "$TERMINAL -e bicon.bin nnn"
-	riverctl map normal Super N spawn "$TERMINAL -e bicon.bin ncmpcpp"
+	riverctl map normal Super N spawn "$TERMINAL -a float --window-size-pixels 980x620 -e bicon.bin ncmpcpp"
 } || {
 	riverctl map normal Super D spawn "$TERMINAL -e nnn"
-	riverctl map normal Super N spawn "$TERMINAL -e ncmpcpp"
+	riverctl map normal Super N spawn "$TERMINAL -a float --window-size-pixels 980x620 -e ncmpcpp"
 }
 
 for mode in normal locked; do
@@ -112,6 +112,7 @@ riverctl border-color-unfocused 0x4c566a
 
 riverctl rule-add ssd
 riverctl rule-add -app-id bar csd
+riverctl rule-add -app-id float float
 riverctl rule-add -app-id scratchpad float
 riverctl rule-add -app-id scratchpad tags $scratch_tag
 riverctl rule-add -app-id dragon-drop float
