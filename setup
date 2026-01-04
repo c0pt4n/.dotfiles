@@ -101,7 +101,8 @@ setup_runit() {
 		/etc/sv/libvirtd \
 		/etc/sv/virtlogd \
 		/etc/sv/vnstatd \
-		/etc/sv/waydroid-container
+		/etc/sv/waydroid-container \
+		/etc/sv/rtkit
 }
 
 setup_ufw() {

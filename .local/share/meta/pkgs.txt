@@ -200,6 +200,7 @@ rclone
 ripgrep
 river
 rsync
+rtkit
 rustup
 samba
 satty
