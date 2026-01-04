@@ -184,6 +184,7 @@ python3-pexpect
 python3-pip
 python3-pipenv
 python3-pipx
+python3-pyclip
 qemu
 qrencode
 qt5-multimedia
