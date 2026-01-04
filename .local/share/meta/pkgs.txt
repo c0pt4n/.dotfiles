@@ -113,6 +113,8 @@ libnotify
 libopenal-32bit
 libqalculate
 libreoffice
+libspa-bluetooth
+libspa-v4l2
 libvirt
 libxkbcommon-devel
 libxml2
