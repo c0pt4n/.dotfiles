@@ -59,8 +59,8 @@ export PATH="$GOPATH/bin:$HOME/.local/bin:$CARGO_HOME/bin:$HOME/.dotnet/tools:${
 	export XDG_DATA_DIRS="$XDG_STATE_HOME/nix/profile/share:$XDG_DATA_DIRS"
 
 # Other program settings:
-export SSH_ASKPASS="/usr/bin/wayprompt-ssh-askpass"
-export SUDO_ASKPASS="/usr/bin/wayprompt-ssh-askpass"
+export SSH_ASKPASS="/usr/local/bin/wayprompt-ssh-askpass"
+export SUDO_ASKPASS="/usr/local/bin/wayprompt-ssh-askpass"
 
 export LESS="-R"
 export MANPAGER="less -R --use-color -Dd+b -Duc"
