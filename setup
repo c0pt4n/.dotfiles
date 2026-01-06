@@ -102,7 +102,9 @@ setup_runit() {
 		/etc/sv/virtlogd \
 		/etc/sv/vnstatd \
 		/etc/sv/waydroid-container \
-		/etc/sv/rtkit
+		/etc/sv/rtkit \
+		/etc/sv/podman \
+		/etc/sv/podman-docker
 }
 
 setup_ufw() {
