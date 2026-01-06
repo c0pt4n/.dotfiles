@@ -44,6 +44,9 @@ delta
 dhclient
 dkms
 dnsmasq
+docker
+docker-buildx
+docker-compose
 dosfstools
 dragon
 duf
