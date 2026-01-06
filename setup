@@ -72,7 +72,7 @@ setup_user() {
 		xdg-user-dirs-update ||
 		true
 	chsh -s "$(which zsh)"
-	$sudocmd usermod -aG video,audio,input,storage,optical,network,lp,scanner,dbus,adbusers,dbus,wireshark,nixbld,socklog,libvirt,wheel "$USER"
+	$sudocmd usermod -aG video,audio,input,storage,optical,network,lp,scanner,dbus,adbusers,dbus,wireshark,nixbld,socklog,libvirt,docker,wheel "$USER"
 }
 
 setup_runit() {
