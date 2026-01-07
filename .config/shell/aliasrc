@@ -56,7 +56,8 @@ pass() {
 	unset editor
 }
 
-sudocmd="$(command -v doas 2>/dev/null || command -v sudo 2>/dev/null)"
+# shellcheck disable=2015
+sudocmd="$([ -f /etc/doas.conf ] && command -v doas 2>/dev/null || command -v sudo 2>/dev/null)"
 for cmd in su mount umount sv updatedb vsv ufw openvpn xbps-install xbps-remove; do
 	alias $cmd="$sudocmd $(which "$cmd")"
 done
