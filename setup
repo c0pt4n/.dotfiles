@@ -81,7 +81,6 @@ setup_runit() {
 		/var/service/agetty-tty5 \
 		/var/service/agetty-tty6 \
 		/var/service/acpid \
-		/var/service/dhcpcd \
 		/var/service/wpa_supplicant ||
 		true
 	$sudocmd ln -svft /var/service \
@@ -92,7 +91,8 @@ setup_runit() {
 		/etc/sv/chronyd \
 		/etc/sv/cronie \
 		/etc/sv/elogind \
-		/etc/sv/NetworkManager \
+		/etc/sv/dhcpcd \
+		/etc/sv/iwd \
 		/etc/sv/bluetoothd \
 		/etc/sv/ufw \
 		/etc/sv/tlp \

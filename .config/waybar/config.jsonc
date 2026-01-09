@@ -128,7 +128,7 @@
 		"format-wifi": "{icon}",
 		"format-ethernet": "{ipaddr}/{cidr} ",
 		"format-disconnected": "󰤮",
-		"on-click": "foot -a float --window-size-pixels 980x620 nmtui",
+		"on-click": "foot -a float --window-size-pixels 980x620 impala",
 		"tooltip-format": "{ifname} via {gwaddr} 󰊗",
 		"tooltip-format-wifi": "{essid} ({frequency}GHz) {signalStrength}% \n{ifname}: {ipaddr}/{cidr}",
 		"tooltip-format-ethernet": "{ifname} ",

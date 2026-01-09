@@ -42,8 +42,8 @@ dbus
 dejavu-fonts-ttf
 delta
 dhclient
+dhcpcd
 dkms
-dnsmasq
 docker
 docker-buildx
 docker-compose
@@ -95,10 +95,12 @@ hugo
 hwinfo
 imhex
 impacket
+impala
 imv
 intel-ucode
 inxi
 isync
+iwd
 jadx
 john
 jq
