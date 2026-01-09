@@ -40,7 +40,7 @@ alias msfconsole='msfconsole -q'
 # xbps
 alias xi="xbps-install -S"
 alias xu="xbps-install -Sy && xbps-install -uy xbps && xbps-install -uy"
-alias xr="xbps-remove -R"
+alias xr="xbps-remove -Rf"
 alias xq="xbps-query -Rs"
 alias xql="xbps-query -s"
 
