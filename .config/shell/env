@@ -62,6 +62,7 @@ export PATH="$GOPATH/bin:$HOME/.local/bin:$CARGO_HOME/bin:$HOME/.dotnet/tools:${
 export SSH_ASKPASS="/usr/local/bin/wayprompt-ssh-askpass"
 export SUDO_ASKPASS="/usr/local/bin/wayprompt-ssh-askpass"
 
+export SVDIR_USER="$XDG_DATA_HOME/services"
 export DOCKER_HOST="unix://$XDG_RUNTIME_DIR/podman/podman.sock"
 
 export LESS="-R"
