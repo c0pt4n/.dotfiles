@@ -150,6 +150,13 @@
 		"icon-spacing": 4,
 		"icon-size": 14,
 		"transition-duration": 250,
+		"ignore-monitor": true,
+		"ignore": [
+			{
+				"type": "audio-in",
+				"name": "echo-cancel-capture",
+			},
+		],
 		"modules": [
 			{
 				"type": "screenshare",
