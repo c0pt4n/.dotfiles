@@ -1,0 +1,3 @@
+#!/bin/sh
+
+vlogger -t mako -p daemon

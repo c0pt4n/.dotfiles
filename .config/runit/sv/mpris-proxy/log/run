@@ -1,0 +1,3 @@
+#!/bin/sh
+
+vlogger -t mpris-proxy -p daemon
