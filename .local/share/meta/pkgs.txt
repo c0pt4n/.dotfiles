@@ -267,6 +267,7 @@ waydroid
 wayland-devel
 wayland-protocols
 waylock
+wayvnc
 wbg
 wev
 wf-recorder
