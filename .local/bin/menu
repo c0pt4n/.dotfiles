@@ -2,4 +2,8 @@
 
 set -eu
 
-[ -n "$WAYLAND_DISPLAY" ] && command -v fuzzel >/dev/null 2>&1 && exec fuzzel -dR "$@"
+[ -n "${MENU_PROMPT:-}" ] && set -- --prompt "$MENU_PROMPT> " "$@"
+
+[ -n "${WAYLAND_DISPLAY:-}" ] &&
+	command -v fuzzel >/dev/null 2>&1 &&
+	exec fuzzel -dR "$@"
