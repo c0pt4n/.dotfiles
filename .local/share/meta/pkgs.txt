@@ -2,7 +2,6 @@
 Amass
 Apktool
 ImageMagick
-NetworkManager
 Vulkan-Tools
 Waybar
 aardvark-dns
