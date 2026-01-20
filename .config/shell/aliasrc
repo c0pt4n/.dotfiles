@@ -38,13 +38,6 @@ alias mitmweb='mitmweb --set confdir="$XDG_CONFIG_HOME/mitmproxy"'
 alias msfconsole='msfconsole -q'
 alias crave='crave -c "$XDG_CONFIG_HOME/crave.conf"'
 
-# xbps
-alias xi="xbps-install -S"
-alias xu="xbps-install -Sy && xbps-install -uy xbps && xbps-install -uy"
-alias xr="xbps-remove -Rf"
-alias xq="xbps-query -Rs"
-alias xql="xbps-query -s"
-
 # neovim for vim if available
 [ -x "$(command -v nvim)" ] && alias vim="nvim" vimdiff="nvim -d"
 
