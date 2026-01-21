@@ -98,6 +98,7 @@ setup_runit() {
 		/etc/sv/tlp \
 		/etc/sv/sshd \
 		/etc/sv/cupsd \
+		/etc/sv/zramen \
 		/etc/sv/libvirtd \
 		/etc/sv/virtlogd \
 		/etc/sv/vnstatd \
