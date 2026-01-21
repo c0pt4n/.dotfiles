@@ -40,6 +40,8 @@ setup_dotfiles() {
 	[ -d "$HERE/usr" ] &&
 		$sudocmd cp --preserve=mode,links,timestamp -rfvt /usr "$HERE/usr/." ||
 		true
+	[ -x /usr/local/bin/pinentry-fuzzel ] &&
+		$sudocmd ln -sfv /usr/local/bin/pinentry-fuzzel /usr/bin/pinentry
 	[ -n "${WINEPREFIX:-}" ] &&
 		command -v wine >/dev/null 2>&1 &&
 		mkdir -pv "$WINEPREFIX"
