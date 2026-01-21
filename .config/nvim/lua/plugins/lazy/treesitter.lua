@@ -14,8 +14,6 @@ return {
 				ignore_install = {},
 				ensure_installed = {
 					"c",
-					"rust",
-					"go",
 					"python",
 					"lua",
 					"bash",
