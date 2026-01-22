@@ -151,6 +151,7 @@ mpv-mpris
 mtpfs
 ncdu
 ncmpcpp
+ncurses-term
 neovim
 nerd-fonts
 nerd-fonts-symbols-ttf
