@@ -50,7 +50,7 @@ export TEXMFVAR="$XDG_CACHE_HOME/texlive/texmf-var"
 export TEXMFCONFIG="$XDG_CONFIG_HOME/texlive/texmf-config"
 export _JAVA_OPTIONS="-Djava.util.prefs.userRoot=$XDG_CONFIG_HOME/java"
 
-[ -d "/usr/share/seclists" ] && export SEC="/usr/share/seclists"
+[ -d "$XDG_STATE_HOME/nix/profile/share/wordlists" ] && export SEC="$XDG_STATE_HOME/nix/profile/share/wordlists"
 
 export PATH="$GOPATH/bin:$HOME/.local/bin:$CARGO_HOME/bin:$HOME/.dotnet/tools:${PATH:-}"
 
