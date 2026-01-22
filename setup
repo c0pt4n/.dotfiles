@@ -104,6 +104,7 @@ setup_runit() {
 		/etc/sv/libvirtd \
 		/etc/sv/virtlogd \
 		/etc/sv/vnstatd \
+		/etc/sv/nix-daemon \
 		/etc/sv/waydroid-container \
 		/etc/sv/rtkit
 }
