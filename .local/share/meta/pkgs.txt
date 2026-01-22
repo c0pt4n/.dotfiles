@@ -301,3 +301,4 @@ zk
 zr
 zramen
 zsh
+zstd
