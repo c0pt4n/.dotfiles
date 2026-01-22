@@ -38,7 +38,6 @@ cups-filters
 cups-pdf
 dash
 dbus
-dejavu-fonts-ttf
 delta
 dhclient
 dhcpcd
@@ -58,7 +57,7 @@ ffmpeg
 ffmpegthumbnailer
 flatpak
 font-awesome6
-font-ibm-plex-otf
+font-hack-ttf
 fontconfig
 foot
 freerdp3
@@ -111,6 +110,7 @@ ldns
 less
 lesspipe
 libXcomposite-32bit
+liberation-fonts-ttf
 libgamemode-32bit
 libjpeg-turbo-32bit
 libmpg123-32bit
