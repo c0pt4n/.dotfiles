@@ -16,7 +16,7 @@
 		"custom/recording",
 		"tray",
 		"custom/dnd",
-		"wireplumber#mic",
+		// "wireplumber#mic",
 		"wireplumber",
 		"bluetooth",
 		"network",
@@ -58,14 +58,14 @@
 			"on-scroll-down": "shift_down",
 		}
 	},
-	"wireplumber#mic": {
-		"node-type": "Audio/Source",
-		"format": "",
-		"format-muted": "",
-		"format-source": true,
-		"on-click": "volumectl togglemic",
-		"tooltip": true,
-	},
+	// "wireplumber#mic": {
+	// 	"node-type": "Audio/Source",
+	// 	"format": "",
+	// 	"format-muted": "",
+	// 	"format-source": true,
+	// 	"on-click": "volumectl togglemic",
+	// 	"tooltip": true,
+	// },
 	"wireplumber": {
 		"format": "{icon}",
 		"format-muted": "",
