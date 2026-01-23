@@ -126,6 +126,8 @@ setup_runit() {
 		"$SETUP_RUNIT_SVHOME/rtkit"
 	[ -d "$SETUP_RUNIT_SVDIR/sshd" ] &&
 		$sudocmd touch "$SETUP_RUNIT_SVDIR/sshd/down"
+	[ -d "$SETUP_RUNIT_SVDIR/waydroid-container" ] &&
+		$sudocmd touch "$SETUP_RUNIT_SVDIR/waydroid-container/down"
 	return 0
 }
 
