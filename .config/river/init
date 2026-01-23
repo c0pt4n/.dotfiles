@@ -121,7 +121,8 @@ riverctl rule-add -app-id Waydroid float
 riverctl rule-add -title Picture-in-Picture float
 riverctl rule-add -title Picture-in-Picture tags $sticky_tag
 riverctl rule-add -title "Friends List" float
-riverctl rule-add -app-id "install4j-burp-StartBurp" -title "Settings" float
+riverctl rule-add -app-id "install4j-burp-StartBurp" float
+riverctl rule-add -app-id "install4j-burp-StartBurp" -title "Burp Suite*" no-float
 riverctl rule-add -app-id com.ktechpit.whatsie -title Downloads float
 
 riverctl hide-cursor timeout 5000
