@@ -61,19 +61,7 @@ return {
 				},
 			},
 			sources = {
-				default = { "lazydev", "lsp", "path", "snippets", "buffer" },
-				providers = {
-					snippets = {
-						opts = {
-							friendly_snippets = true,
-						},
-					},
-					lazydev = {
-						name = "LazyDev",
-						module = "lazydev.integrations.blink",
-						score_offset = 100,
-					},
-				},
+				default = { "lsp", "path", "snippets", "buffer" },
 			},
 			signature = {
 				enabled = true,
