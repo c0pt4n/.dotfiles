@@ -136,8 +136,10 @@ setup_ufw() {
 	$sudocmd ufw default allow outgoing
 	$sudocmd ufw limit ssh
 	$sudocmd ufw allow in proto udp from 172.16.0.0/12 to 172.17.0.1 port 53 comment "allow-docker-dns"
-	$sudocmd ufw route allow in on virbr0
-	$sudocmd ufw route allow in on waydroid0
+	$sudocmd ufw allow in on virbr0
+	$sudocmd ufw allow out on virbr0
+	$sudocmd ufw allow in on waydroid0
+	$sudocmd ufw allow out on waydroid0
 }
 
 setup_pam() {
