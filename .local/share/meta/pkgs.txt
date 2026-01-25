@@ -38,6 +38,7 @@ cups-filters
 cups-pdf
 dash
 dbus
+dejavu-fonts-ttf
 delta
 dhclient
 dhcpcd
