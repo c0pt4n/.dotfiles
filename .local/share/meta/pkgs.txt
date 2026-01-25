@@ -52,7 +52,6 @@ duf
 elogind
 exfatprogs
 fastfetch
-fcft-devel
 fd
 ffmpeg
 ffmpegthumbnailer
@@ -122,7 +121,6 @@ libreoffice
 libspa-bluetooth
 libspa-v4l2
 libvirt
-libxkbcommon-devel
 libxml2
 libxslt-32bit
 linux-firmware
@@ -180,7 +178,6 @@ pass
 pass-otp
 patch
 pipewire
-pixman-devel
 pkg-config
 plocate
 podman
@@ -264,8 +261,6 @@ vulkan-loader-32bit
 w3m
 wavemon
 waydroid
-wayland-devel
-wayland-protocols
 waylock
 wayvnc
 wbg
