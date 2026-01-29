@@ -17,4 +17,7 @@ export XDG_CURRENT_DESKTOP="river"
 export GTK_THEME="Arc-Dark"
 export QT_QPA_PLATFORMTHEME=qt5ct
 
-exec dbus-run-session river -log-level debug >"/tmp/river-$(date "+%F-%T").log" 2>&1
+export WLR_BACKENDS="drm,libinput,headless"
+export WLR_HEADLESS_OUTPUTS=1
+
+exec dbus-run-session river
