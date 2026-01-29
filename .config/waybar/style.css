@@ -33,7 +33,7 @@ window#waybar {
 #memory,
 #cpu,
 #temperature,
-#upower {
+#battery {
 	background-color: @module;
 	padding: 7px 10px;
 }

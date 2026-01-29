@@ -23,7 +23,7 @@
 		// "memory",
 		// "cpu",
 		// "temperature",
-		"upower",
+		"battery",
 	],
 	"river/tags": {
 		"num-tags": 9,
@@ -121,6 +121,25 @@
 		"max-length": 10
 	},
 	*/
+	"battery": {
+		"interval": 5,
+		"format": "{capacity}% {icon}",
+		"format-discharging": "{icon}",
+		"format-charging": "{icon}",
+		"format-plugged": "",
+		"format-icons": {
+			"charging": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"],
+			"default": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+		},
+		"format-full": "󰂅",
+		"tooltip-format-discharging": "{power:>1.0f}W↓ {capacity}%",
+		"tooltip-format-charging": "{power:>1.0f}W↑ {capacity}%",
+		"on-click": "menu-handler sysact",
+		"states": {
+			"warning": 20,
+			"critical": 10
+		},
+	},
 	"network": {
 		"interval": 60,
 		"format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
@@ -136,9 +155,9 @@
 	},
 	"bluetooth": {
 		"format": "",
-		"format-connected": " {device_alias}",
-		"format-connected-battery": " {device_alias} {device_battery_percentage}%",
+		"format-off": "󰂲",
 		"format-disabled": "󰂲",
+		"format-connected": "󰂱",
 		"format-no-controller": "",
 		"on-click": "foot -a float bluetoothctl",
 		"tooltip-format": "{controller_alias}\t{controller_address}",
