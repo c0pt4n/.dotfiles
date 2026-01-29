@@ -16,13 +16,9 @@
 		"custom/recording",
 		"tray",
 		"custom/dnd",
-		// "wireplumber#mic",
 		"wireplumber",
 		"bluetooth",
 		"network",
-		// "memory",
-		// "cpu",
-		// "temperature",
 		"battery",
 	],
 	"river/tags": {
@@ -36,7 +32,7 @@
 	},
 	"clock#date": {
 		"interval": 60,
-		"format": "{:%A}",
+		"format": "{:%a}",
 		"tooltip-format": "<span size='10pt'>{calendar}</span>",
 		"calendar": {
 			"mode": "month",
@@ -58,14 +54,6 @@
 			"on-scroll-down": "shift_down",
 		}
 	},
-	// "wireplumber#mic": {
-	// 	"node-type": "Audio/Source",
-	// 	"format": "",
-	// 	"format-muted": "",
-	// 	"format-source": true,
-	// 	"on-click": "volumectl togglemic",
-	// 	"tooltip": true,
-	// },
 	"wireplumber": {
 		"format": "{icon}",
 		"format-muted": "",
@@ -93,34 +81,6 @@
 		"icon-size": 16,
 		"hide-if-empty": true,
 	},
-	/*
-	"temperature": {
-		"interval": 10,
-		"critical-threshold": 90,
-		"hwmon-path": "/sys/class/hwmon/hwmon5/temp1_input",
-		"format": "{icon} {temperatureC}°C",
-		"format-critical": "{icon} {temperatureC}°C ",
-		"format-icons": [
-			"",
-			"",
-			"",
-			"",
-			""
-		],
-		"tooltip": false
-	},
-	"cpu": {
-		"format": " {usage}%",
-		"max-length": 10,
-		"on-click": "foot -a float --window-size-pixels 980x620 htop",
-	},
-	"memory": {
-		"interval": 30,
-		"format": " {used:0.1f}G",
-		"tooltip-format": "mem:  {used:0.1f}G/{total:0.1f}G ({percentage}%)\nswap: {swapUsed:0.1f}G/{swapTotal:0.1f}G ({swapPercentage}%)",
-		"max-length": 10
-	},
-	*/
 	"battery": {
 		"interval": 5,
 		"format": "{capacity}% {icon}",
