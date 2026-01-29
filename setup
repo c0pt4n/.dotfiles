@@ -59,6 +59,10 @@ setup_pkgs() {
 		command -v flatpak >/dev/null 2>&1 &&
 		flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo &&
 		xargs flatpak install -y <"$SETUP_PKGS_FLATPAKS_FILE"
+	command -v nix >/dev/null 2>&1 && {
+		nix-channel --add https://nixos.org/channels/nixpkgs-unstable
+		nix-channel --update
+	}
 	command -v go >/dev/null 2>&1 &&
 		go telemetry off &&
 		xargs -a ~/.local/share/meta/pkgs_go.txt -I {} go install -v {}
