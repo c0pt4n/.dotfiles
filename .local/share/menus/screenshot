@@ -38,6 +38,7 @@ case "$sel" in
 		notify-send -a "$(basename "$0")" "screenshot" "saved to $out"
 		;;
 	edit)
+		out="$dir/$(date "+%Y%m%d-%H%M%S").png"
 		grim ${g:+-g "$g"} -t ppm - | satty -f - -o "$out"
 		;;
 	*)
