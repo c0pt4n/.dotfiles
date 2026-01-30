@@ -9,7 +9,6 @@ updatepkgs() {
 	$sudocmd xbps-install -Sy &&
 		$sudocmd xbps-install -uy xbps &&
 		$sudocmd xbps-install -uy
-	command -v rustup >/dev/null 2>&1 && rustup update
 	command -v flatpak >/dev/null 2>&1 && flatpak update -y
 	command -v go >/dev/null 2>&1 && xargs -a ~/.local/share/meta/pkgs_go.txt -I {} go install -v {}
 	command -v xlocate && xlocate -S
