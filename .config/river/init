@@ -60,7 +60,7 @@ for i in 1 2 3 4 5 6 7 8 9; do
 	riverctl map normal Super+Shift+Control $i toggle-view-tags $tags
 done
 
-riverctl map normal Super Return spawn "$TERMINAL"
+riverctl map normal Super Return spawn "terminal"
 riverctl map normal Super R spawn "fuzzel"
 riverctl map normal Super M spawn "menu-handler"
 riverctl map normal Super Q spawn "menu-handler sysact"
