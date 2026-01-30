@@ -22,6 +22,7 @@ atool
 bat
 bc
 bind
+bluetui
 bluez
 brightnessctl
 btop
