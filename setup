@@ -134,6 +134,7 @@ setup_runit() {
 		"$SETUP_RUNIT_SVHOME/virtlogd" \
 		"$SETUP_RUNIT_SVHOME/vnstatd" \
 		"$SETUP_RUNIT_SVHOME/nix-daemon" \
+		"$SETUP_RUNIT_SVHOME/power-profiles-daemon" \
 		"$SETUP_RUNIT_SVHOME/waydroid-container" \
 		"$SETUP_RUNIT_SVHOME/rtkit"
 	[ -d "$SETUP_RUNIT_SVDIR/sshd" ] &&

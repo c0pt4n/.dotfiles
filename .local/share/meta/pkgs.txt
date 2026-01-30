@@ -183,6 +183,7 @@ pkg-config
 plocate
 podman
 podman-compose
+power-profiles-daemon
 poweralertd
 python3-PyJWT
 python3-lxml
