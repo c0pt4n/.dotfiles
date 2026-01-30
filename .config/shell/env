@@ -57,7 +57,8 @@ export PATH="$PATH:$ANDROID_HOME/emulator"
 
 [ -d "$XDG_STATE_HOME/nix/profile/bin" ] &&
 	export PATH="$XDG_STATE_HOME/nix/profile/bin:${PATH:-}" &&
-	export XDG_DATA_DIRS="$XDG_STATE_HOME/nix/profile/share:$XDG_DATA_DIRS"
+	export XDG_DATA_DIRS="$XDG_STATE_HOME/nix/profile/share:$XDG_DATA_DIRS:${XDG_DATA_DIRS:-}" &&
+	export MANPATH="$XDG_STATE_HOME/nix/profile/share/man:${MANPATH:-}"
 
 # Other program settings:
 export SSH_ASKPASS="fuzzel-ssh-askpass":
