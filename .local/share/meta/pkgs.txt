@@ -96,7 +96,6 @@ impacket
 impala
 imv
 intel-ucode
-inxi
 isync
 iwd
 jadx
