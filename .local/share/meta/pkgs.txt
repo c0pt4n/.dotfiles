@@ -165,6 +165,7 @@ noto-fonts-emoji
 ntfs-3g
 nvidia
 nvidia-dkms
+nvidia-opencl
 nvtop
 obs
 ocl-icd-32bit
