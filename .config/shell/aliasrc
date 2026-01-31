@@ -1,7 +1,5 @@
 #!/bin/sh
 
-unsetopt PROMPT_SP 2>/dev/null
-
 alias e="${EDITOR:-vi}"
 alias q="exit"
 
