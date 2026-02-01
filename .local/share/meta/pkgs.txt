@@ -250,7 +250,6 @@ upterm
 urlview
 uv
 v4l-utils-32bit
-valgrind
 vim
 virt-manager
 vnstat
