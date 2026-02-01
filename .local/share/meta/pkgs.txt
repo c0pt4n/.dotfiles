@@ -90,7 +90,6 @@ hdparm
 helvum
 highlight
 hplip
-hugo
 hwinfo
 imhex
 impacket
