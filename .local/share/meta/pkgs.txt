@@ -58,7 +58,6 @@ fd
 ffmpeg
 ffmpegthumbnailer
 flatpak
-font-awesome6
 font-hack-ttf
 fontconfig
 foot

@@ -30,9 +30,6 @@ window#waybar {
 #wireplumber,
 #bluetooth,
 #network,
-#memory,
-#cpu,
-#temperature,
 #battery {
 	background-color: @module;
 	padding: 7px 10px;
