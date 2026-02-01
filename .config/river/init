@@ -74,11 +74,11 @@ riverctl map normal Super+Shift O spawn "menu-handler recents"
 riverctl map normal Super Backslash spawn "makoctl dismiss -a && pkill -RTMIN+6 waybar"
 riverctl map normal Super+Shift Backslash spawn "makoctl mode | grep -Fxq dnd || makoctl dismiss -a; makoctl mode -t dnd && pkill -RTMIN+6 waybar"
 command -v bicon >/dev/null 2>&1 && {
-	riverctl map normal Super D spawn "$TERMINAL -e bicon.bin lf"
-	riverctl map normal Super N spawn "$TERMINAL -a float --window-size-pixels 980x620 -e bicon.bin ncmpcpp"
+	riverctl map normal Super D spawn "terminal -e bicon.bin lf"
+	riverctl map normal Super N spawn "terminal -a float --window-size-pixels 980x620 -e bicon.bin ncmpcpp"
 } || {
-	riverctl map normal Super D spawn "$TERMINAL -e lf"
-	riverctl map normal Super N spawn "$TERMINAL -a float --window-size-pixels 980x620 -e ncmpcpp"
+	riverctl map normal Super D spawn "terminal -e lf"
+	riverctl map normal Super N spawn "terminal -a float --window-size-pixels 980x620 -e ncmpcpp"
 }
 
 for mode in normal locked; do
