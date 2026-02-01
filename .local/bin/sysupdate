@@ -20,6 +20,8 @@ updatepkgs() {
 		tldr --update
 	command -v xlocate >/dev/null 2>&1 &&
 		xlocate -S
+	command -v xcheckrestart >/dev/null 2>&1 &&
+		xcheckrestart
 }
 
 clean() {
