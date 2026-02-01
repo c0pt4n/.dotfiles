@@ -238,7 +238,6 @@ texlive-science
 thc-hydra
 tigervnc
 tlp
-tlp-rdw
 tmate
 tmux
 translate-shell
