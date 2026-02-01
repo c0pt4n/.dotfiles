@@ -30,6 +30,7 @@ btrfs-progs
 buku
 calcurse
 cava
+chafa
 chrony
 clang
 cliphist
@@ -108,6 +109,7 @@ kvantum
 ldns
 less
 lesspipe
+lf
 libXcomposite-32bit
 liberation-fonts-ttf
 libgamemode-32bit
@@ -156,7 +158,6 @@ nerd-fonts-symbols-ttf
 newsboat
 nix
 nmap
-nnn
 nodejs
 noip2
 noto-fonts-emoji
