@@ -48,9 +48,6 @@ export _JAVA_OPTIONS="-Djava.util.prefs.userRoot=$XDG_CONFIG_HOME/java"
 [ -d "$XDG_STATE_HOME/nix/profile/share/wordlists" ] && export SEC="$XDG_STATE_HOME/nix/profile/share/wordlists"
 
 export PATH="$GOPATH/bin:$HOME/.local/bin:$HOME/.dotnet/tools:${PATH:-}"
-export PATH="$PATH:$ANDROID_HOME/platform-tools"
-export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin"
-export PATH="$PATH:$ANDROID_HOME/emulator"
 
 [ -d "$XDG_STATE_HOME/nix/profile/bin" ] &&
 	export PATH="$XDG_STATE_HOME/nix/profile/bin:${PATH:-}" &&
