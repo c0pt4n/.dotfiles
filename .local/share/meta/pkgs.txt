@@ -152,14 +152,15 @@ ncdu
 ncmpcpp
 ncurses-term
 neovim
-nerd-fonts
 nerd-fonts-symbols-ttf
 newsboat
 nix
 nmap
 nodejs
 noip2
+noto-fonts-cjk
 noto-fonts-emoji
+noto-fonts-ttf
 ntfs-3g
 nvidia
 nvidia-dkms
