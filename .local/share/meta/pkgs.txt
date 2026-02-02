@@ -242,6 +242,7 @@ translate-shell
 transmission
 typst
 ufw
+uni
 unzip
 upterm
 urlview
