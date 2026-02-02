@@ -5,6 +5,7 @@ set -eu
 export SDL_VIDEODRIVER="wayland"
 export CLUTTER_BACKEND="wayland"
 export QT_QPA_PLATFORM="wayland;xcb"
+export ELM_DISPLAY="wl"
 export MOZ_ENABLE_WAYLAND=1
 export NO_AT_BRIDGE=1
 export _JAVA_AWT_WM_NONREPARENTING=1
@@ -14,7 +15,7 @@ export XDG_SESSION_TYPE="wayland"
 export XDG_SESSION_DESKTOP="river"
 export XDG_CURRENT_DESKTOP="river"
 
-export GTK_THEME="Arc-Dark"
+export GTK_THEME="Adwaita-dark"
 export QT_QPA_PLATFORMTHEME=qt5ct
 
 export WLR_BACKENDS="drm,libinput,headless"
