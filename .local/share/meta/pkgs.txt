@@ -142,7 +142,6 @@ mesa-dri
 mesa-dri-32bit
 mesa-vulkan-intel
 mesa-vulkan-intel-32bit
-mitmproxy
 mpc
 mpd
 mpv
