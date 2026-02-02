@@ -4,7 +4,9 @@ set ifs "\n"
 set icons
 set period 1
 set scrolloff 10
+set cursorpreviewfmt "\033[7;2m"
 set autoquit true
+set cleaner "~/.config/lf/cleaner"
 set previewer "~/.config/lf/previewer"
 
 cmd delete ${{
@@ -15,5 +17,14 @@ cmd delete ${{
 	read ans
 	[ $ans = "y" ] && rm -rf -- $fx
 }}
+
+map <enter> shell
+map <esc> !true
+
+map x $$f
+map X !$f
+
+cmd open &open $f
+map o open $f
 
 map D delete
