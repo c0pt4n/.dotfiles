@@ -18,6 +18,7 @@ cmd delete ${{
 	[ $ans = "y" ] && rm -rf -- $fx
 }}
 
+map H set hidden!
 map <enter> shell
 map <esc> !true
 
@@ -28,3 +29,6 @@ cmd open &open $f
 map o open $f
 
 map D delete
+map <delete> delete
+
+cmd q quit
