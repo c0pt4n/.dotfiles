@@ -9,6 +9,7 @@ vim.opt.shortmess:append({ I = true })
 
 vim.opt.number = true
 vim.opt.relativenumber = true
+vim.opt.statusline = "%f %r%m%=%y %{&fileencoding ? &fileencoding : &encoding} %{&fileformat} | %l:%c %p%%"
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 vim.opt.smartcase = true
