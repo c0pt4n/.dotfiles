@@ -43,6 +43,10 @@ alias crave='crave -c "$XDG_CONFIG_HOME/crave.conf"'
 # neovim for vim if available
 [ -x "$(command -v nvim)" ] && alias vim="nvim" vimdiff="nvim -d"
 
+lfcd() {
+	cd "$(command lf -print-last-dir "$@")" || return $?
+}
+
 pass() {
 	case "$EDITOR" in
 		vim | nvim) editor="$EDITOR --noplugin" ;;
