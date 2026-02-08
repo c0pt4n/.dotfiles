@@ -32,3 +32,4 @@ map D delete
 map <delete> delete
 
 cmd q quit
+cmd extract $extract $f
