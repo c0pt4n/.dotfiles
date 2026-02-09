@@ -2,6 +2,8 @@
 
 set -eu
 
+pidof -sqx gpg-agent && pkill -x -HUP gpg-agent || true
+
 exec waylock \
 	-fork-on-lock \
 	-log-level info \
