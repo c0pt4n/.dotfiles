@@ -73,8 +73,12 @@ setup_pkgs() {
 	command -v go >/dev/null 2>&1 &&
 		go telemetry off &&
 		xargs -a ~/.local/share/meta/pkgs_go.txt -I {} go install -v {}
-	return 0
+	command -v mpv >/dev/null 2>&1 && [ -f /usr/lib/mpv-mpris/mpris.so ] && {
+		[ -d /etc/mpv/scripts ] || $sudocmd mkdir -pv /etc/mpv/scripts
+		$sudocmd ln -sfvt /etc/mpv/scripts /usr/lib/mpv-mpris/mpris.so
+	}
 	curl https://raw.githubusercontent.com/jarun/advcpmv/master/install.sh --create-dirs -o $XDG_CACHE_HOME/advcpmv/install.sh && (cd $XDG_CACHE_HOME/advcpmv && sh install.sh)
+	return 0
 }
 
 setup_user() {
