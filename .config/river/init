@@ -61,8 +61,8 @@ for i in 1 2 3 4 5 6 7 8 9; do
 done
 
 riverctl map normal Super Return spawn "terminal"
-riverctl map normal Super R spawn "fuzzel"
 riverctl map normal Super M spawn "menu-handler"
+riverctl map normal Super R spawn "menu-handler apps"
 riverctl map normal Super Q spawn "menu-handler system-actions"
 riverctl map normal None XF86PowerOff spawn "menu-handler system-actions"
 riverctl map normal None Print spawn "menu-handler screenshot"
