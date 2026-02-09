@@ -193,16 +193,6 @@ setup_ufw() {
 	$sudocmd ufw allow out on waydroid0
 }
 
-setup_pam() {
-	grep -Fq "pam_ssh.so" /etc/pam.d/login || {
-		cat <<-_EOF | $sudocmd tee -a /etc/pam.d/login >/dev/null
-
-			-auth optional pam_ssh.so try_first_pass
-			-session optional pam_ssh.so
-		_EOF
-	}
-}
-
 setup_browser() {
 	[ -d "$SETUP_PROGRAMS_DIR/arkenfox-user.js" ] ||
 		git clone https://github.com/arkenfox/user.js.git "$SETUP_PROGRAMS_DIR/arkenfox-user.js"
@@ -236,7 +226,6 @@ setup_install() {
 	setup_runit
 	setup_iw
 	setup_ufw
-	setup_pam
 	setup_browser
 }
 
@@ -268,7 +257,6 @@ case "${1:-dotfiles}" in
 	runit) setup_runit ;;
 	iw) setup_iw ;;
 	ufw) setup_ufw ;;
-	pam) setup_pam ;;
 	browser) setup_browser ;;
 	uninstall) setup_uninstall ;;
 	*)
