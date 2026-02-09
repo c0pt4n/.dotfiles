@@ -134,7 +134,9 @@ riverctl set-cursor-warp on-focus-change
 riverctl xcursor-theme Adwaita "${XCURSOR_SIZE:-24}"
 
 riverctl set-repeat 50 200
-riverctl keyboard-layout -options "grp:alt_space_toggle,grp_led:caps,altwin:menu_win" "us,ara"
+riverctl keyboard-layout \
+	${XKB_DEFAULT_OPTIONS:+-options "$XKB_DEFAULT_OPTIONS"} \
+	"${XKB_DEFAULT_LAYOUT:-us}"
 
 riverctl list-inputs |
 	grep -Fi touchpad |
