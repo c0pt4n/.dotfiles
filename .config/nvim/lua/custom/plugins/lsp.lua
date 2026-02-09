@@ -88,6 +88,29 @@ return {
 				},
 			})
 
+			vim.lsp.config("lua_ls", {
+				filetypes = { "lua" },
+				settings = {
+					Lua = {
+						telemetry = { enable = false },
+						codeLens = { enable = true },
+						hint = { enable = true },
+						runtime = {
+							path = vim.split(package.path, ";"),
+							pathStrict = true,
+							version = jit and "LuaJIT" or _VERSION or "Lua 5.1",
+						},
+						workspace = {
+							checkThirdParty = false,
+							library = {
+								vim.env.VIMRUNTIME,
+								"${3rd}/luv/library",
+							},
+						},
+					},
+				},
+			})
+
 			vim.lsp.config("ts_ls", {
 				init_options = {
 					maxTsServerMemory = 3 * 1024,
