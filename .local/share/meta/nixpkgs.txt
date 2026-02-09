@@ -1,4 +1,7 @@
+nixpkgs#aircrack-ng
 nixpkgs#apkeep
+nixpkgs#apktool
+nixpkgs#arp-scan
 nixpkgs#assetfinder
 nixpkgs#bicon
 nixpkgs#bloodhound-ce
@@ -13,5 +16,6 @@ nixpkgs#seclists
 nixpkgs#smbmap
 nixpkgs#steghide
 nixpkgs#stegseek
+nixpkgs#typst
 nixpkgs#whatweb
 nixpkgs#xdg-ninja
