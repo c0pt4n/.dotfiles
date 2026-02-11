@@ -18,6 +18,7 @@ export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
 export HISTFILE="$XDG_STATE_HOME/history"
 export LESSHISTFILE="$XDG_STATE_HOME/less_history"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0"
+export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep/ripgreprc"
 export FZF_DEFAULT_OPTS_FILE="$XDG_CONFIG_HOME/fzf/fzfrc"
 export ANDROID_HOME="$XDG_DATA_HOME/android/sdk"
 export ANDROID_USER_HOME="$ANDROID_HOME/user"
