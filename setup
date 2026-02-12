@@ -38,6 +38,9 @@ sudocmd="$([ -s /etc/doas.conf ] && command -v doas 2>/dev/null || command -v su
 
 setup_dotfiles() {
 	cp -srvft "$HOME" "$HERE/.config" "$HERE/.local"
+	[ -d "$HOME/.ssh" ] || mkdir -pv "$HOME/.ssh"
+	grep -Fxq "Include ~/.config/ssh/config" "$HOME/.ssh/config" ||
+		sed -i "1s@^@Include ~/.config/ssh/config\n\n@" "$HOME/.ssh/config"
 	[ -d "$HERE/etc" ] &&
 		$sudocmd cp --preserve=mode,links,timestamp -rfvt /etc "$HERE/etc/."
 	[ -d "$HERE/usr" ] &&

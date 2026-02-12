@@ -168,7 +168,6 @@ opendoas
 openjdk
 openssh
 openvpn
-pam_ssh
 pandoc
 pass
 pass-otp
