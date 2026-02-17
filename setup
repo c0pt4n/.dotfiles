@@ -81,7 +81,6 @@ setup_pkgs() {
 		[ -d /etc/mpv/scripts ] || $sudocmd mkdir -pv /etc/mpv/scripts
 		$sudocmd ln -sfvt /etc/mpv/scripts /usr/lib/mpv-mpris/mpris.so
 	}
-	curl https://raw.githubusercontent.com/jarun/advcpmv/master/install.sh --create-dirs -o $XDG_CACHE_HOME/advcpmv/install.sh && (cd $XDG_CACHE_HOME/advcpmv && sh install.sh)
 	return 0
 }
 
