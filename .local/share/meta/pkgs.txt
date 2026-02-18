@@ -244,6 +244,7 @@ uv
 v4l-utils-32bit
 vim
 virt-manager
+virtiofsd
 vnstat
 void-docs-browse
 void-live-audio
