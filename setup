@@ -196,12 +196,10 @@ setup_ufw() {
 	$sudocmd ufw default allow outgoing
 	$sudocmd ufw limit ssh
 	$sudocmd ufw allow in proto udp from 172.16.0.0/12 to 172.17.0.1 port 53 comment "allow-docker-dns"
-	$sudocmd ufw allow in on virbr0
-	$sudocmd ufw allow out on virbr0
-	$sudocmd ufw allow in on virbr0 to any port 67 proto udp comment "libvirt-dhcp"
-	$sudocmd ufw allow in on virbr0 to any port 53 comment "libvirt-dns"
-	$sudocmd ufw allow in on waydroid0
-	$sudocmd ufw allow out on waydroid0
+	$sudocmd ufw allow in on virbr0 comment "libvirt-in"
+	$sudocmd ufw allow out on virbr0 comment "libvirt-out"
+	$sudocmd ufw allow in on waydroid0 comment "waydroid-in"
+	$sudocmd ufw allow out on waydroid0 comment "waydroid-out"
 }
 
 setup_browser() {
