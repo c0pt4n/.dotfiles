@@ -14,8 +14,6 @@ updatepkgs() {
 		nix profile upgrade --all
 	command -v flatpak >/dev/null 2>&1 &&
 		flatpak update -y
-	command -v go >/dev/null 2>&1 &&
-		xargs -a ~/.local/share/meta/pkgs_go.txt -I {} go install -v {}
 	command -v tldr >/dev/null 2>&1 &&
 		tldr --update
 	command -v xlocate >/dev/null 2>&1 &&
