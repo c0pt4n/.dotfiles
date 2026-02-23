@@ -226,9 +226,6 @@ swayidle
 syncthing
 tealdeer
 telegram-desktop
-texlive-basic
-texlive-publishers
-texlive-science
 thc-hydra
 tigervnc
 tlp
