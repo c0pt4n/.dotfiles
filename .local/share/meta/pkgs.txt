@@ -30,6 +30,7 @@ chrony
 clang
 cliphist
 cronie
+crun
 cups
 cups-filters
 cups-pdf
