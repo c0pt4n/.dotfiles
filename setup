@@ -202,6 +202,7 @@ setup_ufw() {
 	$sudocmd ufw allow in on virbr0 to any port 53 comment "libvirt-dns"
 	$sudocmd ufw allow in on waydroid0
 	$sudocmd ufw allow out on waydroid0
+	$sudocmd ufw --force enable
 }
 
 setup_browser() {
