@@ -206,6 +206,40 @@ setup_ufw() {
 	$sudocmd ufw --force enable
 }
 
+setup_drivers() {
+	pkgs=""
+	cpu_model="$(grep -i -m 1 "^model name\s:" /proc/cpuinfo)"
+	echo "$cpu_model" | grep -iq "intel" && pkgs="$pkgs linux-firmware-intel intel-ucode"
+	echo "$cpu_model" | grep -iq "amd" && pkgs="$pkgs linux-firmware-amd"
+	gpu_model="$(lspci | grep -i "vga\|3d\|display")"
+	echo "$gpu_model" | grep -iq "intel" && {
+		pkgs="$pkgs linux-firmware-intel mesa-vulkan-intel"
+		echo "$gpu_model" | grep -iq "hd graphics\|xe\|iris" && pkgs="$pkgs intel-media-driver"
+		echo "$gpu_model" | grep -Fiq "gma" && pkgs="$pkgs libva-intel-driver"
+		[ -e /etc/modprobe.d/i915.conf ] ||
+			echo "options i915 enable_guc=2 enable_dc=4 enable_hangcheck=0 error_capture=0 enable_dp_mst=0 fastboot=1" |
+			$sudocmd tee /etc/modprobe.d/i915.conf >/dev/null
+	}
+	echo "$gpu_model" | grep -iq "amd" && {
+		pkgs="$pkgs linux-firmware-amd amdvlk ROCm-SMI"
+		echo "$gpu_model" | grep -iq "radeon\|amd/ati" && pkgs="$pkgs mesa-vulkan-radeon"
+		[ -e /etc/modprobe.d/amdgpu.conf ] ||
+			echo "options amdgpu gpu_recovery=1 lockup_timeout=10000 ppfeaturemask=0xffffffff" |
+			$sudocmd tee /etc/modprobe.d/amdgpu.conf >/dev/null
+	}
+	echo "$gpu_model" | grep -iq "nvidia" && {
+		pkgs="$pkgs linux-firmware-nvidia nvidia nvidia-dkms nvidia-gtklibs nvidia-opencl nvtop"
+		[ -e /etc/modprobe.d/nvidia.conf ] || {
+			echo "options nvidia_drm modeset=1"
+			echo "options nvidia NVreg_DynamicPowerManagement=0x03 options nvidia "NVreg_PreserveVideoMemoryAllocations=1 options nvidia "NVreg_TemporaryFilePath=/var/tmp"
+		} | $sudocmd tee /etc/modprobe.d/nvidia.conf >/dev/null
+	}
+	echo "$pkgs" | xargs "$sudocmd" xbps-install -Sy
+	xbps-query --regex -p pkgname -s "linux[0-9]+.[0-9]+" |
+		cut -d " " -f 2 |
+		xargs "$sudocmd" xbps-reconfigure -f
+}
+
 setup_browser() {
 	[ -d "$SETUP_PROGRAMS_DIR/arkenfox-user.js" ] ||
 		git clone https://github.com/arkenfox/user.js.git "$SETUP_PROGRAMS_DIR/arkenfox-user.js"
@@ -240,6 +274,7 @@ setup_install() {
 	setup_runit
 	setup_iw
 	setup_ufw
+	setup_drivers
 	setup_browser
 }
 
@@ -271,6 +306,7 @@ case "${1:-dotfiles}" in
 	runit) setup_runit ;;
 	iw) setup_iw ;;
 	ufw) setup_ufw ;;
+	drivers) setup_drivers ;;
 	browser) setup_browser ;;
 	uninstall) setup_uninstall ;;
 	*)
