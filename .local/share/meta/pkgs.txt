@@ -140,6 +140,7 @@ mesa-vulkan-intel
 mesa-vulkan-intel-32bit
 mpc
 mpd
+mpdris2-rs
 mpv
 mpv-mpris
 mtpfs
