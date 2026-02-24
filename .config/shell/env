@@ -1,10 +1,10 @@
 #!/bin/sh
 
 # Default programs:
-export BROWSER="zen-browser"
 export TERMINAL="foot"
 export EDITOR="nvim"
 export VISUAL="nvim"
+export BROWSER="zen"
 
 # ~/ Clean-up:
 export XDG_CONFIG_HOME="$HOME/.config"

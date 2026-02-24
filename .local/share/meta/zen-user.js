@@ -1,5 +1,5 @@
 user_pref("zen.urlbar.behavior", "float");
-user_pref("zen.theme.accent-color", "#3498db");
+user_pref("zen.theme.accent-color", "#2e3440");
 user_pref("zen.theme.content-element-separation", 0);
 user_pref("zen.theme.gradient", false);
 user_pref("zen.theme.gradient.show-custom-colors", true);
