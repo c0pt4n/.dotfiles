@@ -26,6 +26,7 @@ buku
 calcurse
 cava
 chafa
+chromium
 chrony
 clang
 cliphist
@@ -52,6 +53,7 @@ fastfetch
 fd
 ffmpeg
 ffmpegthumbnailer
+firefox
 flatpak
 font-hack-ttf
 fontconfig
@@ -123,6 +125,7 @@ linux-firmware
 lsof
 lswt
 lynis
+lz4jsoncat
 lzip
 macchanger
 mako
