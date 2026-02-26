@@ -222,8 +222,9 @@ setup_drivers() {
 	echo "$gpu_model" | grep -iq "nvidia" && {
 		pkgs="$pkgs linux-firmware-nvidia nvidia nvidia-dkms nvidia-gtklibs nvidia-opencl nvtop"
 		[ -e /etc/modprobe.d/nvidia.conf ] || {
+			echo "blacklist nouveau"
 			echo "options nvidia_drm modeset=1"
-			echo "options nvidia NVreg_DynamicPowerManagement=0x03 options nvidia "NVreg_PreserveVideoMemoryAllocations=1 options nvidia "NVreg_TemporaryFilePath=/var/tmp"
+			echo "options nvidia NVreg_DynamicPowerManagement=0x03 NVreg_PreserveVideoMemoryAllocations=1 NVreg_TemporaryFilePath=/var/tmp"
 		} | $sudocmd tee /etc/modprobe.d/nvidia.conf >/dev/null
 	}
 	echo "$pkgs" | xargs "$sudocmd" xbps-install -Sy
