@@ -1,5 +1,4 @@
 7zip
-Amass
 ImageMagick
 Vulkan-Tools
 Waybar
@@ -58,7 +57,6 @@ flatpak
 font-hack-ttf
 fontconfig
 foot
-freerdp3
 fribidi
 fuzzel
 fzf
@@ -96,7 +94,6 @@ intel-ucode
 isync
 iwd
 jadx
-john
 jq
 jujutsu
 kanshi
@@ -124,7 +121,6 @@ libxslt-32bit
 linux-firmware
 lsof
 lswt
-lynis
 lz4jsoncat
 lzip
 macchanger
@@ -206,16 +202,13 @@ ripgrep
 river
 rsync
 rtkit
-samba
 satty
 sc-im
 scrcpy
-setxkbmap
 shellcheck
 simple-mtpfs
 slurp
 smartmontools
-smbclient
 socklog
 socklog-void
 sof-firmware
@@ -243,7 +236,6 @@ upterm
 urlview
 uv
 v4l-utils-32bit
-vim
 virt-manager
 virtiofsd
 vnstat
