@@ -2,4 +2,4 @@
 Type=Application
 Name=File Manager
 Icon=lf
-Exec=terminal lf -Rr %u
+Exec=terminal lf %u
