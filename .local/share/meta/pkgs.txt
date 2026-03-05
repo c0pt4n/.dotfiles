@@ -59,6 +59,7 @@ fontconfig
 foot
 fribidi
 fuzzel
+fwupd
 fzf
 galculator
 gamemode
