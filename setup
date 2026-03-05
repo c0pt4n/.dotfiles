@@ -229,6 +229,14 @@ setup_drivers() {
 		[ -f /usr/libexec/elogind/system-sleep/nvidia.sh ] &&
 			$sudocmd mv -fv /usr/libexec/elogind/system-sleep/nvidia.sh /usr/libexec/elogind/backup/ &&
 			$sudocmd ln -sfv /dev/null /usr/libexec/elogind/system-sleep/nvidia.sh
+		[ -e /etc/elogind/sleep.conf ] &&
+			$sudocmd sed -i \
+				-e 's/^#AllowSuspend=yes/AllowSuspend=yes/' \
+				-e 's/^#AllowHibernation=yes/AllowHibernation=yes/' \
+				-e 's|^#SuspendByUsing=|SuspendByUsing=/usr/bin/zzz|' \
+				-e 's|^#HibernateByUsing=|HibernateByUsing=/usr/bin/ZZZ|' \
+				/etc/elogind/sleep.conf
+
 	}
 	echo "$pkgs" | xargs "$sudocmd" xbps-install -Sy
 	xbps-query --regex -p pkgname -s "linux[0-9]+.[0-9]+" |
