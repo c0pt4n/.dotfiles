@@ -93,7 +93,6 @@ imv
 intel-ucode
 isync
 iwd
-jadx
 jq
 jujutsu
 kanshi
@@ -218,6 +217,7 @@ speech-dispatcher
 sqlite-32bit
 sqlmap
 steam
+sway
 swayidle
 syncthing
 tealdeer
@@ -270,6 +270,7 @@ wl-mirror
 wlopm
 wlr-randr
 wlrctl
+wmenu
 xdg-desktop-portal-gtk
 xdg-desktop-portal-wlr
 xdg-user-dirs
