@@ -90,14 +90,14 @@ command -v bicon >/dev/null 2>&1 && {
 for mode in normal locked; do
 	riverctl map $mode None XF86Eject spawn "eject -T"
 
-	keymap -repeat $mode None XF86AudioRaiseVolume spawn "volumectl 5%+"
-	keymap -repeat $mode None XF86AudioLowerVolume spawn "volumectl 5%-"
-	keymap $mode None XF86AudioMute spawn "volumectl toggle"
-	keymap $mode None XF86AudioMicMute spawn "volumectl togglemic"
-	keymap -repeat $mode Super Equal spawn "volumectl 5%+"
-	keymap -repeat $mode Super Minus spawn "volumectl 5%-"
-	keymap $mode Super Backspace spawn "volumectl toggle"
-	keymap $mode Super+Shift Backspace spawn "volumectl togglemic"
+	keymap -repeat $mode None XF86AudioRaiseVolume spawn "audioctl 5%+"
+	keymap -repeat $mode None XF86AudioLowerVolume spawn "audioctl 5%-"
+	keymap $mode None XF86AudioMute spawn "audioctl toggle"
+	keymap $mode None XF86AudioMicMute spawn "audioctl mic toggle"
+	keymap -repeat $mode Super Equal spawn "audioctl 5%+"
+	keymap -repeat $mode Super Minus spawn "audioctl 5%-"
+	keymap $mode Super Backspace spawn "audioctl toggle"
+	keymap $mode Super+Shift Backspace spawn "audioctl mic toggle"
 
 	keymap $mode None XF86AudioNext spawn "playerctl next"
 	keymap $mode None XF86AudioPrev spawn "playerctl previous"
