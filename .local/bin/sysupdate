@@ -8,8 +8,7 @@ sudocmd="$([ -f /etc/doas.conf ] && command -v doas 2>/dev/null || command -v su
 updatepkgs() {
 	$sudocmd xbps-install -Sy &&
 		$sudocmd xbps-install -uy xbps &&
-		$sudocmd xbps-install -uy &&
-		[ -f /usr/libexec/elogind/system-sleep/nvidia.sh ] && $sudocmd mv -f /usr/libexec/elogind/system-sleep/nvidia.sh /usr/libexec/elogind/backup/
+		$sudocmd xbps-install -uy
 	command -v nix >/dev/null 2>&1 &&
 		nix-channel --update &&
 		nix profile upgrade --all
