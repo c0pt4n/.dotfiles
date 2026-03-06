@@ -1,0 +1,12 @@
+#!/bin/sh
+
+if [ "$ZZZ_MODE" = "disk" ]; then
+    case "$1" in
+        pre)
+            /usr/bin/rmmod intel_hid
+            ;;
+        post)
+            /usr/bin/modprobe intel_hid
+            ;;
+    esac
+fi
