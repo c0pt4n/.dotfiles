@@ -78,14 +78,8 @@ keymap normal Super O spawn "menu-handler clipboard-history"
 keymap normal Super+Shift O spawn "menu-handler recent-files"
 keymap normal Super Backslash spawn "makoctl dismiss -a && pkill -RTMIN+6 waybar"
 keymap normal Super+Shift Backslash spawn "menu-handler notifications dnd"
-
-command -v bicon >/dev/null 2>&1 && {
-	keymap normal Super D spawn "terminal -e bicon.bin lf"
-	keymap normal Super N spawn "terminal -a float --window-size-pixels 980x620 -e bicon.bin ncmpcpp"
-} || {
-	keymap normal Super D spawn "terminal -e lf"
-	keymap normal Super N spawn "terminal -a float --window-size-pixels 980x620 -e ncmpcpp"
-}
+keymap normal Super D spawn "terminal -e lf"
+keymap normal Super N spawn "terminal -a float --window-size-pixels 980x620 -e ncmpcpp"
 
 for mode in normal locked; do
 	keymap $mode None XF86Eject spawn "eject -T"
