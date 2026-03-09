@@ -130,6 +130,14 @@ return {
 				},
 				filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
 			})
+
+			vim.lsp.config("arduino_language_server", {
+				cmd = {
+					"arduino-language-server",
+					"-cli-config",
+					vim.fn.expand("$ARDUINO_DIRECTORIES_DATA/arduino-cli.yaml"),
+				},
+			})
 		end,
 	},
 }
