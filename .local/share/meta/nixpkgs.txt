@@ -1,6 +1,5 @@
 nixpkgs#aircrack-ng
 nixpkgs#apkeep
-nixpkgs#apktool
 nixpkgs#arp-scan
 nixpkgs#bicon
 nixpkgs#bloodhound-ce
