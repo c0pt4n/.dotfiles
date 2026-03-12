@@ -1,7 +1,8 @@
 #!/bin/sh
 
-. "$HOME/.config/shell/env"
+# shellcheck disable=SC1091
+. "${XDG_CONFIG_HOME:-$HOME/.config}/shell/env"
 
-[ -z "${WAYLAND_DISPLAY:-}" ] &&
-	[ "${XDG_VTNR:-0}" -eq 1 ] &&
+[ -z "${DISPLAY:-${WAYLAND_DISPLAY:-}}" ] &&
+	[ "$(tty)" = "/dev/tty1" ] &&
 	exec ssh-agent dbus-run-session niri --session
