@@ -149,6 +149,7 @@ ncurses-term
 neovim
 nerd-fonts-symbols-ttf
 newsboat
+niri
 nix
 nmap
 nodejs
@@ -220,6 +221,7 @@ sqlmap
 steam
 sway
 swayidle
+swaylock
 syncthing
 tealdeer
 telegram-desktop
@@ -272,12 +274,14 @@ wlopm
 wlr-randr
 wlrctl
 wmenu
+xdg-desktop-portal-gnome
 xdg-desktop-portal-gtk
 xdg-desktop-portal-wlr
 xdg-user-dirs
 xdg-utils
 xmirror
 xtools
+xwayland-satellite
 yt-dlp
 zathura
 zathura-pdf-mupdf

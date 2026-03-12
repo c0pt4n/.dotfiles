@@ -4,4 +4,4 @@
 
 [ -z "${WAYLAND_DISPLAY:-}" ] &&
 	[ "${XDG_VTNR:-0}" -eq 1 ] &&
-	exec ssh-agent dbus-run-session hyprland
+	exec ssh-agent dbus-run-session niri --session

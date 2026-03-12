@@ -71,23 +71,23 @@ tooltip,
 	padding: 0 5px;
 }
 
-#tags button {
+#workspaces button {
 	all: initial;
 	padding: 0 6px;
 	margin: 0 1.5px;
 	min-width: 9px;
 	background-color: @background;
 }
-#tags button:not(.occupied) {
+#workspaces button.empty {
 	opacity: 0.5;
 }
-#tags button.focused {
+#workspaces button.active {
 	opacity: 1;
 	background-color: @module;
 	box-shadow: inset 0 -5px @active;
 }
 
-#tags button.urgent,
+#workspaces button.urgent,
 #privacy-item,
 #custom-recording {
 	box-shadow: inset 0 -5px @urgent;

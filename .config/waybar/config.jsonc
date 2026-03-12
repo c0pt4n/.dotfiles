@@ -4,8 +4,7 @@
 	"height": 26,
 	"spacing": 0,
 	"modules-left": [
-		"river/tags",
-		"river/mode",
+		"niri/workspaces",
 	],
 	"modules-center": [
 		"clock",
@@ -19,10 +18,6 @@
 		"network",
 		"battery",
 	],
-	"river/tags": {
-		"num-tags": 9,
-		"hide-vacant": true,
-	},
 	"clock": {
 		"interval": 60,
 		"format": "{:%a %H:%M}",

@@ -4,12 +4,10 @@ set -eu
 
 pidof -sqx gpg-agent && pkill -x -HUP gpg-agent || true
 
-riverctl keyboard-layout "${XKB_DEFAULT_LAYOUT:-us}" || true
-
-exec waylock \
-	-fork-on-lock \
-	-log-level info \
-	-ignore-empty-password \
-	-init-color 0x2e3440 \
-	-input-color 0x3b4252 \
-	-fail-color 0xbf616a
+exec swaylock \
+	--daemonize \
+	--debug \
+	--ignore-empty-password \
+    --show-failed-attempts \
+    --show-keyboard-layout \
+	--color 2e3440
