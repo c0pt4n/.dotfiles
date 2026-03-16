@@ -13,12 +13,16 @@ SCREENSHOTS_DIR="${SCREENSHOTS_DIR:-$(xdg-user-dir PICTURES)/screenshots}"
 	exit 1
 }
 
-sel="${1:-$(printf "󰒅 Select\n Fullscreen" | menu slug)}" || exit 1
+sel="${1:-$(printf "󰒅 Select\n Window\n Fullscreen" | menu slug)}" || exit 1
 case "$sel" in
 	fullscreen)
 		;;
 	select)
 		g="$(slurp -d)" || exit 1
+		;;
+	window)
+		g=$(niri msg --json pick-window | jq -r '.layout | "\(.pos_in_scrolling_layout[0]),\(.pos_in_scrolling_layout[1]) \(.window_size[0])x\(.window_size[1])"')
+		[ -n "$g" ] || exit 1
 		;;
 	*)
 		echo "$(basename "$0"): invalid command: $sel" >&2
