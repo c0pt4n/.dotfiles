@@ -102,6 +102,8 @@ setup_user() {
 		$sudocmd usermod -aG nixbld "$USER"
 	command -v keyd >/dev/null 2>&1 &&
 		$sudocmd usermod -aG keyd "$USER"
+	command -v VirtualBox >/dev/null 2>&1 &&
+		$sudocmd usermod -aG vboxusers "$USER"
 	return 0
 }
 
@@ -129,8 +131,6 @@ setup_runit() {
 		"$SETUP_RUNIT_SVHOME/keyd" \
 		"$SETUP_RUNIT_SVHOME/cupsd" \
 		"$SETUP_RUNIT_SVHOME/zramen" \
-		"$SETUP_RUNIT_SVHOME/libvirtd" \
-		"$SETUP_RUNIT_SVHOME/virtlogd" \
 		"$SETUP_RUNIT_SVHOME/vnstatd" \
 		"$SETUP_RUNIT_SVHOME/nix-daemon" \
 		"$SETUP_RUNIT_SVHOME/power-profiles-daemon" \

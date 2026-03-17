@@ -241,6 +241,9 @@ uv
 v4l-utils-32bit
 virt-manager
 virtiofsd
+virtualbox-ose
+virtualbox-ose-dkms
+virtualbox-ose-guest
 vnstat
 void-docs-browse
 void-live-audio
