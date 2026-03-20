@@ -225,6 +225,9 @@ swaylock
 syncthing
 tealdeer
 telegram-desktop
+texlive
+texlive-latexextra
+texlive-pictures
 thc-hydra
 tigervnc
 tlp
