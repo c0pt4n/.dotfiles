@@ -55,6 +55,7 @@ ffmpegthumbnailer
 firefox
 flatpak
 font-hack-ttf
+font-ibm-plex-otf
 fontconfig
 foot
 fribidi
