@@ -12,6 +12,7 @@ user_pref("browser.cache.memory.capacity", 512000);
 user_pref("browser.sessionhistory.max_total_viewers", 0);
 user_pref("browser.sessionstore.interval", 30000);
 user_pref("browser.sessionstore.interval.idle", 3600000);
+user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
 user_pref("browser.sessionhistory.max_entries", 50);
 user_pref("browser.sessionstore.max_serialize_back", 10);
 user_pref("browser.sessionstore.max_serialize_forward", -1);
