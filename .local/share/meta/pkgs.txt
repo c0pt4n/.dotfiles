@@ -177,6 +177,8 @@ patch
 pipewire
 pkg-config
 plocate
+plymouth
+plymouth-data
 podman
 podman-compose
 power-profiles-daemon
