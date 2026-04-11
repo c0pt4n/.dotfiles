@@ -103,7 +103,6 @@ kvantum
 ldns
 less
 lesspipe
-lf
 libXcomposite-32bit
 liberation-fonts-ttf
 libgamemode-32bit
@@ -289,6 +288,7 @@ xdg-utils
 xmirror
 xtools
 xwayland-satellite
+yazi
 yt-dlp
 zathura
 zathura-pdf-mupdf

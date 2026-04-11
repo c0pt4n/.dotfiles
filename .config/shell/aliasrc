@@ -26,7 +26,7 @@ command -v loginctl >/dev/null 2>&1 && {
 }
 
 command -v bicon >/dev/null 2>&1 && {
-	alias lf="bicon.bin lf"
+	alias yazi="bicon.bin yazi"
 	alias ncmpcpp="bicon.bin ncmpcpp"
 }
 
