@@ -18,6 +18,9 @@ updatepkgs() {
 		tldr --update
 	command -v xlocate >/dev/null 2>&1 &&
 		xlocate -S
+	#shellcheck disable=SC2086
+	command -v makewhatis >/dev/null 2>&1 &&
+		man -w | tr -d "\n" | xargs -d ":" $sudocmd makewhatis
 	command -v xcheckrestart >/dev/null 2>&1 &&
 		xcheckrestart
 }
