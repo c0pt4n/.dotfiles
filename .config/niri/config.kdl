@@ -65,6 +65,9 @@ input {
         // middle-emulation
     }
 
+    // don't handle power key
+    disable-power-key-handling
+
     // Uncomment this to make the mouse warp to the center of newly focused windows.
     // warp-mouse-to-focus
 
@@ -434,6 +437,7 @@ binds {
     Mod+M                          { spawn "menu-handler"; }
     Mod+Q                          { spawn "menu-handler" "system-actions"; }
     Mod+N                          { spawn "terminal" "-a" "ncmpcpp" "-e" "bicon.bin" "ncmpcpp"; }
+    XF86PowerOff                   { spawn "menu-handler" "system-actions"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
