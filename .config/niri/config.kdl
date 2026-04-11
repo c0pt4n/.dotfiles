@@ -95,10 +95,6 @@ cursor {
     hide-when-typing
 }
 
-debug {
-    render-drm-device "/dev/dri/renderD128"
-}
-
 gestures {
     hot-corners {
         off
@@ -111,7 +107,7 @@ gestures {
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Outputs
 // Remember to uncomment the node by removing "/-"!
-/-output "eDP-1" {
+output "eDP-1" {
     // Uncomment this line to disable this output.
     // off
 
@@ -124,7 +120,7 @@ gestures {
     mode "1920x1080@120.030"
 
     // You can use integer or fractional scale, for example use 1.5 for 150% scale.
-    scale 2
+    scale 1.25
 
     // Transform allows to rotate the output counter-clockwise, valid values are:
     // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
@@ -305,6 +301,7 @@ layout {
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
 // spawn-at-startup "waybar"
+spawn-at-startup "dbus-update-activation-environment" "DISPLAY" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP"
 spawn-at-startup "sh" "-c" "command -v runsvdir >/dev/null 2>&1 && ! pgrep -x -u \"$USER\" runsvdir >/dev/null 2>&1 && runsvdir \"${SVDIR_USER:-$XDG_DATA_HOME/services}\" &"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
@@ -372,6 +369,7 @@ window-rule {
     match app-id=r#"org.telegram.desktop"#
     match app-id=r#"kdenlive$"#
     match app-id=r#"gimp"#
+    match app-id=r#"obsidian"#
     open-maximized true
 }
 
@@ -683,3 +681,8 @@ binds {
     // moving the mouse or pressing any other key.
     Ctrl+Alt+P { power-off-monitors; }
 }
+
+include "dms/colors.kdl"
+include "dms/layout.kdl"
+include "dms/alttab.kdl"
+include "dms/binds.kdl"
