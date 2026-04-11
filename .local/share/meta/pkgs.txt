@@ -16,6 +16,7 @@ apparmor
 atool
 bat
 bc
+bind-utils
 bluetui
 bluez
 brightnessctl
