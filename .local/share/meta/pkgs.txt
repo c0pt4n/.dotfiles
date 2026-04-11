@@ -88,7 +88,6 @@ hdparm
 helvum
 highlight
 hplip
-hwinfo
 imhex
 impacket
 impala
