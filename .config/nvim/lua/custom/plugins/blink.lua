@@ -61,7 +61,7 @@ return {
 				},
 			},
 			sources = {
-				default = { "lsp", "path", "snippets", "buffer" },
+				default = { "lsp", "snippets", "path", "buffer" },
 			},
 			signature = {
 				enabled = true,
