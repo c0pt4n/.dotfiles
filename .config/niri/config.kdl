@@ -306,6 +306,7 @@ layout {
 // spawn-at-startup "waybar"
 spawn-at-startup "dbus-update-activation-environment" "DISPLAY" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP"
 spawn-at-startup "sh" "-c" "command -v runsvdir >/dev/null 2>&1 && ! pgrep -x -u \"$USER\" runsvdir >/dev/null 2>&1 && runsvdir \"${SVDIR_USER:-$XDG_DATA_HOME/services}\" &"
+spawn-at-startup "qs" "-c" "noctalia-shell"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"

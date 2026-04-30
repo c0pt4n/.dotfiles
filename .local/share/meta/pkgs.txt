@@ -1,9 +1,11 @@
 7zip
 ImageMagick
+NetworkManager
 Vulkan-Tools
 Waybar
 aardvark-dns
 abook
+adw-gtk-theme
 aerc
 alsa-lib-32bit
 alsa-plugins
@@ -152,6 +154,7 @@ newsboat
 niri
 nix
 nmap
+noctalia-shell
 nodejs
 noip2
 noip2
@@ -163,6 +166,7 @@ nvidia
 nvidia-dkms
 nvidia-opencl
 nvtop
+nwg-look
 obs
 ocl-icd-32bit
 openbsd-netcat
@@ -282,6 +286,7 @@ wl-mirror
 wlopm
 wlr-randr
 wlrctl
+wlsunset
 wmenu
 xdg-desktop-portal-gnome
 xdg-desktop-portal-gtk
