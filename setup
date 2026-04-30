@@ -134,6 +134,9 @@ setup_runit() {
 		"$SETUP_RUNIT_SVHOME/sshd" \
 		"$SETUP_RUNIT_SVHOME/keyd" \
 		"$SETUP_RUNIT_SVHOME/cupsd" \
+		"$SETUP_RUNIT_SVHOME/libvirtd" \
+		"$SETUP_RUNIT_SVHOME/virtlockd" \
+		"$SETUP_RUNIT_SVHOME/virtlogd" \
 		"$SETUP_RUNIT_SVHOME/zramen" \
 		"$SETUP_RUNIT_SVHOME/vnstatd" \
 		"$SETUP_RUNIT_SVHOME/nix-daemon" \
