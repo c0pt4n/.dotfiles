@@ -28,7 +28,6 @@ buku
 calcurse
 cava
 chafa
-chromium
 chrony
 clang
 cliphist

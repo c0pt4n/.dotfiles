@@ -1,4 +1,5 @@
 ch.tlaun.TL
+com.brave.Browser
 com.getpostman.Postman
 com.github.tchx84.Flatseal
 com.ktechpit.whatsie
