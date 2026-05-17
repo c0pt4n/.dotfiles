@@ -378,6 +378,7 @@ window-rule {
     match app-id=r#"kdenlive$"#
     match app-id=r#"gimp"#
     match app-id=r#"obsidian"#
+    match app-id=r#"org.wireshark.Wireshark"#
     open-maximized true
 }
 
