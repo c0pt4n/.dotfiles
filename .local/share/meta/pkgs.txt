@@ -291,6 +291,7 @@ xdg-desktop-portal-wlr
 xdg-user-dirs
 xdg-utils
 xmirror
+xmirror
 xtools
 xwayland-satellite
 yazi
