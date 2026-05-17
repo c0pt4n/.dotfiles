@@ -437,8 +437,8 @@ binds {
     Mod+Equal                      allow-when-locked=true { spawn "audioctl" "5%+"; }
     Mod+Minus                      allow-when-locked=true { spawn "audioctl" "5%-"; }
     Mod+Shift+O repeat=false       { spawn "menu-handler" "clipboard-history"; }
-    Mod+backslash                  { spawn-sh "makoctl dismiss -a && pkill -RTMIN+6 waybar"; }
-    Mod+Shift+backslash            { spawn "menu-handler" "notifications" "dnd"; }
+    Mod+backslash                  { spawn-sh "qs -c noctalia-shell ipc call notifications dismissAll"; }
+    Mod+Shift+backslash            { spawn-sh "qs -c noctalia-shell ipc call notifications toggleDND"; }
     Mod+M                          { spawn "menu-handler"; }
     Mod+Q                          { spawn "menu-handler" "system-actions"; }
     Mod+N                          { spawn "terminal" "-a" "ncmpcpp" "-e" "bicon.bin" "ncmpcpp"; }
