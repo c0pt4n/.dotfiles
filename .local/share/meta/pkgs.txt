@@ -232,6 +232,7 @@ syncthing
 tealdeer
 telegram-desktop
 texlive
+texlive-BibTeX
 texlive-latexextra
 texlive-pictures
 thc-hydra
