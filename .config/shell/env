@@ -55,6 +55,9 @@ export GH_TELEMETRY=false
 
 export PATH="$GOPATH/bin:$HOME/.local/bin::${PATH:-}"
 
+[ -d "$XDG_DATA_HOME/npm/bin" ] &&
+    export PATH="$XDG_DATA_HOME/npm/bin:${PATH:-}"
+
 [ -d "$XDG_STATE_HOME/nix/profile/bin" ] &&
 	export PATH="$XDG_STATE_HOME/nix/profile/bin:${PATH:-}" &&
 	export XDG_DATA_DIRS="$XDG_STATE_HOME/nix/profile/share:$XDG_DATA_DIRS:${XDG_DATA_DIRS:-}" &&
