@@ -1,6 +1,5 @@
 7zip
 ImageMagick
-NetworkManager
 Vulkan-Tools
 Waybar
 aardvark-dns
