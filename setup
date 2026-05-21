@@ -148,28 +148,6 @@ setup_runit() {
 		$sudocmd touch "$SETUP_RUNIT_SVDIR/sshd/down"
 	[ -d "$SETUP_RUNIT_SVDIR/waydroid-container" ] &&
 		$sudocmd touch "$SETUP_RUNIT_SVDIR/waydroid-container/down"
-	[ -d "$SETUP_RUNIT_SVHOME_USER" ] && {
-		mkdir -pv "$SETUP_RUNIT_SVDIR_USER"
-		ln -svft "$SETUP_RUNIT_SVDIR_USER" \
-			"$SETUP_RUNIT_SVHOME_USER/foot" \
-			"$SETUP_RUNIT_SVHOME_USER/kanshi" \
-			"$SETUP_RUNIT_SVHOME_USER/mako" \
-			"$SETUP_RUNIT_SVHOME_USER/pipewire" \
-			"$SETUP_RUNIT_SVHOME_USER/swayidle" \
-			"$SETUP_RUNIT_SVHOME_USER/poweralertd" \
-			"$SETUP_RUNIT_SVHOME_USER/cliphist-text" \
-			"$SETUP_RUNIT_SVHOME_USER/cliphist-image" \
-			"$SETUP_RUNIT_SVHOME_USER/wl-clip-persist" \
-			"$SETUP_RUNIT_SVHOME_USER/mpd" \
-			"$SETUP_RUNIT_SVHOME_USER/mpdris2-rs" \
-			"$SETUP_RUNIT_SVHOME_USER/mpris-proxy" \
-			"$SETUP_RUNIT_SVHOME_USER/playerctld" \
-			"$SETUP_RUNIT_SVHOME_USER/keyd-application-mapper" \
-			"$SETUP_RUNIT_SVHOME_USER/podman" \
-			"$SETUP_RUNIT_SVHOME_USER/syncthing" \
-			"$SETUP_RUNIT_SVHOME_USER/waybar" \
-			"$SETUP_RUNIT_SVHOME_USER/wbg"
-	}
 	return 0
 }
 
