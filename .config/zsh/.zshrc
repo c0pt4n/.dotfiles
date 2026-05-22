@@ -77,8 +77,6 @@ chpwd-osc7-pwd() {
 autoload -Uz add-zsh-hook
 add-zsh-hook -Uz chpwd chpwd-osc7-pwd
 
-bindkey -s "^A" "^ulfcd\n"
-
 open-todo-widget() {
 	command -v notes >/dev/null 2>&1 && LBUFFER="notes todo"
 	[ -f TODO.md ] && LBUFFER="$EDITOR TODO.md"
