@@ -28,9 +28,11 @@ updatepkgs() {
 clean() {
 	$sudocmd xbps-remove -Ooy
 	$sudocmd vkpurge rm all
-	command -v nix >/dev/null 2>&1 &&
-		nix-collect-garbage --delete-older-than 7d
-		nix-store --optimise
+	command -v nix >/dev/null 2>&1 && {
+	    nix-collect-garbage --delete-older-than 7d
+	    nix-store --optimise
+	}
+	return 0
 }
 
 case "${1:-pkgs}" in
