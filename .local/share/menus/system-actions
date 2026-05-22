@@ -10,7 +10,7 @@ case "$sel" in
 		loginctl -i lock-session
 		;;
 	exit)
-        niri msg action quit
+		mmsg -q
 		;;
 	suspend)
 		loginctl -i suspend

@@ -4,7 +4,6 @@ Vulkan-Tools
 Waybar
 aardvark-dns
 abook
-adw-gtk-theme
 aerc
 alsa-lib-32bit
 alsa-plugins
@@ -14,6 +13,7 @@ amiri-font
 android-tools
 android-udev-rules
 apparmor
+arc-theme
 atool
 bat
 bc
@@ -129,6 +129,7 @@ man-db
 man-pages
 man-pages-devel
 man-pages-posix
+mangowc
 masscan
 mediainfo
 mesa
@@ -149,10 +150,8 @@ ncurses-term
 neovim
 nerd-fonts-symbols-ttf
 newsboat
-niri
 nix
 nmap
-noctalia-shell
 nodejs
 noip2
 noip2
@@ -205,7 +204,6 @@ qt5ct
 qt6ct
 rclone
 ripgrep
-river
 rsync
 rtkit
 satty
@@ -281,7 +279,6 @@ wl-clipboard
 wl-mirror
 wlopm
 wlr-randr
-wlrctl
 wlsunset
 wmenu
 xdg-desktop-portal-gnome
@@ -290,7 +287,7 @@ xdg-desktop-portal-wlr
 xdg-user-dirs
 xdg-utils
 xmirror
-xmirror
+xrdb
 xtools
 xwayland-satellite
 yazi
