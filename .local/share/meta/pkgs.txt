@@ -53,6 +53,7 @@ fastfetch
 fd
 ffmpeg
 ffmpegthumbnailer
+ffuf
 firefox
 flatpak
 font-hack-ttf
@@ -222,6 +223,7 @@ speech-dispatcher
 sqlite-32bit
 sqlmap
 steam
+subfinder
 sway
 swayidle
 swaylock

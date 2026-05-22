@@ -3,6 +3,10 @@ nixpkgs#apkeep
 nixpkgs#arp-scan
 nixpkgs#bicon
 nixpkgs#bloodhound-ce
+nixpkgs#frida-tools
+nixpkgs#metasploit
 nixpkgs#netdiscover
+nixpkgs#rusthound-ce
+nixpkgs#smbmap
 nixpkgs#typst
 nixpkgs#xdg-ninja
