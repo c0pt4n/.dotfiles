@@ -4,7 +4,8 @@
 	"height": 26,
 	"spacing": 0,
 	"modules-left": [
-		"river/tags",
+		"ext/workspaces",
+		"dwl/window",
 	],
 	"modules-center": [
 		"clock",
@@ -18,9 +19,15 @@
 		"network",
 		"battery",
 	],
-	"river/tags": {
-		"num-tags": 9,
-		"hide-vacant": true,
+	"ext/workspaces": {
+		"format": "{icon}",
+		"sort-by-id": true,
+		"ignore-hidden": true,
+		"on-click": "activate",
+		"on-click-right": "deactivate",
+	},
+	"dwl/window": {
+	    "format": "[{layout}]"
 	},
 	"clock": {
 		"interval": 60,
