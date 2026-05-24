@@ -155,7 +155,6 @@ nix
 nmap
 nodejs
 noip2
-noip2
 noto-fonts-cjk
 noto-fonts-emoji
 noto-fonts-ttf
