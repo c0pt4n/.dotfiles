@@ -40,6 +40,9 @@ setup_dotfiles() {
 		$sudocmd cp --preserve=mode,links,timestamp -rfvt /etc "$HERE/etc/."
 	[ -d "$HERE/usr" ] &&
 		$sudocmd cp --preserve=mode,links,timestamp -rfvt /usr "$HERE/usr/."
+	[ -d "$XDG_DATA_HOME/themes/Nordic" ] ||
+		git clone https://github.com/EliverLara/Nordic.git --depth 1 "$XDG_DATA_HOME/themes/Nordic"
+	git -C "$XDG_DATA_HOME/themes/Nordic" pull --rebase
 	[ -x /usr/local/bin/pinentry-fuzzel ] &&
 		$sudocmd ln -sfv /usr/local/bin/pinentry-fuzzel /usr/bin/pinentry
 	[ -n "${WINEPREFIX:-}" ] &&
@@ -47,8 +50,7 @@ setup_dotfiles() {
 		mkdir -pv "$WINEPREFIX"
 	command -v gsettings >/dev/null 2>&1 &&
 		gsettings set org.gnome.desktop.interface color-scheme prefer-dark
-		gsettings set org.gnome.desktop.interface gtk-theme "${GTK_THEME:-Adwaita-dark}"
-		gsettings set org.gnome.desktop.interface cursor-theme Adwaita
+		gsettings set org.gnome.desktop.interface gtk-theme "${GTK_THEME:-Nordic}"
 		gsettings set org.gnome.desktop.interface cursor-theme "${XCURSOR_THEME:-Adwaita}"
 		gsettings set org.gnome.desktop.interface cursor-size "${XCURSOR_SIZE:-24}"
 }
