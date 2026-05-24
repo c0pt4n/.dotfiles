@@ -2,6 +2,8 @@
 
 # shellcheck disable=SC2139
 alias e="${EDITOR:-vi}"
+alias emacs="emacsclient -c -a 'emacs'"
+alias em="emacsclient -nw"
 alias q="exit"
 
 alias mkd="mkdir -pv"

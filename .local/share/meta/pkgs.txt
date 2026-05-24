@@ -47,6 +47,7 @@ dosfstools
 dragon
 duf
 elogind
+emacs-pgtk
 exfatprogs
 fastfetch
 fd
