@@ -98,6 +98,7 @@ iwd
 jq
 jujutsu
 kanshi
+kdenlive
 keyd
 kvantum
 ldns
