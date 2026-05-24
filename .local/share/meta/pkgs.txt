@@ -13,7 +13,6 @@ amiri-font
 android-tools
 android-udev-rules
 apparmor
-arc-theme
 atool
 bat
 bc
