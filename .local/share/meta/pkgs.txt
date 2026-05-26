@@ -79,6 +79,7 @@ github-cli
 gnutls-32bit
 go
 gobuster
+graphviz
 grex
 grim
 gst-plugins-base1-32bit
