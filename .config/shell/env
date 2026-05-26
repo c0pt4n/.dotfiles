@@ -63,6 +63,9 @@ export PATH="$GOPATH/bin:$HOME/.local/bin::${PATH:-}"
 	export XDG_DATA_DIRS="$XDG_STATE_HOME/nix/profile/share:$XDG_DATA_DIRS:${XDG_DATA_DIRS:-}" &&
 	export MANPATH="$XDG_STATE_HOME/nix/profile/share/man:${MANPATH:-}"
 
+[ -d "$XDG_DATA_HOME/python/bin" ] &&
+	export PATH="$XDG_DATA_HOME/python/bin:${PATH:-}"
+
 # Other program settings:
 export SSH_ASKPASS="/usr/local/bin/fuzzel-ssh-askpass"
 export SUDO_ASKPASS="/usr/local/bin/fuzzel-ssh-askpass"
