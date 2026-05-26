@@ -11,6 +11,7 @@ run() {
 }
 
 run pipewire
+run /usr/bin/emacs --daemon
 run keyd-application-mapper
 run mpd
 run mpris-proxy
