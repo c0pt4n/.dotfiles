@@ -249,6 +249,7 @@ upterm
 urlview
 uv
 v4l-utils-32bit
+vips
 virt-manager
 virtiofsd
 vnstat
