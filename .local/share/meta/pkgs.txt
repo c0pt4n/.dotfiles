@@ -212,6 +212,7 @@ satty
 sc-im
 scrcpy
 shellcheck
+shfmt
 simple-mtpfs
 slurp
 smartmontools
