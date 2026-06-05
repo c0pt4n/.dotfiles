@@ -11,7 +11,7 @@ updatepkgs() {
 		$sudocmd xbps-install -uy
 	command -v nix >/dev/null 2>&1 &&
 		nix-channel --update &&
-		nix profile upgrade --all
+		nix profile upgrade --all --impure
 	command -v flatpak >/dev/null 2>&1 &&
 		flatpak update -y
 	command -v tldr >/dev/null 2>&1 &&
