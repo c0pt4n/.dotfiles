@@ -2,8 +2,8 @@
 
 # Default programs:
 export TERMINAL="foot"
-export EDITOR="nvim"
-export VISUAL="nvim"
+export EDITOR="emacsclient -nw"
+export VISUAL="emacsclient -c -a ''"
 export BROWSER="firefox"
 
 # ~/ Clean-up:
