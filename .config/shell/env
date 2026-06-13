@@ -83,3 +83,4 @@ export GTK_THEME="Nordic"
 export QT_QPA_PLATFORMTHEME=qt6ct
 export XCURSOR_THEME="Adwaita"
 export XCURSOR_SIZE="24"
+export COLORTERM=truecolor
