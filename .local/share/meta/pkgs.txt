@@ -277,6 +277,7 @@ wine-mono
 winetricks
 wiremix
 wireplumber
+wireplumber-elogind
 wireshark
 wireshark-qt
 wl-clip-persist
