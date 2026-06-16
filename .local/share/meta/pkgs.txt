@@ -5,6 +5,7 @@ Waybar
 aardvark-dns
 abook
 aerc
+aircrack-ng
 alsa-lib-32bit
 alsa-plugins
 alsa-plugins-32bit
@@ -13,6 +14,7 @@ amiri-font
 android-tools
 android-udev-rules
 apparmor
+arp-scan
 atool
 bat
 bc
@@ -243,6 +245,7 @@ tmate
 tmux
 translate-shell
 transmission
+typst
 ufw
 uni
 unzip
