@@ -2,7 +2,7 @@
 --smart-case
 --hidden
 --follow
---glob=!.git/
+--glob=!**/.git/*
 --column
 --line-number
 --no-heading
