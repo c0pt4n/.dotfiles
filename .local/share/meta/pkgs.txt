@@ -48,6 +48,7 @@ docker-compose
 dosfstools
 dragon
 duf
+easyeffects
 elogind
 emacs-pgtk
 exfatprogs
@@ -125,6 +126,7 @@ libxml2
 libxslt-32bit
 linux-firmware
 lsof
+lsp-plugins
 lswt
 lz4jsoncat
 lzip
