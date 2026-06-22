@@ -151,6 +151,7 @@ mpdris2-rs
 mpv
 mpv-mpris
 mtpfs
+mu4e
 ncdu
 ncmpcpp
 ncurses-term
