@@ -291,7 +291,6 @@ wl-clipboard
 wl-mirror
 wlopm
 wlr-randr
-wlsunset
 wtype
 xdg-desktop-portal-gnome
 xdg-desktop-portal-gtk
