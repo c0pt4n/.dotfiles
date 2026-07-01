@@ -6,7 +6,7 @@ require("utils.pack").add({
 			vim.lsp.config("*", {
 				capabilities = vim.lsp.protocol.make_client_capabilities(),
 				on_attach = function(_, bufnr)
-					local opts = { buf = bufnr, remap = false }
+					local opts = { buffer = bufnr, remap = false }
 					vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 					vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
 					vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
