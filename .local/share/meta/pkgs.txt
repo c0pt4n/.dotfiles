@@ -229,6 +229,7 @@ sox
 speech-dispatcher
 sqlite-32bit
 sqlmap
+starship
 steam
 subfinder
 sway

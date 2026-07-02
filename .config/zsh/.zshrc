@@ -137,3 +137,5 @@ command -v fzf >/dev/null 2>&1 && {
 	bindkey -M viins "^O" fzf-open-widget
 	bindkey -M emacs "^O" fzf-open-widget
 }
+
+eval "$(starship init zsh)"
