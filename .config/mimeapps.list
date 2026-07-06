@@ -32,3 +32,7 @@ application/x-pka=CiscoPacketTracer-9.0.0.desktop
 application/x-pkt=CiscoPacketTracer-9.0.0.desktop
 application/x-pkz=CiscoPacketTracer-9.0.0.desktop
 application/x-pksz=CiscoPacketTracer-9.0.0.desktop
+x-scheme-handler/acmanager=Assetto Corsa.desktop
+
+[Added Associations]
+x-scheme-handler/acmanager=Assetto Corsa.desktop;

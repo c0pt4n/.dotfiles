@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Assetto Corsa
+Comment=Play this game on Steam with Content Manager
+Exec=steam -applaunch 244210 %u
+Icon=steam_icon_244210
+Terminal=false
+Type=Application
+Categories=Game;
+MimeType=x-scheme-handler/acmanager;
