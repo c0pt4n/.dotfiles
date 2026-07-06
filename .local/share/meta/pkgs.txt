@@ -301,7 +301,6 @@ xdg-utils
 xmirror
 xrdb
 xtools
-xwayland-satellite
 yazi
 yt-dlp
 zathura
