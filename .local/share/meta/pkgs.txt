@@ -82,7 +82,9 @@ github-cli
 gnutls-32bit
 go
 gobuster
+gpu-screen-recorder
 graphviz
+greetd
 grex
 grim
 gst-plugins-base1-32bit
@@ -93,6 +95,7 @@ hdparm
 helvum
 highlight
 hplip
+hyprpicker
 imhex
 impacket
 impala
@@ -160,6 +163,8 @@ nerd-fonts-symbols-ttf
 newsboat
 nix
 nmap
+noctalia
+noctalia-greeter
 nodejs
 noip2
 noto-fonts-cjk
@@ -181,6 +186,7 @@ openvpn
 pandoc
 pass
 pass-otp
+passmenu
 patch
 pipewire
 pkg-config
