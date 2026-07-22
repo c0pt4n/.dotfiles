@@ -176,7 +176,6 @@ nvidia
 nvidia-dkms
 nvidia-opencl
 nvtop
-nwg-look
 obs
 ocl-icd-32bit
 openbsd-netcat
