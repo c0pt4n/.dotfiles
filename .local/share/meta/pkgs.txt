@@ -216,6 +216,7 @@ qt5-websockets
 qt5ct
 qt6ct
 rclone
+retroarch
 ripgrep
 rsync
 rtkit
