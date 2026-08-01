@@ -3,9 +3,18 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs:
+  outputs = {
+    self,
+    nixpkgs,
+    disko,
+    ...
+  }@inputs:
   let
     mkSystem = { host, user }: nixpkgs.lib.nixosSystem {
       specialArgs = {
@@ -18,6 +27,7 @@
         };
       };
       modules = [
+        disko.nixosModules.disko
         ./modules
         ./hosts/${host}
       ];
