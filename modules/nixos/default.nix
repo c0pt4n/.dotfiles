@@ -1,4 +1,8 @@
 {
+  pkgs,
+  ...
+}:
+{
   imports = [
     ./boot.nix
     ./locale.nix
@@ -8,6 +12,7 @@
   ];
 
   nix = {
+    package = pkgs.nixVersions.latest;
     settings = {
       experimental-features = [
         "nix-command"
