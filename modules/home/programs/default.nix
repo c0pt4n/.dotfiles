@@ -1,0 +1,20 @@
+{
+  imports = [
+    ./bash.nix
+    ./bat.nix
+    ./btop.nix
+    ./delta.nix
+    ./fastfetch.nix
+    ./fd.nix
+    ./firefox.nix
+    ./fzf.nix
+    ./gh.nix
+    ./git.nix
+    ./gpg-agent.nix
+    ./gpg.nix
+    ./password-store.nix
+    ./ripgrep.nix
+    ./tmux.nix
+    ./zsh.nix
+  ];
+}

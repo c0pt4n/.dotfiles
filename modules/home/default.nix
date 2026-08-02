@@ -6,6 +6,8 @@
 {
   imports = [
     ./config
+    ./programs
+    ./services
   ];
 
   programs.home-manager.enable = true;
