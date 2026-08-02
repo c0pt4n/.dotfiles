@@ -12,6 +12,7 @@
     ./git.nix
     ./gpg-agent.nix
     ./gpg.nix
+    ./mango.nix
     ./password-store.nix
     ./ripgrep.nix
     ./tmux.nix

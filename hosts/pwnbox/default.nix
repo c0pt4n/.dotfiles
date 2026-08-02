@@ -38,8 +38,29 @@
 
   services.printing.enable = true;
 
+  programs.dconf.enable = true;
+
+  programs.mango = {
+    enable = true;
+  };
+
   programs.zsh = {
     enable = true;
     enableGlobalCompInit = false;
   };
+
+  services.greetd = {
+    enable = true;
+    settings = {
+      initial_session = {
+        command = "mango";
+        user = "omar"; # auto-login on first start, no password required
+      };
+      default_session = {
+        command = "${pkgs.tuigreet}/bin/tuigreet --cmd mango";
+        user = "greeter";
+      };
+    };
+  };
 }
+
