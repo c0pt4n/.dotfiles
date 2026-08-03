@@ -1,0 +1,34 @@
+#!/bin/sh
+
+set -eu
+
+usage() {
+	echo "Usage: $(basename "$0") [-h] [-p prompt]" >&2
+}
+
+prompt=""
+while getopts "hp:" opt; do
+	case "$opt" in
+	h)
+		usage
+		exit 0
+		;;
+	p)
+		prompt="$OPTARG"
+		;;
+	*)
+		usage
+		exit 1
+		;;
+	esac
+done
+
+command -v noctalia >/dev/null 2>&1 &&
+	pidof -sxq noctalia &&
+	exec noctalia dmenu ${prompt:+-p "$prompt"}
+
+command -v fuzzel >/dev/null 2>&1 &&
+	exec fuzzel --dmenu --no-run-if-empty --no-sort ${prompt:+-p "$prompt> "}
+
+echo "$(basename "$0"): no dmenu-compatible program found" >&2
+exit 1
