@@ -1,6 +1,7 @@
 {
-  custom,
   pkgs,
+  config,
+  custom,
   ...
 }:
 
@@ -8,7 +9,7 @@
   users = {
 	users.${custom.systemInfo.user} = {
 	  isNormalUser = true;
-	  shell = pkgs.zsh;
+	  shell = if config.programs.zsh.enable then pkgs.zsh else pkgs.bashInteractive;
 	  extraGroups = [
 		"networkmanager"
 		"wheel"
