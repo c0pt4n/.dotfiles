@@ -3,6 +3,7 @@
     ./bash.nix
     ./bat.nix
     ./btop.nix
+    ./burpsuite.nix
     ./delta.nix
     ./fastfetch.nix
     ./fd.nix

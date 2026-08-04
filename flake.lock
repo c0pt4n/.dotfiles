@@ -1,5 +1,25 @@
 {
   "nodes": {
+    "burpsuitepro": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1785188898,
+        "narHash": "sha256-3GLhlQ4ZWjjI1WLk4WD+DzK+aNTcOZRU5sxXS4n/j4Q=",
+        "owner": "xiv3r",
+        "repo": "Burpsuite-Professional",
+        "rev": "011805017eb5199377925d68ea676a54f188fb0d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "xiv3r",
+        "repo": "Burpsuite-Professional",
+        "type": "github"
+      }
+    },
     "disko": {
       "inputs": {
         "nixpkgs": [
@@ -188,6 +208,7 @@
     },
     "root": {
       "inputs": {
+        "burpsuitepro": "burpsuitepro",
         "disko": "disko",
         "home-manager": "home-manager",
         "mangowm": "mangowm",

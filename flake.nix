@@ -23,6 +23,10 @@
       url = "github:noctalia-dev/noctalia-greeter";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    burpsuitepro = {
+      url = "github:xiv3r/Burpsuite-Professional";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
