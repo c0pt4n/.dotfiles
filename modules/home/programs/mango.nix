@@ -4,6 +4,7 @@
   ...
 }:
 let
+  noctaliaBin="${config.programs.noctalia.package}/bin/noctalia";
   terminalBin =
     if config.home.sessionVariables ? TERMINAL then
       config.home.sessionVariables.TERMINAL
@@ -315,8 +316,37 @@ in
         "SUPER,H,resizewin,-50,+0"
         "SUPER,L,resizewin,+50,+0"
 
-        "SUPER,R,spawn,fuzzel"
         "SUPER,Return,spawn,${terminalBin}"
+        "SUPER,Escape,spawn,${noctaliaBin} msg panel-open control-center"
+        "SUPER,R,spawn,${noctaliaBin} msg panel-open launcher"
+        "SUPER,Q,spawn,${noctaliaBin} msg panel-open session"
+        "NONE,Print,spawn,${noctaliaBin} msg screenshot-fullscreen pick"
+        "CTRL,Print,spawn,${noctaliaBin} msg screenshot-region"
+        "SUPER,O,spawn,${noctaliaBin} msg panel-open clipboard"
+        "SUPER,Backslash,spawn,${noctaliaBin} msg notification-clear-active"
+        "SUPER+SHIFT,Backslash,spawn,${noctaliaBin} msg notification-dnd-toggle"
+        "NONE,XF86PowerOff,spawn,${noctaliaBin} msg panel-open session"
+      ];
+
+      bindl=[
+        "NONE,XF86Eject,spawn,eject -T"
+        "NONE,XF86AudioRaiseVolume,spawn,${noctaliaBin} msg volume-up 5"
+        "NONE,XF86AudioLowerVolume,spawn,${noctaliaBin} msg volume-down 5"
+        "NONE,XF86AudioMute,spawn,${noctaliaBin} msg volume-mute"
+        "NONE,XF86AudioMicMute,spawn,${noctaliaBin} msg mic-mute"
+        "SUPER,Equal,spawn,${noctaliaBin} msg volume-up 5"
+        "SUPER,Minus,spawn,${noctaliaBin} msg volume-down 5"
+        "SUPER,Backspace,spawn,${noctaliaBin} msg volume-mute"
+        "SUPER+CTRL,Backspace,spawn,${noctaliaBin} msg mic-mute"
+        "NONE,XF86AudioNext,spawn,${noctaliaBin} msg media next"
+        "NONE,XF86AudioPrev,spawn,${noctaliaBin} msg media previous"
+        "NONE,XF86AudioPlay,spawn,${noctaliaBin} msg media toggle"
+        "NONE,XF86AudioMedia,spawn,${noctaliaBin} msg media toggle"
+        "SUPER+SHIFT,Equal,spawn,${noctaliaBin} msg media next"
+        "SUPER+SHIFT,Minus,spawn,${noctaliaBin} msg media previous"
+        "SUPER+SHIFT,Backspace,spawn,${noctaliaBin} msg media toggle"
+        "NONE,XF86MonBrightnessUp,spawn,${noctaliaBin} msg brightness-up all 5"
+        "NONE,XF86MonBrightnessDown,spawn,${noctaliaBin} msg brightness-down all 5"
       ];
 
       windowrule = [
