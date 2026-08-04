@@ -1,6 +1,5 @@
 {
-  config,
-  lib,
+  inputs,
   pkgs,
   custom,
   ...
@@ -11,6 +10,7 @@
     ./hardware.nix
     ./file-system.nix
     ./boot.nix
+    inputs.noctalia-greeter.nixosModules.default
   ];
 
   networking.hostName = custom.systemInfo.host;
@@ -49,18 +49,19 @@
     enableGlobalCompInit = false;
   };
 
-  services.greetd = {
+  programs.noctalia-greeter = {
     enable = true;
+    greeter-args = "";
     settings = {
-      initial_session = {
-        command = "mango";
-        user = "omar"; # auto-login on first start, no password required
-      };
-      default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet --cmd mango";
-        user = "greeter";
+      session.default = "mango";
+      keyboard.layout = "us";
+      idle.timeout = 600;
+      appearance.hide_logo = true;
+      cursor = {
+        package = pkgs.nordzy-cursor-theme;
+        name = "Nordzy-cursors";
+        size = 32;
       };
     };
   };
 }
-
