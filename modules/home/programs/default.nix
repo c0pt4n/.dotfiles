@@ -11,6 +11,7 @@
     ./fd.nix
     ./firefox.nix
     ./foot.nix
+    ./fuzzel.nix
     ./fzf.nix
     ./gh.nix
     ./git.nix
