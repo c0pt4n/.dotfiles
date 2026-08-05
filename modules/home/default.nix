@@ -8,6 +8,7 @@
     ./config
     ./programs
     ./services
+    ./extras
   ];
 
   programs.home-manager.enable = true;
