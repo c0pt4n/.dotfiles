@@ -5,6 +5,8 @@
     ./btop.nix
     ./burpsuite.nix
     ./delta.nix
+    ./discord.nix
+    ./equibop.nix
     ./fastfetch.nix
     ./fd.nix
     ./firefox.nix
