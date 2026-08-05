@@ -8,6 +8,7 @@
     ./fastfetch.nix
     ./fd.nix
     ./firefox.nix
+    ./foot.nix
     ./fzf.nix
     ./gh.nix
     ./git.nix
