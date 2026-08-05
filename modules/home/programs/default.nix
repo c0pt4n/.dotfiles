@@ -15,6 +15,7 @@
     ./gpg-agent.nix
     ./gpg.nix
     ./mango.nix
+    ./neovim.nix
     ./noctalia.nix
     ./password-store.nix
     ./ripgrep.nix
