@@ -21,6 +21,12 @@
       set -gw message-style "bg=color0 fg=color15"
       set -gw message-command-style "bg=color0 fg=color15"
 
+      unbind %
+      bind | split-window -h
+
+      unbind '"'
+      bind - split-window -v
+
       bind -T copy-mode-vi v send -X begin-selection
       bind -T copy-mode-vi V send -X select-line
       bind -T copy-mode-vi y send -X copy-pipe-and-cancel
