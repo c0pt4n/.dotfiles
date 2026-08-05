@@ -1,9 +1,14 @@
 {
   inputs,
+  lib,
   config,
   ...
 }:
 let
+  hexColor = color: if lib.stringLength color == 6 then
+    "0x${color}ff"
+  else
+    "0x${color}";
   noctaliaBin="${config.programs.noctalia.package}/bin/noctalia";
   terminalBin =
     if config.home.sessionVariables ? TERMINAL then
@@ -65,7 +70,7 @@ in
         x = 0;
         y = 0;
       };
-      shadowscolor = "0x000000ff";
+      shadowscolor = config.lib.stylix.colors.base00;
 
       border_radius = 0;
       no_radius_when_single = 0;
@@ -194,18 +199,18 @@ in
       scratchpad_width_ratio = 0.6;
       scratchpad_height_ratio = 0.7;
       borderpx = 2;
-      cursor_size = config.gtk.cursorTheme.size;
-      cursor_theme = config.gtk.cursorTheme.name;
-      rootcolor = "0x2e3440ff";
-      bordercolor = "0x4c566aff";
-      dropcolor = "0x4c566a55";
-      splitcolor = "0xb74e58ff";
-      focuscolor = "0x5e81acff";
-      maximizescreencolor = "0x97b67cff";
-      urgentcolor = "0xb74e58ff";
-      scratchpadcolor = "0x5e81acff";
-      globalcolor = "0x80b3b2ff";
-      overlaycolor = "0x14a57cff";
+      cursor_size = config.stylix.cursor.size;
+      cursor_theme = config.stylix.cursor.name;
+      rootcolor = hexColor config.lib.stylix.colors.base00;
+      bordercolor = hexColor config.lib.stylix.colors.base03;
+      dropcolor = hexColor (config.lib.stylix.colors.base03 + "55");
+      splitcolor = hexColor config.lib.stylix.colors.base15;
+      focuscolor = hexColor config.lib.stylix.colors.base0F;
+      maximizescreencolor = hexColor config.lib.stylix.colors.base0B;
+      urgentcolor = hexColor config.lib.stylix.colors.base08;
+      scratchpadcolor = hexColor config.lib.stylix.colors.base0F;
+      globalcolor = hexColor config.lib.stylix.colors.base0C;
+      overlaycolor = hexColor config.lib.stylix.colors.base0E;
 
       # layout support:
       # tile,scroller,grid,deck,monocle,center_tile,vertical_tile,vertical_scroller

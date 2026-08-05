@@ -1,10 +1,9 @@
 {
   imports = [
-    ./fonts.nix
     ./gaming.nix
-    ./gui.nix
     ./packages.nix
     ./shell.nix
+    ./theme.nix
     ./xdg.nix
   ];
 }

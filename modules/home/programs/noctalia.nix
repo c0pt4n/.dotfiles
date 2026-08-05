@@ -24,8 +24,6 @@
       };
       theme={
         mode="dark";
-        source="builtin";
-        builtin="Nord";
         wallpaper_scheme="soft";
       };
       audio={
@@ -140,6 +138,7 @@
       bar.default={
         capsule=true;
         concave_edge_corners=false;
+        font_family=config.stylix.fonts.monospace.name;
         font_weight=700;
         margin_ends=0;
         radius=0;
