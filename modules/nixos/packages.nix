@@ -8,6 +8,7 @@
     tree
     lm_sensors
     zip
+    unrar-free
     xz
     unzip
     p7zip
