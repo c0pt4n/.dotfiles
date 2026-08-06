@@ -20,12 +20,10 @@ in
     withNodeJs = false;
     withPython3 = false;
   };
-  home.file.".config/nvim" =
-    lib.mkIf (config.programs.neovim.enable && lib.pathExists configPath)
-      {
-        source = ../files/nvim;
-        recursive = true;
-      };
+  home.file.".config/nvim" = lib.mkIf (config.programs.neovim.enable && lib.pathExists configPath) {
+    source = ../files/nvim;
+    recursive = true;
+  };
   home.shellAliases = lib.mkIf config.programs.neovim.enable {
     vi = "nvim --noplugin";
   };

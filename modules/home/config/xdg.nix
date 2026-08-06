@@ -23,8 +23,8 @@
           "org.freedesktop.impl.portal.Inhibit" = "none";
         };
         mango = lib.mkIf config.wayland.windowManager.mango.enable {
-         "org.freedesktop.impl.portal.ScreenCast" = "wlr";
-         "org.freedesktop.impl.portal.Screenshot" = "wlr";
+          "org.freedesktop.impl.portal.ScreenCast" = "wlr";
+          "org.freedesktop.impl.portal.Screenshot" = "wlr";
         };
       };
       extraPortals = with pkgs; [

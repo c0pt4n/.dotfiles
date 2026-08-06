@@ -11,7 +11,7 @@
 
     extraPackages = with pkgs; [
       gamescope # Valve's custom compositor
-      mangohud  # FPS & performance overlay
+      mangohud # FPS & performance overlay
     ];
 
     extraCompatPackages = with pkgs; [

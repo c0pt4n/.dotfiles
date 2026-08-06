@@ -43,8 +43,8 @@
       enable32Bit = true;
       extraPackages = with pkgs; [
         intel-media-driver # VA_API (iHD) userspace
-        vpl-gpu-rt         # oneVPL (QSV) runtime
-        libvdpau-va-gl     # VDPAU-only apps
+        vpl-gpu-rt # oneVPL (QSV) runtime
+        libvdpau-va-gl # VDPAU-only apps
       ];
     };
     nvidia = {

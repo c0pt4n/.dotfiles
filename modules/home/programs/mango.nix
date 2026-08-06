@@ -5,11 +5,8 @@
   ...
 }:
 let
-  hexColor = color: if lib.stringLength color == 6 then
-    "0x${color}ff"
-  else
-    "0x${color}";
-  noctaliaBin="${config.programs.noctalia.package}/bin/noctalia";
+  hexColor = color: if lib.stringLength color == 6 then "0x${color}ff" else "0x${color}";
+  noctaliaBin = "${config.programs.noctalia.package}/bin/noctalia";
   terminalBin =
     if config.home.sessionVariables ? TERMINAL then
       config.home.sessionVariables.TERMINAL
@@ -115,7 +112,7 @@ in
         default_proportion = 0.8;
         focus_center = 0;
         prefer_center = 0;
-        ignore_proportion_single=0;
+        ignore_proportion_single = 0;
         default_proportion_single = 1.0;
         proportion_preset = "0.5,0.8,1.0";
       };
@@ -336,16 +333,12 @@ in
         let
           pkg = config.programs.emacs.finalPackage;
           bin = "${pkg}/bin/emacs";
-          cmd =
-            if config.services.emacs.enable then
-              "${pkg}/bin/emacsclient -nca ${bin}"
-            else
-              bin;
+          cmd = if config.services.emacs.enable then "${pkg}/bin/emacsclient -nca ${bin}" else bin;
         in
         "SUPER,E,spawn,${cmd}"
       );
 
-      bindl=[
+      bindl = [
         "NONE,XF86Eject,spawn,eject -T"
         "NONE,XF86AudioRaiseVolume,spawn,${noctaliaBin} msg volume-up 5"
         "NONE,XF86AudioLowerVolume,spawn,${noctaliaBin} msg volume-down 5"

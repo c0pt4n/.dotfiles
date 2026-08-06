@@ -12,7 +12,7 @@
     };
     settings = {
       main = {
-        dpi-aware="no";
+        dpi-aware = "no";
       };
       key-bindings = {
         unicode-input = "none";
@@ -48,18 +48,18 @@
       if config.programs.foot.server.enable then
         "${config.programs.foot.package}/bin/footclient"
       else
-      "${config.programs.foot.package}/bin/foot";
+        "${config.programs.foot.package}/bin/foot";
   };
 
   xdg.terminal-exec.settings.default =
     lib.mkIf (config.programs.foot.enable && config.xdg.terminal-exec.enable)
-    (
-     if config.programs.foot.server.enable then
-     [
-       "footclient.desktop"
-       "foot.desktop"
-     ]
-     else
-     [ "foot.desktop" ]
-    );
+      (
+        if config.programs.foot.server.enable then
+          [
+            "footclient.desktop"
+            "foot.desktop"
+          ]
+        else
+          [ "foot.desktop" ]
+      );
 }

@@ -14,8 +14,8 @@
       theme = "hud_3";
       themePackages = with pkgs; [
         (adi1090x-plymouth-themes.override {
-         selected_themes = [ config.boot.plymouth.theme ];
-         })
+          selected_themes = [ config.boot.plymouth.theme ];
+        })
       ];
     };
   };

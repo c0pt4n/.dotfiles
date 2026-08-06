@@ -7,11 +7,7 @@
 {
   programs.zsh = {
     enable = true;
-    dotDir =
-      if config.xdg.enable then
-        "${config.xdg.configHome}/zsh"
-      else
-        config.home.homeDirectory;
+    dotDir = if config.xdg.enable then "${config.xdg.configHome}/zsh" else config.home.homeDirectory;
     enableCompletion = true;
     enableVteIntegration = true;
     defaultKeymap = "viins";

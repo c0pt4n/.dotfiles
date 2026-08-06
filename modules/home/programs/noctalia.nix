@@ -6,176 +6,176 @@
   ...
 }:
 {
-  imports=[
+  imports = [
     inputs.noctalia.homeModules.default
   ];
 
-  home.packages=with pkgs; [
+  home.packages = with pkgs; [
     gpu-screen-recorder
     hyprpicker # required for noctalia/color_picker plugin.
   ];
 
-  programs.noctalia={
-    enable=true;
-    settings={
-      nightlight.enabled=true;
-      location={
-        address="Cairo, Egypt";
+  programs.noctalia = {
+    enable = true;
+    settings = {
+      nightlight.enabled = true;
+      location = {
+        address = "Cairo, Egypt";
       };
-      theme={
-        mode="dark";
-        wallpaper_scheme="soft";
+      theme = {
+        mode = "dark";
+        wallpaper_scheme = "soft";
       };
-      audio={
-        enable_sounds=true;
-        enable_overdrive=true;
-        sound_volume=1.0;
+      audio = {
+        enable_sounds = true;
+        enable_overdrive = true;
+        sound_volume = 1.0;
       };
-      dock={
-        reserve_space=false;
-        show_dots=true;
-        smart_auto_hide=true;
-        launcher_position="end";
+      dock = {
+        reserve_space = false;
+        show_dots = true;
+        smart_auto_hide = true;
+        launcher_position = "end";
       };
       battery = {
         warning_threshold = 20;
       };
       shell = {
-        polkit_agent=true;
-        screen_time_enabled=true;
-        shadow.alpha=0.15;
-        panel={
-          open_near_click_control_center=true;
-          open_near_click_session=true;
+        polkit_agent = true;
+        screen_time_enabled = true;
+        shadow.alpha = 0.15;
+        panel = {
+          open_near_click_control_center = true;
+          open_near_click_session = true;
         };
-        session={
-          actions=[
+        session = {
+          actions = [
             {
-              action="lock";
-              shortcut="l";
+              action = "lock";
+              shortcut = "l";
             }
             {
-              action="logout";
-              shortcut="q";
+              action = "logout";
+              shortcut = "q";
             }
             {
-              action="lock_and_suspend";
-              shortcut="s";
+              action = "lock_and_suspend";
+              shortcut = "s";
             }
             {
-              action="reboot";
-              shortcut="r";
-              variant="destructive";
+              action = "reboot";
+              shortcut = "r";
+              variant = "destructive";
             }
             {
-              action="shutdown";
-              shortcut="d";
-              variant="destructive";
+              action = "shutdown";
+              shortcut = "d";
+              variant = "destructive";
             }
           ];
         };
-        screenshot={
-          confirm_region=true;
-          directory="${config.xdg.userDirs.pictures}/screenshots";
-          filename_pattern="screenshot_%Y%m%d-%H%M%S";
+        screenshot = {
+          confirm_region = true;
+          directory = "${config.xdg.userDirs.pictures}/screenshots";
+          filename_pattern = "screenshot_%Y%m%d-%H%M%S";
         };
-        launcher={
-          fetch_exchange_rates=false;
+        launcher = {
+          fetch_exchange_rates = false;
         };
       };
-      osd={
-        position_vertical="top_right";
+      osd = {
+        position_vertical = "top_right";
       };
-      wallpaper={
-        fill_mode="stretch";
-        fill_color="surface";
-        directory="${config.xdg.userDirs.pictures}/wallpapers";
+      wallpaper = {
+        fill_mode = "stretch";
+        fill_color = "surface";
+        directory = "${config.xdg.userDirs.pictures}/wallpapers";
       };
-      keybinds={
-        cancel=[
+      keybinds = {
+        cancel = [
           "Escape"
           "Ctrl+c"
         ];
-        down=[
+        down = [
           "Down"
           "Ctrl+j"
         ];
-        left=[
+        left = [
           "Left"
           "Ctrl+h"
         ];
-        right=[
+        right = [
           "Right"
           "Ctrl+l"
         ];
-        tab_next=[
+        tab_next = [
           "Tab"
           "Ctrl+n"
         ];
-        tab_previous=[
+        tab_previous = [
           "Shift+ISO_Left_Tab"
           "Ctrl+p"
         ];
-        up=[
+        up = [
           "Up"
           "Ctrl+k"
         ];
       };
-      idle={
-        pre_action_fade_seconds=10;
-        behavior={
-          lock={
-            action="lock";
-            timeout=600;
+      idle = {
+        pre_action_fade_seconds = 10;
+        behavior = {
+          lock = {
+            action = "lock";
+            timeout = 600;
           };
-          screen-off={
-            action="screen_off";
-            timeout=660;
+          screen-off = {
+            action = "screen_off";
+            timeout = 660;
           };
-          suspend={
-            action="lock_and_suspend";
-            timeout=900;
+          suspend = {
+            action = "lock_and_suspend";
+            timeout = 900;
           };
         };
       };
-      bar.default={
-        capsule=true;
-        concave_edge_corners=false;
-        font_family=config.stylix.fonts.monospace.name;
-        font_weight=700;
-        margin_ends=0;
-        radius=0;
-        start=[
+      bar.default = {
+        capsule = true;
+        concave_edge_corners = false;
+        font_family = config.stylix.fonts.monospace.name;
+        font_weight = 700;
+        margin_ends = 0;
+        radius = 0;
+        start = [
           "launcher"
           "workspaces"
         ];
-        center=[
+        center = [
           "clock"
           "privacy"
         ];
-        end=[
+        end = [
           "group:g1"
           "group:g2"
           "group:g3"
           "group:g4"
         ];
-        capsule_group=[
+        capsule_group = [
           {
-            id="g1";
-            members=[
+            id = "g1";
+            members = [
               "media"
             ];
           }
           {
-            id="g2";
-            members=[
+            id = "g2";
+            members = [
               "notifications"
               "tray"
             ];
           }
           {
-            id="g3";
-            members=[
+            id = "g3";
+            members = [
               "network"
               "bluetooth"
               "volume"
@@ -183,8 +183,8 @@
             ];
           }
           {
-            id="g4";
-            members=[
+            id = "g4";
+            members = [
               "clipboard"
               "screenshot"
               "control-center"
@@ -192,53 +192,53 @@
           }
         ];
       };
-      widget={
-        volume.show_label=false;
-        network.show_label=false;
-        workspaces={
-          capsule_padding=6;
-          capsule_radius=4;
-          empty_color="on_surface";
-          focused_color="hover";
-          hide_when_empty=true;
-          labels_only_when_occupied=true;
-          occupied_color="on_surface";
-          style="minimal";
+      widget = {
+        volume.show_label = false;
+        network.show_label = false;
+        workspaces = {
+          capsule_padding = 6;
+          capsule_radius = 4;
+          empty_color = "on_surface";
+          focused_color = "hover";
+          hide_when_empty = true;
+          labels_only_when_occupied = true;
+          occupied_color = "on_surface";
+          style = "minimal";
         };
-        media={
-          hide_when_no_media=true;
+        media = {
+          hide_when_no_media = true;
         };
-        clock={
-          capsule_radius=4;
-          capsule_padding=10;
-          format="{:%a %H:%M}";
-          tooltip_format="{:%d %b (W%U)}";
+        clock = {
+          capsule_radius = 4;
+          capsule_padding = 10;
+          format = "{:%a %H:%M}";
+          tooltip_format = "{:%d %b (W%U)}";
         };
-        privacy={
-          active_color="error";
-          hide_inactive=true;
+        privacy = {
+          active_color = "error";
+          hide_inactive = true;
         };
-        tray={
-          drawer=true;
+        tray = {
+          drawer = true;
         };
       };
-      plugins={
+      plugins = {
         auto_update = false;
-        source=[
+        source = [
           {
-            enabled=true;
-            kind="git";
-            location="https://github.com/noctalia-dev/official-plugins";
-            name="official";
+            enabled = true;
+            kind = "git";
+            location = "https://github.com/noctalia-dev/official-plugins";
+            name = "official";
           }
           {
-            enabled=true;
-            kind="git";
-            location="https://github.com/noctalia-dev/community-plugins";
-            name="community";
+            enabled = true;
+            kind = "git";
+            location = "https://github.com/noctalia-dev/community-plugins";
+            name = "community";
           }
         ];
-        enabled=[
+        enabled = [
           "noctalia/bongocat"
           "noctalia/screen_recorder"
           "oldirtty/color_picker"
@@ -247,7 +247,7 @@
     };
   };
 
-  wayland.windowManager.mango.settings.exec-once=
+  wayland.windowManager.mango.settings.exec-once =
     lib.mkIf config.wayland.windowManager.mango.enable
       [
         "${config.programs.noctalia.package}/bin/noctalia"

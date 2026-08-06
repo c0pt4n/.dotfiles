@@ -112,13 +112,13 @@
     DO_NOT_TRACK = "true";
     GH_TELEMETRY = "false";
     GLAB_SEND_TELEMETRY = "false";
-    PYENV_ROOT="${config.xdg.dataHome}/pyenv";
-    CARGO_HOME="${config.xdg.dataHome}/cargo";
-    RUSTUP_HOME="${config.xdg.dataHome}/rustup";
+    PYENV_ROOT = "${config.xdg.dataHome}/pyenv";
+    CARGO_HOME = "${config.xdg.dataHome}/cargo";
+    RUSTUP_HOME = "${config.xdg.dataHome}/rustup";
     PYTHON_HISTORY = "${config.xdg.stateHome}/python_history";
     ANDROID_HOME = "${config.xdg.dataHome}/android/sdk";
     ANDROID_USER_HOME = "${config.xdg.dataHome}/android";
-    ANDROID_AVD_HOME="${config.xdg.dataHome}/android/avd";
+    ANDROID_AVD_HOME = "${config.xdg.dataHome}/android/avd";
     ADB_VENDOR_KEYS = "${config.xdg.dataHome}/android/adbkeys";
   };
 }

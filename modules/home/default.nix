@@ -18,10 +18,10 @@
     stateVersion = custom.systemInfo.stateVersion;
     preferXdgDirectories = config.xdg.enable;
     enableNixpkgsReleaseCheck = true;
-    file={
-      ${config.xdg.binHome}={
-        source=./files/bin;
-        recursive=true;
+    file = {
+      ${config.xdg.binHome} = {
+        source = ./files/bin;
+        recursive = true;
       };
     };
   };

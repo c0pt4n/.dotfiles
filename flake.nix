@@ -33,37 +33,41 @@
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    home-manager,
-    disko,
-    ...
-  }@inputs:
-  let
-    mkSystem = { host, user }: nixpkgs.lib.nixosSystem {
-      specialArgs = {
-        inherit inputs;
-        custom = {
-          systemInfo = {
-            inherit host user;
-            stateVersion = "26.11";
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      disko,
+      ...
+    }@inputs:
+    let
+      mkSystem =
+        { host, user }:
+        nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs;
+            custom = {
+              systemInfo = {
+                inherit host user;
+                stateVersion = "26.11";
+              };
+            };
           };
+          modules = [
+            disko.nixosModules.disko
+            home-manager.nixosModules.home-manager
+            ./modules
+            ./hosts/${host}
+          ];
+        };
+    in
+    {
+      nixosConfigurations = {
+        pwnbox = mkSystem {
+          host = "pwnbox";
+          user = "omar";
         };
       };
-      modules = [
-        disko.nixosModules.disko
-        home-manager.nixosModules.home-manager
-        ./modules
-        ./hosts/${host}
-      ];
     };
-  in{
-    nixosConfigurations = {
-      pwnbox = mkSystem {
-        host = "pwnbox";
-        user = "omar";
-      };
-    };
-  };
 }

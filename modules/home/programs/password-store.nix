@@ -18,13 +18,13 @@
 
   home.file."${config.xdg.binHome}/passmenu" =
     let
-      menuBin="${config.xdg.binHome}/menu";
-      passBin="${config.programs.password-store.package}/bin/pass";
-      wlCopyBin="${pkgs.wl-clipboard}/bin/wl-copy";
-      notifySendBin="${pkgs.libnotify}/bin/notify-send";
+      menuBin = "${config.xdg.binHome}/menu";
+      passBin = "${config.programs.password-store.package}/bin/pass";
+      wlCopyBin = "${pkgs.wl-clipboard}/bin/wl-copy";
+      notifySendBin = "${pkgs.libnotify}/bin/notify-send";
     in
     lib.mkIf config.programs.password-store.enable {
-      source=pkgs.writeShellScript "passmenu" ''
+      source = pkgs.writeShellScript "passmenu" ''
         set -eu
 
         pass_list() {
