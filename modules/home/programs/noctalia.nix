@@ -37,6 +37,9 @@
         smart_auto_hide=true;
         launcher_position="end";
       };
+      battery = {
+        warning_threshold = 20;
+      };
       shell = {
         polkit_agent=true;
         screen_time_enabled=true;
@@ -211,9 +214,6 @@
           format="{:%a %H:%M}";
           tooltip_format="{:%d %b (W%U)}";
         };
-        battery={
-          warning_threshold=20;
-        };
         privacy={
           active_color="error";
           hide_inactive=true;
@@ -223,17 +223,16 @@
         };
       };
       plugins={
+        auto_update = false;
         source=[
           {
             enabled=true;
-            auto_update=false;
             kind="git";
             location="https://github.com/noctalia-dev/official-plugins";
             name="official";
           }
           {
             enabled=true;
-            auto_update=false;
             kind="git";
             location="https://github.com/noctalia-dev/community-plugins";
             name="community";
