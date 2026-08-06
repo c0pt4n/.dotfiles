@@ -1,5 +1,6 @@
 {
   pkgs,
+  config,
   ...
 }:
 
@@ -43,5 +44,9 @@
       frametime = true;
       toggle_hud = "Shift_R+F12";
     };
+  };
+
+  home.sessionVariables = {
+    WINEPREFIX = "${config.xdg.dataHome}/wineprefixes/default";
   };
 }
