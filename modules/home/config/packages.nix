@@ -100,6 +100,7 @@
     usql
     shellcheck
     pnpm
+    nixd
   ];
 
   programs.pandoc = {
