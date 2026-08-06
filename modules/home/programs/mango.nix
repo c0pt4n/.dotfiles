@@ -331,7 +331,19 @@ in
         "SUPER,Backslash,spawn,${noctaliaBin} msg notification-clear-active"
         "SUPER+SHIFT,Backslash,spawn,${noctaliaBin} msg notification-dnd-toggle"
         "NONE,XF86PowerOff,spawn,${noctaliaBin} msg panel-open session"
-      ];
+      ]
+      ++ lib.optional config.programs.emacs.enable (
+        let
+          pkg = config.programs.emacs.finalPackage;
+          bin = "${pkg}/bin/emacs";
+          cmd =
+            if config.services.emacs.enable then
+              "${pkg}/bin/emacsclient -nca ${bin}"
+            else
+              bin;
+        in
+        "SUPER,E,spawn,${cmd}"
+      );
 
       bindl=[
         "NONE,XF86Eject,spawn,eject -T"

@@ -6,6 +6,7 @@
     ./burpsuite.nix
     ./delta.nix
     ./discord.nix
+    ./emacs.nix
     ./equibop.nix
     ./fastfetch.nix
     ./fd.nix
