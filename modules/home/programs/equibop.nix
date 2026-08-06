@@ -36,6 +36,49 @@
             enabled = true;
             ignoreSelf = true;
           };
+          AnonymiseFileNames = {
+            enabled = true;
+            anonymiseByDefault = false;
+          };
+          ClearURLs = {
+            enabled = true;
+          };
+          ImageZoom = {
+            enabled = true;
+          };
+          InvisibleChat = {
+            enabled = true;
+          };
+          MessageLatency = {
+            enabled = true;
+          };
+          Moyai = {
+            enabled = true;
+          };
+          PlatformIndicators = {
+            enabled = true;
+          };
+          ServerSearch = {
+            enabled = true;
+          };
+          ShowHiddenChannels = {
+            enabled = true;
+          };
+          ShowHiddenThings = {
+            enabled = true;
+          };
+          SilentTyping = {
+            enabled = true;
+          };
+          Timezones = {
+            enabled = true;
+          };
+          VoiceButtons = {
+            enabled = true;
+          };
+          VoiceChannelLog = {
+            enabled = true;
+          };
         };
         useQuickCss = true;
       };
