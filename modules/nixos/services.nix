@@ -17,7 +17,7 @@
 
   security.auditd.enable = true;
 
-  services.power-profiles-daemon.enable = true;
+  services.vnstat.enable = true;
 
   services.keyd = {
     enable = true;
