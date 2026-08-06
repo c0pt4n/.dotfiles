@@ -24,6 +24,7 @@
     ./obs.nix
     ./password-store.nix
     ./ripgrep.nix
+    ./ssh.nix
     ./tmux.nix
     ./zsh.nix
   ];
