@@ -20,6 +20,7 @@
     ./mango.nix
     ./neovim.nix
     ./noctalia.nix
+    ./obs.nix
     ./password-store.nix
     ./ripgrep.nix
     ./tmux.nix
