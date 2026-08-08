@@ -1,6 +1,8 @@
 {
   inputs,
   pkgs,
+  lib,
+  config,
   custom,
   ...
 }:
@@ -32,7 +34,8 @@
         22000 # Syncthing QUIC sync
         21027 # Syncthing discovery
         53317 # LocalSend UDP discovery
-      ];
+      ]
+      ++ lib.optional config.services.tailscale.enable 41641;
     };
   };
 
@@ -45,6 +48,8 @@
       hplipWithPlugin
     ];
   };
+
+  services.tailscale.enable = true;
 
   services.power-profiles-daemon.enable = true;
 
