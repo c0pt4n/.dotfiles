@@ -47,7 +47,7 @@ in
       "exec-once"
     ];
     settings = {
-      blur = 0;
+      blur = 1;
       blur_layer = 0;
       blur_optimized = 1;
       blur_params = {
@@ -56,13 +56,13 @@ in
         noise = 0.02;
         brightness = 0.9;
         contrast = 0.9;
-        saturation = 1.2;
+        saturation = 1;
       };
       shadows = 0;
       layer_shadows = 0;
       shadow_only_floating = 1;
-      shadows_size = 10;
-      shadows_blur = 15;
+      shadows_size = 4;
+      shadows_blur = 12;
       shadows_position = {
         x = 0;
         y = 0;
