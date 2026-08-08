@@ -38,7 +38,13 @@
 
   security.polkit.enable = true;
 
-  services.printing.enable = true;
+  services.printing = {
+    enable = true;
+    drivers = with pkgs; [
+      hplip
+      hplipWithPlugin
+    ];
+  };
 
   services.power-profiles-daemon.enable = true;
 
