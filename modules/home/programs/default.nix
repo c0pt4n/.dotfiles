@@ -1,5 +1,6 @@
 {
   imports = [
+    ./aria2.nix
     ./bash.nix
     ./bat.nix
     ./btop.nix
@@ -19,13 +20,17 @@
     ./gpg-agent.nix
     ./gpg.nix
     ./mango.nix
+    ./mpv.nix
     ./neovim.nix
     ./noctalia.nix
-    ./obs.nix
+    ./npm.nix
+    ./obs-studio.nix
     ./password-store.nix
     ./ripgrep.nix
+    ./satty.nix
     ./ssh.nix
     ./tmux.nix
+    ./yt-dlp.nix
     ./zsh.nix
   ];
 }
