@@ -19,6 +19,7 @@
     ./git.nix
     ./gpg-agent.nix
     ./gpg.nix
+    ./lf.nix
     ./mango.nix
     ./mpv.nix
     ./neovim.nix
