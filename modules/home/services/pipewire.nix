@@ -56,7 +56,7 @@
             {
               matches = [
                 {
-                  application.name = "~Chromium.*";
+                  "application.name" = "~Chromium.*";
                 }
               ];
               actions = {
@@ -66,7 +66,7 @@
             {
               matches = [
                 {
-                  application.process.binary = "Discord";
+                  "application.process.binary" = "Discord";
                 }
               ];
               actions = {
