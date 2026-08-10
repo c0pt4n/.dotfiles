@@ -22,6 +22,7 @@
     ./lf.nix
     ./mango.nix
     ./mpv.nix
+    ./ncmpcpp.nix
     ./neovim.nix
     ./noctalia.nix
     ./npm.nix
