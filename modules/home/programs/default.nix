@@ -33,6 +33,7 @@
     ./ssh.nix
     ./tmux.nix
     ./yt-dlp.nix
+    ./zathura.nix
     ./zsh.nix
   ];
 }
