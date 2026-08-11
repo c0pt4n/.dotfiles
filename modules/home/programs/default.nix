@@ -5,6 +5,7 @@
     ./bat.nix
     ./btop.nix
     ./burpsuite.nix
+    ./cava.nix
     ./delta.nix
     ./discord.nix
     ./emacs.nix
