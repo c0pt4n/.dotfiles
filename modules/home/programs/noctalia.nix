@@ -81,6 +81,34 @@
         };
         launcher = {
           fetch_exchange_rates = false;
+          dmenu.entry = {
+            passmenu =
+              let
+                passmenuBin = "${config.xdg.binHome}/passmenu";
+              in
+              {
+                label = "Passwords";
+                glyph = "lock";
+                prefix = "pass";
+                global = false;
+                freeform = false;
+                command = "${passmenuBin} -l";
+                exec = "${passmenuBin} {selection}";
+              };
+            power-profiles =
+              let
+                ppcBin = "${pkgs.power-profiles-daemon}/bin/powerprofilesctl";
+              in
+              {
+                label = "Power Profiles";
+                glyph = "bolt";
+                prefix = "power";
+                global = false;
+                freeform = false;
+                command = "${ppcBin} list | sed -n 's/^\\(\\s\\|\\*\\)\\s\\(.*\\):$/\\2/p'";
+                exec = "${ppcBin} set '{selection}'";
+              };
+          };
         };
       };
       osd = {
