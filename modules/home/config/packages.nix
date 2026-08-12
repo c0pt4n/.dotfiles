@@ -63,6 +63,7 @@
     lmms
     libreoffice
     telegram-desktop
+    equibop
     localsend
     #rustdesk
 

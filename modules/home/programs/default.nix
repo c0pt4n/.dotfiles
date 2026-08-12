@@ -9,7 +9,6 @@
     ./delta.nix
     ./discord.nix
     ./emacs.nix
-    ./equibop.nix
     ./fastfetch.nix
     ./fd.nix
     ./firefox.nix
