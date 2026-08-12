@@ -1,1 +1,0 @@
--o %(title)s.%(ext)s --embed-thumbnail --embed-metadata --embed-chapters --embed-subs --bidi-workaround --cookies-from-browser firefox
