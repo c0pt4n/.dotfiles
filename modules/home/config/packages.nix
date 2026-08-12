@@ -102,6 +102,25 @@
     shellcheck
     pnpm
     nixd
+
+    # security
+    arp-scan
+    subfinder
+    nuclei
+    nuclei-templates
+    httpx
+    shuffledns
+    frida-tools
+    metasploit
+    seclists
+    nmap
+    masscan
+    massdns
+    thc-hydra
+    ghidra
+    hcxdumptool
+    hcxtools
+    dig
   ];
 
   programs.pandoc = {
