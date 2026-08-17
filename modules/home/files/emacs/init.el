@@ -158,6 +158,7 @@
 (require 'move-text-config)
 ;; (require 'workspaces)
 (require 'emms-config)
+(require 'ghostel-config)
 
 (when (eq system-type 'gnu/linux)
   (require 'pdf-setup)
