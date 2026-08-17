@@ -71,6 +71,12 @@
     enable = true;
   };
 
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+    package = pkgs.appimage-run;
+  };
+
   programs.zsh = {
     enable = true;
     enableGlobalCompInit = false;
