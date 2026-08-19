@@ -279,9 +279,9 @@ in
 
         # tag switch
         "SUPER+SHIFT,Left,viewtoleft,0"
-        "SUPER+CTRL+SHIFT,Left,viewtoleft_have_client,0"
+        "SUPER+ALT+SHIFT,Left,viewtoleft_have_client,0"
         "SUPER+SHIFT,Right,viewtoright,0"
-        "SUPER+CTRL+SHIFT,Right,viewtoright_have_client,0"
+        "SUPER+ALT+SHIFT,Right,viewtoright_have_client,0"
         "SUPER+ALT,Left,tagtoleft,0"
         "SUPER+ALT,Right,tagtoright,0"
 
