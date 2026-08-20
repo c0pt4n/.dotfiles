@@ -12,7 +12,7 @@ in
   programs.neovim = {
     enable = true;
     defaultEditor = true;
-    waylandSupport = pkgs.stdenv.isLinux;
+    waylandSupport = pkgs.stdenv.hostPlatform.isLinux;
     vimAlias = true;
     vimdiffAlias = true;
     withRuby = false;
