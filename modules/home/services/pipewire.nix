@@ -58,6 +58,9 @@
                 {
                   "application.name" = "~Chromium.*";
                 }
+                {
+                  "application.name" = "equibop";
+                }
               ];
               actions = {
                 quirks = [ "block-source-volume" ];
