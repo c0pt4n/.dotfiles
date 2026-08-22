@@ -67,9 +67,7 @@
 
   programs.dconf.enable = true;
 
-  programs.mango = {
-    enable = true;
-  };
+  programs.mangowc.enable = true;
 
   programs.nix-ld.enable = true;
 

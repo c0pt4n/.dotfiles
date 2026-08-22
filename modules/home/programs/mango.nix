@@ -3,6 +3,7 @@
   pkgs,
   lib,
   config,
+  osConfig,
   ...
 }:
 let
@@ -28,7 +29,7 @@ in
   ];
 
   wayland.windowManager.mango = {
-    enable = true;
+    enable = osConfig.programs.mangowc.enable;
     systemd = {
       enable = true;
       xdgAutostart = false;
