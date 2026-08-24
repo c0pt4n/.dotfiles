@@ -48,6 +48,15 @@
     ];
   };
 
+  services.logind = {
+    enable = true;
+    settings = {
+      Login = {
+        HandlePowerKey = "ignore";
+      };
+    };
+  };
+
   services.tailscale.enable = true;
 
   services.power-profiles-daemon.enable = true;
