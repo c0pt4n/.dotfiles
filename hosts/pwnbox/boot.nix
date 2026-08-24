@@ -9,6 +9,10 @@
     kernelParams = [
       "plymouth.use-simpledrm"
     ];
+    blacklistedKernelModules = [
+      "pcspkr"
+      "snd_pcsp"
+    ];
     plymouth = {
       enable = true;
       theme = "hud_3";

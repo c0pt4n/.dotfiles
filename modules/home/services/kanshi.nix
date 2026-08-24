@@ -10,6 +10,13 @@
         };
       }
       {
+        output = {
+          criteria = "HDMI-A-1";
+          mode = "1920x1080";
+          scale = 1.0;
+        };
+      }
+      {
         profile = {
           name = "laptop";
           outputs = [

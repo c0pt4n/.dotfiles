@@ -19,6 +19,7 @@
     ./git.nix
     ./gpg-agent.nix
     ./gpg.nix
+    ./imv.nix
     ./lf.nix
     ./mango.nix
     ./mpv.nix
@@ -31,6 +32,7 @@
     ./ripgrep.nix
     ./satty.nix
     ./ssh.nix
+    ./tealdeer.nix
     ./tmux.nix
     ./yt-dlp.nix
     ./zathura.nix
