@@ -29,7 +29,7 @@ in
   ];
 
   wayland.windowManager.mango = {
-    enable = osConfig.programs.mangowc.enable;
+    enable = osConfig.programs.mango.enable;
     systemd = {
       enable = true;
       xdgAutostart = false;
