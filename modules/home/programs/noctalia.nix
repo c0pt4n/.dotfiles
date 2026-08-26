@@ -251,7 +251,7 @@
         };
       };
       plugins = {
-        auto_update = false;
+        auto_update = "none";
         source = [
           {
             enabled = true;
