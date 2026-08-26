@@ -28,6 +28,7 @@
     ./noctalia.nix
     ./npm.nix
     ./obs-studio.nix
+    ./opencode.nix
     ./password-store.nix
     ./ripgrep.nix
     ./satty.nix
