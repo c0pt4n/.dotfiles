@@ -100,6 +100,8 @@
     uv
     usql
     shellcheck
+    shfmt
+    bash-language-server
     pnpm
     nixd
 
