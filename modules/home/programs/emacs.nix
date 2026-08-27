@@ -10,6 +10,9 @@ in
 {
   home.packages = with pkgs; [
     libtool
+
+    # emacs-everywhere
+    wtype
   ];
 
   programs.emacs = {

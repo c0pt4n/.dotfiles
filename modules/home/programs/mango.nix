@@ -345,6 +345,14 @@ in
           cmd = if config.services.emacs.enable then "${pkg}/bin/emacsclient -nca ${bin}" else bin;
         in
         "SUPER,E,spawn,${cmd}"
+      )
+      ++ lib.optional config.programs.emacs.enable (
+        let
+          pkg = config.programs.emacs.finalPackage;
+          bin = "${pkg}/bin/emacs";
+          cmd = if config.services.emacs.enable then "${pkg}/bin/emacsclient -e '(thanos/type)'" else bin;
+        in
+        "SUPER+CTRL,E,spawn,${cmd}"
       );
 
       bindl = [
