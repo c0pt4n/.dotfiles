@@ -223,6 +223,7 @@
       widget = {
         volume.show_label = false;
         network.show_label = false;
+        launcher.glyph = "ankh";
         workspaces = {
           capsule_padding = 6;
           capsule_radius = 4;
@@ -237,10 +238,11 @@
           hide_when_no_media = true;
         };
         clock = {
-          capsule_radius = 4;
-          capsule_padding = 10;
+          anchor = true;
           format = "{:%a %H:%M}";
           tooltip_format = "{:%d %b (W%U)}";
+          capsule_radius = 4;
+          capsule_padding = 10;
         };
         privacy = {
           active_color = "error";
