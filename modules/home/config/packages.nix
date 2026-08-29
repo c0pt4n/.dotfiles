@@ -144,5 +144,6 @@
     ANDROID_USER_HOME = "${config.xdg.dataHome}/android";
     ANDROID_AVD_HOME = "${config.xdg.dataHome}/android/avd";
     ADB_VENDOR_KEYS = "${config.xdg.dataHome}/android/adbkeys";
+    CUDA_CACHE_PATH = "${config.xdg.cacheHome}/nv";
   };
 }
