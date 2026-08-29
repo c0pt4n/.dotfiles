@@ -384,7 +384,7 @@ in
         "isfloating:1,title:emacs-float"
         "isfloating:1,title:Picture-in-Picture"
         "isfloating:1,appid:scrcpy"
-        "tags:1,appid:^(discord|vesktop)$"
+        "tags:1,appid:^(discord|vesktop|equibop)$"
         "tags:3,appid:emacs,title:^(?!emacs-float$)"
       ];
 
