@@ -63,6 +63,13 @@
               shortcut = "s";
             }
             {
+              action = "command";
+              command = "systemctl hibernate";
+              glyph = "hibernate";
+              label = "Hibernate";
+              shortcut = "z";
+            }
+            {
               action = "reboot";
               shortcut = "r";
               variant = "destructive";
