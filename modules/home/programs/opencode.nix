@@ -5,6 +5,9 @@
       permission = {
         bash = "ask";
       };
+      experimental = {
+        disable_paste_summary = true;
+      };
     };
   };
 }
