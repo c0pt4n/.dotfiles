@@ -6,6 +6,7 @@
     ./btop.nix
     ./burpsuite.nix
     ./cava.nix
+    ./claude-code.nix
     ./delta.nix
     ./discord.nix
     ./emacs.nix
