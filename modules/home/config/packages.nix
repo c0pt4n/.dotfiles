@@ -40,6 +40,7 @@
     hashcat
     duf
     entr
+    xdg-ninja
 
     # networking
     mitmproxy
