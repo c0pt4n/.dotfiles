@@ -11,7 +11,6 @@ in
 {
   programs.neovim = {
     enable = true;
-    defaultEditor = true;
     waylandSupport = pkgs.stdenv.hostPlatform.isLinux;
     vimAlias = true;
     vimdiffAlias = true;

@@ -6,6 +6,7 @@
   services.emacs = {
     enable = config.programs.emacs.enable;
     package = config.programs.emacs.finalPackage;
+    defaultEditor = true;
     client = {
       enable = true;
       arguments = [
