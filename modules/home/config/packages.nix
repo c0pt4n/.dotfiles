@@ -109,6 +109,17 @@
     # security
     arp-scan
     subfinder
+    seclists
+    amass
+    findomain
+    chaos
+    assetfinder
+    dnsx
+    httpx
+    puredns
+    ffuf
+    gungnir
+    asnmap
     nuclei
     nuclei-templates
     httpx
