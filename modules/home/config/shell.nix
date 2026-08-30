@@ -23,6 +23,7 @@
       adb = ''env HOME="$ANDROID_USER_HOME" adb'';
       mitmproxy = ''mitmproxy --set confdir="$XDG_CONFIG_HOME/mitmproxy"'';
       mitmweb = ''mitmweb --set confdir="$XDG_CONFIG_HOME/mitmproxy"'';
+      crave = ''crave -c "$XDG_CONFIG_HOME/crave.conf"'';
     };
   };
 }

@@ -1,77 +1,17 @@
 #!/bin/sh
 
-# shellcheck disable=SC2139
-alias e="${EDITOR:-vi}"
-alias emacs="emacsclient -c -a 'emacs'"
-alias em="emacsclient -nw"
-alias q="exit"
-
-alias mkd="mkdir -pv"
-alias cp="cp -iv"
-alias ln="ln -iv"
-alias mv="mv -iv"
-alias rm="rm -Iv"
-alias ls="ls -hF --color=auto --group-directories-first"
-alias ll="ls -lA"
-alias grep="grep --color=auto"
-alias gr="grep --exclude-dir={.git,node_modules} -Hnr"
-alias ping="ping -c 5"
-
 alias g="git"
 alias gst="git status -sb"
 alias gph="git push"
 alias gpl="git pull"
 alias gdf="git diff"
 
-command -v loginctl >/dev/null 2>&1 && {
-	alias reboot="loginctl -i reboot"
-	alias poweroff="loginctl -i poweroff"
-}
-
 command -v bicon >/dev/null 2>&1 && {
 	alias yazi="bicon.bin yazi"
 	alias ncmpcpp="bicon.bin ncmpcpp"
 }
 
-alias ip="ip -color=auto"
-alias bc="bc -ql"
-alias diff="diff --color=auto"
 alias info="info --vi-keys"
 alias ccat="highlight -O ansi"
-alias rsync="rsync -vrPlu"
-alias ffmpeg="ffmpeg -hide_banner"
 alias urls="rg '(((http|https|gopher|gemini|ftp|ftps|git)://|www\\.)[a-zA-Z0-9.]*[:;a-zA-Z0-9./+@$&%?$\#=_~-]*)|((magnet:\\?xt=urn:btih:)[a-zA-Z0-9]*)'"
 alias bm="buku --suggest"
-alias drag="dragon-drop -a -x"
-alias adb='env HOME="$ANDROID_USER_HOME" adb'
-alias mitmproxy='mitmproxy --set confdir="$XDG_CONFIG_HOME/mitmproxy"'
-alias mitmweb='mitmweb --set confdir="$XDG_CONFIG_HOME/mitmproxy"'
-alias msfconsole='msfconsole -q'
-alias crave='crave -c "$XDG_CONFIG_HOME/crave.conf"'
-
-# neovim for vim if available
-[ -x "$(command -v nvim)" ] && alias vim="nvim" vimdiff="nvim -d"
-
-lfcd() {
-	cd "$(command lf -print-last-dir "$@")" || return $?
-}
-
-pass() {
-	case "$EDITOR" in
-		vim | nvim) editor="$EDITOR --noplugin" ;;
-		*) editor="vi" ;;
-	esac
-	env EDITOR="$editor" pass "$@"
-	unset editor
-}
-
-case "${EDITOR:-}" in
-vim | nvim) alias vi='$EDITOR --noplugin';;
-esac
-
-# shellcheck disable=2015
-sudocmd="$([ -f /etc/doas.conf ] && command -v doas 2>/dev/null || command -v sudo 2>/dev/null)"
-for cmd in su mount umount sv updatedb vsv ufw openvpn; do
-	alias $cmd="$sudocmd $(which "$cmd")"
-done
-unset sudocmd cmd
