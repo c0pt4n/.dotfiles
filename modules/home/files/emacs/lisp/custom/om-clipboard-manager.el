@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (defun om/get-cliphist-entries ()
   "Get the 50 most recent clipboard entries from cliphist, fully decoded."
   (when (executable-find "cliphist")

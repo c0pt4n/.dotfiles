@@ -6,6 +6,11 @@
 
 {
   imports = [ ./nixos ];
+
+  nixpkgs.overlays = [
+    inputs.emacs-overlay.overlays.default
+  ];
+
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
