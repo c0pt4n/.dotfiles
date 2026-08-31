@@ -51,8 +51,7 @@
    '("m n" . emms-next)
 
    ;; Toggling keybindings
-   '("o t" . om/vterm)
-   '("o T" . vterm)
+   '("o t" . ghostel)
    '("o d" . dirvish)
 
    ;; Password-store
