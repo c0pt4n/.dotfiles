@@ -19,6 +19,8 @@
 
   services.vnstat.enable = true;
 
+  services.cloudflare-warp.enable = true;
+
   services.keyd = {
     enable = true;
     keyboards = {
