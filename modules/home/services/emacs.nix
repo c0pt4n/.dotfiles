@@ -11,7 +11,7 @@
       enable = true;
       arguments = [
         "-n"
-        "-c"
+        "-r"
         "-a"
         "emacs"
       ];

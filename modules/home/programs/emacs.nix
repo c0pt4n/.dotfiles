@@ -24,6 +24,6 @@ in
     recursive = true;
   };
   home.shellAliases = lib.mkIf config.programs.emacs.enable {
-    emacs = "emacsclient -nca emacs";
+    emacs = "emacsclient -r -na emacs";
   };
 }
