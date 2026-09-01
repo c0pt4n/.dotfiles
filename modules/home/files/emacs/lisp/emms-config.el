@@ -18,7 +18,7 @@
 			 emms-previous
 			 emms-shuffle)
   :init
-  (setq emms-source-file-default-directory "~/music"
+  (setq emms-source-file-default-directory "~/docs/music"
 		emms-playlist-buffer-name "*Music*"
 		emms-info-asynchronously t)
   :config
@@ -34,7 +34,7 @@
         emms-source-file-directory-tree-function 'emms-source-file-directory-tree-find)
 
   ;; MPD
-  (setq emms-player-mpd-music-directory "~/music"
+  (setq emms-player-mpd-music-directory "~/docs/music"
         emms-volume-change-function #'emms-volume-mpd-change
         emms-player-list '(emms-player-mpd
 						   emms-player-mplayer
