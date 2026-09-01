@@ -106,6 +106,8 @@
     bash-language-server
     pnpm
     nixd
+    nixfmt
+    pre-commit
 
     # security
     arp-scan
