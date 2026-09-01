@@ -166,7 +166,7 @@ in
       drag_tile_small = 1;
       scratchpad_cross_monitor = 1;
       single_scratchpad = 1;
-      xwayland_persistence = 1;
+      xwayland_persistence = 0;
       allow_shortcuts_inhibit = 1;
 
       # keyboard
