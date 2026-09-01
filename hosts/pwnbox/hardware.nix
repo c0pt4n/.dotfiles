@@ -32,7 +32,10 @@
     };
   };
 
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = [
+    "modesetting"
+    "nvidia"
+  ];
 
   hardware = {
     enableAllFirmware = lib.mkDefault true;
@@ -52,6 +55,14 @@
       package = config.boot.kernelPackages.nvidiaPackages.production;
       nvidiaSettings = true;
       powerManagement.enable = true;
+      prime = {
+        offload = {
+          enable = true;
+          enableOffloadCmd = true;
+        };
+        intelBusId = "PCI:0:2:0";
+        nvidiaBusId = "PCI:1:0:0";
+      };
     };
     bluetooth = {
       enable = true;
@@ -72,10 +83,5 @@
       enable = true;
       group = "i2c";
     };
-  };
-
-  environment.variables = lib.mkIf config.hardware.graphics.enable {
-    LIBVA_DRIVER_NAME = "nvidia";
-    VDPAU_DRIVER = "nvidia";
   };
 }
