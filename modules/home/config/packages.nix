@@ -41,6 +41,7 @@
     duf
     entr
     xdg-ninja
+    termdown
 
     # networking
     mitmproxy
@@ -110,7 +111,6 @@
     arp-scan
     subfinder
     seclists
-    amass
     findomain
     chaos
     assetfinder
