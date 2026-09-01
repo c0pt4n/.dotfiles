@@ -122,11 +122,9 @@
     asnmap
     nuclei
     nuclei-templates
-    httpx
     shuffledns
     frida-tools
     metasploit
-    seclists
     nmap
     masscan
     massdns

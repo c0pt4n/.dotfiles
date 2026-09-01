@@ -12,7 +12,6 @@
       isNormalUser = true;
       shell = if config.programs.zsh.enable then pkgs.zsh else pkgs.bashInteractive;
       extraGroups = [
-        "networkmanager"
         "wheel"
         "video"
         "audio"
