@@ -135,8 +135,6 @@
     hcxdumptool
     hcxtools
     dig
-    caido-cli
-    caido-desktop
   ];
 
   programs.pandoc = {
