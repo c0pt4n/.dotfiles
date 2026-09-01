@@ -1,5 +1,6 @@
 {
   imports = [
+    ./easyeffects.nix
     ./gnome-keyring.nix
     ./kanshi.nix
     ./mpd.nix
