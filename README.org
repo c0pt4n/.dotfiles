@@ -1,0 +1,19 @@
+* .dotfiles
+
+#+begin_quote
+NixOS system configuratin.
+#+end_quote
+
+** Hosts
+
+| Host    | OS    | Arch   |
+|---------+-------+--------|
+| pwnbox  | NixOS | x86_64 |
+
+** Usage
+
+#+begin_src shell
+git clone https://github.com/c0pt4n/.dotfiles.git
+cd .dotfiles
+sudo nixos-rebuild switch --flake .#<host>
+#+end_src

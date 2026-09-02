@@ -1,4 +1,0 @@
-$include /etc/inputrc
-set editing-mode vi
-set bell-style none
-"\C-L": clear-screen

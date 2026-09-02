@@ -1,5 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Text Editor
-Icon=emacs
-Exec=emacsclient -c -a 'emacs' %u
