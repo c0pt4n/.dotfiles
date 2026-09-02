@@ -6,6 +6,7 @@
     ./mpd.nix
     ./mpris-proxy.nix
     ./pipewire.nix
+    ./podman.nix
     ./syncthing.nix
   ];
 }
