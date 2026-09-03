@@ -87,6 +87,9 @@
     criticalPowerAction = "HybridSleep";
   };
 
+  services.openssh.enable = true;
+  systemd.services.openssh.wantedBy = lib.mkForce [];
+
   programs.dconf.enable = true;
 
   programs.mango.enable = true;
