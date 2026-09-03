@@ -227,6 +227,7 @@
           }
         ];
       };
+      lockscreen.fingerprint = false;
       widget = {
         volume.show_label = false;
         network.show_label = false;
