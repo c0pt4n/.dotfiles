@@ -1,4 +1,8 @@
 {
+  lib,
+  ...
+}:
+{
   security.apparmor = {
     enable = true;
     killUnconfinedConfinables = true;
@@ -20,6 +24,7 @@
   services.vnstat.enable = true;
 
   services.cloudflare-warp.enable = true;
+  systemd.services.cloudflare-warp.wantedBy = lib.mkForce [];
 
   services.keyd = {
     enable = true;

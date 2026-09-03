@@ -71,6 +71,7 @@
   };
 
   services.tailscale.enable = true;
+  systemd.services.tailscaled.wantedBy = lib.mkForce [ ];
 
   services.power-profiles-daemon.enable = true;
 
@@ -88,7 +89,7 @@
   };
 
   services.openssh.enable = true;
-  systemd.services.openssh.wantedBy = lib.mkForce [];
+  systemd.services.sshd.wantedBy = lib.mkForce [];
 
   programs.dconf.enable = true;
 
