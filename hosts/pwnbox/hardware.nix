@@ -84,4 +84,10 @@
       group = "i2c";
     };
   };
+
+  environment.systemPackages = with pkgs; [
+    nvtopPackages.nvidia
+    nvtopPackages.intel
+    intel-gpu-tools
+  ];
 }
