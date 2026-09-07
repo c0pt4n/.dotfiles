@@ -117,7 +117,7 @@ in
       # Scroller Layout Setting
       scroller = {
         structs = 20;
-        default_proportion = 0.8;
+        default_proportion = 0.5;
         focus_center = 0;
         prefer_center = 0;
         ignore_proportion_single = 0;
