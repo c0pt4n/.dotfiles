@@ -37,6 +37,7 @@
   programs.mangohud = {
     enable = true;
     settings = {
+      no_display = true;
       fps_limit = "0";
       cpu_temp = true;
       gpu_temp = true;
@@ -44,7 +45,7 @@
       vram = true;
       fps = true;
       frametime = true;
-      toggle_hud = "Shift_R+F12";
+      toggle_hud = "F12";
     };
   };
 
