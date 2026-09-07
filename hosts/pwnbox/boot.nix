@@ -8,6 +8,7 @@
     kernelPackages = pkgs.linuxPackages_zen;
     kernelParams = [
       "plymouth.use-simpledrm"
+      "clearcpuid=umip"
     ];
     blacklistedKernelModules = [
       "pcspkr"
