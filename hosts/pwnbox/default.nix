@@ -36,6 +36,7 @@
         53317 # LocalSend UDP discovery
       ]
       ++ lib.optional config.services.tailscale.enable 41641;
+      trustedInterfaces = lib.optional config.services.tailscale.enable "tailscale0";
     };
   };
 
@@ -70,7 +71,11 @@
     '';
   };
 
-  services.tailscale.enable = true;
+  services.tailscale = {
+    enable = true;
+    extraSetFlags = [ "--ssh" ];
+  };
+
   systemd.services.tailscaled.wantedBy = lib.mkForce [ ];
 
   services.power-profiles-daemon.enable = true;
@@ -88,8 +93,8 @@
     criticalPowerAction = "HybridSleep";
   };
 
-  services.openssh.enable = true;
-  systemd.services.sshd.wantedBy = lib.mkForce [];
+  services.openssh.enable = false;
+  systemd.services.sshd.wantedBy = lib.mkForce [ ];
 
   programs.dconf.enable = true;
 
