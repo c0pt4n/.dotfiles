@@ -24,7 +24,7 @@
   services.vnstat.enable = true;
 
   services.cloudflare-warp.enable = true;
-  systemd.services.cloudflare-warp.wantedBy = lib.mkForce [];
+  systemd.services.cloudflare-warp.wantedBy = lib.mkForce [ ];
 
   services.keyd = {
     enable = true;
