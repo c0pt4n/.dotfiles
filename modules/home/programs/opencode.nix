@@ -1,6 +1,7 @@
 {
   programs.opencode = {
     enable = true;
+    enableMcpIntegration = true;
     settings = {
       permission = {
         bash = "ask";

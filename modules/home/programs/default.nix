@@ -22,6 +22,7 @@
     ./imv.nix
     ./lf.nix
     ./mango.nix
+    ./mcp.nix
     ./mpv.nix
     ./ncmpcpp.nix
     ./neovim.nix

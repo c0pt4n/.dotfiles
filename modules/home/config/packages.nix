@@ -70,6 +70,7 @@
     #rustdesk
 
     # dev
+    jdk
     gcc
     gnumake
     ninja
