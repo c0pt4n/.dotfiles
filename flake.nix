@@ -32,7 +32,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     burpsuitepro = {
-      url = "github:xiv3r/Burpsuite-Professional";
+      url = "github:c0pt4n/Burpsuite-Professional";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
