@@ -161,5 +161,6 @@
   (require 'pdf-setup)
   (require 'pass-config)
   (require 'llms)
+  (require 'agentshell)
   ;; Custom
   (require 'om-clipboard-manager))
