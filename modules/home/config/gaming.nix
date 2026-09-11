@@ -45,7 +45,7 @@
       vram = true;
       fps = true;
       frametime = true;
-      toggle_hud = "F12";
+      toggle_hud = "F10";
     };
   };
 
