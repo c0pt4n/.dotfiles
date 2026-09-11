@@ -8,6 +8,7 @@
     ./cava.nix
     ./delta.nix
     ./discord.nix
+    ./elyprismlauncher.nix
     ./emacs.nix
     ./fastfetch.nix
     ./fd.nix

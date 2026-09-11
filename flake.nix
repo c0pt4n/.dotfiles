@@ -35,6 +35,10 @@
       url = "github:c0pt4n/Burpsuite-Professional";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    elyprismlauncher = {
+      url = "github:ElyPrismLauncher/Launcher?ref=release-11.x";
+      # inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
