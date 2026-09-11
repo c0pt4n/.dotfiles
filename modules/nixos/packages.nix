@@ -19,6 +19,7 @@
     iotop
     iftop
     strace
+    e2fsprogs
     ltrace
     traceroute
     lsof
