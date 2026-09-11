@@ -93,6 +93,8 @@
     criticalPowerAction = "HybridSleep";
   };
 
+  services.fwupd.enable = true;
+
   services.openssh.enable = false;
   systemd.services.sshd.wantedBy = lib.mkForce [ ];
 
