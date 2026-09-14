@@ -51,7 +51,8 @@
    '("m n" . emms-next)
 
    ;; Toggling keybindings
-   '("o t" . ghostel)
+   '("o t" . oceanic/ghostel)
+   '("o T" . oceanic/ghostel-here)
    '("o d" . dirvish)
 
    ;; Password-store

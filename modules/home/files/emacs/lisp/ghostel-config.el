@@ -5,5 +5,66 @@
   ((ghostel-mode . (lambda()
                      (setq-local mode-line-format nil)))))
 
+(defun oceanic/ghostel ()
+  "Open ghostel buffer as a bottom popup at 30% height."
+  (interactive)
+  (require 'ghostel)
+  (let ((buf (or (get-buffer "*ghostel*")
+                 ;; Let `ghostel' spawn the process + buffer, but don't let it
+                 ;; steal the window — capture the buffer and display it ourselves.
+                 (save-window-excursion
+                   (ghostel "*ghostel*")
+                   (get-buffer "*ghostel*")))))
+    (select-window
+     (display-buffer
+      buf
+      '((display-buffer-reuse-window
+         display-buffer-in-side-window)
+        (side . bottom)
+        (slot . 0)
+        (window-height . 0.3)
+        (window-parameters . ((no-delete-other-windows . t))))))))
+
+;; Explicitly spawn a new frame with ghostel
+(defun oceanic/new-frame-with-ghostel ()
+  "Create a new frame and immediately open ghostel in it."
+  (interactive)
+  (require 'ghostel)
+  (let ((new-frame (make-frame '((explicit-ghostel . t)))))
+    (select-frame new-frame)
+    (delete-other-windows)
+    (let ((ghostel-buffer (ghostel (format "*ghostel-%s*" (frame-parameter new-frame 'name)))))
+      (switch-to-buffer ghostel-buffer)
+      (delete-other-windows))))
+
+(with-eval-after-load 'ghostel
+  (dolist (map (list ghostel-char-mode-map ghostel-semi-char-mode-map))
+    (define-key map (kbd "C-<left>")  #'windmove-left)
+    (define-key map (kbd "C-<right>") #'windmove-right)
+    (define-key map (kbd "C-<up>")    #'windmove-up)
+    (define-key map (kbd "C-<down>")  #'windmove-down)))
+
+(defun oceanic/ghostel-here ()
+  "Open a new ghostel buffer rooted at the current buffer's directory,
+in the current window."
+  (interactive)
+  (require 'ghostel)
+  (let* ((buf (window-buffer (selected-window)))
+         (dir (with-current-buffer buf
+                (cond
+                 ((buffer-file-name buf)
+                  (file-name-directory (buffer-file-name buf)))
+                 ((eq major-mode 'dired-mode)
+                  (dired-current-directory))
+                 (t default-directory))))
+         (default-directory dir)
+         (name (format "*ghostel-%s*" (abbreviate-file-name dir)))
+         (buf (or (get-buffer name)
+                  (save-window-excursion
+                    (ghostel name)
+                    (get-buffer name)))))
+    (switch-to-buffer buf)))
+
+
 (provide 'ghostel-config)
 ;;; ghostel-config.el ends here
