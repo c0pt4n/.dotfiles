@@ -6,6 +6,7 @@
     ./btop.nix
     ./burpsuite.nix
     ./cava.nix
+    ./chromium.nix
     ./delta.nix
     ./discord.nix
     ./elyprismlauncher.nix
