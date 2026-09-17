@@ -115,7 +115,7 @@
     enableGlobalCompInit = false;
   };
 
-  programs.noctalia-greeter = {
+  services.displayManager.noctalia-greeter = {
     enable = true;
     greeter-args = "";
     settings = {

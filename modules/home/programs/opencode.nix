@@ -1,4 +1,9 @@
 {
+  pkgs,
+  ...
+}:
+{
+  home.packages = [ pkgs.sqlite ];
   programs.opencode = {
     enable = true;
     enableMcpIntegration = true;
