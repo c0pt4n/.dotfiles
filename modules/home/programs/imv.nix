@@ -108,4 +108,13 @@
         };
     };
   };
+
+  xdg.mimeApps.defaultApplications = lib.mkIf config.programs.imv.enable (
+    lib.genAttrs [
+      "image/png"
+      "image/jpeg"
+      "image/webp"
+      "image/gif"
+    ] (_: [ "imv.desktop" ])
+  );
 }

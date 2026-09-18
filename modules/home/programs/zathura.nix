@@ -1,4 +1,9 @@
 {
+  lib,
+  config,
+  ...
+}:
+{
   programs.zathura = {
     enable = true;
     options = {
@@ -28,4 +33,14 @@
       "[presentation] j" = "scroll full-down";
     };
   };
+
+  xdg.mimeApps.defaultApplications = lib.mkIf config.programs.zathura.enable (
+    lib.genAttrs [
+      "image/vnd.djvu"
+      "application/pdf"
+      "application/epub+zip"
+      "application/postscript"
+      "application/x-mobipocket-ebook"
+    ] (_: [ "org.pwmt.zathura.desktop" ])
+  );
 }

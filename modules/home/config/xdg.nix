@@ -49,9 +49,6 @@
     };
     mimeApps = {
       enable = true;
-      defaultApplications = {
-        # TODO
-      };
     };
   };
 

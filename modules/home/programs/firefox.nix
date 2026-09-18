@@ -109,4 +109,12 @@
   home.sessionVariables = lib.mkIf config.programs.firefox.enable {
     BROWSER = "firefox";
   };
+
+  xdg.mimeApps.defaultApplications = lib.mkIf config.programs.firefox.enable (
+    lib.genAttrs [
+      "x-scheme-handler/http"
+      "x-scheme-handler/https"
+      "text/html"
+    ] (_: [ "firefox.desktop" ])
+  );
 }

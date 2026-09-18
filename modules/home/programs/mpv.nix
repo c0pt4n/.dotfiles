@@ -42,4 +42,20 @@
         av://v4l2:/dev/video0
     '';
   };
+
+  xdg.mimeApps.defaultApplications = lib.mkIf config.programs.mpv.enable (
+    lib.genAttrs [
+      "video/mp4"
+      "video/mpeg"
+      "video/x-matroska"
+      "video/webm"
+      "video/quicktime"
+      "audio/ogg"
+      "audio/flac"
+      "audio/mpeg"
+      "audio/x-m4a"
+      "audio/x-wav"
+      "application/octet-stream"
+    ] (_: [ "mpv.desktop" ])
+  );
 }

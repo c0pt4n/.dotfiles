@@ -45,4 +45,12 @@ in
   home.shellAliases = lib.mkIf config.programs.emacs.enable {
     emacs = "emacsclient -r -na emacs";
   };
+
+  xdg.mimeApps.defaultApplications = lib.mkIf config.programs.emacs.enable (
+    lib.genAttrs [
+      "text/plain"
+      "text/x-c"
+      "text/x-shellscript"
+    ] (_: [ "emacsclient.desktop" ])
+  );
 }
