@@ -7,9 +7,11 @@
 
    '("." . find-file)
    '("/" . consult-ripgrep)
+   '(";" . comment-line)
+   '("=" . hl-line-mode)
 
    ;; Projects
-   '("SPC" . project-find-file)
+   '("SPC" . execute-extended-command)
    '("p R" . project-query-replace-regexp)
 
    ;; Bookmars
@@ -28,10 +30,14 @@
 
    '("c c" . compile)
 
+   '("d" . dired-jump)
+   '("D" . dired-jump-other-window)
+
    '("e g" . gptel)
    '("e s" . gptel-send)
 
    ;; Files
+   '("f f" . project-find-file)
    '("f r" . consult-recent-file)
    '("f c" . (lambda () (interactive) (find-file (expand-file-name "init.el" user-emacs-directory))))
    '("f e" . (lambda () (interactive) (dirvish user-emacs-directory)))
@@ -39,6 +45,8 @@
 
    ;; Magit
    '("g" . magit-status)
+
+   '("k" . consult-yank-from-kill-ring)
 
    ;; Emms
    '("m u" . oceanic/update-emms-from-mpd)
@@ -148,7 +156,8 @@
    '("%" . meow-block)
    '("p" . meow-yank)
    '("q" . meow-quit)
-   '("Q" . meow-goto-line)
+   '("Q" . kmacro-start-macro-or-insert-counter)
+   '("@" . kmacro-end-or-call-macro)
    '("r" . meow-replace)
    '("R" . meow-swap-grab)
    '("s" . meow-kill)
@@ -165,7 +174,8 @@
    '("z" . meow-pop-selection)
    '("'" . repeat)
    '("/" . consult-line)
-   '("<escape>" . ignore)))
+   '("=" . meow-indent)
+   '("<escape>" . meow-cancel-selection)))
 
 (use-package meow
   :demand t
@@ -173,8 +183,13 @@
   (setq meow-keypad-meta-prefix ?M)
   (setq meow-keypad-ctrl-meta-prefix ?G)
   (setq meow-cursor-type-insert 'box)
+  :custom
+  (meow-use-cursor-position-hack t)
+  (meow-goto-line-function 'consult-goto-line)
   :config
   (add-to-list 'meow-mode-state-list '(vterm-mode . insert))
+  (add-to-list 'meow-mode-state-list '(ghostel-mode . insert))
+  (add-to-list 'meow-mode-state-list '(eshell-mode . insert))
   (meow-setup)
   (meow-global-mode))
 
