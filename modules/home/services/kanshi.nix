@@ -102,6 +102,21 @@ in
           ];
         };
       }
+      {
+        profile = {
+          name = "monitor-only";
+          outputs = [
+            {
+              criteria = "eDP-1";
+              status = "disable";
+            }
+            {
+              criteria = "HDMI-A-1";
+              status = "enable";
+            }
+          ];
+        };
+      }
     ];
   };
 }
