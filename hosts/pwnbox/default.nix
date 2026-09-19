@@ -37,8 +37,18 @@
       ]
       ++ lib.optional config.services.tailscale.enable 41641;
       trustedInterfaces = lib.optional config.services.tailscale.enable "tailscale0";
+      checkReversePath = false;
     };
   };
+
+  environment.systemPackages = lib.mkIf (!config.networking.firewall.checkReversePath) (
+    with pkgs;
+    [
+      wireguard-tools
+      proton-vpn
+      v2raya
+    ]
+  );
 
   security.polkit.enable = true;
 
