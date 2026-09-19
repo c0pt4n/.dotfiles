@@ -61,6 +61,10 @@
       terminal = 0.95;
       applications = 1.0;
     };
+    targets = {
+      emacs.enable = false;
+      neovim.enable = false;
+    };
   };
 
   fonts.fontconfig = {
