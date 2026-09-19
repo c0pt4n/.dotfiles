@@ -28,6 +28,7 @@
     ./mpv.nix
     ./ncmpcpp.nix
     ./neovim.nix
+    ./niri.nix
     ./noctalia.nix
     ./npm.nix
     ./obs-studio.nix

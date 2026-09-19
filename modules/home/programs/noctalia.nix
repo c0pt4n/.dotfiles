@@ -393,4 +393,10 @@
       [
         "${config.programs.noctalia.package}/bin/noctalia"
       ];
+
+  wayland.windowManager.niri.settings.spawn-at-startup =
+    lib.mkIf config.wayland.windowManager.niri.enable
+      [
+        "${config.programs.noctalia.package}/bin/noctalia"
+      ];
 }

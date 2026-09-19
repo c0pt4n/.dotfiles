@@ -26,11 +26,16 @@
           "org.freedesktop.impl.portal.ScreenCast" = "wlr";
           "org.freedesktop.impl.portal.Screenshot" = "wlr";
         };
+        niri = lib.mkIf config.wayland.windowManager.niri.enable {
+          "org.freedesktop.impl.portal.ScreenCast" = "gnome";
+          "org.freedesktop.impl.portal.Screenshot" = "gnome";
+        };
       };
-      extraPortals = with pkgs; [
-        xdg-desktop-portal-wlr
-        xdg-desktop-portal-gtk
-      ];
+      extraPortals =
+        with pkgs;
+        [ xdg-desktop-portal-gtk ]
+        ++ lib.optional config.wayland.windowManager.mango.enable xdg-desktop-portal-wlr
+        ++ lib.optional config.wayland.windowManager.niri.enable xdg-desktop-portal-gnome;
     };
     terminal-exec.enable = true;
     userDirs = {

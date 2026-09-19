@@ -102,6 +102,8 @@
 
   programs.mango.enable = true;
 
+  programs.niri.enable = true;
+
   programs.nix-ld.enable = true;
 
   programs.appimage = {
@@ -119,7 +121,7 @@
     enable = true;
     greeter-args = "";
     settings = {
-      session.default = "mango";
+      session.default = "niri";
       keyboard.layout = "us";
       idle.timeout = 600;
       appearance.hide_logo = true;
