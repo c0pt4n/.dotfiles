@@ -25,6 +25,5 @@
   programs.gamescope = {
     enable = true;
     enableWsi = true; # Required for HDR in Wayland / Niri
-    capSysNice = true; # Allows Gamescope to request real-time scheduling priority
   };
 }
