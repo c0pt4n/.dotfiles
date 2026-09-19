@@ -1,4 +1,62 @@
 {
+  config,
+  lib,
+  ...
+}:
+let
+  outputs =
+    config.services.kanshi.settings |> lib.map (e: e.output or null) |> lib.filter (o: o != null);
+  parsePos =
+    output:
+    let
+      pos = lib.splitString "," (output.position or "0,0");
+    in
+    {
+      x = lib.toInt (lib.elemAt pos 0);
+      y = lib.toInt (lib.elemAt pos 1);
+    };
+  parseDims =
+    output:
+    let
+      dims = lib.splitString "x" (output.mode or "0x0");
+      scale = output.scale or 1.0;
+      width = lib.toInt (lib.elemAt dims 0);
+      height = lib.toInt (lib.elemAt dims 1);
+    in
+    {
+      w = lib.floor (width / scale);
+      h = lib.floor (height / scale);
+    };
+  relativePos =
+    rel: criteria:
+    let
+      output = lib.findFirst (e: e.criteria == criteria) null outputs;
+      dims = parseDims output;
+      pos = parsePos output;
+      x = pos.x + dims.w;
+      y = pos.y + dims.h;
+      newPos = lib.getAttr rel {
+        left = {
+          x = x;
+          y = pos.y;
+        };
+        right = {
+          x = -x;
+          y = pos.y;
+        };
+        top = {
+          x = pos.x;
+          y = y;
+        };
+        bottom = {
+          x = pos.x;
+          y = -y;
+        };
+      };
+    in
+    "${lib.toString newPos.x},${lib.toString newPos.y}";
+in
+{
   services.kanshi = {
     enable = true;
     settings = [
@@ -6,6 +64,7 @@
         output = {
           criteria = "eDP-1";
           mode = "1920x1080";
+          position = "0,0";
           scale = 1.25;
         };
       }
@@ -13,6 +72,7 @@
         output = {
           criteria = "HDMI-A-1";
           mode = "1920x1080";
+          position = relativePos "left" "eDP-1";
           scale = 1.0;
         };
       }
@@ -22,6 +82,21 @@
           outputs = [
             {
               criteria = "eDP-1";
+              status = "enable";
+            }
+          ];
+        };
+      }
+      {
+        profile = {
+          name = "monitor";
+          outputs = [
+            {
+              criteria = "eDP-1";
+              status = "enable";
+            }
+            {
+              criteria = "HDMI-A-1";
               status = "enable";
             }
           ];
