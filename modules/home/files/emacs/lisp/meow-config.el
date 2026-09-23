@@ -97,7 +97,6 @@
    '("0" . meow-digit-argument))
 
   (meow-motion-define-key
-   '("^" . back-to-indentation)
    '("l" . meow-line)
    '("e" . meow-next-word)
    '(";" . meow-reverse)
