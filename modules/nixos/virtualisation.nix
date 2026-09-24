@@ -15,5 +15,7 @@
         setSocketVariable = true;
       };
     };
+
+    vmware.host.enable = true;
   };
 }
