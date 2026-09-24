@@ -388,6 +388,7 @@ in
             { match._props.app-id = "^steam$"; }
             { match._props.app-id = "heroic"; }
             { match._props.app-id = "btop"; }
+            { match._props.app-id = "Vmware"; }
             { open-maximized = true; }
           ];
         }
