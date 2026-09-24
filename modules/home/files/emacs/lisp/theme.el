@@ -1,15 +1,15 @@
-;;; theme.el --- Nord theme -*- lexical-binding: t; -*-
+;;; theme.el --- theme setup -*- lexical-binding: t; -*-
 
-(defun om/theme-init-daemon ()
-  (load-theme 'nordic-night t)
-  (remove-hook 'server-after-make-frame-hook #'om/theme-init-daemon)
-  (fmakunbound 'om/theme-init-daemon))
+(use-package nordic-night-theme)
+(use-package nord-theme)
+(use-package tron-legacy-theme)
 
-(use-package nordic-night-theme
-  :init
-  (if (daemonp)
-      (add-hook 'server-after-make-frame-hook #'om/theme-init-daemon)
-    (load-theme 'nordic-night t)))
+(defun oceanic/theme-load ()
+  (load-theme 'nordic-midnight t))
+
+(if (daemonp)
+    (add-hook 'server-after-make-frame-hook #'oceanic/theme-load)
+  (oceanic/theme-load))
 
 (provide 'theme)
 ;;; theme.el ends here
