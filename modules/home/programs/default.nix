@@ -21,6 +21,7 @@
     ./git.nix
     ./gpg-agent.nix
     ./gpg.nix
+    ./herdr.nix
     ./imv.nix
     ./lf.nix
     ./mango.nix
