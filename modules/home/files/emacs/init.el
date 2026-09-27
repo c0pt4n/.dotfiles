@@ -138,8 +138,8 @@
 
 (require 'meow-config)
 (require 'flash-config)
-(require 'dashboard)
 (require 'modeline)
+(require 'dashboard-config)
 (require 'dired-setup)
 (require 'vterm-config)
 (require 'org-config)
