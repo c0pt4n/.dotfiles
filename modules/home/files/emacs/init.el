@@ -154,6 +154,7 @@
 ;; (require 'workspaces)
 (require 'emms-config)
 (require 'ghostel-config)
+(require 'server-init)
 
 (when (eq system-type 'gnu/linux)
   (require 'pdf-setup)
