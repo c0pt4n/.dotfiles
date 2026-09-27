@@ -28,7 +28,7 @@ in
       enable = true;
       arguments = [
         "-n"
-        "-r"
+        "-c"
         "-a"
         "emacs"
       ];
@@ -43,7 +43,7 @@ in
   };
 
   home.shellAliases = lib.mkIf config.programs.emacs.enable {
-    emacs = "emacsclient -r -na emacs";
+    emacs = "emacsclient -nca emacs";
   };
 
   xdg.mimeApps.defaultApplications = lib.mkIf config.programs.emacs.enable (
