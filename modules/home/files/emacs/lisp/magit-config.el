@@ -6,7 +6,7 @@
 (use-package magit
   :hook (git-commit-mode . meow-insert)
   :config
-  (setq magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1
+  (setq magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1
         magit-bury-buffer-function #'magit-restore-window-configuration)
   (define-key magit-status-mode-map (kbd "p") #'magit-push)
   (define-key magit-status-mode-map (kbd "SPC") nil)
