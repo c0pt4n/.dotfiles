@@ -137,7 +137,6 @@
 
 (require 'meow-config)
 (require 'flash-config)
-(require 'modeline)
 (require 'dashboard-config)
 (require 'dired-setup)
 (require 'vterm-config)

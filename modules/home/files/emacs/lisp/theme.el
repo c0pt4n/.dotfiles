@@ -1,15 +1,25 @@
 ;;; theme.el --- theme setup -*- lexical-binding: t; -*-
 
-(use-package nordic-night-theme)
-(use-package nord-theme)
-(use-package tron-legacy-theme)
+(use-package nerd-icons
+  :demand t)
 
-(defun oceanic/theme-load ()
-  (load-theme 'nordic-midnight t))
+(use-package nord-theme
+  :demand t
+  :init
+  (if (daemonp)
+      (cl-labels ((load-nord (frame)
+                    (with-selected-frame frame
+                      (load-theme 'nord t))
+                    (remove-hook 'after-make-frame-functions #'load-nord)))
+        (add-hook 'after-make-frame-functions #'load-nord))
+    (load-theme 'nord t)))
 
-(if (daemonp)
-    (add-hook 'server-after-make-frame-hook #'oceanic/theme-load)
-  (oceanic/theme-load))
+(use-package doom-modeline
+  :demand t
+  :init
+  (setq doom-modeline-icon t)
+  :config
+  (doom-modeline-mode 1))
 
 (provide 'theme)
 ;;; theme.el ends here
