@@ -88,7 +88,6 @@
 	  create-lockfiles nil
 	  initial-scratch-message nil
 	  require-final-newline t
-	  native-comp-async-report-warnings-errors 'silent ;; Native Comp
 	  use-short-answers t)
 
 (setq tab-always-indent 'complete)
