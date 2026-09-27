@@ -6,7 +6,6 @@
    '("?" . meow-cheatsheet)
 
    '("." . find-file)
-   '("/" . consult-ripgrep)
    '(";" . comment-line)
    '("=" . hl-line-mode)
 
@@ -38,13 +37,16 @@
 
    ;; Files
    '("f f" . project-find-file)
+   '("f d" . consult-fd)
+   '("f g" . consult-ripgrep)
    '("f r" . consult-recent-file)
+   '("f s" . save-buffer)
    '("f c" . (lambda () (interactive) (find-file (expand-file-name "init.el" user-emacs-directory))))
    '("f e" . (lambda () (interactive) (dirvish user-emacs-directory)))
    '("f t" . (lambda () (interactive) (find-file (expand-file-name "inbox.org" org-directory))))
 
    ;; Magit
-   '("g" . magit-status)
+   '("g s" . magit-status)
 
    '("k" . consult-yank-from-kill-ring)
 
