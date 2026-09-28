@@ -15,7 +15,7 @@ let
     hash="$(sha256sum "$(readlink -f "$file")" | cut -d " " -f 1)"
     find "${thumbDir}" -name "$hash*" -delete || true
   '';
-  previwerScript =
+  previewerScript =
     let
       batBin = "${config.programs.bat.package}/bin/bat";
       gpgBin = "${config.programs.gpg.package}/bin/gpg";
@@ -112,7 +112,7 @@ in
       cursorpreviewfmt = "\033[7;2m";
       autoquit = true;
       cleaner = lib.toString cleanerScript;
-      previewer = lib.toString previwerScript;
+      previewer = lib.toString previewerScript;
     };
     keybindings = {
       H = "set hidden!";
