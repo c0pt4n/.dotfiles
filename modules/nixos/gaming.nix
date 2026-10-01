@@ -13,10 +13,6 @@
       gamescope # Valve's custom compositor
       mangohud # FPS & performance overlay
     ];
-
-    extraCompatPackages = with pkgs; [
-      proton-ge-bin
-    ];
   };
 
   programs.gamemode.enable = true;

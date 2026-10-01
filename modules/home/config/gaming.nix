@@ -31,8 +31,6 @@
     })
   ];
 
-  home.file.".config/heroic/tools/proton/Proton-GE".source = "${pkgs.proton-ge-bin.steamcompattool}";
-
   # Optional: Declaratively configure MangoHud (FPS/Temp Overlay)
   programs.mangohud = {
     enable = true;
