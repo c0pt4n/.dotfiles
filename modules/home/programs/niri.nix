@@ -1,4 +1,5 @@
 {
+  inputs,
   pkgs,
   lib,
   config,
@@ -19,22 +20,20 @@ let
     mon="$(niri msg --json focused-output | ${pkgs.jq}/bin/jq -r ".name")"
     ${pkgs.woomer}/bin/woomer --monitor "$mon" --output "$mon"
   '';
-  oldPkgs =
-    (builtins.getFlake "github:nixos/nixpkgs/a5cbcfe954791221bfffe2307f7d1a1bf61a871e")
-    .legacyPackages.${pkgs.stdenv.hostPlatform.system};
+  satellitePkgs = inputs.nixpkgs-satellite.legacyPackages.${pkgs.stdenv.hostPlatform.system};
 in
 {
   home.packages = lib.mkIf osConfig.programs.niri.enable (
     with pkgs;
     [
-      oldPkgs.xwayland-satellite
+      satellitePkgs.xwayland-satellite
       nautilus
     ]
   );
 
   wayland.windowManager.niri = {
     enable = osConfig.programs.niri.enable;
-    xwaylandSatellitePackage = oldPkgs.xwayland-satellite;
+    xwaylandSatellitePackage = satellitePkgs.xwayland-satellite;
     checkConfig = true;
     settings = {
       gestures.hot-corners.off = { };

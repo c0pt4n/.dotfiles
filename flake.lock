@@ -348,6 +348,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-satellite": {
+      "locked": {
+        "lastModified": 1785602060,
+        "narHash": "sha256-z7D96eESRM4CPV/XtwpwFn8IDdfLAmxz6lVWrGYXvR4=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "a5cbcfe954791221bfffe2307f7d1a1bf61a871e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "a5cbcfe954791221bfffe2307f7d1a1bf61a871e",
+        "type": "github"
+      }
+    },
     "nixpkgs-stable": {
       "locked": {
         "lastModified": 1789885152,
@@ -466,6 +482,7 @@
         "home-manager": "home-manager",
         "mangowm": "mangowm",
         "nixpkgs": "nixpkgs_2",
+        "nixpkgs-satellite": "nixpkgs-satellite",
         "noctalia": "noctalia",
         "noctalia-greeter": "noctalia-greeter",
         "stylix": "stylix"

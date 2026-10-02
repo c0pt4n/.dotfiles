@@ -31,6 +31,7 @@
       url = "github:nix-community/emacs-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixpkgs-satellite.url = "github:nixos/nixpkgs/a5cbcfe954791221bfffe2307f7d1a1bf61a871e";
     burpsuitepro = {
       url = "github:c0pt4n/Burpsuite-Professional";
       inputs.nixpkgs.follows = "nixpkgs";
