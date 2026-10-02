@@ -30,9 +30,9 @@
         "${pkgs.keyd}/bin/keyd-application-mapper"
       ];
 
-  wayland.windowManager.niri.settings.spawn-at-startup =
+  wayland.windowManager.niri.extraConfig =
     lib.mkIf config.wayland.windowManager.niri.enable
-      [
-        "${pkgs.keyd}/bin/keyd-application-mapper"
-      ];
+      ''
+        spawn-at-startup "${pkgs.keyd}/bin/keyd-application-mapper"
+      '';
 }
