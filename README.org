@@ -6,9 +6,9 @@ NixOS system configuratin.
 
 ** Hosts
 
-| Host    | OS    | Arch   |
-|---------+-------+--------|
-| pwnbox  | NixOS | x86_64 |
+| Host   | OS    | Arch   |
+|--------+-------+--------|
+| kraken | NixOS | x86_64 |
 
 ** Usage
 

@@ -72,8 +72,8 @@
     in
     {
       nixosConfigurations = {
-        pwnbox = mkSystem {
-          host = "pwnbox";
+        kraken = mkSystem {
+          host = "kraken";
           user = "omar";
         };
       };
