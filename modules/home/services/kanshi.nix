@@ -28,33 +28,37 @@ let
       h = lib.floor (height / scale);
     };
   relativePos =
-    rel: criteria:
+    rel: criteria: target:
     let
-      output = lib.findFirst (e: e.criteria == criteria) null outputs;
-      dims = parseDims output;
-      pos = parsePos output;
-      x = pos.x + dims.w;
-      y = pos.y + dims.h;
+      ref = lib.findFirst (e: e.criteria == criteria) null outputs;
+      refDims = parseDims ref;
+      refPos = parsePos ref;
+      tgtDims = parseDims target;
       newPos = lib.getAttr rel {
-        left = {
-          x = x;
-          y = pos.y;
-        };
         right = {
-          x = -x;
-          y = pos.y;
+          x = refPos.x + refDims.w;
+          y = refPos.y;
+        };
+        left = {
+          x = refPos.x - tgtDims.w;
+          y = refPos.y;
         };
         top = {
-          x = pos.x;
-          y = y;
+          x = refPos.x;
+          y = refPos.y - tgtDims.h;
         };
         bottom = {
-          x = pos.x;
-          y = -y;
+          x = refPos.x;
+          y = refPos.y + refDims.h;
         };
       };
     in
     "${lib.toString newPos.x},${lib.toString newPos.y}";
+  hdmiOutput = {
+    criteria = "HDMI-A-1";
+    mode = "1280x1024";
+    scale = 1.0;
+  };
 in
 {
   services.kanshi = {
@@ -69,12 +73,10 @@ in
         };
       }
       {
-        output = {
-          criteria = "HDMI-A-1";
-          mode = "1920x1080";
-          position = relativePos "left" "eDP-1";
-          scale = 1.0;
-        };
+        output =
+          hdmiOutput // {
+            position = relativePos "left" "eDP-1" hdmiOutput;
+          };
       }
       {
         profile = {
