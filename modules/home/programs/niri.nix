@@ -126,8 +126,8 @@ in
 
         "Mod+Shift+J".move-column-to-workspace-down = { };
         "Mod+Shift+K".move-column-to-workspace-up = { };
-        "Mod+Shift+L".move-column-right = { };
-        "Mod+Shift+H".move-column-left = { };
+        "Mod+Shift+L".move-column-right-or-to-monitor-right = { };
+        "Mod+Shift+H".move-column-left-or-to-monitor-left = { };
 
         "Mod+Alt+H".consume-window-into-column = { };
         "Mod+Alt+L".expel-window-from-column = { };
@@ -137,8 +137,8 @@ in
         "Mod+Right".focus-column-right = { };
         "Mod+Left".focus-column-left = { };
 
-        "Mod+Shift+Right".move-column-right = { };
-        "Mod+Shift+Left".move-column-left = { };
+        "Mod+Shift+Right".move-column-right-or-to-monitor-right = { };
+        "Mod+Shift+Left".move-column-left-or-to-monitor-left = { };
 
         "Mod+F".maximize-column = { };
         "Mod+Shift+F".fullscreen-window = { };
