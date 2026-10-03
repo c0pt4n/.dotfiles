@@ -5,6 +5,8 @@
   ...
 }:
 let
+  cfg = config.programs.git;
+  gitBin = "${cfg.package}/bin/git";
   name = "Omar Mohamed";
   primaryEmail = "omarcoptan9@gmail.com";
   gpgKey = "FA9069B050A08336";
@@ -104,7 +106,7 @@ in
     };
   };
 
-  home.shellAliases = lib.mkIf config.programs.git.enable {
+  home.shellAliases = lib.mkIf cfg.enable {
     g = "git";
     gst = "git status -sb";
     gph = "git push";
@@ -112,29 +114,25 @@ in
     gdf = "git diff";
   };
 
-  home.file."${config.xdg.binHome}/gac" = lib.mkIf config.programs.git.enable {
-    source =
-      let
-        gitBin = "${config.programs.git.package}/bin/git";
-      in
-      pkgs.writeShellScript "gac" ''
-        set -eu
+  home.file."${config.xdg.binHome}/gac" = lib.mkIf cfg.enable {
+    source = pkgs.writeShellScript "gac" ''
+      set -eu
 
-        if [ $# -lt 2 ]; then
-          printf "usage:\n  %s files... message\n" "$(basename "$0")"
-          exit 1
-        fi
+      if [ $# -lt 2 ]; then
+        printf "usage:\n  %s files... message\n" "$(basename "$0")"
+        exit 1
+      fi
 
-        for msg; do :; done
+      for msg; do :; done
 
-        for f; do
-          [ "$f" = "$msg" ] && break
-          [ -n "''${files:-}" ] && files="$files $f" || files="$f"
-        done
+      for f; do
+        [ "$f" = "$msg" ] && break
+        [ -n "''${files:-}" ] && files="$files $f" || files="$f"
+      done
 
-        # shellcheck disable=SC2086
-        ${gitBin} add $files &&
-        ${gitBin} commit -m "$msg"
-      '';
+      # shellcheck disable=SC2086
+      ${gitBin} add $files &&
+      ${gitBin} commit -m "$msg"
+    '';
   };
 }

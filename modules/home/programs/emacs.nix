@@ -5,6 +5,7 @@
   ...
 }:
 let
+  cfg = config.programs.emacs;
   configPath = ../files/emacs;
 in
 {
@@ -21,8 +22,8 @@ in
   };
 
   services.emacs = {
-    enable = config.programs.emacs.enable;
-    package = config.programs.emacs.finalPackage;
+    enable = cfg.enable;
+    package = cfg.finalPackage;
     defaultEditor = true;
     client = {
       enable = true;
@@ -37,16 +38,16 @@ in
     startWithUserSession = !config.services.emacs.socketActivation.enable;
   };
 
-  home.file.".config/emacs" = lib.mkIf (config.programs.emacs.enable && lib.pathExists configPath) {
+  home.file.".config/emacs" = lib.mkIf (cfg.enable && lib.pathExists configPath) {
     source = configPath;
     recursive = true;
   };
 
-  home.shellAliases = lib.mkIf config.programs.emacs.enable {
+  home.shellAliases = lib.mkIf cfg.enable {
     emacs = "emacsclient -nca emacs";
   };
 
-  xdg.mimeApps.defaultApplications = lib.mkIf config.programs.emacs.enable (
+  xdg.mimeApps.defaultApplications = lib.mkIf cfg.enable (
     lib.genAttrs [
       "text/plain"
       "text/x-c"

@@ -4,6 +4,9 @@
   config,
   ...
 }:
+let
+  cfg = config.programs.yt-dlp;
+in
 {
   programs.yt-dlp = {
     enable = true;
@@ -20,7 +23,7 @@
     };
   };
 
-  home.file."${config.xdg.binHome}/dl" = lib.mkIf config.programs.yt-dlp.enable {
+  home.file."${config.xdg.binHome}/dl" = lib.mkIf cfg.enable {
     source = pkgs.writeShellScript "dl" ''
       set -eu
       for arg; do

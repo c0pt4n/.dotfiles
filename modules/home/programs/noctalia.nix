@@ -5,6 +5,102 @@
   config,
   ...
 }:
+let
+  cfg = config.programs.noctalia;
+  ppcBin = "${pkgs.power-profiles-daemon}/bin/powerprofilesctl";
+  passmenuBin = "${config.xdg.binHome}/passmenu";
+  kanshiOutputs =
+    config.services.kanshi.settings |> lib.map (e: e.output or null) |> lib.filter (o: o != null);
+  widgetTemplates = {
+    login-box = {
+      type = "login_box";
+      box_height = 70.0;
+      box_width = 400.0;
+      fx = 0.5;
+      fy = 608.0 / 864.0;
+      settings = {
+        layout = "compact";
+        background_color = "surface_variant";
+        background_opacity = 0.88;
+        background_radius = 12.0;
+        center_password_text = false;
+        input_opacity = 1.0;
+        input_radius = 6.0;
+        show_caps_lock = true;
+        show_keyboard_layout = true;
+        show_login_button = true;
+      };
+    };
+    clock-date = {
+      type = "clock";
+      box_height = 40.0;
+      box_width = 100.0;
+      fx = 0.5;
+      fy = 200.0 / 864.0;
+      settings = {
+        background = false;
+        clock_style = "digital";
+        format = "{:%a, %b %e}";
+        shadow = true;
+      };
+    };
+    clock-time = {
+      type = "clock";
+      box_height = 40.0;
+      box_width = 200.0;
+      fx = 0.5;
+      fy = 240.0 / 864.0;
+      rotation = 0.0;
+      settings = {
+        background = false;
+        clock_style = "digital";
+        format = "{:%H:%M}";
+        shadow = true;
+      };
+    };
+    media-player = {
+      type = "media_player";
+      box_height = 168.0;
+      box_width = 328.0;
+      fx = 0.5;
+      fy = 0.5;
+      rotation = 0.0;
+      settings = {
+        background = true;
+        color = "on_surface";
+        hide_when_no_media = true;
+        layout = "horizontal";
+        shadow = true;
+      };
+    };
+  };
+  mkWidgetsForOutput =
+    output:
+    let
+      dims = lib.splitString "x" output.mode;
+      physWidth = lib.toInt (lib.elemAt dims 0);
+      physHeight = lib.toInt (lib.elemAt dims 1);
+      scale = output.scale or 1.0;
+      logicalWidth = physWidth / scale;
+      logicalHeight = physHeight / scale;
+    in
+    lib.mapAttrs' (
+      name: widget:
+      let
+        widgetDef =
+          lib.removeAttrs widget [
+            "fx"
+            "fy"
+          ]
+          // {
+            output = output.criteria;
+            cx = logicalWidth * widget.fx;
+            cy = logicalHeight * widget.fy;
+          };
+      in
+      lib.nameValuePair "${name}@${output.criteria}" widgetDef
+    ) widgetTemplates;
+in
 {
   imports = [
     inputs.noctalia.homeModules.default
@@ -89,32 +185,24 @@
         launcher = {
           fetch_exchange_rates = false;
           dmenu.entry = {
-            passmenu =
-              let
-                passmenuBin = "${config.xdg.binHome}/passmenu";
-              in
-              {
-                label = "Passwords";
-                glyph = "lock";
-                prefix = "pass";
-                global = false;
-                freeform = false;
-                command = "${passmenuBin} -l";
-                exec = "${passmenuBin} {selection}";
-              };
-            power-profiles =
-              let
-                ppcBin = "${pkgs.power-profiles-daemon}/bin/powerprofilesctl";
-              in
-              {
-                label = "Power Profiles";
-                glyph = "bolt";
-                prefix = "power";
-                global = false;
-                freeform = false;
-                command = "${ppcBin} list | sed -n 's/^\\(\\s\\|\\*\\)\\s\\(.*\\):$/\\2/p'";
-                exec = "${ppcBin} set '{selection}'";
-              };
+            passmenu = {
+              label = "Passwords";
+              glyph = "lock";
+              prefix = "pass";
+              global = false;
+              freeform = false;
+              command = "${passmenuBin} -l";
+              exec = "${passmenuBin} {selection}";
+            };
+            power-profiles = {
+              label = "Power Profiles";
+              glyph = "bolt";
+              prefix = "power";
+              global = false;
+              freeform = false;
+              command = "${ppcBin} list | sed -n 's/^\\(\\s\\|\\*\\)\\s\\(.*\\):$/\\2/p'";
+              exec = "${ppcBin} set '{selection}'";
+            };
           };
         };
       };
@@ -260,109 +348,15 @@
           drawer = true;
         };
       };
-      lockscreen_widgets =
-        let
-          kanshiOutputs =
-            config.services.kanshi.settings |> lib.map (e: e.output or null) |> lib.filter (o: o != null);
-          widgetTemplates = {
-            login-box = {
-              type = "login_box";
-              box_height = 70.0;
-              box_width = 400.0;
-              fx = 0.5;
-              fy = 608.0 / 864.0;
-              settings = {
-                layout = "compact";
-                background_color = "surface_variant";
-                background_opacity = 0.88;
-                background_radius = 12.0;
-                center_password_text = false;
-                input_opacity = 1.0;
-                input_radius = 6.0;
-                show_caps_lock = true;
-                show_keyboard_layout = true;
-                show_login_button = true;
-              };
-            };
-            clock-date = {
-              type = "clock";
-              box_height = 40.0;
-              box_width = 100.0;
-              fx = 0.5;
-              fy = 200.0 / 864.0;
-              settings = {
-                background = false;
-                clock_style = "digital";
-                format = "{:%a, %b %e}";
-                shadow = true;
-              };
-            };
-            clock-time = {
-              type = "clock";
-              box_height = 40.0;
-              box_width = 200.0;
-              fx = 0.5;
-              fy = 240.0 / 864.0;
-              rotation = 0.0;
-              settings = {
-                background = false;
-                clock_style = "digital";
-                format = "{:%H:%M}";
-                shadow = true;
-              };
-            };
-            media-player = {
-              type = "media_player";
-              box_height = 168.0;
-              box_width = 328.0;
-              fx = 0.5;
-              fy = 0.5;
-              rotation = 0.0;
-              settings = {
-                background = true;
-                color = "on_surface";
-                hide_when_no_media = true;
-                layout = "horizontal";
-                shadow = true;
-              };
-            };
-          };
-          mkWidgetsForOutput =
-            output:
-            let
-              dims = lib.splitString "x" output.mode;
-              physWidth = lib.toInt (lib.elemAt dims 0);
-              physHeight = lib.toInt (lib.elemAt dims 1);
-              scale = output.scale or 1.0;
-              logicalWidth = physWidth / scale;
-              logicalHeight = physHeight / scale;
-            in
-            lib.mapAttrs' (
-              name: widget:
-              let
-                widgetDef =
-                  lib.removeAttrs widget [
-                    "fx"
-                    "fy"
-                  ]
-                  // {
-                    output = output.criteria;
-                    cx = logicalWidth * widget.fx;
-                    cy = logicalHeight * widget.fy;
-                  };
-              in
-              lib.nameValuePair "${name}@${output.criteria}" widgetDef
-            ) widgetTemplates;
-        in
-        {
-          enabled = true;
-          grid = {
-            cell_size = 8;
-            major_interval = 4;
-            visible = true;
-          };
-          widget = lib.foldl' (acc: output: acc // (mkWidgetsForOutput output)) { } kanshiOutputs;
+      lockscreen_widgets = {
+        enabled = true;
+        grid = {
+          cell_size = 8;
+          major_interval = 4;
+          visible = true;
         };
+        widget = lib.foldl' (acc: output: acc // (mkWidgetsForOutput output)) { } kanshiOutputs;
+      };
       plugins = {
         auto_update = "none";
         source = [
@@ -391,11 +385,10 @@
   wayland.windowManager.mango.settings.exec-once =
     lib.mkIf config.wayland.windowManager.mango.enable
       [
-        "${config.programs.noctalia.package}/bin/noctalia"
+        "${cfg.package}/bin/noctalia"
       ];
 
-  wayland.windowManager.niri.extraConfig =
-    lib.mkIf config.wayland.windowManager.niri.enable ''
-      spawn-at-startup "${config.programs.noctalia.package}/bin/noctalia";
-    '';
+  wayland.windowManager.niri.extraConfig = lib.mkIf config.wayland.windowManager.niri.enable ''
+    spawn-at-startup "${cfg.package}/bin/noctalia";
+  '';
 }

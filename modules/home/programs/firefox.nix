@@ -3,6 +3,9 @@
   config,
   ...
 }:
+let
+  cfg = config.programs.firefox;
+in
 {
   programs.firefox = {
     enable = true;
@@ -101,16 +104,16 @@
     };
   };
 
-  stylix.targets.firefox = lib.mkIf config.programs.firefox.enable {
+  stylix.targets.firefox = lib.mkIf cfg.enable {
     colorTheme.enable = true;
     profileNames = [ "default" ];
   };
 
-  home.sessionVariables = lib.mkIf config.programs.firefox.enable {
+  home.sessionVariables = lib.mkIf cfg.enable {
     BROWSER = "firefox";
   };
 
-  xdg.mimeApps.defaultApplications = lib.mkIf config.programs.firefox.enable (
+  xdg.mimeApps.defaultApplications = lib.mkIf cfg.enable (
     lib.genAttrs [
       "x-scheme-handler/http"
       "x-scheme-handler/https"

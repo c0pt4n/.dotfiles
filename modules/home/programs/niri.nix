@@ -7,6 +7,7 @@
   ...
 }:
 let
+  cfg = config.wayland.windowManager.niri;
   noctaliaBin = "${config.programs.noctalia.package}/bin/noctalia";
   terminalBin =
     if config.home.sessionVariables ? TERMINAL then
@@ -437,5 +438,13 @@ in
         { workspace._args = [ "gaming" ]; }
       ];
     };
+  };
+
+  xdg.portal = lib.mkIf (cfg.enable or false) {
+    config.niri = {
+      "org.freedesktop.impl.portal.ScreenCast" = "gnome";
+      "org.freedesktop.impl.portal.Screenshot" = "gnome";
+    };
+    extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
   };
 }

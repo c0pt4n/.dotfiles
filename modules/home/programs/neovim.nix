@@ -6,6 +6,7 @@
 }:
 
 let
+  cfg = config.programs.neovim;
   configPath = ../files/nvim;
 in
 {
@@ -19,11 +20,11 @@ in
     withNodeJs = false;
     withPython3 = false;
   };
-  home.file.".config/nvim" = lib.mkIf (config.programs.neovim.enable && lib.pathExists configPath) {
+  home.file.".config/nvim" = lib.mkIf (cfg.enable && lib.pathExists configPath) {
     source = ../files/nvim;
     recursive = true;
   };
-  home.shellAliases = lib.mkIf config.programs.neovim.enable {
+  home.shellAliases = lib.mkIf cfg.enable {
     vi = "nvim --noplugin";
   };
 }

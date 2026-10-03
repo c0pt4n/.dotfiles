@@ -5,6 +5,7 @@
   ...
 }:
 let
+  cfg = config.programs.lf;
   iconsPath = ../files/lf/icons;
   thumbDir = "${config.xdg.cacheHome}/lf/thumbnails";
   unarBin = "${pkgs.unar}/bin/unar";
@@ -133,8 +134,7 @@ in
   };
 
   xdg.configFile."lf/icons" =
-    lib.mkIf
-      (lib.pathExists iconsPath && config.programs.lf.enable && config.programs.lf.settings.icons)
+    lib.mkIf (lib.pathExists iconsPath && cfg.enable && cfg.settings.icons)
       {
         source = iconsPath;
       };

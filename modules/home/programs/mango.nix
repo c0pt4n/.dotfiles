@@ -7,8 +7,9 @@
   ...
 }:
 let
+  cfg = config.wayland.windowManager.mango;
   hexColor = color: if lib.stringLength color == 6 then "0x${color}ff" else "0x${color}";
-  mmsgBin = "${config.wayland.windowManager.mango.package}/bin/mmsg";
+  mmsgBin = "${cfg.package}/bin/mmsg";
   noctaliaBin = "${config.programs.noctalia.package}/bin/noctalia";
   terminalBin =
     if config.home.sessionVariables ? TERMINAL then
@@ -20,7 +21,7 @@ let
   zoomerScript = pkgs.writeShellScript "zoomer-script" ''
     set -eu
     mon="$(${mmsgBin} get last_open_surface | ${pkgs.jq}/bin/jq -r ".monitor")"
-    ${pkgs.woomer}/bin/woomer --monitor "$mon" #--output "$mon"
+    ${pkgs.woomer}/bin/woomer --monitor "$mon"
   '';
 in
 {
@@ -425,5 +426,13 @@ in
         "systemctl --user restart mango-session.target"
       ];
     };
+  };
+
+  xdg.portal = lib.mkIf (cfg.enable or false) {
+    config.mango = {
+      "org.freedesktop.impl.portal.ScreenCast" = "wlr";
+      "org.freedesktop.impl.portal.Screenshot" = "wlr";
+    };
+    extraPortals = [ pkgs.xdg-desktop-portal-wlr ];
   };
 }
