@@ -400,6 +400,12 @@ in
         }
         {
           window-rule._children = [
+            { match._props.app-id = "steam_app_default"; }
+            { open-maximized-to-edges = true; }
+          ];
+        }
+        {
+          window-rule._children = [
             { match._props.title = "Picture-in-Picture"; }
             { match._props.app-id = "scrcpy"; }
             { open-floating = true; }
@@ -430,6 +436,19 @@ in
             { match._props.app-id = "^steam$"; }
             { match._props.app-id = "heroic"; }
             { open-on-workspace = "gaming"; }
+          ];
+        }
+        {
+          window-rule._children = [
+            {
+              match = {
+                _props = {
+                  app-id = "steam";
+                  title = ".*(Friends|Settings|Properties).*";
+                };
+              };
+            }
+            { open-floating = true; }
           ];
         }
         { workspace._args = [ "social" ]; }
