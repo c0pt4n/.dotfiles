@@ -369,7 +369,7 @@ in
           "Mod+E".spawn-sh = cmd;
           "Mod+Shift+E".spawn = [
             "emacsclient"
-            "-ne"
+            "-e"
             "(oceanic/new-frame-with-ghostel)"
           ];
         }

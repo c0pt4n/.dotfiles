@@ -29,7 +29,6 @@ in
       enable = true;
       arguments = [
         "-n"
-        "-c"
         "-a"
         "emacs"
       ];

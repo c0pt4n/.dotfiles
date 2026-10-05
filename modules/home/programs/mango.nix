@@ -342,7 +342,7 @@ in
         let
           pkg = config.programs.emacs.finalPackage;
           bin = "${pkg}/bin/emacs";
-          cmd = if config.services.emacs.enable then "${pkg}/bin/emacsclient -nca ${bin}" else bin;
+          cmd = if config.services.emacs.enable then "${pkg}/bin/emacsclient -na ${bin}" else bin;
         in
         "SUPER,E,spawn,${cmd}"
       )
