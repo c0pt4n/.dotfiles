@@ -11,6 +11,7 @@ in
 {
   home.packages = with pkgs; [
     libtool
+    poppler-utils
 
     # emacs-everywhere
     wtype
