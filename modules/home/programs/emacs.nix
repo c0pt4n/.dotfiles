@@ -11,7 +11,10 @@ in
 {
   home.packages = with pkgs; [
     libtool
+    vips
+    ffmpegthumbnailer
     poppler-utils
+    mediainfo
 
     # emacs-everywhere
     wtype
