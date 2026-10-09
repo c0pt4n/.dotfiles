@@ -88,6 +88,13 @@ in
         };
       };
 
+      blur = {
+        passes = 2;
+        offset = 5;
+        noise = 0.02;
+        saturation = 1;
+      };
+
       binds = {
         "Mod+1".focus-workspace = 1;
         "Mod+2".focus-workspace = 2;
@@ -379,6 +386,16 @@ in
         }
       );
       _children = [
+        {
+          window-rule._children = [
+            {
+              background-effect = {
+                blur = true;
+                xray = true;
+              };
+            }
+          ];
+        }
         {
           window-rule._children = [
             { geometry-corner-radius = 6; }
