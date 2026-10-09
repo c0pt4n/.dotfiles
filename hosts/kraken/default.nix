@@ -127,6 +127,8 @@
     enableGlobalCompInit = false;
   };
 
+  programs.gpu-screen-recorder.enable = true;
+
   services.displayManager.noctalia-greeter = {
     enable = true;
     greeter-args = "";

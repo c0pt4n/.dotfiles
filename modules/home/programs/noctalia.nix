@@ -8,6 +8,7 @@
 }:
 let
   cfg = config.programs.noctalia;
+  plugins = cfg.settings.plugins.enabled;
   ppcBin = "${pkgs.power-profiles-daemon}/bin/powerprofilesctl";
   passmenuBin = "${config.xdg.binHome}/passmenu";
   kanshiBin = "${config.services.kanshi.package}/bin/kanshictl";
@@ -113,10 +114,10 @@ in
     inputs.noctalia.homeModules.default
   ];
 
-  home.packages = with pkgs; [
-    gpu-screen-recorder
-    hyprpicker # required for noctalia/color_picker plugin.
-  ];
+  home.packages =
+    lib.optional cfg.settings.brightness.enable_ddcutil pkgs.ddcutil
+    ++ lib.optional (lib.elem "noctalia/bongocat" plugins) pkgs.evtest
+    ++ lib.optional (lib.elem "oldirtty/color_picker" plugins) pkgs.hyprpicker;
 
   programs.noctalia = {
     enable = true;
