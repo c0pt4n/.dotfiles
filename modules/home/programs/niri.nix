@@ -64,6 +64,10 @@ in
         border.off = { };
       };
 
+      overview = {
+        backdrop-color = "#${config.lib.stylix.colors.base00}";
+      };
+
       input = {
         disable-power-key-handling = { };
         focus-follows-mouse = {
