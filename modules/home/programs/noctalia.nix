@@ -308,6 +308,7 @@ in
             id = "g1";
             members = [
               "media"
+              "cat"
             ];
           }
           {
@@ -330,7 +331,9 @@ in
             id = "g4";
             members = [
               "clipboard"
+              "color-picker"
               "screenshot"
+              "recorder"
               "control-center"
             ];
           }
@@ -368,6 +371,19 @@ in
         tray = {
           drawer = true;
         };
+        cat = {
+          type = "noctalia/bongocat:cat";
+          tappy_mode = true;
+          audio_spectrum = true;
+          use_mpris_filter = true;
+          executable_path = "${pkgs.evtest}/bin/evtest";
+        };
+        recorder = {
+          type = "noctalia/screen_recorder:recorder";
+        };
+        color-picker = {
+          type = "oldirtty/color_picker:widget";
+        };
       };
       lockscreen_widgets = {
         enabled = true;
@@ -399,6 +415,16 @@ in
           "noctalia/screen_recorder"
           "oldirtty/color_picker"
         ];
+      };
+      plugin_settings = {
+        "noctalia/screen_recorder" = {
+          directory = "${config.xdg.userDirs.videos}/recordings";
+          filename_pattern = "recording_%Y%m%d_%H%M%S";
+          hide_inactive = false;
+        };
+        "oldirtty/color_picker" = {
+          hyprpicker-lowercase = true;
+        };
       };
     };
   };
