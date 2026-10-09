@@ -11,6 +11,7 @@
     ./discord.nix
     ./elyprismlauncher.nix
     ./emacs.nix
+    ./email.nix
     ./fastfetch.nix
     ./fd.nix
     ./firefox.nix
