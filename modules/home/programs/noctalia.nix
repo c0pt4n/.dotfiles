@@ -143,6 +143,10 @@ in
       battery = {
         warning_threshold = 20;
       };
+      brightness = {
+        enable_ddcutil = true;
+        sync_all_monitors = true;
+      };
       shell = {
         polkit_agent = true;
         screen_time_enabled = true;
