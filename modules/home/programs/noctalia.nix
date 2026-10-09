@@ -3,14 +3,21 @@
   pkgs,
   lib,
   config,
+  osConfig ? null,
   ...
 }:
 let
   cfg = config.programs.noctalia;
   ppcBin = "${pkgs.power-profiles-daemon}/bin/powerprofilesctl";
   passmenuBin = "${config.xdg.binHome}/passmenu";
+  kanshiBin = "${config.services.kanshi.package}/bin/kanshictl";
   kanshiOutputs =
     config.services.kanshi.settings |> lib.map (e: e.output or null) |> lib.filter (o: o != null);
+  kanshiProfiles =
+    config.services.kanshi.settings
+    |> lib.map (e: e.profile.name or null)
+    |> lib.filter (n: n != null)
+    |> lib.concatStringsSep "\\n";
   widgetTemplates = {
     login-box = {
       type = "login_box";
@@ -185,7 +192,7 @@ in
         launcher = {
           fetch_exchange_rates = false;
           dmenu.entry = {
-            passmenu = {
+            passmenu = lib.mkIf config.programs.password-store.enable {
               label = "Passwords";
               glyph = "lock";
               prefix = "pass";
@@ -194,7 +201,7 @@ in
               command = "${passmenuBin} -l";
               exec = "${passmenuBin} {selection}";
             };
-            power-profiles = {
+            power-profiles = lib.mkIf (osConfig.services.power-profiles-daemon.enable or false) {
               label = "Power Profiles";
               glyph = "bolt";
               prefix = "power";
@@ -202,6 +209,15 @@ in
               freeform = false;
               command = "${ppcBin} list | sed -n 's/^\\(\\s\\|\\*\\)\\s\\(.*\\):$/\\2/p'";
               exec = "${ppcBin} set '{selection}'";
+            };
+            display-profiles = lib.mkIf config.services.kanshi.enable {
+              label = "Display Profiles";
+              glyph = "device-desktop";
+              prefix = "disp";
+              global = false;
+              freeform = false;
+              command = "printf '${kanshiProfiles}'";
+              exec = "${kanshiBin} switch '{selection}'";
             };
           };
         };
