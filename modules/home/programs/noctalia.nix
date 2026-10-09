@@ -429,13 +429,13 @@ in
     };
   };
 
-  wayland.windowManager.mango.settings.exec-once =
-    lib.mkIf config.wayland.windowManager.mango.enable
-      [
-        "${cfg.package}/bin/noctalia"
-      ];
+  wayland.windowManager = {
+    mango.settings = lib.mkIf (cfg.enable && config.wayland.windowManager.mango.enable) {
+      exec-once = [ "${cfg.package}/bin/noctalia" ];
+    };
 
-  wayland.windowManager.niri.extraConfig = lib.mkIf config.wayland.windowManager.niri.enable ''
-    spawn-at-startup "${cfg.package}/bin/noctalia";
-  '';
+    niri.extraConfig = lib.mkIf (cfg.enable && config.wayland.windowManager.niri.enable) ''
+      spawn-at-startup "${cfg.package}/bin/noctalia";
+    '';
+  };
 }
