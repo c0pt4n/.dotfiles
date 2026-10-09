@@ -26,6 +26,8 @@
    '("b p" . previous-buffer)
    '("b i" . ibuffer)
    '("b r" . revert-buffer)
+   '("b s" . save-buffer)
+   '("b f" . eglot-format-buffer)
 
    '("c c" . compile)
 
@@ -47,6 +49,9 @@
 
    ;; Magit
    '("g s" . magit-status)
+   '("g C" . magit-clone)
+   '("g c b" . magit-branch-and-checkout)
+   '("g c c" . magit-commit-create)
 
    '("k" . consult-yank-from-kill-ring)
 
