@@ -59,7 +59,8 @@
     opacity = {
       popups = 0.95;
       terminal = 0.95;
-      applications = 0.95;
+      applications = 1.0;
+      desktop = 1.0;
     };
     targets = {
       emacs.enable = false;
