@@ -431,7 +431,7 @@ in
 
   wayland.windowManager = {
     mango.settings = lib.mkIf (cfg.enable && config.wayland.windowManager.mango.enable) {
-      exec-once = [ "${cfg.package}/bin/noctalia" ];
+      exec_once = [ "${cfg.package}/bin/noctalia" ];
     };
 
     niri.extraConfig = lib.mkIf (cfg.enable && config.wayland.windowManager.niri.enable) ''

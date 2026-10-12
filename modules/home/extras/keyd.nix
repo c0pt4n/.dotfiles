@@ -24,7 +24,7 @@
       org-chromium-chromium = common;
     };
 
-  wayland.windowManager.mango.settings.exec-once =
+  wayland.windowManager.mango.settings.exec_once =
     lib.mkIf config.wayland.windowManager.mango.enable
       [
         "${pkgs.keyd}/bin/keyd-application-mapper"
