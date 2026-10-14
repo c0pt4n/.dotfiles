@@ -1,4 +1,4 @@
-;;; everywhere.el -*- lexical-binding: t; -*-
+;;; -*- lexical-binding: t; -*-
 
 (defun thanos/wtype-text (text)
   "Process TEXT for wtype, handling newlines properly."
@@ -53,4 +53,4 @@
       (set-frame-parameter frame 'delete-before-kill-buffer t)
       (set-window-dedicated-p (selected-window) t))))
 
-(provide 'everywhere)
+(provide 'config/everywhere)

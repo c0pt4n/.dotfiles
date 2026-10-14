@@ -1,4 +1,4 @@
-;;; org-config.el -- Description -*- lexical-binding: t; -*-
+;;; -*- lexical-binding: t; -*-
 
 (use-package org
   :ensure nil
@@ -52,6 +52,7 @@
         org-download-timestamp "%Y%m%d-%H%M%S_"))
 
 (use-package org-roam
+  :after org
   :hook (org-mode . org-roam-db-autosync-mode)
   :commands (org-roam-node-find
 			 org-roam-node-insert
@@ -60,7 +61,7 @@
 			 org-roam-db-sync
 			 org-roam-capture)
   :init
-  (setq org-roam-directory "~/docs/notes/org/roam")
+  (setq org-roam-directory (expand-file-name "roam" org-directory))
   (setq org-roam-database-connector 'sqlite-builtin
 		org-roam-completion-everywhere t
 		org-roam-db-location (expand-file-name "org-roam.db" org-roam-directory)
@@ -85,5 +86,19 @@
   (with-eval-after-load 'org
     (add-to-list 'org-export-backends 'typst)))
 
-(provide 'org-config)
-;;; org-config.el ends here
+(with-eval-after-load 'org
+  (add-hook 'org-mode-hook
+            (lambda ()
+              (setq-local completion-at-point-functions
+                          (list #'yasnippet-capf
+                                #'cape-dabbrev
+                                #'cape-file
+                                #'pcomplete-completions-at-point
+                                #'ispell-completion-at-point))
+              (setq-local electric-pair-inhibit-predicate
+                          (lambda (c)
+                            (if (char-equal c ?<)
+                                t
+                              (electric-pair-conservative-inhibit c)))))))
+
+(provide 'config/org)

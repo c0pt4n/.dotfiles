@@ -1,10 +1,11 @@
-;;; magit-config.el --- Git integration -*- lexical-binding: t; -*-
+;;; -*- lexical-binding: t; -*-
 
 (use-package magit-section)
 (elpaca-wait)
 
 (use-package magit
-  :hook (git-commit-mode . meow-insert)
+  :hook
+  (git-commit-mode . evil-insert-state)
   :config
   (setq magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1
         magit-bury-buffer-function #'magit-restore-window-configuration)
@@ -30,5 +31,4 @@
          ("/\\.gitconfig\\'" . gitconfig-mode)
          ("/\\.gitattributes\\'" . gitattributes-mode)))
 
-(provide 'magit-config)
-;;; magit-config.el ends here
+(provide 'config/git)

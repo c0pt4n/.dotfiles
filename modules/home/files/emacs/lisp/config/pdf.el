@@ -1,17 +1,17 @@
-;;; pdf-setup.el --- Open PDF in Emacs -*- lexical-binding: t; -*-
+;;; -*- lexical-binding: t; -*-
 
 (use-package pdf-tools
   :magic ("%PDF" . pdf-view-mode)
   :hook (pdf-view-mode . (lambda ()
-						   (pdf-view-midnight-minor-mode 1)
-						   (setq-local mode-line-format nil)))
+                           (pdf-view-midnight-minor-mode 1)
+                           (setq-local mode-line-format nil)))
   :bind (:map pdf-view-mode-map
-			  ("j" . pdf-view-next-line-or-next-page)
-  			  ("k" . pdf-view-previous-line-or-previous-page)
-  			  ("J" . pdf-view-next-page)
-    		  ("K" . pdf-view-previous-page)
-    		  ("g" . pdf-view-first-page)
-			  ("G" . pdf-view-last-page)
+              ("j" . pdf-view-next-line-or-next-page)
+              ("k" . pdf-view-previous-line-or-previous-page)
+              ("J" . pdf-view-next-page)
+              ("K" . pdf-view-previous-page)
+              ("g" . pdf-view-first-page)
+              ("G" . pdf-view-last-page)
               ("C-d" . pdf-view-scroll-up-or-next-page)
               ("C-u" . pdf-view-scroll-down-or-previous-page)
               ("+" . pdf-view-enlarge)
@@ -30,8 +30,7 @@
   (pdf-tools-install :no-query)
   (setq pdf-view-display-size 'fit-page
         pdf-view-continuous t
-		pdf-view-midnight-colors '("#d8dee9" . "#121212")
+        pdf-view-midnight-colors '("#d8dee9" . "#121212")
         pdf-annot-activate-created-annotations t))
 
-(provide 'pdf-setup)
-;;; pdf-setup.el ends here
+(provide 'config/pdf)

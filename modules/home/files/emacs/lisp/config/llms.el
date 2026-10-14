@@ -1,4 +1,4 @@
-;;; llms.el --- LLM agents -*- lexical-binding: t; -*-
+;;; -*- lexical-binding: t; -*-
 
 (defun my/openrouter-api-key ()
   "Read OpenRouter API key from pass"
@@ -40,5 +40,4 @@
                     gemini-flash-latest)))
   (setq gptel-model 'gemini-3-flash-preview))
 
-(provide 'llms)
-;;; llms.el ends here
+(provide 'config/llms)

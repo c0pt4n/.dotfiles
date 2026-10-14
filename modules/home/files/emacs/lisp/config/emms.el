@@ -1,9 +1,6 @@
-;;; emms-config.el --- Description -*- lexical-binding: t; -*-
+;;; -*- lexical-binding: t; -*-
 
 (use-package emms
-  :hook
-  (emms-browser-mode  . meow-insert-mode)
-  (emms-playlist-mode . meow-insert-mode)
   :bind (:map emms-browser-mode-map
 			  ("_"   . emms-volume-lower)
 			  ("RET" . emms-browser-add-tracks-and-play)
@@ -60,5 +57,4 @@
 	(with-current-buffer "*EMMS Browser*"
 	  (emms-browser-refresh))))
 
-(provide 'emms-config)
-;;; emms-config.el ends here
+(provide 'config/emms)

@@ -1,4 +1,4 @@
-;;; completion.el --- completion stack -*- lexical-binding: t; -*-
+;;; -*- lexical-binding: t; -*-
 
 (use-package vertico
   :init
@@ -46,23 +46,28 @@
   (nerd-icons-completion-mode))
 
 (use-package corfu
-  :custom
-  (corfu-auto        t)
-  (corfu-auto-delay  0)
-  (corfu-preview-current t)
-  (corfu-auto-prefix 1)
-  (corfu-cycle       t)
-  (corfu-quit-no-match t)
+  :init
+  (global-corfu-mode)
   :config
   (corfu-popupinfo-mode)
-  :init
-  (global-corfu-mode))
+  (with-eval-after-load 'corfu
+    (keymap-set corfu-map "<tab>" #'corfu-next)
+    (keymap-set corfu-map "TAB" #'corfu-next)
+    (keymap-set corfu-map "<backtab>" #'corfu-previous)
+    (keymap-set corfu-map "C-y" #'corfu-insert)
+    (keymap-set corfu-map "RET" #'corfu-insert)
+    (keymap-set corfu-map "S-SPC" #'corfu-insert-separator)
+    (keymap-global-set "C-SPC" #'completion-at-point))
+  :custom
+  (corfu-auto        t)
+  (corfu-cycle       t)
+  (corfu-auto-delay  0.15)
+  (corfu-auto-prefix 3)
+  (corfu-quit-no-match t)
+  (corfu-preview-current t))
 
-;; remove ispell word completion
 (setq text-mode-ispell-word-completion nil)
 
-;; Global fallback capfs for non-eglot buffers.
-;; eglot-managed buffers get their own stack rebuilt in grammars.el.
 (use-package cape
   :init
   (add-to-list 'completion-at-point-functions #'cape-dabbrev)
@@ -70,5 +75,4 @@
   (add-to-list 'completion-at-point-functions #'cape-keyword)
   (add-to-list 'completion-at-point-functions #'cape-elisp-block))
 
-(provide 'completion)
-;;; completion.el ends here
+(provide 'config/complete)

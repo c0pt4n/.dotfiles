@@ -1,7 +1,4 @@
-;;; init.el -*- lexical-binding: t; -*-
-
-(setq user-full-name "Omar Mohamed"
-      user-mail-address "omarcoptan9@gmail.com")
+;;; -*- lexical-binding: t; -*-
 
 (defvar elpaca-installer-version 0.12)
 (defvar elpaca-directory (expand-file-name "elpaca/" user-emacs-directory))
@@ -50,59 +47,93 @@
 
 (setq use-package-always-defer t
       use-package-always-ensure t
+      vc-follow-symlinks t
       ;; Testing for package timing
       ;; use-package-compute-statistics t
       use-package-expand-minimally t)
 
 (setq custom-file (expand-file-name "etc/custom.el" user-emacs-directory))
-
-(use-package no-littering
-  :demand t
-  :init
-  (setq no-littering-etc-directory (expand-file-name "etc/" user-emacs-directory)
-		no-littering-var-directory "~/.local/share/emacs/"))
-(elpaca-wait)
-
 (when (file-exists-p custom-file)
   (load custom-file))
 
-(use-package gcmh
-  :config
-  (setq gcmh-idle-delay 5
-		gcmh-high-cons-threshold (* 16 1024 1024))
-  (gcmh-mode 1))
-
-(blink-cursor-mode -1)
 (dolist (hook '(prog-mode-hook text-mode-hook conf-mode-hook))
   (add-hook hook #'display-line-numbers-mode))
+
+(setopt display-fill-column-indicator-column 80)
+(add-hook 'prog-mode-hook #'display-fill-column-indicator-mode)
+
+(add-hook 'prog-mode-hook (lambda () (setq show-trailing-whitespace t)))
+
 (electric-pair-mode 1)
 (save-place-mode 1)
 (global-hl-line-mode 1)
 (column-number-mode 1)
 (global-auto-revert-mode 1)
+(set-fringe-mode 10)
+(blink-cursor-mode -1)
 
-(setq scroll-margin 2
-	  display-line-numbers-type 'relative
-	  make-backup-files nil
-	  auto-save-default nil
-	  create-lockfiles nil
-	  initial-scratch-message nil
-	  require-final-newline t
-	  use-short-answers t)
+(setopt scroll-margin 2
+        display-line-numbers-type 'relative
+        make-backup-files nil
+        auto-save-default nil
+        create-lockfiles nil
+        require-final-newline t
+        indicate-empty-lines t
+        kill-do-not-save-duplicates t
+        window-combination-resize t
+        use-short-answers t)
 
-(setq tab-always-indent 'complete)
-(setq-default truncate-lines t
-			  indent-tabs-mode nil
-			  tab-width 4
-			  save-interprogram-paste-before-kill t)
-(add-hook 'before-save-hook #'delete-trailing-whitespace)
+(setopt select-enable-primary t
+        select-enable-clipboard nil)
+
+(keymap-global-set "C-S-p" (lambda ()
+                             (interactive)
+                             (clipboard-yank)))
+(keymap-global-set "C-S-y" (lambda ()
+                             (interactive)
+                             (clipboard-kill-ring-save
+                              (region-beginning)
+                              (region-end))))
+
+(use-package gcmh
+  :init
+  (setopt native-comp-jit-compilation t
+          gc-cons-threshold (* 10 1024 1024)
+          read-process-output-max (* 4 1024 1024)
+          redisplay-skip-fontification-on-input t)
+  :config
+  (setq gcmh-idle-delay 5
+		gcmh-high-cons-threshold (* 16 1024 1024))
+  (gcmh-mode 1))
+
+(use-package no-littering
+  :demand t
+  :init
+  (setopt no-littering-etc-directory (expand-file-name "etc/" user-emacs-directory)
+          no-littering-var-directory "~/.local/share/emacs/"))
+(elpaca-wait)
+
+(use-package paren
+  :ensure nil
+  :init
+  (setq show-paren-delay 0
+		show-paren-when-point-inside-paren t
+		show-paren-when-point-in-periphery t))
 
 (use-package which-key
   :ensure nil
   :demand t
   :config
-  (setq which-key-idle-delay 0.1)
+  (setopt which-key-idle-delay 0.3)
   (which-key-mode 1))
+
+(use-package winner
+  :ensure nil
+  :demand t
+  :init
+  (setq winner-dont-bind-my-keys t)
+  :config
+  (winner-mode 1))
 
 (use-package recentf
   :ensure nil
@@ -132,34 +163,34 @@
 				 recentf-list))
 	(add-to-list 'savehist-additional-variables var)))
 
-(add-to-list 'load-path (expand-file-name "lisp/" user-emacs-directory))
-(add-to-list 'load-path (expand-file-name "lisp/custom/" user-emacs-directory))
+(add-hook 'after-save-hook
+          #'executable-make-buffer-file-executable-if-script-p)
 
-(require 'meow-config)
-(require 'flash-config)
-(require 'dashboard-config)
-(require 'dired-setup)
-(require 'vterm-config)
-(require 'org-config)
-(require 'theme)
-(require 'magit-config)
-(require 'completion)
-(require 'editing)
-(require 'development)
-(require 'persist)
-(require 'markdown)
-(require 'tramp-config)
-(require 'everywhere)
-(require 'move-text-config)
-;; (require 'workspaces)
-(require 'emms-config)
-(require 'ghostel-config)
-(require 'server-init)
+(add-to-list 'load-path (expand-file-name "lisp/" user-emacs-directory))
+
+(require 'config/modal)
+(require 'config/complete)
+(require 'config/undo)
+(require 'config/dired)
+(require 'config/term)
+(require 'config/org)
+(require 'config/git)
+(require 'config/theme)
+(require 'config/editing)
+(require 'config/lsp)
+(require 'config/treesitter)
+(require 'config/format)
+(require 'config/snippets)
+(require 'config/persist)
+(require 'config/markdown)
+(require 'config/tramp)
+(require 'config/everywhere)
+(require 'config/emms)
+(require 'config/server-init)
 
 (when (eq system-type 'gnu/linux)
-  (require 'pdf-setup)
-  (require 'pass-config)
-  (require 'llms)
-  (require 'agentshell)
-  ;; Custom
-  (require 'om-clipboard-manager))
+  ;; (require 'config/email)
+  (require 'config/pdf)
+  (require 'config/pass)
+  (require 'config/llms)
+  (require 'config/agentshell))
