@@ -1,4 +1,4 @@
-;;; pass-config.el --- password-store in Emacs -*- lexical-binding: t; -*-
+;;; -*- lexical-binding: t; -*-
 
 (use-package pass
   :bind (:map pass-mode-map
@@ -12,5 +12,4 @@
 				 (window-parameters . ((no-other-window . nil)))
 				 (inhibit-same-window . t))))
 
-(provide 'pass-config)
-;;; pass-config.el ends here
+(provide 'config/pass)

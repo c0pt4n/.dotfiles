@@ -1,4 +1,4 @@
-;;; org-config.el -- Description -*- lexical-binding: t; -*-
+;;; -*- lexical-binding: t; -*-
 
 (use-package org
   :ensure nil
@@ -78,6 +78,9 @@
 		org-roam-ui-update-on-save t
 		org-roam-ui-open-on-start nil))
 
+(use-package evil-org
+  :hook (org-mode . evil-org-mode))
+
 (use-package ox-typst
   :ensure (ox-typst :host github :repo "jmpunkt/ox-typst")
   :commands (org-export-dispatch)
@@ -85,5 +88,4 @@
   (with-eval-after-load 'org
     (add-to-list 'org-export-backends 'typst)))
 
-(provide 'org-config)
-;;; org-config.el ends here
+(provide 'config/org)

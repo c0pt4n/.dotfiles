@@ -1,4 +1,4 @@
-;;; editing.el --- Description -*- lexical-binding: t; -*-
+;;; -*- lexical-binding: t; -*-
 
 ;; fix <> closing automatically in org-mode
 (with-eval-after-load 'org
@@ -37,5 +37,4 @@
   (setq ediff-window-setup-function 'ediff-setup-windows-plain
 		ediff-split-window-function 'split-window-horizontally))
 
-(provide 'editing)
-;;; editing.el ends here
+(provide 'config/editing)

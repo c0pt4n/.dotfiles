@@ -1,6 +1,12 @@
-;;; early-init.el --- Description -*- lexical-binding: t; -*-
+;;; -*- lexical-binding: t; -*-
 
 (setq package-enable-at-startup nil)
+(setopt inhibit-startup-screen t
+        initial-scratch-message nil
+        use-file-dialog nil
+        use-dialog-box nil
+        cursor-type 'box
+        cursor-in-non-selected-windows nil)
 
 (add-to-list 'default-frame-alist '(alpha-background . 90))
 
@@ -47,4 +53,3 @@
 (set-face-background 'mouse "#ffffff")
 
 (setq native-comp-async-report-warnings-errors 'silent)
-;;; early-init.el ends here
