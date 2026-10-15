@@ -10,6 +10,7 @@
 
   security.rtkit.enable = true;
 
+  services.udisks2.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
