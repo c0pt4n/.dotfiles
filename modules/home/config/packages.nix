@@ -61,13 +61,14 @@
     # apps
     gimp
     krita
-    #blender
+    blender
     lmms
     libreoffice
     telegram-desktop
     equibop
     localsend
-    #rustdesk
+    freerdp
+    rustdesk-flutter
 
     # dev
     jdk
