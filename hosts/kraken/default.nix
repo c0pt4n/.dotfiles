@@ -35,8 +35,8 @@
         21027 # Syncthing discovery
         53317 # LocalSend UDP discovery
       ]
-      ++ lib.optional config.services.tailscale.enable 41641;
-      trustedInterfaces = lib.optional config.services.tailscale.enable "tailscale0";
+      ++ lib.optional config.services.tailscale.enable config.services.tailscale.port;
+      trustedInterfaces = lib.optional config.services.tailscale.enable config.services.tailscale.interfaceName;
       checkReversePath = false;
     };
   };
