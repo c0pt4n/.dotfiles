@@ -15,6 +15,7 @@ in
     ffmpegthumbnailer
     poppler-utils
     mediainfo
+    (aspellWithDicts (d: [ d.en ]))
 
     # emacs-everywhere
     wtype
