@@ -123,6 +123,7 @@ in
         default_proportion = 0.5;
         focus_center = 0;
         prefer_center = 0;
+        prefer_overspread = 1;
         ignore_proportion_single = 0;
         default_proportion_single = 1.0;
         proportion_preset = "0.5,0.8,1.0";
@@ -376,6 +377,8 @@ in
         "SUPER+SHIFT,Backspace,spawn,${noctaliaBin} msg media toggle"
         "NONE,XF86MonBrightnessUp,spawn,${noctaliaBin} msg brightness-up all 5"
         "NONE,XF86MonBrightnessDown,spawn,${noctaliaBin} msg brightness-down all 5"
+        "ALT+CTRL,Equal,spawn,${noctaliaBin} msg brightness-up all 5"
+        "ALT+CTRL,Minus,spawn,${noctaliaBin} msg brightness-down all 5"
       ];
 
       window_rule = [
