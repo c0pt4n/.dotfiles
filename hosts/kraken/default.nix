@@ -133,7 +133,7 @@
     enable = true;
     greeter-args = "";
     settings = {
-      session.default = "niri";
+      session.default = "mango";
       keyboard.layout = "us";
       idle.timeout = 600;
       appearance.hide_logo = true;
