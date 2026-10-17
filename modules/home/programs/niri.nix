@@ -162,6 +162,15 @@ in
         "Mod+Shift+Space".toggle-window-floating = { };
         "Mod+Space".switch-focus-between-floating-and-tiling = { };
 
+        "Alt+Shift+F" = {
+          _props.repeat = false;
+          spawn = [
+            "emacsclient"
+            "-ne"
+            "(progn (select-frame-set-input-focus (selected-frame)) (dirvish))"
+          ];
+        };
+
         "Mod+Ctrl+B" = {
           _props.repeat = false;
           spawn = [
@@ -388,18 +397,14 @@ in
       _children = [
         {
           window-rule._children = [
-            {
-              background-effect = {
-                blur = true;
-                xray = true;
-              };
-            }
+            { geometry-corner-radius = 6; }
+            { clip-to-geometry = true; }
           ];
         }
         {
           window-rule._children = [
-            { geometry-corner-radius = 6; }
-            { clip-to-geometry = true; }
+            { match._props.app-id = "Vmware"; }
+            { open-fullscreen = true; }
           ];
         }
         {
@@ -409,7 +414,7 @@ in
             { match._props.app-id = "^steam$"; }
             { match._props.app-id = "heroic"; }
             { match._props.app-id = "btop"; }
-            { match._props.app-id = "Vmware"; }
+            { match._props.app-id = "org.telegram.desktop"; }
             { open-maximized = true; }
           ];
         }
