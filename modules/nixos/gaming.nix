@@ -10,8 +10,8 @@
     localNetworkGameTransfers.openFirewall = true;
 
     extraPackages = with pkgs; [
-      gamescope # Valve's custom compositor
-      mangohud # FPS & performance overlay
+      gamescope
+      mangohud
     ];
   };
 
@@ -20,6 +20,6 @@
   # Gamescope system module (sets capabilities like cap_sys_nice for scheduling & WSI wrappers)
   programs.gamescope = {
     enable = true;
-    enableWsi = true; # Required for HDR in Wayland / Niri
+    enableWsi = true;
   };
 }

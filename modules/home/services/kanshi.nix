@@ -73,10 +73,9 @@ in
         };
       }
       {
-        output =
-          hdmiOutput // {
-            position = relativePos "left" "eDP-1" hdmiOutput;
-          };
+        output = hdmiOutput // {
+          position = relativePos "left" "eDP-1" hdmiOutput;
+        };
       }
       {
         profile = {
