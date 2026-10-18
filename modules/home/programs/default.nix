@@ -8,7 +8,6 @@
     ./cava.nix
     ./chromium.nix
     ./delta.nix
-    ./discord.nix
     ./disk.nix
     ./elyprismlauncher.nix
     ./emacs.nix
