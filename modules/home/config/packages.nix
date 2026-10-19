@@ -107,7 +107,7 @@
     shfmt
     bash-language-server
     pnpm
-    nixd
+    nil
     nixfmt
     pre-commit
 
