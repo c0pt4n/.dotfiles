@@ -3,7 +3,7 @@
   pkgs,
   lib,
   config,
-  osConfig,
+  osConfig ? { },
   ...
 }:
 let
