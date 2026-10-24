@@ -10,6 +10,7 @@ let
 in
 {
   home.packages = with pkgs; [
+    shellcheck
     libtool
     vips
     ffmpegthumbnailer
