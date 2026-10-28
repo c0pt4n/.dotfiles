@@ -43,7 +43,10 @@
   (add-to-list 'emms-info-functions 'emms-info-ogginfo)
   (add-to-list 'emms-info-functions 'emms-info-tinytag)
 
-  (run-with-timer 0.1 nil #'emms-player-mpd-connect))
+  (run-with-timer 0.1 nil #'emms-player-mpd-connect)
+
+  (with-eval-after-load 'emms
+    (advice-add 'emms-stop :after #'emms-player-mpd-clear)))
 
 (defun oceanic/update-emms-from-mpd ()
   "Update EMMS cache from MPD and refresh browser"
