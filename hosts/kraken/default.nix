@@ -6,7 +6,10 @@
   custom,
   ...
 }:
-
+let
+  hm = config.home-manager.users.${custom.systemInfo.user};
+  cfg = hm.programs.noctalia;
+in
 {
   imports = [
     ./hardware.nix
@@ -127,10 +130,10 @@
     enableGlobalCompInit = false;
   };
 
-  programs.gpu-screen-recorder.enable = true;
+  programs.gpu-screen-recorder.enable = cfg.enable;
 
   services.displayManager.noctalia-greeter = {
-    enable = true;
+    enable = cfg.enable;
     greeter-args = "";
     settings = {
       session.default = "mango";
