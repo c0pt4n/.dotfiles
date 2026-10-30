@@ -1,5 +1,6 @@
 {
   pkgs,
+  config,
   lib,
   ...
 }:
@@ -27,5 +28,7 @@
     vmware.host.enable = true;
   };
 
-  systemd.services.waydroid-container.wantedBy = lib.mkForce [ ];
+  systemd.services.waydroid-container.wantedBy = lib.mkIf config.virtualisation.waydroid.enable (
+    lib.mkForce [ ]
+  );
 }

@@ -89,7 +89,7 @@ in
     extraSetFlags = [ "--ssh" ];
   };
 
-  systemd.services.tailscaled.wantedBy = lib.mkForce [ ];
+  systemd.services.tailscaled.wantedBy = lib.mkIf config.services.tailscale.enable (lib.mkForce [ ]);
 
   services.power-profiles-daemon.enable = true;
 
@@ -109,7 +109,7 @@ in
   services.fwupd.enable = true;
 
   services.openssh.enable = false;
-  systemd.services.sshd.wantedBy = lib.mkForce [ ];
+  systemd.services.sshd.wantedBy = lib.mkIf config.services.openssh.enable (lib.mkForce [ ]);
 
   programs.dconf.enable = true;
 
