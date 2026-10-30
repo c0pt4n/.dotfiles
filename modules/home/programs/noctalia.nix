@@ -152,6 +152,10 @@ in
         polkit_agent = true;
         screen_time_enabled = true;
         shadow.alpha = 0.15;
+        greeter_sync = {
+          auto_sync = true;
+          privilege_command = "pkexec";
+        };
         panel = {
           open_near_click_control_center = true;
           open_near_click_session = true;
