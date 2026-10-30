@@ -1,6 +1,14 @@
 {
+  pkgs,
+  lib,
+  ...
+}:
+{
   virtualisation = {
-    waydroid.enable = true;
+    waydroid = {
+      enable = true;
+      package = pkgs.waydroid-nftables;
+    };
 
     podman = {
       enable = true;
@@ -18,4 +26,6 @@
 
     vmware.host.enable = true;
   };
+
+  systemd.services.waydroid-container.wantedBy = lib.mkForce [ ];
 }
