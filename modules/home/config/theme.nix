@@ -63,6 +63,7 @@
       desktop = 1.0;
     };
     targets = {
+      rofi.enable = false;
       emacs.enable = false;
       neovim.enable = false;
     };
