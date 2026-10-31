@@ -7,6 +7,8 @@
           evil-want-keybinding nil
           evil-want-C-u-scroll t
           evil-want-C-i-jump t
+          evil-want-fine-undo t
+          evil-undo-system 'undo-fu
           evil-insert-state-cursor 'box
           evil-search-module 'isearch
           evil-kill-on-visual-paste nil
@@ -17,8 +19,6 @@
   (evil-global-set-key 'motion "k" 'evil-previous-visual-line)
   (evil-set-initial-state 'messages-buffer-mode 'normal)
   (evil-set-initial-state 'dashboard-mode 'normal)
-  (with-eval-after-load 'undo-tree
-    (setopt evil-undo-system 'undo-tree))
   :bind
   (:map evil-insert-state-map
         ("C-g" . #'evil-normal-state)))
@@ -184,6 +184,21 @@
       (minibuffer-with-setup-hook
         (lambda () (goto-char (- (point-max) 3)))
         (evil-ex (format "%%s/\\<%s\\>/%s/gI" word word))))))
+
+(use-package undo-fu
+  :demand t
+  :custom
+  (undo-limit (* 64  1024 1024))
+  (undo-strong-limit (* 96 1024 1024))
+  (undo-outer-limit (* 960 1024 1024))
+  (undo-fu-allow-undo-in-region nil))
+
+(use-package undo-fu-session
+  :custom
+  (undo-fu-session-directory
+   (expand-file-name "undo-fu-session" user-emacs-directory))
+  :config
+  (undo-fu-session-global-mode 1))
 
 (global-set-key (kbd "C-x k") #'kill-current-buffer)
 

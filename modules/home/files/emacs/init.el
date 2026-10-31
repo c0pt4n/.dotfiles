@@ -171,7 +171,6 @@
 (require 'config/modal)
 (require 'config/theme)
 (require 'config/complete)
-(require 'config/undo)
 (require 'config/dired)
 (require 'config/term)
 (require 'config/org)
