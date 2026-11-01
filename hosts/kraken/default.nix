@@ -136,7 +136,7 @@ in
     enable = cfg.enable;
     greeter-args = "";
     settings = {
-      session.default = "mango";
+      session.default = "niri";
       keyboard.layout = "us";
       idle.timeout = 600;
       appearance.hide_logo = true;

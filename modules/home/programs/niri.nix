@@ -27,14 +27,14 @@ in
   home.packages = lib.mkIf osConfig.programs.niri.enable (
     with pkgs;
     [
-      satellitePkgs.xwayland-satellite
+      xwayland-satellite
       nautilus
     ]
   );
 
   wayland.windowManager.niri = {
     enable = osConfig.programs.niri.enable;
-    xwaylandSatellitePackage = satellitePkgs.xwayland-satellite;
+    xwaylandSatellitePackage = pkgs.xwayland-satellite;
     checkConfig = true;
     settings = {
       gestures.hot-corners.off = { };
