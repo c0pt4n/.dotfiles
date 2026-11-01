@@ -404,6 +404,7 @@ in
         {
           window-rule._children = [
             { match._props.app-id = "Vmware"; }
+            { match._props.app-id = "steam_app_*"; }
             { open-fullscreen = true; }
           ];
         }
@@ -421,7 +422,6 @@ in
         {
           window-rule._children = [
             { match._props.app-id = "emacs"; }
-            { match._props.app-id = "steam_app_default"; }
             { open-maximized-to-edges = true; }
           ];
         }
