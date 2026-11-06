@@ -4,8 +4,7 @@
 (elpaca-wait)
 
 (use-package magit
-  :hook
-  (git-commit-mode . evil-insert-state)
+  :hook (git-commit-mode . evil-insert)
   :config
   (setq magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1
         magit-bury-buffer-function #'magit-restore-window-configuration)
@@ -18,7 +17,7 @@
   :init
   (global-git-gutter-mode 1)
   :custom
-  (git-gutter:update-interval 0.02))
+  (git-gutter:update-interval 0.5))
 
 (use-package git-gutter-fringe
   :config
