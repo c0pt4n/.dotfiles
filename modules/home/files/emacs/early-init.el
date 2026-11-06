@@ -3,6 +3,8 @@
 (setq package-enable-at-startup nil)
 (setopt inhibit-startup-screen t
         initial-scratch-message nil
+        native-comp-async-report-warnings-errors 'silent
+        line-spacing 0.12
         use-file-dialog nil
         use-dialog-box nil
         cursor-type 'box
@@ -27,29 +29,11 @@
 (prefer-coding-system 'utf-8)
 
 ;;; Fonts
-(set-face-attribute 'default nil
-					:family "monospace"
-					:height 130
-					:weight 'regular)
-(set-face-attribute 'variable-pitch nil
-					:family "monospace"
-					:height 140
-					:weight 'regular)
-(set-face-attribute 'fixed-pitch nil
-					:family "monospace"
-					:height 130
-					:weight 'regular)
-
+(set-face-attribute 'default nil :family "monospace" :height 120)
+(set-face-attribute 'fixed-pitch nil :family "monospace")
+(set-face-attribute 'variable-pitch nil :family "sans-serif")
 (set-face-attribute 'font-lock-comment-face nil :slant 'italic)
 (set-face-attribute 'font-lock-keyword-face nil :slant 'italic)
 
-;; This sets the default font on all graphical frames created after restarting Emacs.
-;; Does the same thing as 'set-face-attribute default' above, but emacsclient fonts
-;; are not right unless I also add this method of setting the default font.
-(add-to-list 'default-frame-alist '(font . "monospace-13"))
-
-;; Uncomment the following line if line spacing needs adjusting.
-(setq-default line-spacing 0.12)
-(set-face-background 'mouse "#ffffff")
-
-(setq native-comp-async-report-warnings-errors 'silent)
+(set-face-attribute 'mouse nil :background "#ffffcc" :inherit 'highlight)
+(set-fontset-font t 'emoji (font-spec :family "emoji") nil 'prepend)
