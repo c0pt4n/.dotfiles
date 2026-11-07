@@ -113,13 +113,6 @@
           no-littering-var-directory "~/.local/share/emacs/"))
 (elpaca-wait)
 
-(use-package paren
-  :ensure nil
-  :init
-  (setq show-paren-delay 0
-		show-paren-when-point-inside-paren t
-		show-paren-when-point-in-periphery t))
-
 (use-package which-key
   :ensure nil
   :demand t
@@ -175,14 +168,13 @@
 (require 'config/term)
 (require 'config/org)
 (require 'config/git)
-(require 'config/editing)
 (require 'config/lsp)
 (require 'config/treesitter)
 (require 'config/format)
 (require 'config/snippets)
 (require 'config/persist)
-(require 'config/markdown)
 (require 'config/tramp)
+(require 'config/modes)
 (require 'config/everywhere)
 (require 'config/emms)
 (require 'config/server-init)
