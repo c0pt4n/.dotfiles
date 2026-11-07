@@ -8,8 +8,14 @@
         name = "terminal";
       };
       keys = {
+        prefix = "ctrl+a";
         split_vertical = "prefix+|";
         last_pane = "prefix+^";
+      };
+      ui = {
+        toast = {
+          delivery = "herdr";
+        };
       };
     };
   };
