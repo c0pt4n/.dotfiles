@@ -4,7 +4,7 @@
 (elpaca-wait)
 
 (use-package magit
-  :hook (git-commit-mode . evil-insert)
+  :hook (git-commit-mode . evil-insert-state)
   :config
   (setq magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1
         magit-bury-buffer-function #'magit-restore-window-configuration)
