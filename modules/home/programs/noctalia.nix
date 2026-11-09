@@ -274,15 +274,15 @@ in
         behavior = {
           lock = {
             action = "lock";
-            timeout = 600;
+            timeout = 10 * 60;
           };
           screen-off = {
             action = "screen_off";
-            timeout = 660;
+            timeout = 15 * 60;
           };
           suspend = {
             action = "lock_and_suspend";
-            timeout = 900;
+            timeout = 20 * 60;
           };
         };
       };
