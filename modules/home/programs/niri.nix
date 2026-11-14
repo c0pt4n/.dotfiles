@@ -1,5 +1,4 @@
 {
-  inputs,
   pkgs,
   lib,
   config,
@@ -19,18 +18,11 @@ let
   zoomerScript = pkgs.writeShellScript "zoomer-script" ''
     set -eu
     mon="$(niri msg --json focused-output | ${pkgs.jq}/bin/jq -r ".name")"
-    ${pkgs.woomer}/bin/woomer --monitor "$mon" --output "$mon"
+    ${pkgs.woomer}/bin/woomer --monitor "$mon"
   '';
-  satellitePkgs = inputs.nixpkgs-satellite.legacyPackages.${pkgs.stdenv.hostPlatform.system};
 in
 {
-  home.packages = lib.mkIf osConfig.programs.niri.enable (
-    with pkgs;
-    [
-      xwayland-satellite
-      nautilus
-    ]
-  );
+  home.packages = lib.mkIf osConfig.programs.niri.enable (with pkgs; [ nautilus ]);
 
   wayland.windowManager.niri = {
     enable = osConfig.programs.niri.enable;
@@ -51,6 +43,7 @@ in
         NO_AT_BRIDGE = "1";
         _JAVA_AWT_WM_NONREPARENTING = "1";
         AWT_TOOLKIT = "MToolkit";
+        NIXOS_OZONE_WL = "1";
       };
 
       layout = {
@@ -70,9 +63,7 @@ in
 
       input = {
         disable-power-key-handling = { };
-        focus-follows-mouse = {
-          _props.max-scroll-amount = "0%";
-        };
+        focus-follows-mouse._props.max-scroll-amount = "0%";
         mod-key = "Super";
         mod-key-nested = "Alt";
         keyboard = {
@@ -90,7 +81,7 @@ in
 
       blur = {
         passes = 2;
-        offset = 5;
+        offset = 2;
         noise = 0.02;
         saturation = 1;
       };
@@ -399,12 +390,17 @@ in
           window-rule._children = [
             { geometry-corner-radius = 6; }
             { clip-to-geometry = true; }
+            {
+              background-effect = {
+                blur = true;
+              };
+            }
           ];
         }
         {
           window-rule._children = [
             { match._props.app-id = "Vmware"; }
-            { match._props.app-id = "steam_app_*"; }
+            { match._props.app-id = "^steam_app_"; }
             { open-fullscreen = true; }
           ];
         }

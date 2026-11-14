@@ -113,7 +113,7 @@ in
 
   programs.dconf.enable = true;
 
-  programs.mango.enable = true;
+  programs.mango.enable = false;
 
   programs.niri.enable = true;
 

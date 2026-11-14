@@ -23,6 +23,7 @@ let
     mon="$(${mmsgBin} get last_open_surface | ${pkgs.jq}/bin/jq -r ".monitor")"
     ${pkgs.woomer}/bin/woomer --monitor "$mon"
   '';
+  iniFormat = pkgs.formats.ini { };
 in
 {
   imports = [
@@ -440,4 +441,17 @@ in
     };
     extraPortals = [ pkgs.xdg-desktop-portal-wlr ];
   };
+
+  xdg.configFile."xdg-desktop-portal-wlr/config" =
+    lib.mkIf (cfg.enable && config.programs.noctalia.enable)
+      {
+        source = iniFormat.generate "xdg-desktop-portal-wlr-config.ini" {
+          screencast = {
+            max_fps = 60;
+            chooser_type = "dmenu";
+            chooser_cmd = "${noctaliaBin} dmenu -p 'Select source'";
+            force_mod_linear = 1;
+          };
+        };
+      };
 }

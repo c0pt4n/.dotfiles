@@ -1,13 +1,11 @@
 {
   config,
-  lib,
   pkgs,
   ...
 }:
 let
   cfg = config.xdg.portal;
   homeDir = config.home.homeDirectory;
-  iniFormat = pkgs.formats.ini { };
   noctaliaBin = "${config.programs.noctalia.package}/bin/noctalia";
 in
 {
@@ -50,17 +48,4 @@ in
       enable = true;
     };
   };
-
-  xdg.configFile."xdg-desktop-portal-wlr/config" =
-    lib.mkIf (cfg.enable && config.programs.noctalia.enable)
-      {
-        source = iniFormat.generate "xdg-desktop-portal-wlr-config.ini" {
-          screencast = {
-            max_fps = 60;
-            chooser_type = "dmenu";
-            chooser_cmd = "${noctaliaBin} dmenu -p 'Select source'";
-            force_mod_linear = 1;
-          };
-        };
-      };
 }
