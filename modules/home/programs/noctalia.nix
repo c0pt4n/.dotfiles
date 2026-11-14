@@ -418,7 +418,8 @@ in
           "noctalia/bongocat"
           "noctalia/screen_recorder"
           "oldirtty/color_picker"
-        ];
+        ]
+        ++ lib.optional osConfig.programs.niri.enable "whyoolw/sharednd";
       };
       plugin_settings = {
         "noctalia/screen_recorder" = {
