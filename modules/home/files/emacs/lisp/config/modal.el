@@ -7,6 +7,7 @@
           evil-want-keybinding nil
           evil-want-C-u-scroll t
           evil-want-C-i-jump t
+          evil-want-Y-yank-to-eol t
           evil-want-fine-undo t
           evil-undo-system 'undo-fu
           evil-insert-state-cursor 'box
@@ -21,13 +22,13 @@
   (evil-set-initial-state 'dashboard-mode 'normal)
   :bind
   (:map evil-insert-state-map
-        ("C-g" . #'evil-normal-state)))
+    ("C-h" . #'evil-delete-backward-char-and-join)))
 
 (use-package evil-collection
   :demand t
   :after evil
-  :init
-  (setopt evil-collection-want-unimpaired-p t)
+  :custom
+  (evil-collection-want-unimpaired-p t)
   :config
   (evil-collection-init))
 
@@ -35,11 +36,6 @@
   :after evil
   :config
   (global-evil-surround-mode 1))
-
-(use-package evil-commentary
-  :after evil
-  :config
-  (evil-commentary-mode 1))
 
 (use-package evil-lion
   :after evil
@@ -76,6 +72,7 @@
 
   (leader
     "SPC"   '(execute-extended-command :wk "M-x")
+    "TAB TAB" '(comment-line :wk "Comment lines")
     "y"     (kbd "\"+y")
     "Y"     (kbd "\"+y$")
     "d"     (kbd "\"_d")
@@ -86,7 +83,7 @@
     "."     '(find-file :wk "Find File")
     ","     '(consult-buffer :wk "Buffers")
     "/"     '(consult-line :wk "Search")
-    "c c"   '(compile)
+    "c c"   '(compile :wk "Compile")
     "f s"   '(save-buffer :wk "Save")
     "f f"   '(project-find-file :wk "Find File (Project)")
     "f r"   '(consult-recent-file :wk "Recent")
@@ -112,21 +109,23 @@
     "p s"   '(persp-switch :wk "Switch Project")
     "p r"   '(project-find-regexp :wk "Project Regexp")
     "p R"   '(project-query-replace-regexp :wk "Project Replace Regexp")
-    "g"     '(:ignore :wk "Magit")
+    "g"     '(:ignore t :wk "Magit")
     "g s"   '(magit-status :wk "Status")
-    "g S"   '(magit-status-here :wk "Status here")
-    "g a"   '(magit-file-stage :wk "Stage file")
+    "g S"   '(magit-status-here :wk "Status Here")
+    "g a"   '(magit-file-stage :wk "Stage File")
     "g A"   '(magit-stage-modified :wk "Stage all")
     "g c"   '(magit-commit :wk "Commit")
-    "g C"   '(magit-commit-amend :wk "Commit amend")
+    "g C"   '(magit-commit-amend :wk "Commit Amend")
     "g f"   '(magit-fetch :wk "Fetch")
-    "g p"   '(magit-pull :wk "Pull")
-    "g P"   '(magit-push :wk "Push")
-    "g l"   '(magit-log-current :wk "Log current")
-    "g L"   '(magit-log-all :wk "Log all")
-    "g d"   '(magit-diff-unstaged :wk "Diff unstaged")
-    "g D"   '(magit-diff-staged :wk "Diff staged")
+    "g F"   '(magit-pull :wk "Pull")
+    "g p"   '(magit-push :wk "Push")
+    "g l"   '(magit-log-current :wk "Log Current")
+    "g L"   '(magit-log-all :wk "Log All")
     "g b"   '(magit-blame :wk "Blame")
+    "g d s" '(magit-diff-staged :wk "Diff Staged")
+    "g d u" '(magit-diff-unstaged :wk "Diff Unstaged")
+    "g d f" '(magit-diff-buffer-file :wk "Diff Current File")
+    "b"     '(:ignore t :wk "Buffers")
     "b m"   '(bookmark-set :wk "Bookmark")
     "b D"   '(bookmark-delete :wk "Delete Bookmark")
     "b k"   '(kill-current-buffer :wk "Kill Buffer")
@@ -143,6 +142,7 @@
     "h"     '(:ignore t :wk "Help")
     "h b"   '(describe-bindings :wk "Describe bindings")
     "h v"   '(describe-variable :wk "Describe variable")
+    "r"     '(:ignore t :wk "Reload")
     "r c"   '((lambda () (interactive) (load-file user-init-file) (message "config reloaded")) :wk "Reload Config")
     "m"     '(:ignore t :wk "EMMS")
     "m u"   '(oceanic/update-emms-from-mpd :wk "Update EMMS")
@@ -151,6 +151,7 @@
     "m p"   '(emms-playlist-mode-go :wk "EMMS Playlist")
     "m s"   '(emms-player-mpd-clear :wk "Clear MPD Playlist")
     "m x"   '(emms-pause :wk "Pause EMMS")
+    "m X"   '(emms-stop :wk "Stop EMMS")
     "m b"   '(emms-previous :wk "Previous Track")
     "m n"   '(emms-next :wk "Next Track")
     "o"     '(:ignore t :wk "Open")
@@ -169,6 +170,12 @@
     "p" (kbd "\"_dP")
     "J" '(move-text-down :wk "Move Down")
     "K" '(move-text-up :wk "Move Up"))
+
+  (general-define-key
+   :states 'normal
+   "g l" '(consult-line :wk "Go to Line")
+   "g t" '(next-buffer :wk "Next Buffer")
+   "g T" '(previous-buffer :wk "Previous Buffer"))
 
   (defun my/kill-other-buffers ()
     "Kill all other buffers."
