@@ -224,7 +224,6 @@ in
           "panel-open"
           "session"
         ];
-
         "XF86MonBrightnessUp" = {
           _props.allow-when-locked = true;
           spawn = [
@@ -303,6 +302,26 @@ in
             "${noctaliaBin}"
             "msg"
             "volume-mute"
+          ];
+        };
+        "Alt+Ctrl+Equal" = {
+          _props.allow-when-locked = true;
+          spawn = [
+            "${noctaliaBin}"
+            "msg"
+            "brightness-up"
+            "all"
+            "5"
+          ];
+        };
+        "Alt+Ctrl+Minus" = {
+          _props.allow-when-locked = true;
+          spawn = [
+            "${noctaliaBin}"
+            "msg"
+            "brightness-down"
+            "all"
+            "5"
           ];
         };
         "Mod+Ctrl+Backspace" = {
