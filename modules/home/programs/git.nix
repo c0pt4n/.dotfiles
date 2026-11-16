@@ -31,6 +31,14 @@ in
       init = {
         defaultBranch = "main";
       };
+      url = {
+        "ssh://git@github.com/".insteadOf = "https://github.com/";
+        "ssh://git@gitlab.com/".insteadOf = "https://gitlab.com/";
+        "ssh://git@codeberg.org/".insteadOf = "https://codeberg.org/";
+      };
+      review = {
+        "review.lineageos.org".username = "c0pt4n";
+      };
       core = {
         editor = "${config.programs.neovim.package or pkgs.neovim}/bin/nvim";
         pager = "${config.programs.delta.package or pkgs.delta}/bin/delta";
