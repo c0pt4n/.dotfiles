@@ -25,7 +25,9 @@
       };
     };
 
-    vmware.host.enable = true;
+    vmware.host.enable = false;
+
+    virtualbox.host.enable = true;
   };
 
   systemd.services.waydroid-container.wantedBy = lib.mkIf config.virtualisation.waydroid.enable (

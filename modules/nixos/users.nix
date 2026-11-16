@@ -20,6 +20,7 @@
       ++ lib.lists.optional config.hardware.i2c.enable "i2c"
       ++ lib.lists.optional config.services.printing.enable "lp"
       ++ lib.lists.optional config.networking.networkmanager.enable "networkmanager"
+      ++ lib.lists.optional config.virtualisation.virtualbox.host.enable "vboxusers"
       ++ lib.lists.optional (config.users.groups ? adbusers) "adbusers";
     };
     groups.${custom.systemInfo.user} = { };

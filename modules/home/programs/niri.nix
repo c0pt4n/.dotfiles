@@ -419,6 +419,7 @@ in
         {
           window-rule._children = [
             { match._props.app-id = "Vmware"; }
+            { match._props.app-id = "VirtualBox"; }
             { match._props.app-id = "^steam_app_"; }
             { open-fullscreen = true; }
           ];
