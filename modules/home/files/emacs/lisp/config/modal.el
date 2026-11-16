@@ -208,8 +208,6 @@
   :config
   (undo-fu-session-global-mode 1))
 
-(global-set-key (kbd "C-x k") #'kill-current-buffer)
-
 ;; Zoom
 (global-set-key (kbd "C-=") #'text-scale-increase)
 (global-set-key (kbd "C--") #'text-scale-decrease)
