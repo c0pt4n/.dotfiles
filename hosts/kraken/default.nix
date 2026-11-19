@@ -67,6 +67,9 @@ in
     settings = {
       Login = {
         HandlePowerKey = "ignore";
+        HandleLidSwitch = "lock";
+        HandleLidSwitchDocked = "lock";
+        HandleLidSwitchExternalPower = "lock";
       };
     };
   };
