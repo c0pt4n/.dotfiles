@@ -8,6 +8,7 @@
     ./cava.nix
     ./chromium.nix
     ./delta.nix
+    ./documentation.nix
     ./disk.nix
     ./elyprismlauncher.nix
     ./emacs.nix
@@ -39,7 +40,6 @@
     ./ripgrep.nix
     ./satty.nix
     ./ssh.nix
-    ./tealdeer.nix
     ./tmux.nix
     ./yt-dlp.nix
     ./zathura.nix

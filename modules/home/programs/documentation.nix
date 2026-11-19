@@ -1,4 +1,15 @@
 {
+  lib,
+  config,
+  ...
+}:
+{
+  programs.info.enable = true;
+
+  home.shellAliases = lib.mkIf config.programs.info.enable {
+    info = "info --vi-keys";
+  };
+
   programs.tealdeer = {
     enable = true;
     enableAutoUpdates = false;
