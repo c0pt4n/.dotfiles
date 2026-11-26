@@ -5,7 +5,6 @@
     ./bat.nix
     ./btop.nix
     ./burpsuite.nix
-    ./cava.nix
     ./chromium.nix
     ./delta.nix
     ./documentation.nix
@@ -25,7 +24,6 @@
     ./gpg.nix
     ./herdr.nix
     ./imv.nix
-    ./lf.nix
     ./mango.nix
     ./mcp.nix
     ./mpv.nix
