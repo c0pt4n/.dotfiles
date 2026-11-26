@@ -2,8 +2,7 @@
   pkgs,
   config,
   ...
-}:
-{
+}: {
   home.packages = with pkgs; [
     # wayland & desktop
     wl-clipboard
@@ -67,6 +66,7 @@
     telegram-desktop
     equibop
     localsend
+    remmina
     freerdp
     rustdesk-flutter
 
@@ -107,7 +107,6 @@
     bash-language-server
     pnpm
     nil
-    nixfmt
     pre-commit
 
     # security

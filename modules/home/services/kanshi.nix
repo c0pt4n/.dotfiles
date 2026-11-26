@@ -2,65 +2,54 @@
   config,
   lib,
   ...
-}:
-let
+}: let
   outputs =
     config.services.kanshi.settings |> lib.map (e: e.output or null) |> lib.filter (o: o != null);
-  parsePos =
-    output:
-    let
-      pos = lib.splitString "," (output.position or "0,0");
-    in
-    {
-      x = lib.toInt (lib.elemAt pos 0);
-      y = lib.toInt (lib.elemAt pos 1);
-    };
-  parseDims =
-    output:
-    let
-      dims = lib.splitString "x" (output.mode or "0x0");
-      scale = output.scale or 1.0;
-      width = lib.toInt (lib.elemAt dims 0);
-      height = lib.toInt (lib.elemAt dims 1);
-    in
-    {
-      w = lib.floor (width / scale);
-      h = lib.floor (height / scale);
-    };
-  relativePos =
-    rel: criteria: target:
-    let
-      ref = lib.findFirst (e: e.criteria == criteria) null outputs;
-      refDims = parseDims ref;
-      refPos = parsePos ref;
-      tgtDims = parseDims target;
-      newPos = lib.getAttr rel {
-        right = {
-          x = refPos.x + refDims.w;
-          y = refPos.y;
-        };
-        left = {
-          x = refPos.x - tgtDims.w;
-          y = refPos.y;
-        };
-        top = {
-          x = refPos.x;
-          y = refPos.y - tgtDims.h;
-        };
-        bottom = {
-          x = refPos.x;
-          y = refPos.y + refDims.h;
-        };
+  parsePos = output: let
+    pos = lib.splitString "," (output.position or "0,0");
+  in {
+    x = lib.toInt (lib.elemAt pos 0);
+    y = lib.toInt (lib.elemAt pos 1);
+  };
+  parseDims = output: let
+    dims = lib.splitString "x" (output.mode or "0x0");
+    scale = output.scale or 1.0;
+    width = lib.toInt (lib.elemAt dims 0);
+    height = lib.toInt (lib.elemAt dims 1);
+  in {
+    w = lib.floor (width / scale);
+    h = lib.floor (height / scale);
+  };
+  relativePos = rel: criteria: target: let
+    ref = lib.findFirst (e: e.criteria == criteria) null outputs;
+    refDims = parseDims ref;
+    refPos = parsePos ref;
+    tgtDims = parseDims target;
+    newPos = lib.getAttr rel {
+      right = {
+        x = refPos.x + refDims.w;
+        y = refPos.y;
       };
-    in
-    "${lib.toString newPos.x},${lib.toString newPos.y}";
+      left = {
+        x = refPos.x - tgtDims.w;
+        y = refPos.y;
+      };
+      top = {
+        x = refPos.x;
+        y = refPos.y - tgtDims.h;
+      };
+      bottom = {
+        x = refPos.x;
+        y = refPos.y + refDims.h;
+      };
+    };
+  in "${lib.toString newPos.x},${lib.toString newPos.y}";
   hdmiOutput = {
     criteria = "HDMI-A-1";
     mode = "1280x1024";
     scale = 1.0;
   };
-in
-{
+in {
   services.kanshi = {
     enable = true;
     settings = [
@@ -73,9 +62,11 @@ in
         };
       }
       {
-        output = hdmiOutput // {
-          position = relativePos "left" "eDP-1" hdmiOutput;
-        };
+        output =
+          hdmiOutput
+          // {
+            position = relativePos "left" "eDP-1" hdmiOutput;
+          };
       }
       {
         profile = {

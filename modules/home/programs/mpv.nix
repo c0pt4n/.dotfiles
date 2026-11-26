@@ -3,11 +3,9 @@
   lib,
   config,
   ...
-}:
-let
+}: let
   cfg = config.programs.mpv;
-in
-{
+in {
   programs.mpv = {
     enable = true;
     config = {
@@ -59,6 +57,6 @@ in
       "audio/x-m4a"
       "audio/x-wav"
       "application/octet-stream"
-    ] (_: [ "mpv.desktop" ])
+    ] (_: ["mpv.desktop"])
   );
 }

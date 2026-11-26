@@ -3,15 +3,13 @@
   config,
   lib,
   ...
-}:
-let
+}: let
   cfg = config.programs.password-store;
   menuBin = "${config.xdg.binHome}/menu";
   passBin = "${cfg.package}/bin/pass";
   wlCopyBin = "${pkgs.wl-clipboard}/bin/wl-copy";
   notifySendBin = "${pkgs.libnotify}/bin/notify-send";
-in
-{
+in {
   programs.password-store = {
     enable = true;
     package = pkgs.pass.withExtensions (exts: [

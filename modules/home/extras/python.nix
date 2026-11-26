@@ -1,8 +1,4 @@
-{
-  pkgs,
-  ...
-}:
-{
+{pkgs, ...}: {
   home.packages = [
     (pkgs.python3.withPackages (pypkgs: [
       pypkgs.jedi

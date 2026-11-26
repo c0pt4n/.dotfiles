@@ -1,6 +1,6 @@
 {
   services.gnome-keyring = {
     enable = true;
-    components = [ ];
+    components = [];
   };
 }

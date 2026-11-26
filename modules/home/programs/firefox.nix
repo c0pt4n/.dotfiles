@@ -2,11 +2,9 @@
   lib,
   config,
   ...
-}:
-let
+}: let
   cfg = config.programs.firefox;
-in
-{
+in {
   programs.firefox = {
     enable = true;
     profiles.default = {
@@ -45,7 +43,7 @@ in
               }
             ];
             icon = "https://youtube.com/favicon.ico";
-            definedAliases = [ "@yt" ];
+            definedAliases = ["@yt"];
           };
         };
       };
@@ -106,7 +104,7 @@ in
 
   stylix.targets.firefox = lib.mkIf cfg.enable {
     colorTheme.enable = true;
-    profileNames = [ "default" ];
+    profileNames = ["default"];
   };
 
   home.sessionVariables = lib.mkIf cfg.enable {
@@ -118,6 +116,6 @@ in
       "x-scheme-handler/http"
       "x-scheme-handler/https"
       "text/html"
-    ] (_: [ "firefox.desktop" ])
+    ] (_: ["firefox.desktop"])
   );
 }

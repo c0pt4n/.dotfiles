@@ -2,8 +2,7 @@
   config,
   custom,
   ...
-}:
-{
+}: {
   imports = [
     ./config
     ./programs

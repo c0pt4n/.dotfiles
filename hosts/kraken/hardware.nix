@@ -4,9 +4,7 @@
   pkgs,
   modulesPath,
   ...
-}:
-
-{
+}: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
@@ -18,9 +16,9 @@
       "kvm-intel"
       "i915"
     ];
-    extraModulePackages = [ ];
+    extraModulePackages = [];
     initrd = {
-      kernelModules = [ ];
+      kernelModules = [];
       availableKernelModules = [
         "xhci_pci"
         "ahci"

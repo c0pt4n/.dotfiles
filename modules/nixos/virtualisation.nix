@@ -3,8 +3,7 @@
   config,
   lib,
   ...
-}:
-{
+}: {
   virtualisation = {
     waydroid = {
       enable = true;
@@ -31,6 +30,6 @@
   };
 
   systemd.services.waydroid-container.wantedBy = lib.mkIf config.virtualisation.waydroid.enable (
-    lib.mkForce [ ]
+    lib.mkForce []
   );
 }

@@ -5,12 +5,10 @@
   config,
   custom,
   ...
-}:
-let
+}: let
   hm = config.home-manager.users.${custom.systemInfo.user};
   cfg = hm.programs.noctalia;
-in
-{
+in {
   imports = [
     ./hardware.nix
     ./file-system.nix
@@ -33,20 +31,20 @@ in
         22000 # Syncthing TCP sync
         53317 # LocalSend TCP transfer
       ];
-      allowedUDPPorts = [
-        22000 # Syncthing QUIC sync
-        21027 # Syncthing discovery
-        53317 # LocalSend UDP discovery
-      ]
-      ++ lib.optional config.services.tailscale.enable config.services.tailscale.port;
+      allowedUDPPorts =
+        [
+          22000 # Syncthing QUIC sync
+          21027 # Syncthing discovery
+          53317 # LocalSend UDP discovery
+        ]
+        ++ lib.optional config.services.tailscale.enable config.services.tailscale.port;
       trustedInterfaces = lib.optional config.services.tailscale.enable config.services.tailscale.interfaceName;
       checkReversePath = false;
     };
   };
 
   environment.systemPackages = lib.mkIf (!config.networking.firewall.checkReversePath) (
-    with pkgs;
-    [
+    with pkgs; [
       wireguard-tools
       proton-vpn
       v2raya
@@ -89,10 +87,10 @@ in
 
   services.tailscale = {
     enable = true;
-    extraSetFlags = [ "--ssh" ];
+    extraSetFlags = ["--ssh"];
   };
 
-  systemd.services.tailscaled.wantedBy = lib.mkIf config.services.tailscale.enable (lib.mkForce [ ]);
+  systemd.services.tailscaled.wantedBy = lib.mkIf config.services.tailscale.enable (lib.mkForce []);
 
   services.power-profiles-daemon.enable = true;
 
@@ -112,7 +110,7 @@ in
   services.fwupd.enable = true;
 
   services.openssh.enable = false;
-  systemd.services.sshd.wantedBy = lib.mkIf config.services.openssh.enable (lib.mkForce [ ]);
+  systemd.services.sshd.wantedBy = lib.mkIf config.services.openssh.enable (lib.mkForce []);
 
   programs.dconf.enable = true;
 

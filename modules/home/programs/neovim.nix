@@ -3,13 +3,10 @@
   config,
   pkgs,
   ...
-}:
-
-let
+}: let
   cfg = config.programs.neovim;
   configPath = ../files/nvim;
-in
-{
+in {
   programs.neovim = {
     enable = true;
     waylandSupport = pkgs.stdenv.hostPlatform.isLinux;

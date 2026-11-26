@@ -2,8 +2,7 @@
   config,
   lib,
   ...
-}:
-{
+}: {
   programs.fzf = {
     enable = true;
     defaultCommand = lib.mkIf config.programs.fd.enable "fd --type f --type symlink --hidden --strip-cwd-prefix";

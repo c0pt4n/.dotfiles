@@ -2,8 +2,7 @@
   lib,
   config,
   ...
-}:
-{
+}: {
   programs.satty = {
     enable = true;
     settings = {

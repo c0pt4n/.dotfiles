@@ -3,13 +3,11 @@
   lib,
   config,
   ...
-}:
-let
+}: let
   cfg = config.programs.tmux;
   fzfBin = "${config.programs.fzf.package}/bin/fzf";
   tmuxBin = "${cfg.package}/bin/tmux";
-in
-{
+in {
   programs.tmux = {
     enable = true;
     baseIndex = 1;

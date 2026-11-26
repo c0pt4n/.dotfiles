@@ -2,8 +2,7 @@
   pkgs,
   config,
   ...
-}:
-{
+}: {
   programs.mcp = {
     enable = config.programs.opencode.enable;
     servers = {

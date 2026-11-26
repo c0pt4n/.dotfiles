@@ -1,8 +1,4 @@
-{
-  config,
-  ...
-}:
-{
+{config, ...}: {
   programs.npm = {
     enable = true;
     settings = {

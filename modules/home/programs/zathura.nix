@@ -2,11 +2,9 @@
   lib,
   config,
   ...
-}:
-let
+}: let
   cfg = config.programs.zathura;
-in
-{
+in {
   programs.zathura = {
     enable = true;
     options = {
@@ -44,6 +42,6 @@ in
       "application/epub+zip"
       "application/postscript"
       "application/x-mobipocket-ebook"
-    ] (_: [ "org.pwmt.zathura.desktop" ])
+    ] (_: ["org.pwmt.zathura.desktop"])
   );
 }

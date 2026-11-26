@@ -3,15 +3,13 @@
   lib,
   config,
   ...
-}:
-let
+}: let
   cfg = config.programs.git;
   gitBin = "${cfg.package}/bin/git";
   name = "Omar Mohamed";
   primaryEmail = "omarcoptan9@gmail.com";
   gpgKey = "FA9069B050A08336";
-in
-{
+in {
   programs.git = {
     enable = true;
 

@@ -2,14 +2,12 @@
   pkgs,
   config,
   ...
-}:
-{
+}: {
   home = {
     sessionVariables.WGETRC =
-      if config.xdg.enable then
-        "${config.xdg.configHome}/wget/wgetrc"
-      else
-        "${config.home.homeDirectory}/.wgetrc";
+      if config.xdg.enable
+      then "${config.xdg.configHome}/wget/wgetrc"
+      else "${config.home.homeDirectory}/.wgetrc";
     file.${config.home.sessionVariables.WGETRC}.text = ''
       hsts-file=~/.cache/wget-hsts
     '';

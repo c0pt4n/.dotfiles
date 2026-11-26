@@ -2,9 +2,8 @@
   pkgs,
   config,
   ...
-}:
-{
-  home.packages = [ pkgs.gcr_4 ];
+}: {
+  home.packages = [pkgs.gcr_4];
   services.gpg-agent = {
     enable = true;
     enableSshSupport = true;

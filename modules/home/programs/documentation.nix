@@ -2,8 +2,7 @@
   lib,
   config,
   ...
-}:
-{
+}: {
   programs.info.enable = true;
 
   home.shellAliases = lib.mkIf config.programs.info.enable {

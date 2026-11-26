@@ -3,10 +3,9 @@
   pkgs,
   lib,
   config,
-  osConfig ? { },
+  osConfig ? {},
   ...
-}:
-let
+}: let
   cfg = config.programs.noctalia;
   plugins = cfg.settings.plugins.enabled;
   ppcBin = "${pkgs.power-profiles-daemon}/bin/powerprofilesctl";
@@ -82,19 +81,16 @@ let
       };
     };
   };
-  mkWidgetsForOutput =
-    output:
-    let
-      dims = lib.splitString "x" output.mode;
-      physWidth = lib.toInt (lib.elemAt dims 0);
-      physHeight = lib.toInt (lib.elemAt dims 1);
-      scale = output.scale or 1.0;
-      logicalWidth = physWidth / scale;
-      logicalHeight = physHeight / scale;
-    in
+  mkWidgetsForOutput = output: let
+    dims = lib.splitString "x" output.mode;
+    physWidth = lib.toInt (lib.elemAt dims 0);
+    physHeight = lib.toInt (lib.elemAt dims 1);
+    scale = output.scale or 1.0;
+    logicalWidth = physWidth / scale;
+    logicalHeight = physHeight / scale;
+  in
     lib.mapAttrs' (
-      name: widget:
-      let
+      name: widget: let
         widgetDef =
           lib.removeAttrs widget [
             "fx"
@@ -106,10 +102,10 @@ let
             cy = logicalHeight * widget.fy;
           };
       in
-      lib.nameValuePair "${name}@${output.criteria}" widgetDef
-    ) widgetTemplates;
-in
-{
+        lib.nameValuePair "${name}@${output.criteria}" widgetDef
+    )
+    widgetTemplates;
+in {
   imports = [
     inputs.noctalia.homeModules.default
   ];
@@ -396,7 +392,7 @@ in
           major_interval = 4;
           visible = true;
         };
-        widget = lib.foldl' (acc: output: acc // (mkWidgetsForOutput output)) { } kanshiOutputs;
+        widget = lib.foldl' (acc: output: acc // (mkWidgetsForOutput output)) {} kanshiOutputs;
       };
       plugins = {
         auto_update = "none";
@@ -414,12 +410,13 @@ in
             name = "community";
           }
         ];
-        enabled = [
-          "noctalia/bongocat"
-          "noctalia/screen_recorder"
-          "oldirtty/color_picker"
-        ]
-        ++ lib.optional osConfig.programs.niri.enable "whyoolw/sharednd";
+        enabled =
+          [
+            "noctalia/bongocat"
+            "noctalia/screen_recorder"
+            "oldirtty/color_picker"
+          ]
+          ++ lib.optional osConfig.programs.niri.enable "whyoolw/sharednd";
       };
       plugin_settings = {
         "noctalia/screen_recorder" = {
@@ -436,7 +433,7 @@ in
 
   wayland.windowManager = {
     mango.settings = lib.mkIf (cfg.enable && config.wayland.windowManager.mango.enable) {
-      exec_once = [ "${cfg.package}/bin/noctalia" ];
+      exec_once = ["${cfg.package}/bin/noctalia"];
     };
 
     niri.extraConfig = lib.mkIf (cfg.enable && config.wayland.windowManager.niri.enable) ''

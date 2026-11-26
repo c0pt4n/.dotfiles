@@ -2,9 +2,7 @@
   pkgs,
   config,
   ...
-}:
-
-{
+}: {
   # User gaming packages
   home.packages = with pkgs; [
     wineWow64Packages.stagingFull
@@ -13,8 +11,8 @@
 
     # Heroic with GStreamer and Vulkan extras (Single overridden package!)
     (heroic.override {
-      extraPkgs =
-        pkgs: with pkgs; [
+      extraPkgs = pkgs:
+        with pkgs; [
           gst_all_1.gstreamer
           gst_all_1.gst-plugins-base
           gst_all_1.gst-plugins-good
@@ -49,5 +47,19 @@
 
   home.sessionVariables = {
     WINEPREFIX = "${config.xdg.dataHome}/wineprefixes/default";
+  };
+
+  xdg.desktopEntries.assetto-corsa = {
+    name = "Assetto Corsa";
+    comment = "Assetto Corsa Content Manager";
+    exec = "steam -applaunch 244210 %u";
+    icon = "steam_icon_244210";
+    terminal = false;
+    categories = ["Game"];
+    mimeType = ["x-scheme-handler/acmanager"];
+  };
+
+  xdg.mimeApps.defaultApplications = {
+    "x-scheme-handler/acmanager" = ["assetto-corsa.desktop"];
   };
 }

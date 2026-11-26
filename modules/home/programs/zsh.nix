@@ -3,14 +3,15 @@
   lib,
   config,
   ...
-}:
-let
+}: let
   cfg = config.programs.zsh;
-in
-{
+in {
   programs.zsh = {
     enable = true;
-    dotDir = if config.xdg.enable then "${config.xdg.configHome}/zsh" else config.home.homeDirectory;
+    dotDir =
+      if config.xdg.enable
+      then "${config.xdg.configHome}/zsh"
+      else config.home.homeDirectory;
     enableCompletion = true;
     enableVteIntegration = true;
     defaultKeymap = "viins";
@@ -136,7 +137,7 @@ in
   };
 
   xdg.configFile."fsh/overlay.ini" = lib.mkIf cfg.fastSyntaxHighlighting.enable {
-    source = (pkgs.formats.ini { }).generate "overlay.ini" {
+    source = (pkgs.formats.ini {}).generate "overlay.ini" {
       base = {
         comment = 8;
       };
@@ -154,6 +155,7 @@ in
   };
 
   home.sessionVariables._Z_DATA = lib.mkIf (lib.lists.any (
-    p: p.src == pkgs.zsh-z
-  ) cfg.plugins) "${config.xdg.stateHome}/zdata";
+      p: p.src == pkgs.zsh-z
+    )
+    cfg.plugins) "${config.xdg.stateHome}/zdata";
 }

@@ -3,11 +3,9 @@
   lib,
   config,
   ...
-}:
-let
+}: let
   cfg = config.programs.yt-dlp;
-in
-{
+in {
   programs.yt-dlp = {
     enable = true;
     settings = {

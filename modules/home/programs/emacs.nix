@@ -3,12 +3,10 @@
   lib,
   config,
   ...
-}:
-let
+}: let
   cfg = config.programs.emacs;
   configPath = ../files/emacs;
-in
-{
+in {
   home.packages = with pkgs; [
     shellcheck
     libtool
@@ -16,7 +14,9 @@ in
     ffmpegthumbnailer
     poppler-utils
     mediainfo
-    (aspellWithDicts (d: [ d.en ]))
+    nixd
+    alejandra
+    (aspellWithDicts (d: [d.en]))
 
     # emacs-everywhere
     wtype
@@ -57,6 +57,6 @@ in
       "text/plain"
       "text/x-c"
       "text/x-shellscript"
-    ] (_: [ "emacsclient.desktop" ])
+    ] (_: ["emacsclient.desktop"])
   );
 }

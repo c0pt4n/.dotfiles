@@ -1,6 +1,4 @@
-{ lib, ... }:
-
-{
+{lib, ...}: {
   boot = {
     tmp = {
       useTmpfs = true;

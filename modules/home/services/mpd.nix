@@ -3,8 +3,7 @@
   lib,
   config,
   ...
-}:
-{
+}: {
   services.mpd = {
     enable = true;
     network = {

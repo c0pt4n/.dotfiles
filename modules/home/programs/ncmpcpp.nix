@@ -2,8 +2,7 @@
   lib,
   config,
   ...
-}:
-{
+}: {
   programs.ncmpcpp = {
     enable = true;
     mpdMusicDir = lib.mkIf config.services.mpd.enable config.services.mpd.musicDirectory;

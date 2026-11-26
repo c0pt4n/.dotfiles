@@ -2,11 +2,9 @@
   config,
   lib,
   ...
-}:
-let
+}: let
   cfg = config.programs.foot;
-in
-{
+in {
   programs.foot = {
     enable = true;
     server = {
@@ -47,16 +45,18 @@ in
   };
 
   home.sessionVariables = lib.mkIf cfg.enable {
-    TERMINAL = if cfg.server.enable then "${cfg.package}/bin/footclient" else "${cfg.package}/bin/foot";
+    TERMINAL =
+      if cfg.server.enable
+      then "${cfg.package}/bin/footclient"
+      else "${cfg.package}/bin/foot";
   };
 
   xdg.terminal-exec.settings.default = lib.mkIf cfg.enable (
-    if cfg.server.enable then
-      [
-        "footclient.desktop"
-        "foot.desktop"
-      ]
-    else
-      [ "foot.desktop" ]
+    if cfg.server.enable
+    then [
+      "footclient.desktop"
+      "foot.desktop"
+    ]
+    else ["foot.desktop"]
   );
 }

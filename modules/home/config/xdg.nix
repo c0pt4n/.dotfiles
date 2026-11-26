@@ -2,13 +2,11 @@
   config,
   pkgs,
   ...
-}:
-let
+}: let
   cfg = config.xdg.portal;
   homeDir = config.home.homeDirectory;
   noctaliaBin = "${config.programs.noctalia.package}/bin/noctalia";
-in
-{
+in {
   xdg = {
     enable = true;
     localBinInPath = true;
@@ -21,13 +19,15 @@ in
       enable = true;
       config = {
         common = {
-          default = [ "gtk" ];
+          default = ["gtk"];
           "org.freedesktop.impl.portal.Secret" =
-            if config.services.gnome-keyring.enable then "gnome-keyring" else "none";
+            if config.services.gnome-keyring.enable
+            then "gnome-keyring"
+            else "none";
           "org.freedesktop.impl.portal.Inhibit" = "none";
         };
       };
-      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+      extraPortals = [pkgs.xdg-desktop-portal-gtk];
     };
     terminal-exec.enable = true;
     userDirs = {

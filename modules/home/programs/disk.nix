@@ -1,8 +1,4 @@
-{
-  pkgs,
-  ...
-}:
-{
+{pkgs, ...}: {
   services.udiskie = {
     enable = true;
     package = pkgs.udiskie;

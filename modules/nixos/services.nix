@@ -2,8 +2,7 @@
   config,
   lib,
   ...
-}:
-{
+}: {
   security.apparmor = {
     enable = true;
     killUnconfinedConfinables = true;
@@ -30,14 +29,14 @@
 
   services.cloudflare-warp.enable = true;
   systemd.services.cloudflare-warp.wantedBy = lib.mkIf config.services.cloudflare-warp.enable (
-    lib.mkForce [ ]
+    lib.mkForce []
   );
 
   services.keyd = {
     enable = true;
     keyboards = {
       default = {
-        ids = [ "*" ];
+        ids = ["*"];
         settings = {
           main = {
             capslock = "overload(control, esc)";

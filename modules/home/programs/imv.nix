@@ -3,8 +3,7 @@
   lib,
   config,
   ...
-}:
-let
+}: let
   cfg = config.programs.imv;
   # using scripts because imv cannot parse long lines (sigh).
   wallpaperScript = pkgs.writeShellScript "imv-wallpaper" ''
@@ -42,8 +41,7 @@ let
     ${pkgs.libnotify}/bin/notify-send -a imv "$imv_current_file deleted"
     ${cfg.package}/bin/imv-msg "$imv_pid" close
   '';
-in
-{
+in {
   programs.imv = {
     enable = true;
     package = pkgs.imv;
@@ -115,6 +113,6 @@ in
       "image/jpeg"
       "image/webp"
       "image/gif"
-    ] (_: [ "imv.desktop" ])
+    ] (_: ["imv.desktop"])
   );
 }

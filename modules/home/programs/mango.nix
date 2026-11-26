@@ -3,29 +3,29 @@
   pkgs,
   lib,
   config,
-  osConfig ? { },
+  osConfig ? {},
   ...
-}:
-let
+}: let
   cfg = config.wayland.windowManager.mango;
-  hexColor = color: if lib.stringLength color == 6 then "0x${color}ff" else "0x${color}";
+  hexColor = color:
+    if lib.stringLength color == 6
+    then "0x${color}ff"
+    else "0x${color}";
   mmsgBin = "${cfg.package}/bin/mmsg";
   noctaliaBin = "${config.programs.noctalia.package}/bin/noctalia";
   terminalBin =
-    if config.home.sessionVariables ? TERMINAL then
-      config.home.sessionVariables.TERMINAL
-    else if config.xdg.terminal-exec.enable then
-      "${config.xdg.terminal-exec.package}/bin/xdg-terminal-exec"
-    else
-      throw "No terminal emulator found";
+    if config.home.sessionVariables ? TERMINAL
+    then config.home.sessionVariables.TERMINAL
+    else if config.xdg.terminal-exec.enable
+    then "${config.xdg.terminal-exec.package}/bin/xdg-terminal-exec"
+    else throw "No terminal emulator found";
   zoomerScript = pkgs.writeShellScript "zoomer-script" ''
     set -eu
     mon="$(${mmsgBin} get last_open_surface | ${pkgs.jq}/bin/jq -r ".monitor")"
     ${pkgs.woomer}/bin/woomer --monitor "$mon"
   '';
-  iniFormat = pkgs.formats.ini { };
-in
-{
+  iniFormat = pkgs.formats.ini {};
+in {
   imports = [
     inputs.mangowm.hmModules.mango
   ];
@@ -234,130 +234,135 @@ in
         "id:8,layout_name:tile"
         "id:9,layout_name:tile"
       ];
-      bind = [
-        "SUPER+SHIFT,R,reload_config"
-        "SUPER+SHIFT,C,killclient"
+      bind =
+        [
+          "SUPER+SHIFT,R,reload_config"
+          "SUPER+SHIFT,C,killclient"
 
-        # switch window focus
-        "SUPER,J,focusstack,next"
-        "SUPER,K,focusstack,previous"
-        "SUPER,Up,focusdir,up"
-        "SUPER,Down,focusdir,down"
-        "SUPER,Left,focusdir,left"
-        "SUPER,Right,focusdir,right"
-        "SUPER,Tab,view,-1"
-        "SUPER,Space,zoom"
+          # switch window focus
+          "SUPER,J,focusstack,next"
+          "SUPER,K,focusstack,previous"
+          "SUPER,Up,focusdir,up"
+          "SUPER,Down,focusdir,down"
+          "SUPER,Left,focusdir,left"
+          "SUPER,Right,focusdir,right"
+          "SUPER,Tab,view,-1"
+          "SUPER,Space,zoom"
 
-        # swap window
-        "SUPER+SHIFT,K,exchange_client,up"
-        "SUPER+SHIFT,J,exchange_client,down"
-        "SUPER+SHIFT,H,exchange_client,left"
-        "SUPER+SHIFT,L,exchange_client,right"
+          # swap window
+          "SUPER+SHIFT,K,exchange_client,up"
+          "SUPER+SHIFT,J,exchange_client,down"
+          "SUPER+SHIFT,H,exchange_client,left"
+          "SUPER+SHIFT,L,exchange_client,right"
 
-        # switch window status
-        "SUPER,S,toggleglobal"
-        "SUPER+SHIFT,Tab,toggleoverview"
-        "SUPER+SHIFT,Space,togglefloating"
-        "SUPER,F,togglefullscreen"
-        "SUPER+ALT,F,togglefakefullscreen"
-        "SUPER+SHIFT,F,togglemaximizescreen"
-        "SUPER+CTRL,F,toggleoverlay"
-        "SUPER+CTRL,P,minimized"
-        "SUPER+ALT,P,restore_minimized"
-        "SUPER+SHIFT,P,toggle_scratchpad"
-        "SUPER,P,toggle_named_scratchpad,terminal-scratchpad,none,${terminalBin} --app-id=terminal-scratchpad"
+          # switch window status
+          "SUPER,S,toggleglobal"
+          "SUPER+SHIFT,Tab,toggleoverview"
+          "SUPER+SHIFT,Space,togglefloating"
+          "SUPER,F,togglefullscreen"
+          "SUPER+ALT,F,togglefakefullscreen"
+          "SUPER+SHIFT,F,togglemaximizescreen"
+          "SUPER+CTRL,F,toggleoverlay"
+          "SUPER+CTRL,P,minimized"
+          "SUPER+ALT,P,restore_minimized"
+          "SUPER+SHIFT,P,toggle_scratchpad"
+          "SUPER,P,toggle_named_scratchpad,terminal-scratchpad,none,${terminalBin} --app-id=terminal-scratchpad"
 
-        # scroller layout
-        "SUPER+SHIFT,S,set_proportion,1.0"
-        "SUPER+ALT,S,switch_proportion_preset"
-        "SUPER+CTRL+ALT,H,scroller_stack,left"
-        "SUPER+CTRL+ALT,L,scroller_stack,right"
-        "SUPER+CTRL+ALT,K,scroller_stack,up"
-        "SUPER+CTRL+ALT,J,scroller_stack,down"
+          # scroller layout
+          "SUPER+SHIFT,S,set_proportion,1.0"
+          "SUPER+ALT,S,switch_proportion_preset"
+          "SUPER+CTRL+ALT,H,scroller_stack,left"
+          "SUPER+CTRL+ALT,L,scroller_stack,right"
+          "SUPER+CTRL+ALT,K,scroller_stack,up"
+          "SUPER+CTRL+ALT,J,scroller_stack,down"
 
-        # dwindle layout (manual split mode)
-        "SUPER+SHIFT,D,dwindle_toggle_split_direction"
+          # dwindle layout (manual split mode)
+          "SUPER+SHIFT,D,dwindle_toggle_split_direction"
 
-        # switch layout
-        "SUPER,T,switch_layout"
-        "SUPER+SHIFT,T,setlayout,tile"
+          # switch layout
+          "SUPER,T,switch_layout"
+          "SUPER+SHIFT,T,setlayout,tile"
 
-        # tag switch
-        "SUPER+SHIFT,Left,viewtoleft,0"
-        "SUPER+ALT+SHIFT,Left,viewtoleft_have_client,0"
-        "SUPER+SHIFT,Right,viewtoright,0"
-        "SUPER+ALT+SHIFT,Right,viewtoright_have_client,0"
-        "SUPER+ALT,Left,tagtoleft,0"
-        "SUPER+ALT,Right,tagtoright,0"
+          # tag switch
+          "SUPER+SHIFT,Left,viewtoleft,0"
+          "SUPER+ALT+SHIFT,Left,viewtoleft_have_client,0"
+          "SUPER+SHIFT,Right,viewtoright,0"
+          "SUPER+ALT+SHIFT,Right,viewtoright_have_client,0"
+          "SUPER+ALT,Left,tagtoleft,0"
+          "SUPER+ALT,Right,tagtoright,0"
 
-        "SUPER,1,view,1,0"
-        "SUPER,2,view,2,0"
-        "SUPER,3,view,3,0"
-        "SUPER,4,view,4,0"
-        "SUPER,5,view,5,0"
-        "SUPER,6,view,6,0"
-        "SUPER,7,view,7,0"
-        "SUPER,8,view,8,0"
-        "SUPER,9,view,9,0"
+          "SUPER,1,view,1,0"
+          "SUPER,2,view,2,0"
+          "SUPER,3,view,3,0"
+          "SUPER,4,view,4,0"
+          "SUPER,5,view,5,0"
+          "SUPER,6,view,6,0"
+          "SUPER,7,view,7,0"
+          "SUPER,8,view,8,0"
+          "SUPER,9,view,9,0"
 
-        # tag: move client to the tag and focus it
-        # tagsilent: move client to the tag and not focus it
-        "SUPER+SHIFT,1,tag,1,0"
-        "SUPER+SHIFT,2,tag,2,0"
-        "SUPER+SHIFT,3,tag,3,0"
-        "SUPER+SHIFT,4,tag,4,0"
-        "SUPER+SHIFT,5,tag,5,0"
-        "SUPER+SHIFT,6,tag,6,0"
-        "SUPER+SHIFT,7,tag,7,0"
-        "SUPER+SHIFT,8,tag,8,0"
-        "SUPER+SHIFT,9,tag,9,0"
+          # tag: move client to the tag and focus it
+          # tagsilent: move client to the tag and not focus it
+          "SUPER+SHIFT,1,tag,1,0"
+          "SUPER+SHIFT,2,tag,2,0"
+          "SUPER+SHIFT,3,tag,3,0"
+          "SUPER+SHIFT,4,tag,4,0"
+          "SUPER+SHIFT,5,tag,5,0"
+          "SUPER+SHIFT,6,tag,6,0"
+          "SUPER+SHIFT,7,tag,7,0"
+          "SUPER+SHIFT,8,tag,8,0"
+          "SUPER+SHIFT,9,tag,9,0"
 
-        # monitor switch
-        "SUPER,Comma,focusmon,left"
-        "SUPER,Period,focusmon,right"
-        "SUPER+SHIFT,Comma,tagmon,left"
-        "SUPER+SHIFT,Period,tagmon,right"
+          # monitor switch
+          "SUPER,Comma,focusmon,left"
+          "SUPER,Period,focusmon,right"
+          "SUPER+SHIFT,Comma,tagmon,left"
+          "SUPER+SHIFT,Period,tagmon,right"
 
-        # movewin
-        "SUPER+CTRL+SHIFT,Up,movewin,+0,-50"
-        "SUPER+CTRL+SHIFT,Down,movewin,+0,+50"
-        "SUPER+CTRL+SHIFT,Left,movewin,-50,+0"
-        "SUPER+CTRL+SHIFT,Right,movewin,+50,+0"
+          # movewin
+          "SUPER+CTRL+SHIFT,Up,movewin,+0,-50"
+          "SUPER+CTRL+SHIFT,Down,movewin,+0,+50"
+          "SUPER+CTRL+SHIFT,Left,movewin,-50,+0"
+          "SUPER+CTRL+SHIFT,Right,movewin,+50,+0"
 
-        # resizewin
-        "SUPER+CTRL,K,resizewin,+0,-50"
-        "SUPER+CTRL,J,resizewin,+0,+50"
-        "SUPER,H,resizewin,-50,+0"
-        "SUPER,L,resizewin,+50,+0"
+          # resizewin
+          "SUPER+CTRL,K,resizewin,+0,-50"
+          "SUPER+CTRL,J,resizewin,+0,+50"
+          "SUPER,H,resizewin,-50,+0"
+          "SUPER,L,resizewin,+50,+0"
 
-        "SUPER,Return,spawn,${terminalBin}"
-        "SUPER,Z,spawn,${zoomerScript}"
-        "SUPER,Escape,spawn,${noctaliaBin} msg panel-open control-center"
-        "SUPER,R,spawn,${noctaliaBin} msg panel-open launcher"
-        "SUPER,Q,spawn,${noctaliaBin} msg panel-open session"
-        "NONE,Print,spawn,${noctaliaBin} msg screenshot-fullscreen pick"
-        "CTRL,Print,spawn,${noctaliaBin} msg screenshot-region"
-        "SUPER,O,spawn,${noctaliaBin} msg panel-open clipboard"
-        "SUPER,Backslash,spawn,${noctaliaBin} msg notification-clear-active"
-        "SUPER+SHIFT,Backslash,spawn,${noctaliaBin} msg notification-dnd-toggle"
-        "NONE,XF86PowerOff,spawn,${noctaliaBin} msg panel-open session"
-      ]
-      ++ lib.optional config.programs.emacs.enable (
-        let
-          pkg = config.programs.emacs.finalPackage;
-          bin = "${pkg}/bin/emacs";
-          cmd = if config.services.emacs.enable then "${pkg}/bin/emacsclient -nca ${bin}" else bin;
-        in
-        "SUPER,E,spawn,${cmd}"
-      )
-      ++ lib.optional config.programs.emacs.enable (
-        let
-          pkg = config.programs.emacs.finalPackage;
-          bin = "${pkg}/bin/emacs";
-          cmd = if config.services.emacs.enable then "${pkg}/bin/emacsclient -e '(thanos/type)'" else bin;
-        in
-        "SUPER+CTRL,E,spawn,${cmd}"
-      );
+          "SUPER,Return,spawn,${terminalBin}"
+          "SUPER,Z,spawn,${zoomerScript}"
+          "SUPER,Escape,spawn,${noctaliaBin} msg panel-open control-center"
+          "SUPER,R,spawn,${noctaliaBin} msg panel-open launcher"
+          "SUPER,Q,spawn,${noctaliaBin} msg panel-open session"
+          "NONE,Print,spawn,${noctaliaBin} msg screenshot-fullscreen pick"
+          "CTRL,Print,spawn,${noctaliaBin} msg screenshot-region"
+          "SUPER,O,spawn,${noctaliaBin} msg panel-open clipboard"
+          "SUPER,Backslash,spawn,${noctaliaBin} msg notification-clear-active"
+          "SUPER+SHIFT,Backslash,spawn,${noctaliaBin} msg notification-dnd-toggle"
+          "NONE,XF86PowerOff,spawn,${noctaliaBin} msg panel-open session"
+        ]
+        ++ lib.optional config.programs.emacs.enable (
+          let
+            pkg = config.programs.emacs.finalPackage;
+            bin = "${pkg}/bin/emacs";
+            cmd =
+              if config.services.emacs.enable
+              then "${pkg}/bin/emacsclient -nca ${bin}"
+              else bin;
+          in "SUPER,E,spawn,${cmd}"
+        )
+        ++ lib.optional config.programs.emacs.enable (
+          let
+            pkg = config.programs.emacs.finalPackage;
+            bin = "${pkg}/bin/emacs";
+            cmd =
+              if config.services.emacs.enable
+              then "${pkg}/bin/emacsclient -e '(thanos/type)'"
+              else bin;
+          in "SUPER+CTRL,E,spawn,${cmd}"
+        );
 
       bindl = [
         "NONE,XF86Eject,spawn,eject -T"
@@ -439,19 +444,19 @@ in
       "org.freedesktop.impl.portal.ScreenCast" = "wlr";
       "org.freedesktop.impl.portal.Screenshot" = "wlr";
     };
-    extraPortals = [ pkgs.xdg-desktop-portal-wlr ];
+    extraPortals = [pkgs.xdg-desktop-portal-wlr];
   };
 
   xdg.configFile."xdg-desktop-portal-wlr/config" =
     lib.mkIf (cfg.enable && config.programs.noctalia.enable)
-      {
-        source = iniFormat.generate "xdg-desktop-portal-wlr-config.ini" {
-          screencast = {
-            max_fps = 60;
-            chooser_type = "dmenu";
-            chooser_cmd = "${noctaliaBin} dmenu -p 'Select source'";
-            force_mod_linear = 1;
-          };
+    {
+      source = iniFormat.generate "xdg-desktop-portal-wlr-config.ini" {
+        screencast = {
+          max_fps = 60;
+          chooser_type = "dmenu";
+          chooser_cmd = "${noctaliaBin} dmenu -p 'Select source'";
+          force_mod_linear = 1;
         };
       };
+    };
 }
