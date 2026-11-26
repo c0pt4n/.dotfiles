@@ -25,33 +25,33 @@
         mail-envelope-from          'header)
 
   (mu4e-context "main"
-    :enter-func (lambda () (oceanic/mu4e-set-msmtp "main"))
-    :match-func (lambda (msg)
-                  (when msg
-                    (mu4e-message-contact-field-matches msg :to "omarcoptan9@gmail.com")))
-    :vars '((user-mail-address . "omarcoptan9@gmail.com")
-            (user-full-name . "Omar Mohamed")
-            (mu4e-drafts-folder . "/omarcoptan9@gmail.com/[Gmail]/Drafts")
-            (mu4e-sent-folder . "/omarcoptan9@gmail.com/[Gmail]/Sent Mail")
-            (mu4e-trash-folder . "/omarcoptan9@gmail.com/[Gmail]/Trash")
-            (mu4e-refile-folder . "/omarcoptan9@gmail.com/[Gmail]/All Mail")
-            (mu4e-maildir-shortcuts
-             . ((:maildir "/omarcoptan9@gmail.com/INBOX" :key ?i)
-                (:maildir "/omarcoptan9@gmail.com/[Gmail]/All Mail" :key ?a)))))
+                :enter-func (lambda () (oceanic/mu4e-set-msmtp "main"))
+                :match-func (lambda (msg)
+                              (when msg
+                                (mu4e-message-contact-field-matches msg :to "omarcoptan9@gmail.com")))
+                :vars '((user-mail-address . "omarcoptan9@gmail.com")
+                        (user-full-name . "Omar Mohamed")
+                        (mu4e-drafts-folder . "/omarcoptan9@gmail.com/[Gmail]/Drafts")
+                        (mu4e-sent-folder . "/omarcoptan9@gmail.com/[Gmail]/Sent Mail")
+                        (mu4e-trash-folder . "/omarcoptan9@gmail.com/[Gmail]/Trash")
+                        (mu4e-refile-folder . "/omarcoptan9@gmail.com/[Gmail]/All Mail")
+                        (mu4e-maildir-shortcuts
+                         . ((:maildir "/omarcoptan9@gmail.com/INBOX" :key ?i)
+                            (:maildir "/omarcoptan9@gmail.com/[Gmail]/All Mail" :key ?a)))))
 
   (mu4e-context "alt"
-    :enter-func (lambda () (oceanic/mu4e-set-msmtp "alt"))
-    :match-func (lambda (msg)
-                  (when msg
-                    (mu4e-message-contact-field-matches msg :to "theomarmohamedofficial@gmail.com")))
-    :vars '((user-mail-address . "theomarmohamedofficial@gmail.com")
-            (user-full-name . "Omar Mohamed")
-            (mu4e-drafts-folder . "/theomarmohamedofficial@gmail.com/[Gmail]/Drafts")
-            (mu4e-sent-folder . "/theomarmohamedofficial@gmail.com/[Gmail]/Sent Mail")
-            (mu4e-trash-folder . "/theomarmohamedofficial@gmail.com/[Gmail]/Trash")
-            (mu4e-refile-folder . "/theomarmohamedofficial@gmail.com/[Gmail]/All Mail")
-            (mu4e-maildir-shortcuts
-             . ((:maildir "/theomarmohamedofficial@gmail.com/INBOX" :key ?i)))))
+                :enter-func (lambda () (oceanic/mu4e-set-msmtp "alt"))
+                :match-func (lambda (msg)
+                              (when msg
+                                (mu4e-message-contact-field-matches msg :to "theomarmohamedofficial@gmail.com")))
+                :vars '((user-mail-address . "theomarmohamedofficial@gmail.com")
+                        (user-full-name . "Omar Mohamed")
+                        (mu4e-drafts-folder . "/theomarmohamedofficial@gmail.com/[Gmail]/Drafts")
+                        (mu4e-sent-folder . "/theomarmohamedofficial@gmail.com/[Gmail]/Sent Mail")
+                        (mu4e-trash-folder . "/theomarmohamedofficial@gmail.com/[Gmail]/Trash")
+                        (mu4e-refile-folder . "/theomarmohamedofficial@gmail.com/[Gmail]/All Mail")
+                        (mu4e-maildir-shortcuts
+                         . ((:maildir "/theomarmohamedofficial@gmail.com/INBOX" :key ?i)))))
   (mu4e t))
 
 (provide 'config/email)

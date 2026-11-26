@@ -12,20 +12,20 @@
   (remote-file-name-inhibit-locks  t)
   (dired-listing-switches          "-al --group-directories-first")
   (tramp-auto-save-directory
-    (expand-file-name "tramp-auto-save/" user-emacs-directory))
+   (expand-file-name "tramp-auto-save/" user-emacs-directory))
   (tramp-persistency-file-name
-    (expand-file-name "tramp-persistency" user-emacs-directory))
+   (expand-file-name "tramp-persistency" user-emacs-directory))
   :config
   ;; Use "dumb" as the remote term for all hosts
   (add-to-list 'tramp-connection-properties
-    (list (regexp-quote "") "term-name" "dumb"))
+               (list (regexp-quote "") "term-name" "dumb"))
 
   ;; Disable project.el's VC backend for remote files
   (with-eval-after-load 'project
     (defun my/tramp-disable-project-vc (orig-fn &rest args)
       (if (and (stringp (car args))
-            (file-remote-p (car args)))
-        nil
+               (file-remote-p (car args)))
+          nil
         (apply orig-fn args)))
     (advice-add 'project-try-vc :around #'my/tramp-disable-project-vc)))
 

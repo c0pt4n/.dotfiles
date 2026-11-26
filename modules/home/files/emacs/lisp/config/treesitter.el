@@ -4,16 +4,16 @@
   :ensure nil
   :init
   (setq major-mode-remap-alist
-          '((c-mode          . c-ts-mode)
-            (go-mode         . go-ts-mode)
-            (sh-mode         . bash-ts-mode)
-            (html-mode       . html-ts-mode)
-            (json-mode       . json-ts-mode)
-            (python-mode     . python-ts-mode)
-            (yaml-mode       . yaml-ts-mode)
-            (javascript-mode . js-ts-mode)
-            (dockerfile-mode . dockerfile-ts-mode)
-            (nix-mode        . nix-ts-mode)))
+        '((c-mode          . c-ts-mode)
+          (go-mode         . go-ts-mode)
+          (sh-mode         . bash-ts-mode)
+          (html-mode       . html-ts-mode)
+          (json-mode       . json-ts-mode)
+          (python-mode     . python-ts-mode)
+          (yaml-mode       . yaml-ts-mode)
+          (javascript-mode . js-ts-mode)
+          (dockerfile-mode . dockerfile-ts-mode)
+          (nix-mode        . nix-ts-mode)))
   (setopt treesit-language-source-alist
           '((c           "https://github.com/tree-sitter/tree-sitter-c")
             (go          "https://github.com/tree-sitter/tree-sitter-go")

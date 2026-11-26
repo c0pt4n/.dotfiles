@@ -22,7 +22,7 @@
   (evil-set-initial-state 'dashboard-mode 'normal)
   :bind
   (:map evil-insert-state-map
-    ("C-h" . #'evil-delete-backward-char-and-join)))
+        ("C-h" . #'evil-delete-backward-char-and-join)))
 
 (use-package evil-collection
   :demand t
@@ -166,10 +166,10 @@
     "n j"   '(org-roam-dailies-capture-today :wk "Org Roam Daily"))
 
   (general-define-key
-    :states 'visual
-    "p" (kbd "\"_dP")
-    "J" '(move-text-down :wk "Move Down")
-    "K" '(move-text-up :wk "Move Up"))
+   :states 'visual
+   "p" (kbd "\"_dP")
+   "J" '(move-text-down :wk "Move Down")
+   "K" '(move-text-up :wk "Move Up"))
 
   (general-define-key
    :states 'normal
@@ -190,7 +190,7 @@
     (interactive)
     (let ((word (or (thing-at-point 'symbol t) "")))
       (minibuffer-with-setup-hook
-        (lambda () (goto-char (- (point-max) 3)))
+          (lambda () (goto-char (- (point-max) 3)))
         (evil-ex (format "%%s/\\<%s\\>/%s/gI" word word))))))
 
 (use-package undo-fu
